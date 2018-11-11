@@ -55,13 +55,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="50" />
-          <entry key="html" value="2315" />
+          <entry key="html" value="2386" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="50" />
-          <entry key="HTML" value="2315" />
+          <entry key="HTML" value="2386" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -81,8 +81,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="718">
-              <caret line="381" column="77" selection-start-line="381" selection-start-column="77" selection-end-line="381" selection-end-column="77" />
+            <state relative-caret-position="490">
+              <caret line="398" column="109" selection-start-line="398" selection-start-column="109" selection-end-line="398" selection-end-column="109" />
             </state>
           </provider>
         </entry>
@@ -228,8 +228,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="718">
-          <caret line="381" column="77" selection-start-line="381" selection-start-column="77" selection-end-line="381" selection-end-column="77" />
+        <state relative-caret-position="490">
+          <caret line="398" column="109" selection-start-line="398" selection-start-column="109" selection-end-line="398" selection-end-column="109" />
         </state>
       </provider>
     </entry>
