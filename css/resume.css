@@ -145,3 +145,10 @@ a {
 a:hover, a:focus, a:active {
   color: #824027;
 }
+
+
+@media only screen and (min-width:992px) {
+#linkedin {
+display:block !important;
+}
+}
