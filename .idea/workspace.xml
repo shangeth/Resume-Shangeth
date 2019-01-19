@@ -58,13 +58,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="50" />
-          <entry key="html" value="3109" />
+          <entry key="html" value="3139" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="50" />
-          <entry key="HTML" value="3109" />
+          <entry key="HTML" value="3139" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -84,8 +84,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-170">
-              <caret line="360" column="14" selection-start-line="360" selection-start-column="14" selection-end-line="360" selection-end-column="14" />
+            <state relative-caret-position="374">
+              <caret line="392" column="110" selection-start-line="392" selection-start-column="110" selection-end-line="392" selection-end-column="110" />
             </state>
           </provider>
         </entry>
@@ -206,8 +206,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-170">
-          <caret line="360" column="14" selection-start-line="360" selection-start-column="14" selection-end-line="360" selection-end-column="14" />
+        <state relative-caret-position="374">
+          <caret line="392" column="110" selection-start-line="392" selection-start-column="110" selection-end-line="392" selection-end-column="110" />
         </state>
       </provider>
     </entry>
