@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94b4aae7-65c4-4657-b79d-a245d1f0b6c8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,13 +64,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="50" />
-          <entry key="html" value="3922" />
+          <entry key="html" value="4192" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="50" />
-          <entry key="HTML" value="3922" />
+          <entry key="HTML" value="4192" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -91,8 +90,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="324" column="91" selection-start-line="324" selection-start-column="91" selection-end-line="324" selection-end-column="91" />
+            <state relative-caret-position="565">
+              <caret line="104" column="59" selection-start-line="104" selection-start-column="59" selection-end-line="104" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -227,8 +226,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="324" column="91" selection-start-line="324" selection-start-column="91" selection-end-line="324" selection-end-column="91" />
+        <state relative-caret-position="565">
+          <caret line="104" column="59" selection-start-line="104" selection-start-column="59" selection-end-line="104" selection-end-column="59" />
         </state>
       </provider>
     </entry>
