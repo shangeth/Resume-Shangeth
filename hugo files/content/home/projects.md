@@ -24,10 +24,43 @@ subtitle = ""
   [[content.filter_button]]
     name = "All"
     tag = "*"
-  
+    
+  [[content.filter_button]]
+    name = "Python"
+    tag = "Python"
+
+  [[content.filter_button]]
+    name = "JavaScript"
+    tag = "JavaScript"
+
   [[content.filter_button]]
     name = "Deep Learning"
     tag = "Deep Learning"
+
+  [[content.filter_button]]
+    name = "PyTorch"
+    tag = "PyTorch"
+
+  [[content.filter_button]]
+    name = "Tensorflow"
+    tag = "Tensorflow"
+
+  [[content.filter_button]]
+    name = "Keras"
+    tag = "Keras"
+  [[content.filter_button]]
+    name = "Computer Vision"
+    tag = "Computer Vision"
+
+
+  [[content.filter_button]]
+    name = "Self Driving Cars"
+    tag = "Self Driving Cars"
+
+
+  [[content.filter_button]]
+    name = "NLP"
+    tag = "NLP"
   
   [[content.filter_button]]
     name = "Other"
