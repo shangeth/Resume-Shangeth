@@ -18,9 +18,54 @@
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+    <loc>/authors/admin/</loc>
+    <lastmod>2019-05-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/academic/</loc>
+    <lastmod>2019-05-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/</loc>
+    <lastmod>2019-05-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <lastmod>2019-05-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/deep-learning/</loc>
+    <lastmod>2019-05-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2019-05-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2019-05-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-05-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/unsupervised-learning/</loc>
+    <lastmod>2019-05-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -34,11 +79,6 @@
   </url>
   
   <url>
-    <loc>/authors/admin/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/publication_types/3/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -47,12 +87,6 @@
   <url>
     <loc>/publication/preprint/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -73,19 +107,8 @@
   </url>
   
   <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/post/jupyter/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -102,12 +125,6 @@
   <url>
     <loc>/talk/multi-tasking-learning/</loc>
     <lastmod>2019-01-11T20:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/academic/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -145,11 +162,6 @@
   
   <url>
     <loc>/project/internal-project/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
