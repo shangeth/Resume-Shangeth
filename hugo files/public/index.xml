@@ -6,7 +6,7 @@
     <description>Recent content on Shangeth</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 May 2019 02:43:00 +0000</lastBuildDate>
     
 	    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -84,11 +84,20 @@
     </item>
     
     <item>
-      <title>GAN 1</title>
-      <link>/post/generative-adverserial-network/</link>
-      <pubDate>Mon, 20 May 2019 00:00:00 +0000</pubDate>
+      <title>GAN 2</title>
+      <link>/post/gna-2/</link>
+      <pubDate>Mon, 20 May 2019 02:43:00 +0000</pubDate>
       
-      <guid>/post/generative-adverserial-network/</guid>
+      <guid>/post/gna-2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GAN 1</title>
+      <link>/post/gan-1/</link>
+      <pubDate>Mon, 20 May 2019 02:00:00 +0000</pubDate>
+      
+      <guid>/post/gan-1/</guid>
       <description>
 
 &lt;h1 id=&#34;gans-https-arxiv-org-pdf-1406-2661-pdf-are-ml-models-that-can-imagine-new-things&#34;&gt;&lt;a href=&#34;https://arxiv.org/pdf/1406.2661.pdf&#34; target=&#34;_blank&#34;&gt;GANs&lt;/a&gt; are ML models that can imagine new things.&lt;/h1&gt;

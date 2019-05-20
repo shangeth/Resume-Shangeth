@@ -6,9 +6,9 @@ authors:
 - admin
 tags:
 - Academic- ## Supervised learning
-categories: ['Deep Learning', 'Python', 'PyTorch']
-date: "2019-05-20T00:00:00Z"
-lastmod: "2019-05-21T00:00:00Z"
+categories: ['Deep Learning']
+date: "2019-05-20T02:00:00Z"
+lastmod: ""
 featured: false
 draft: false
 
@@ -16,7 +16,7 @@ draft: false
 # To use, add an image named `featured.jpg/png` to your page's folder.
 # Focal point options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
 image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/CpkOjOcXdUY)'
+  caption: 'Image credit: [**Gimages**](https://i.redd.it/7805mzyjcf001.jpg)'
   focal_point: ""
   preview_only: false
 
