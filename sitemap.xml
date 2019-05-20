@@ -217,6 +217,10 @@
   </url>
   
   <url>
+    <loc>/project/pyrevshell/</loc>
+  </url>
+  
+  <url>
     <loc>/tags/pytorch/</loc>
     <priority>0</priority>
   </url>

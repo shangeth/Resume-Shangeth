@@ -93,6 +93,15 @@
     </item>
     
     <item>
+      <title>PyRevShell</title>
+      <link>/project/pyrevshell/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/project/pyrevshell/</guid>
+      <description>A server client Reverse shell using python, can use any device&amp;rsquo;s shell using this from another device in the network.</description>
+    </item>
+    
+    <item>
       <title>Self Driving Cars Steering Angle Prediction</title>
       <link>/project/self-driving-cars-steering-angle-prediction/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
