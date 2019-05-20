@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>GAN 1</title>
+      <link>/post/generative-adverserial-network/</link>
+      <pubDate>Mon, 20 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/generative-adverserial-network/</guid>
+      <description>Intro and applications of Generative Adverserial Network</description>
+    </item>
+    
+    <item>
       <title>Unsupervised Learning 101</title>
       <link>/post/unsupervised-learning/</link>
       <pubDate>Mon, 20 May 2019 00:00:00 +0000</pubDate>
