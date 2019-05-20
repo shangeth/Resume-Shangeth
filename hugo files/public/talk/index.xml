@@ -12,12 +12,21 @@
     
     
     <item>
-      <title>Example Talk</title>
-      <link>/talk/example/</link>
+      <title>Multi Tasking Learning</title>
+      <link>/talk/multi-tasking-learning/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
       
-      <guid>/talk/example/</guid>
-      <description>An example talk using Academic&amp;rsquo;s Markdown slides feature.</description>
+      <guid>/talk/multi-tasking-learning/</guid>
+      <description>A Talk on Multitasking learning as best project chosen by FacebookAI and Udacity.</description>
+    </item>
+    
+    <item>
+      <title>Convolutional Feature Extraction and Neural Arithmetic Logic Units for Stock Prediction</title>
+      <link>/talk/icacds/</link>
+      <pubDate>Sat, 13 Apr 2019 13:00:00 +0000</pubDate>
+      
+      <guid>/talk/icacds/</guid>
+      <description>Presentation of my paper &amp;ldquo;Convolutional Feature Extraction and Neural Arithmetic Logic Units for Stock Prediction&amp;rdquo; at ICACDS 2019 Conference.</description>
     </item>
     
   </channel>

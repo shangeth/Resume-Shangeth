@@ -84,116 +84,21 @@
     </item>
     
     <item>
-      <title>Example Talk</title>
-      <link>/talk/example/</link>
+      <title>Multi Tasking Learning</title>
+      <link>/talk/multi-tasking-learning/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
       
-      <guid>/talk/example/</guid>
-      <description>
-
-&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Slides can be added in a few ways:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Create&lt;/strong&gt; slides using Academic&amp;rsquo;s &lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34;&gt;&lt;em&gt;Slides&lt;/em&gt;&lt;/a&gt; feature and link using &lt;code&gt;slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Upload&lt;/strong&gt; an existing slide deck to &lt;code&gt;static/&lt;/code&gt; and link using &lt;code&gt;url_slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Embed&lt;/strong&gt; your slides (e.g. Google Slides) or presentation video on this page using &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Further talk details can easily be added to this page using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;title: Example Talk
-event: Academic Theme Conference
-event_url: &lt;a href=&#34;https://example.org&#34; target=&#34;_blank&#34;&gt;https://example.org&lt;/a&gt;
-location: London, United Kingdom
-summary: An example talk using Academic&amp;rsquo;s Markdown slides feature.
-abstract: &amp;ldquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellusac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam.&amp;rdquo;&lt;/p&gt;
-
-&lt;h1 id=&#34;talk-start-and-end-times&#34;&gt;Talk start and end times.&lt;/h1&gt;
-
-&lt;h1 id=&#34;end-time-can-optionally-be-hidden-by-prefixing-the-line-with&#34;&gt;End time can optionally be hidden by prefixing the line with &lt;code&gt;#&lt;/code&gt;.&lt;/h1&gt;
-
-&lt;p&gt;date: &amp;ldquo;2030-06-01T13:00:00Z&amp;rdquo;
-date_end: &amp;ldquo;2030-06-01T15:00:00Z&amp;rdquo;
-all_day: false&lt;/p&gt;
-
-&lt;h1 id=&#34;schedule-page-publish-date-not-talk-date&#34;&gt;Schedule page publish date (NOT talk date).&lt;/h1&gt;
-
-&lt;p&gt;publishDate: &amp;ldquo;2017-01-01T00:00:00Z&amp;rdquo;&lt;/p&gt;
-
-&lt;p&gt;authors: []
-tags: []&lt;/p&gt;
-
-&lt;h1 id=&#34;is-this-a-featured-talk-true-false&#34;&gt;Is this a featured talk? (true/false)&lt;/h1&gt;
-
-&lt;p&gt;featured: false&lt;/p&gt;
-
-&lt;p&gt;image:
-  caption: &amp;lsquo;Image credit: &lt;a href=&#34;https://unsplash.com/photos/bzdhc5b3Bxs&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;Unsplash&lt;/strong&gt;&lt;/a&gt;&amp;lsquo;
-  focal_point: Right&lt;/p&gt;
-
-&lt;p&gt;links:
-- icon: twitter
-  icon_pack: fab
-  name: Follow
-  url: &lt;a href=&#34;https://twitter.com/georgecushen&#34; target=&#34;_blank&#34;&gt;https://twitter.com/georgecushen&lt;/a&gt;
-url_code: &amp;ldquo;&amp;rdquo;
-url_pdf: &amp;ldquo;&amp;rdquo;
-url_slides: &amp;ldquo;&amp;rdquo;
-url_video: &amp;ldquo;&amp;rdquo;&lt;/p&gt;
-
-&lt;h1 id=&#34;markdown-slides-optional&#34;&gt;Markdown Slides (optional).&lt;/h1&gt;
-
-&lt;h1 id=&#34;associate-this-talk-with-markdown-slides&#34;&gt;Associate this talk with Markdown slides.&lt;/h1&gt;
-
-&lt;h1 id=&#34;simply-enter-your-slide-deck-s-filename-without-extension&#34;&gt;Simply enter your slide deck&amp;rsquo;s filename without extension.&lt;/h1&gt;
-
-&lt;h1 id=&#34;e-g-slides-example-slides-references-content-slides-example-slides-md&#34;&gt;E.g. &lt;code&gt;slides = &amp;quot;example-slides&amp;quot;&lt;/code&gt; references &lt;code&gt;content/slides/example-slides.md&lt;/code&gt;.&lt;/h1&gt;
-
-&lt;h1 id=&#34;otherwise-set-slides&#34;&gt;Otherwise, set &lt;code&gt;slides = &amp;quot;&amp;quot;&lt;/code&gt;.&lt;/h1&gt;
-
-&lt;p&gt;slides: example&lt;/p&gt;
-
-&lt;h1 id=&#34;projects-optional&#34;&gt;Projects (optional).&lt;/h1&gt;
-
-&lt;h1 id=&#34;associate-this-post-with-one-or-more-of-your-projects&#34;&gt;Associate this post with one or more of your projects.&lt;/h1&gt;
-
-&lt;h1 id=&#34;simply-enter-your-project-s-folder-or-file-name-without-extension&#34;&gt;Simply enter your project&amp;rsquo;s folder or file name without extension.&lt;/h1&gt;
-
-&lt;h1 id=&#34;e-g-projects-internal-project-references-content-project-deep-learning-index-md&#34;&gt;E.g. &lt;code&gt;projects = [&amp;quot;internal-project&amp;quot;]&lt;/code&gt; references &lt;code&gt;content/project/deep-learning/index.md&lt;/code&gt;.&lt;/h1&gt;
-
-&lt;h1 id=&#34;otherwise-set-projects&#34;&gt;Otherwise, set &lt;code&gt;projects = []&lt;/code&gt;.&lt;/h1&gt;
-
-&lt;p&gt;projects:
-- internal-project&lt;/p&gt;
-
-&lt;h1 id=&#34;enable-math-on-this-page&#34;&gt;Enable math on this page?&lt;/h1&gt;
-
-&lt;h2 id=&#34;math-true&#34;&gt;math: true&lt;/h2&gt;
-
-&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Slides can be added in a few ways:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Create&lt;/strong&gt; slides using Academic&amp;rsquo;s &lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34;&gt;&lt;em&gt;Slides&lt;/em&gt;&lt;/a&gt; feature and link using &lt;code&gt;slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Upload&lt;/strong&gt; an existing slide deck to &lt;code&gt;static/&lt;/code&gt; and link using &lt;code&gt;url_slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Embed&lt;/strong&gt; your slides (e.g. Google Slides) or presentation video on this page using &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Further talk details can easily be added to this page using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
-</description>
+      <guid>/talk/multi-tasking-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Convolutional Feature Extraction and Neural Arithmetic Logic Units for Stock Prediction</title>
+      <link>/talk/icacds/</link>
+      <pubDate>Sat, 13 Apr 2019 13:00:00 +0000</pubDate>
+      
+      <guid>/talk/icacds/</guid>
+      <description></description>
     </item>
     
     <item>

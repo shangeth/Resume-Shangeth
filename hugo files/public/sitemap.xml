@@ -18,7 +18,7 @@
   </url>
   
   <url>
-    <loc>/talk/example/</loc>
+    <loc>/talk/multi-tasking-learning/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url>
   
@@ -31,6 +31,11 @@
     <loc>/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/talk/icacds/</loc>
+    <lastmod>2019-04-13T13:00:00+00:00</lastmod>
   </url>
   
   <url>
