@@ -1,7 +1,7 @@
 ---
 title: 'GAN 1'
-subtitle: 'Intro and applications of Generative Adverserial Network'
-summary: 'Intro and applications of Generative Adverserial Network'
+subtitle: 'Intro and applications of Generative Adversarial Network'
+summary: 'Intro and applications of Generative Adversarial Network'
 authors: 
 - admin
 tags:
