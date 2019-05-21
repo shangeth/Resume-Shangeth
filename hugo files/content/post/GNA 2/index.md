@@ -59,3 +59,31 @@ As the generator tries to fool the discriminator, the discriminator learns to cl
 By this process both the netowrks learn the parameters which gives best results. This creates a competition between Generator(G) and Discriminator(D), this makes this an adverserial learning.
 
 [Check this](https://cs.stanford.edu/people/karpathy/gan/)
+
+In [game theory](https://en.wikipedia.org/wiki/Game_theory), an equlibrium is reached when both of the players recieve 0 payoff. When a player(P) wins, P gets a positive payoff of 1 and gets a negative payoff of -1 when loses. When a player loses, the player changes the stratergy to win the next round. As this continues the player becomes better but as the other player also gets better , an equilibrium is reached when both players uses random uniform stratergies.
+At equilibrium, neither of the players can improve further.\\
+\\
+Most of the machine learning models we used so far depends on optimization algorithms. We finds a set of parameters for which the cost function is minimum. But GANs have 2 players G & D. The G is trying to fool D and D is trying to classify G's sample as fake data. As we can see D is trying to minimize the probability of G's output as true data, whereas G is trying to increase the probability. 
+
+```math
+Cost of D = minimize(P(generated sample data is real))
+Cost of G = maximize(P(generated sample data is real))
+```
+
+Theoritically equlibrium occurs when both probabilities are equal.
+
+```math
+P(generated sample data is real) = 0.5
+```
+
+This occurs for a set of parameters for which the G got the maximum probability and D got minimum probability. ie: a [saddle point](https://en.wikipedia.org/wiki/Saddle_point).
+
+saddle point - both local maxima and local minima
+
+![](http://math.etsu.edu/multicalc/prealpha/Chap2/Chap2-8/10-6-53.gif)
+
+Generator gets a local maxima when the distribution learned by generator is equal to the distribution of the training dataset.
+
+We will use 2 seperate optimization algorithms for D and G, so it is not possible for us to find the equilibrium. But if we can use a single optimization algorithm which reduces both D & G costs together, then we may encounter perfect equilibirum.
+
+In the next post, we will look into the practical implementation of GANs by coding and training it in PyTorch.
