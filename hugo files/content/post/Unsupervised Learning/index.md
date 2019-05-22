@@ -8,7 +8,7 @@ tags:
 - Academic- ## Supervised learning
 categories: ['Deep Learning']
 date: "2019-05-20T00:00:00Z"
-lastmod: "2019-05-21T00:00:00Z"
+lastmod: "2019-05-20T00:00:00Z"
 featured: false
 draft: false
 

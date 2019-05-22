@@ -7,7 +7,7 @@ authors:
 tags:
 - Academic- ## Supervised learning
 categories: ['Deep Learning', 'Python', 'PyTorch']
-date: "2019-05-20T02:43:00Z"
+date: "2019-05-21T02:43:00Z"
 lastmod: ""
 featured: false
 draft: false

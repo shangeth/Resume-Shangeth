@@ -59,6 +59,6 @@ GANs are [unsupervised machine learning models](https://shangeth.github.io/post/
 
 - Many other applications like photos to cartoons, daylight image to night scene image, [Cycle GAN](https://arxiv.org/abs/1703.10593).
 
-
+[Check out](https://github.com/wiseodd/generative-models) all of these Generative models.
 
 In the next few posts, we will look deep into how GANs work and code GANs with PyTorch for different applications.
