@@ -356,7 +356,8 @@ view_samples(0, [rand_images])
 
 &lt;p&gt;Linear GAN Model does a decent job in generating MNIST images. In next post we will look into DCGAN(Deep Convolutional GAN), to use CNNs for generating new samples.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://github.com/znxlwm/pytorch-MNIST-CelebA-GAN-DCGAN&#34; target=&#34;_blank&#34;&gt;Check this Awesome Repo&lt;/a&gt; on comparing Linear GAN and DCGAN for MNIST.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/znxlwm/pytorch-MNIST-CelebA-GAN-DCGAN&#34; target=&#34;_blank&#34;&gt;Check this Awesome Repo&lt;/a&gt; on comparing Linear GAN and DCGAN for MNIST.
+Also &lt;a href=&#34;https://github.com/Yangyangii/GAN-Tutorial/blob/master/MNIST/VanillaGAN.ipynb&#34; target=&#34;_blank&#34;&gt;this notebook&lt;/a&gt; for pytorch implementation of vanilla GAN(Linear).&lt;/p&gt;
 </description>
     </item>
     
