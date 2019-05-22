@@ -737,7 +737,7 @@ import torchvision.transforms as transforms
 <pre><code class="language-python">transform = transforms.ToTensor()
 data = datasets.MNIST(root='data', train=True,
                                    download=True, transform=transform)
-data_loader = torch.utils.data.DataLoader(data, batch_size=512)
+data_loader = torch.utils.data.DataLoader(data, batch_size=1024)
 </code></pre>
 
 <p><img src="data:image/png;base64,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" alt="" /></p>
@@ -805,7 +805,7 @@ print(D_network)
 
 <h3 id="generator">Generator</h3>
 
-<p>The Generator takes a random vector(z)(also called latent vector) and generates a sample image with a distribution close to the training data distribution. We want to upsample z to an image of size 1*28*28. Tanh was used as activation in the output layer(as used in the original paper) , but feel free to tru other activations and check which gives good result.</p>
+<p>The Generator takes a random vector(z)(also called latent vector) and generates a sample image with a distribution close to the training data distribution. We want to upsample z to an image of size 1*28*28. Tanh was used as activation in the output layer(as used in the original paper) , but feel free to try other activations and check which gives good result.</p>
 
 <pre><code class="language-python">class G(nn.Module):
 
@@ -891,8 +891,8 @@ def fake_loss(D_out):
 <p>We will use 2 optimizers</p>
 
 <ul>
-<li>One for Generator, which optimizes the real_loss of fake images. ie it tries to make the classification prediction of fake images equal to 1.</li>
-<li>next is discriminator, which tries to optimize real+fake loss. ie: it tries to make the prediciton of fake imahes to 0 and real images to 1.</li>
+<li>One for Generator, which optimizes the real_loss of fake images. ie: it tries to make the classification prediction of fake images equal to 1.</li>
+<li>Next is discriminator, which tries to optimize real+fake loss. ie: it tries to make the prediciton of fake images to 0 and real images to 1.</li>
 </ul>
 
 <p>Adjust the no of epochs, latent vector size, optimizer parameters, dimensions etc.</p>
@@ -987,9 +987,9 @@ Also <a href="https://github.com/Yangyangii/GAN-Tutorial/blob/master/MNIST/Vanil
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/deep-learning/">Deep Learning</a>
+  <a class="badge badge-light" href="/tags/deep-learning-post/">Deep Learning post</a>
   
-  <a class="badge badge-light" href="/tags/gan/">GAN</a>
+  <a class="badge badge-light" href="">GAN post## Supervised learning</a>
   
 </div>
 
@@ -1025,7 +1025,7 @@ Also <a href="https://github.com/Yangyangii/GAN-Tutorial/blob/master/MNIST/Vanil
     <div class="media-body">
       <h5 class="card-title" itemprop="name"><a href="/authors/admin/">Shangeth Rajaa</a></h5>
       <h6 class="card-subtitle">Student, Department of Mathematics</h6>
-      <p class="card-text" itemprop="description">My research interests include distributed robotics, mobile computing and programmable matter.</p>
+      <p class="card-text" itemprop="description">Research Collaborator at INRIA, Deep Learning intern at OpenCV.org, Deep Learning Research</p>
       <ul class="network-icon" aria-hidden="true">
         
           
@@ -1156,15 +1156,11 @@ Also <a href="https://github.com/Yangyangii/GAN-Tutorial/blob/master/MNIST/Vanil
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/gan-2/">GAN 2</a></li>
-          
           <li><a href="/post/gan-1/">GAN 1</a></li>
           
+          <li><a href="/post/gan-2/">GAN 2</a></li>
+          
           <li><a href="/post/unsupervised-learning/">Unsupervised Learning 101</a></li>
-          
-          <li><a href="/project/character-generating-rnn/">Character Generating RNN</a></li>
-          
-          <li><a href="/project/emojification/">Emojification</a></li>
           
         </ul>
       </div>

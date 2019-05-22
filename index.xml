@@ -124,7 +124,7 @@ import torchvision.transforms as transforms
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;transform = transforms.ToTensor()
 data = datasets.MNIST(root=&#39;data&#39;, train=True,
                                    download=True, transform=transform)
-data_loader = torch.utils.data.DataLoader(data, batch_size=512)
+data_loader = torch.utils.data.DataLoader(data, batch_size=1024)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;img src=&#34;data:image/png;base64,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&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
@@ -192,7 +192,7 @@ print(D_network)
 
 &lt;h3 id=&#34;generator&#34;&gt;Generator&lt;/h3&gt;
 
-&lt;p&gt;The Generator takes a random vector(z)(also called latent vector) and generates a sample image with a distribution close to the training data distribution. We want to upsample z to an image of size 1*28*28. Tanh was used as activation in the output layer(as used in the original paper) , but feel free to tru other activations and check which gives good result.&lt;/p&gt;
+&lt;p&gt;The Generator takes a random vector(z)(also called latent vector) and generates a sample image with a distribution close to the training data distribution. We want to upsample z to an image of size 1*28*28. Tanh was used as activation in the output layer(as used in the original paper) , but feel free to try other activations and check which gives good result.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class G(nn.Module):
 
@@ -278,8 +278,8 @@ def fake_loss(D_out):
 &lt;p&gt;We will use 2 optimizers&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;One for Generator, which optimizes the real_loss of fake images. ie it tries to make the classification prediction of fake images equal to 1.&lt;/li&gt;
-&lt;li&gt;next is discriminator, which tries to optimize real+fake loss. ie: it tries to make the prediciton of fake imahes to 0 and real images to 1.&lt;/li&gt;
+&lt;li&gt;One for Generator, which optimizes the real_loss of fake images. ie: it tries to make the classification prediction of fake images equal to 1.&lt;/li&gt;
+&lt;li&gt;Next is discriminator, which tries to optimize real+fake loss. ie: it tries to make the prediciton of fake images to 0 and real images to 1.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Adjust the no of epochs, latent vector size, optimizer parameters, dimensions etc.&lt;/p&gt;
@@ -378,7 +378,7 @@ Also &lt;a href=&#34;https://github.com/Yangyangii/GAN-Tutorial/blob/master/MNIS
       <guid>/post/gan-2/</guid>
       <description>
 
-&lt;p&gt;As we saw in &lt;a href=&#34;https://shangeth.github.io/post/gan-1/&#34; target=&#34;_blank&#34;&gt;Intro and application of Generative Adversarial Network&lt;/a&gt;, GANs generate new data from a given dataset by learning the distribution of the dataset through adverserial process.&lt;/p&gt;
+&lt;p&gt;As we saw in &lt;a href=&#34;https://shangeth.github.io/post/gan-1/&#34; target=&#34;_blank&#34;&gt;Intro and application of Generative Adversarial Network&lt;/a&gt;, GANs generate new data from a given dataset by learning the distribution of the dataset through adversarial process.&lt;/p&gt;
 
 &lt;h2 id=&#34;what-is-an-adversarial-process-learning&#34;&gt;What is an adversarial process/learning?&lt;/h2&gt;
 
@@ -406,16 +406,16 @@ During the training process, the discriminator is given data from the training d
 
 &lt;h2 id=&#34;the-game-theory&#34;&gt;The Game Theory&lt;/h2&gt;
 
-&lt;p&gt;As the disciminator classifies the data sample from the generator as fake, the generator tries to fool the discriminator by generating more realistic data sample(learns the traning data distribution well). The generator starts generating samples more close to the distribution of the training dataset.&lt;/p&gt;
+&lt;p&gt;As the disciminator classifies the data sample from the generator as fake, the generator tries to fool the discriminator by generating more realistic data sample(learns the training data distribution well). The generator starts generating samples more close to the distribution of the training dataset.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://cs.stanford.edu/people/karpathy/gan/gan.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;As the generator tries to fool the discriminator, the discriminator learns to classify the more realistic(fake) data generated by the generator as fake.//
-By this process both the netowrks learn the parameters which gives best results. This creates a competition between Generator(G) and Discriminator(D), this makes this an adverserial learning.&lt;/p&gt;
+&lt;p&gt;As the generator tries to fool the discriminator, the discriminator learns to classify the more realistic(fake) data generated by the generator as fake. &lt;br /&gt;
+By this process both the networks learn the parameters which gives best results. This creates a competition between Generator(G) and Discriminator(D), this makes this an adversarial learning.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://cs.stanford.edu/people/karpathy/gan/&#34; target=&#34;_blank&#34;&gt;Check this&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;In &lt;a href=&#34;https://en.wikipedia.org/wiki/Game_theory&#34; target=&#34;_blank&#34;&gt;game theory&lt;/a&gt;, an equlibrium is reached when both of the players recieve 0 payoff. When a player(P) wins, P gets a positive payoff of 1 and gets a negative payoff of -1 when loses. When a player loses, the player changes the stratergy to win the next round. As this continues the player becomes better but as the other player also gets better , an equilibrium is reached when both players uses random uniform stratergies.
+&lt;p&gt;In &lt;a href=&#34;https://en.wikipedia.org/wiki/Game_theory&#34; target=&#34;_blank&#34;&gt;game theory&lt;/a&gt;, an &lt;a href=&#34;https://www.youtube.com/watch?v=0i7p9DNvtjk&#34; target=&#34;_blank&#34;&gt;equlibrium&lt;/a&gt; is reached in a 2 player game when both the players recieve 0 payoff. When a player(P) wins, P gets a positive payoff of 1 and gets a negative payoff of -1 when loses. When a player loses, the player changes the stratergy to win the next round. As this continues the player becomes better but as the other player also gets better , an equilibrium is reached when both players uses random uniform stratergies.
 At equilibrium, neither of the players can improve further.&lt;br /&gt;
 &lt;br /&gt;
 Most of the machine learning models we used so far depends on optimization algorithms. We finds a set of parameters for which the cost function is minimum. But GANs have 2 players G &amp;amp; D. The G is trying to fool D and D is trying to classify G&amp;rsquo;s sample as fake data. As we can see D is trying to minimize the probability of G&amp;rsquo;s output as true data, whereas G is trying to increase the probability.&lt;/p&gt;
@@ -453,7 +453,7 @@ Cost of G = maximize(P(generated sample data is real))
 
 &lt;h1 id=&#34;gans-https-arxiv-org-pdf-1406-2661-pdf-are-ml-models-that-can-imagine-new-things&#34;&gt;&lt;a href=&#34;https://arxiv.org/pdf/1406.2661.pdf&#34; target=&#34;_blank&#34;&gt;GANs&lt;/a&gt; are ML models that can imagine new things.&lt;/h1&gt;
 
-&lt;p&gt;GANs can generate new data with a given dataset by learning its distribution. GANs have been mostly used with image datas but can also be used on any kind of data. GANs draw a sample from the learned probability distribution of the dataset which is a completely new sample.&lt;br /&gt;
+&lt;p&gt;GANs can generate new data with a given dataset by learning its distribution. GANs have been mostly used with image data but can also be used on any kind of data. GANs draw a sample from the learned probability distribution of the dataset which is a completely new sample.&lt;br /&gt;
 &lt;img src=&#34;https://paulvanderlaken.files.wordpress.com/2017/10/1-az5-3wdndyyc2u0aq7rhig.png?w=816&#34; alt=&#34;&#34; /&gt;
 GANs are &lt;a href=&#34;https://shangeth.github.io/post/unsupervised-learning/&#34; target=&#34;_blank&#34;&gt;unsupervised machine learning models&lt;/a&gt; , which learns the distribution of the data through adverserial process and generate new sample from the learned distribution.&lt;/p&gt;
 
@@ -462,7 +462,7 @@ GANs are &lt;a href=&#34;https://shangeth.github.io/post/unsupervised-learning/&
 &lt;ul&gt;
 &lt;li&gt;&lt;h2 id=&#34;stack-gan-https-arxiv-org-abs-1612-03242&#34;&gt;&lt;a href=&#34;https://arxiv.org/abs/1612.03242&#34; target=&#34;_blank&#34;&gt;Stack GAN&lt;/a&gt;&lt;/h2&gt;
 
-&lt;p&gt;Stack GAN can take a discription of an image and can genration new images matching that discription. GAN picks a sample from a distribution of iamges which match the description.
+&lt;p&gt;Stack GAN can take a description of an image and can generate new images matching that description. GAN picks a sample from a distribution of images which matches the description.
 &lt;img src=&#34;https://media.arxiv-vanity.com/render-output/707623/x1.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.cs.virginia.edu/~vicente/vislang/slides/stackgan.pdf&#34; target=&#34;_blank&#34;&gt;slide&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -509,36 +509,36 @@ iGANs can search for realistic possible image as the user draws the rough sketch
 &lt;p&gt;&lt;br /&gt;
 &lt;/p&gt;
 
-&lt;h1 id=&#34;supervised-learning-1&#34;&gt;Supervised Learning&lt;/h1&gt;
+&lt;h1 id=&#34;supervised-learning-https-en-wikipedia-org-wiki-supervised-learning&#34;&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Supervised_learning&#34; target=&#34;_blank&#34;&gt;Supervised Learning&lt;/a&gt;&lt;/h1&gt;
 
-&lt;p&gt;The task in supervised learning is to learn a function to map a data X to a label y. All the classification, regression, object detection/recognition/segmentation generally comes under supervised learning.&lt;/p&gt;
+&lt;p&gt;The task in supervised learning is to learn a function to map a data X to a label y. All the &lt;a href=&#34;https://towardsdatascience.com/supervised-machine-learning-classification-5e685fe18a6d&#34; target=&#34;_blank&#34;&gt;classification&lt;/a&gt;, regression, object detection/recognition/segmentation generally comes under supervised learning.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://corochann.com/wp-content/uploads/2017/02/mnist_plot-800x600.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://appliedmachinelearning.files.wordpress.com/2018/03/cifar2.jpg&#34; alt=&#34;&#34; /&gt;
   In supervised learning we have a dataset which contains data X and label y and we need to learn how to find y given X.&lt;/p&gt;
 
-&lt;h1 id=&#34;unsupervised-learning-1&#34;&gt;Unsupervised Learning&lt;/h1&gt;
+&lt;h1 id=&#34;unsupervised-learning-https-towardsdatascience-com-unsupervised-learning-with-python-173c51dc7f03&#34;&gt;&lt;a href=&#34;https://towardsdatascience.com/unsupervised-learning-with-python-173c51dc7f03&#34; target=&#34;_blank&#34;&gt;Unsupervised Learning&lt;/a&gt;&lt;/h1&gt;
 
-&lt;p&gt;In unsupervised learning, we only have X and not the respective y. The goal is to lean the underlying structure/features of the dataset without any lable.&lt;/p&gt;
+&lt;p&gt;In unsupervised learning, we only have X and not the respective y. The goal is to learn the underlying structure/features of the dataset without any label.&lt;/p&gt;
 
-&lt;p&gt;Some examples of Unsupervised Leanring are&lt;/p&gt;
+&lt;p&gt;Some examples of Unsupervised Learning are&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;h2 id=&#34;clustering&#34;&gt;Clustering&lt;/h2&gt;
 
-&lt;p&gt;Clustering is dividing the data into groups through some distance metric like kmeans clustering.
+&lt;p&gt;Clustering is dividing the data into groups through some distance metric, like kmeans clustering.
 &lt;img src=&#34;https://www.imperva.com/blog/wp-content/uploads/sites/9/2017/07/k-means-clustering-on-spherical-data-1v2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;h2 id=&#34;feature-learning&#34;&gt;Feature Learning&lt;/h2&gt;
 
-&lt;p&gt;As the name suggest, learning the features of each of the given data, without its label. This is generally done with a help of a model called Autoencoders.&lt;br /&gt;
-Autoencoders take the data X as the label y , it try to recreate the data X given data X and learns some underlying features int hat process. We generally take the one of the middle layer as the encoded feature.
+&lt;p&gt;As the name suggest, learning the features of each of the given data, without its label. This is generally done with a help of a model called &lt;a href=&#34;https://www.youtube.com/watch?v=H1AllrJ-_30&#34; target=&#34;_blank&#34;&gt;Autoencoders&lt;/a&gt;.&lt;br /&gt;
+Autoencoders take the data X as the label y , it try to recreate the data X given data X and learns some underlying features in that process. We generally take the one of the middle layers of the autoencoder as the encoded feature.
 &lt;img src=&#34;https://cdn-images-1.medium.com/max/1200/1*j_y0bNZLP1yzqtyF48Z3Ug.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;h2 id=&#34;dimensionality-reduction&#34;&gt;Dimensionality Reduction&lt;/h2&gt;
 
-&lt;p&gt;As we know data can be multi dimensional which can extent even to millions. Computation and visualization of multi dimensioanl data is difficult and thus we want to reduce the dimension of the data (to pick the dimensions which can represent the data more).&lt;br /&gt;
+&lt;p&gt;As we know data can be multi dimensional which can extent even to millions. Computation and visualization of such multi dimensioanl data is difficult and thus we want to reduce the dimension of the data (to pick the dimensions which can represent the data more).&lt;br /&gt;
 Dimensionality reduction is done by choosing the axis in the data space along which variance of the data is high.
 &lt;img src=&#34;https://static1.squarespace.com/static/5a316dfecf81e0076f50dae2/t/5ac35d702b6a284b3fde6131/1522753187751/PCA.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
 
@@ -548,7 +548,7 @@ Dimensionality reduction is done by choosing the axis in the data space along wh
 &lt;h1 id=&#34;why-unsupervised-learning&#34;&gt;Why Unsupervised Learning?&lt;/h1&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Unsupervised learning doen&amp;rsquo;t need labels.&lt;/li&gt;
+&lt;li&gt;Unsupervised learning doesn&amp;rsquo;t need labels.&lt;/li&gt;
 &lt;li&gt;Making the training data for supervised learning is not easy. Its expensive, time consuming, labour consuming.&lt;/li&gt;
 &lt;li&gt;The world has a lot of unlabelled data, which can be used directly or with a little pre processing for unsupervised learning.&lt;/li&gt;
 &lt;/ul&gt;

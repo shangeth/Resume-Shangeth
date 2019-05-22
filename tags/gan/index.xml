@@ -20,32 +20,5 @@
       <description>Deep Convolutional GAN</description>
     </item>
     
-    <item>
-      <title>GAN 3</title>
-      <link>/post/gan-3/</link>
-      <pubDate>Tue, 21 May 2019 03:43:00 +0000</pubDate>
-      
-      <guid>/post/gan-3/</guid>
-      <description>MNIST Linear GAN</description>
-    </item>
-    
-    <item>
-      <title>GAN 2</title>
-      <link>/post/gan-2/</link>
-      <pubDate>Tue, 21 May 2019 02:43:00 +0000</pubDate>
-      
-      <guid>/post/gan-2/</guid>
-      <description>Theory of Game between Generator and Discriminator</description>
-    </item>
-    
-    <item>
-      <title>GAN 1</title>
-      <link>/post/gan-1/</link>
-      <pubDate>Mon, 20 May 2019 02:00:00 +0000</pubDate>
-      
-      <guid>/post/gan-1/</guid>
-      <description>Intro and applications of Generative Adversarial Network</description>
-    </item>
-    
   </channel>
 </rss>

@@ -30,11 +30,38 @@
     </item>
     
     <item>
-      <title>Unsupervised Learning</title>
-      <link>/tags/unsupervised-learning/</link>
+      <title>Deep Learning post</title>
+      <link>/tags/deep-learning-post/</link>
+      <pubDate>Tue, 21 May 2019 03:43:00 +0000</pubDate>
+      
+      <guid>/tags/deep-learning-post/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GAN post## Supervised learning</title>
+      <link>/tags/gan-post#%23-supervised-learning/</link>
+      <pubDate>Tue, 21 May 2019 03:43:00 +0000</pubDate>
+      
+      <guid>/tags/gan-post#%23-supervised-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GAN post</title>
+      <link>/tags/gan-post/</link>
+      <pubDate>Tue, 21 May 2019 02:43:00 +0000</pubDate>
+      
+      <guid>/tags/gan-post/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Unsupervised Learning post</title>
+      <link>/tags/unsupervised-learning-post/</link>
       <pubDate>Mon, 20 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/unsupervised-learning/</guid>
+      <guid>/tags/unsupervised-learning-post/</guid>
       <description></description>
     </item>
     
