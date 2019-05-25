@@ -6,15 +6,24 @@
     <description>Recent content in Posts on Shangeth</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 May 2019 03:43:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 25 May 2019 04:43:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>GAN 5</title>
+      <link>/post/gan-5/</link>
+      <pubDate>Sat, 25 May 2019 04:43:00 +0000</pubDate>
+      
+      <guid>/post/gan-5/</guid>
+      <description>Conditional GAN</description>
+    </item>
+    
+    <item>
       <title>GAN 4</title>
       <link>/post/gan-4/</link>
-      <pubDate>Wed, 22 May 2019 03:43:00 +0000</pubDate>
+      <pubDate>Fri, 24 May 2019 03:43:00 +0000</pubDate>
       
       <guid>/post/gan-4/</guid>
       <description>Deep Convolutional GAN</description>
