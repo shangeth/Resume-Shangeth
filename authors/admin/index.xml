@@ -66,30 +66,12 @@
     </item>
     
     <item>
-      <title>An example preprint / working paper</title>
-      <link>/publication/preprint/</link>
-      <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
+      <title>Convolutional Feature Extraction and Neural Arithmetic Logic Units for Stock Prediction</title>
+      <link>/publication/icacds/</link>
+      <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/publication/preprint/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.</description>
-    </item>
-    
-    <item>
-      <title>An example journal article</title>
-      <link>/publication/journal-article/</link>
-      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/journal-article/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.</description>
-    </item>
-    
-    <item>
-      <title>An example conference paper</title>
-      <link>/publication/conference-paper/</link>
-      <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/conference-paper/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.</description>
+      <guid>/publication/icacds/</guid>
+      <description>Stock Prediction with CNN and Neural Arithmetic Logic Units.</description>
     </item>
     
     <item>
@@ -98,7 +80,7 @@
       <pubDate>Sat, 25 May 2019 04:43:00 +0000</pubDate>
       
       <guid>/authors/admin/</guid>
-      <description>I am a 3rd year Undergrad Dual degree student at BITS Pilani Goa Campus.</description>
+      <description>I am a 3rd year Undergrad Dual degree student at BITS Pilani Goa Campus. Actively Looking for research opportunities in Deep Learning.</description>
     </item>
     
   </channel>
