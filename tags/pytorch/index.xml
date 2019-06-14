@@ -6,10 +6,19 @@
     <description>Recent content in PyTorch on Shangeth</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 18 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/pytorch/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Pneumonia Diagnosis with Deep Learning</title>
+      <link>/project/pneumonia-diagnosis-with-deep-learning/</link>
+      <pubDate>Fri, 14 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/project/pneumonia-diagnosis-with-deep-learning/</guid>
+      <description>Web Application for Diagnosis of Pnuemonia with deep learning model trained and backed with PyTorch framework.</description>
+    </item>
     
     <item>
       <title>Convolutional Feature Extraction and Neural Arithmetic Logic Units for Stock Prediction</title>

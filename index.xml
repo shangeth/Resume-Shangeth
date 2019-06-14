@@ -106,6 +106,15 @@
     </item>
     
     <item>
+      <title>Pneumonia Diagnosis with Deep Learning</title>
+      <link>/project/pneumonia-diagnosis-with-deep-learning/</link>
+      <pubDate>Fri, 14 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/project/pneumonia-diagnosis-with-deep-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>GAN 5</title>
       <link>/post/gan-5/</link>
       <pubDate>Sat, 25 May 2019 04:43:00 +0000</pubDate>
@@ -1172,15 +1181,6 @@ $$&lt;/p&gt;
       <pubDate>Fri, 11 Jan 2019 20:00:00 +0000</pubDate>
       
       <guid>/talk/multi-tasking-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/project/internal-project/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/project/internal-project/</guid>
       <description></description>
     </item>
     

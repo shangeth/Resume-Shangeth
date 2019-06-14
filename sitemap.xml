@@ -30,6 +30,24 @@
   </url>
   
   <url>
+    <loc>/tags/computer-vision/</loc>
+    <lastmod>2019-06-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/deep-learning/</loc>
+    <lastmod>2019-06-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/flask/</loc>
+    <lastmod>2019-06-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/authors/julio-jacques-junior/</loc>
     <lastmod>2019-06-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -47,6 +65,17 @@
   </url>
   
   <url>
+    <loc>/project/pneumonia-diagnosis-with-deep-learning/</loc>
+    <lastmod>2019-06-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/project/</loc>
+    <lastmod>2019-06-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/publication_types/</loc>
     <lastmod>2019-06-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -55,6 +84,18 @@
   <url>
     <loc>/publication/</loc>
     <lastmod>2019-06-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/pytorch/</loc>
+    <lastmod>2019-06-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/python/</loc>
+    <lastmod>2019-06-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -199,19 +240,7 @@
   </url>
   
   <url>
-    <loc>/tags/deep-learning/</loc>
-    <lastmod>2019-05-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/authors/jk-sahoo/</loc>
-    <lastmod>2019-05-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/pytorch/</loc>
     <lastmod>2019-05-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -243,17 +272,7 @@
   </url>
   
   <url>
-    <loc>/project/internal-project/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/project/character-generating-rnn/</loc>
-  </url>
-  
-  <url>
-    <loc>/tags/computer-vision/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -304,17 +323,7 @@
   </url>
   
   <url>
-    <loc>/project/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/project/pyrevshell/</loc>
-  </url>
-  
-  <url>
-    <loc>/tags/python/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
