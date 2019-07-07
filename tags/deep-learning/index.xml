@@ -6,10 +6,19 @@
     <description>Recent content in Deep Learning on Shangeth</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 14 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jul 2019 01:07:01 +0530</lastBuildDate>
     
 	<atom:link href="/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Facial Emotion Recognition PyTorch ONNX</title>
+      <link>/project/facial-emotion-recognition-pytorch/</link>
+      <pubDate>Mon, 08 Jul 2019 01:07:01 +0530</pubDate>
+      
+      <guid>/project/facial-emotion-recognition-pytorch/</guid>
+      <description>Recognizing the facial emotions with Deep learning model trained on PyTorch and deployed with TF.js model converted with ONNX.</description>
+    </item>
     
     <item>
       <title>Pneumonia Diagnosis with Deep Learning</title>
