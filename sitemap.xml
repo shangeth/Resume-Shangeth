@@ -3,17 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/google-ml-academy/example/example1/</loc>
+    <loc>/google-ml-academy/deeplearning/1.1-python-syntax/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/google-ml-academy/example/</loc>
+    <loc>/google-ml-academy/deeplearning/</loc>
     <lastmod>2018-09-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/google-ml-academy/example/example2/</loc>
+    <loc>/google-ml-academy/deeplearning/1.2-python-the_trio/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
@@ -290,15 +290,15 @@
   </url>
   
   <url>
+    <loc>/google-ml-academy/</loc>
+  </url>
+  
+  <url>
     <loc>/project/character-generating-rnn/</loc>
   </url>
   
   <url>
     <loc>/project/computer-vision-security-system/</loc>
-  </url>
-  
-  <url>
-    <loc>/google-ml-academy/</loc>
   </url>
   
   <url>
