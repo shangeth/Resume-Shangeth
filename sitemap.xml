@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/google-ml-academy/deeplearning/1.1-python-syntax/</loc>
+    <loc>/google-ml-academy/deeplearning/1.1/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
@@ -13,8 +13,13 @@
   </url>
   
   <url>
-    <loc>/google-ml-academy/deeplearning/1.2-python-the_trio/</loc>
+    <loc>/google-ml-academy/deeplearning/1.2/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/google-ml-academy/deeplearning/2.1/</loc>
+    <lastmod>2019-07-06T00:00:00+01:00</lastmod>
   </url>
   
   <url>

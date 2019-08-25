@@ -6,6 +6,7 @@
     <description>Recent content in Course Overview on Shangeth</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>&amp;copy; {year} Shangeth Rajaa</copyright>
     <lastBuildDate>Sun, 09 Sep 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/google-ml-academy/deeplearning/index.xml" rel="self" type="application/rss+xml" />
@@ -13,20 +14,30 @@
     
     <item>
       <title>Example Page 1</title>
-      <link>/google-ml-academy/deeplearning/1.1-python-syntax/</link>
+      <link>/google-ml-academy/deeplearning/1.1/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
       
-      <guid>/google-ml-academy/deeplearning/1.1-python-syntax/</guid>
+      <guid>/google-ml-academy/deeplearning/1.1/</guid>
       <description> Watever
 watever topic 1 watever topic 2 another topic 3 </description>
     </item>
     
     <item>
       <title>Numpy</title>
-      <link>/google-ml-academy/deeplearning/1.2-python-the_trio/</link>
+      <link>/google-ml-academy/deeplearning/1.2/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
       
-      <guid>/google-ml-academy/deeplearning/1.2-python-the_trio/</guid>
+      <guid>/google-ml-academy/deeplearning/1.2/</guid>
+      <description> Watever
+watever topic 1 watever topic 2 another topic 3 </description>
+    </item>
+    
+    <item>
+      <title>Linear Regression</title>
+      <link>/google-ml-academy/deeplearning/2.1/</link>
+      <pubDate>Sat, 06 Jul 2019 00:00:00 +0100</pubDate>
+      
+      <guid>/google-ml-academy/deeplearning/2.1/</guid>
       <description> Watever
 watever topic 1 watever topic 2 another topic 3 </description>
     </item>

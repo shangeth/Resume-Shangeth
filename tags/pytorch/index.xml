@@ -6,6 +6,7 @@
     <description>Recent content in PyTorch on Shangeth</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>&amp;copy; {year} Shangeth Rajaa</copyright>
     <lastBuildDate>Mon, 08 Jul 2019 01:07:01 +0530</lastBuildDate>
     
 	<atom:link href="/tags/pytorch/index.xml" rel="self" type="application/rss+xml" />

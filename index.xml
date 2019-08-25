@@ -6,6 +6,7 @@
     <description>Recent content on Shangeth</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
+    <copyright>&amp;copy; {year} Shangeth Rajaa</copyright>
     <lastBuildDate>Mon, 08 Jul 2019 01:07:01 +0530</lastBuildDate>
     
 	    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
@@ -13,10 +14,10 @@
     
     <item>
       <title>Example Page 1</title>
-      <link>/google-ml-academy/deeplearning/1.1-python-syntax/</link>
+      <link>/google-ml-academy/deeplearning/1.1/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
       
-      <guid>/google-ml-academy/deeplearning/1.1-python-syntax/</guid>
+      <guid>/google-ml-academy/deeplearning/1.1/</guid>
       <description>
 
 &lt;p&gt;Watever&lt;/p&gt;
@@ -31,10 +32,28 @@
     
     <item>
       <title>Numpy</title>
-      <link>/google-ml-academy/deeplearning/1.2-python-the_trio/</link>
+      <link>/google-ml-academy/deeplearning/1.2/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
       
-      <guid>/google-ml-academy/deeplearning/1.2-python-the_trio/</guid>
+      <guid>/google-ml-academy/deeplearning/1.2/</guid>
+      <description>
+
+&lt;p&gt;Watever&lt;/p&gt;
+
+&lt;h2 id=&#34;watever-topic-1&#34;&gt;watever topic 1&lt;/h2&gt;
+
+&lt;h2 id=&#34;watever-topic-2&#34;&gt;watever topic 2&lt;/h2&gt;
+
+&lt;h2 id=&#34;another-topic-3&#34;&gt;another topic 3&lt;/h2&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Linear Regression</title>
+      <link>/google-ml-academy/deeplearning/2.1/</link>
+      <pubDate>Sat, 06 Jul 2019 00:00:00 +0100</pubDate>
+      
+      <guid>/google-ml-academy/deeplearning/2.1/</guid>
       <description>
 
 &lt;p&gt;Watever&lt;/p&gt;
