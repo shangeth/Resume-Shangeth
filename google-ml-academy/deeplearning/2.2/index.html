@@ -29,11 +29,11 @@
   
   <meta name="description" content="Google ML Academy 2019
 Instructor: Shangeth Rajaa 
-Before starting with Neural Networks, we will look into 2 important machine learning models to understand regression and classification tasks
- Linear Regression (Regression) Logistic Regression (Classification)  Linear Regression Most of the Deep learning Courses do not start with linear regression(LinReg), but LinReg gave me a better understanding of machine learning, so i will start with that, hoping that will make the understanding of Neural networks easier.">
+Task - 1  Get X and y from dataset() function Train a Linear Regression model for this dataset. Visualize the model prediction  Dataset Call dataset() function to get X, y
+import numpy as np import matplotlib.pyplot as plt def dataset(show=True): X = np.arange(-25, 25, 0.1) y = X**2 &#43; 20 &#43; np.random.randn(500)*50 if show: plt.scatter(X, y) plt.show() return X, y X, y = dataset()  &lt;Figure size 640x480 with 1 Axes&gt;  Scaling Dataset The maximum value of y in the dataset goes upto 700 and the minimum values is less than 0.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/google-ml-academy/deeplearning/2.1/">
+  <link rel="alternate" hreflang="en-us" href="/google-ml-academy/deeplearning/2.2/">
 
   
 
@@ -122,7 +122,7 @@ Before starting with Neural Networks, we will look into 2 important machine lear
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/google-ml-academy/deeplearning/2.1/">
+  <link rel="canonical" href="/google-ml-academy/deeplearning/2.2/">
 
   
   
@@ -136,12 +136,12 @@ Before starting with Neural Networks, we will look into 2 important machine lear
   <meta property="twitter:creator" content="@shangethr">
   
   <meta property="og:site_name" content="Shangeth">
-  <meta property="og:url" content="/google-ml-academy/deeplearning/2.1/">
+  <meta property="og:url" content="/google-ml-academy/deeplearning/2.2/">
   <meta property="og:title" content=" | Shangeth">
   <meta property="og:description" content="Google ML Academy 2019
 Instructor: Shangeth Rajaa 
-Before starting with Neural Networks, we will look into 2 important machine learning models to understand regression and classification tasks
- Linear Regression (Regression) Logistic Regression (Classification)  Linear Regression Most of the Deep learning Courses do not start with linear regression(LinReg), but LinReg gave me a better understanding of machine learning, so i will start with that, hoping that will make the understanding of Neural networks easier."><meta property="og:image" content="/img/instructor.jpeg">
+Task - 1  Get X and y from dataset() function Train a Linear Regression model for this dataset. Visualize the model prediction  Dataset Call dataset() function to get X, y
+import numpy as np import matplotlib.pyplot as plt def dataset(show=True): X = np.arange(-25, 25, 0.1) y = X**2 &#43; 20 &#43; np.random.randn(500)*50 if show: plt.scatter(X, y) plt.show() return X, y X, y = dataset()  &lt;Figure size 640x480 with 1 Axes&gt;  Scaling Dataset The maximum value of y in the dataset goes upto 700 and the minimum values is less than 0."><meta property="og:image" content="/img/instructor.jpeg">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-07-06T00:00:00&#43;01:00">
@@ -477,11 +477,11 @@ Before starting with Neural Networks, we will look into 2 important machine lear
     <a class="docs-toc-link" href="/google-ml-academy/deeplearning/2.1/">2.Deep Learning</a>
     <ul class="nav docs-sidenav">
       
-      <li class="active">
+      <li >
         <a href="/google-ml-academy/deeplearning/2.1/">Linear Regression</a>
       </li>
       
-      <li >
+      <li class="active">
         <a href="/google-ml-academy/deeplearning/2.2/">Linear Regression - Assignment</a>
       </li>
       
@@ -503,11 +503,18 @@ Before starting with Neural Networks, we will look into 2 important machine lear
 
       <nav id="TableOfContents">
 <ul>
-<li><a href="#linear-regression">Linear Regression</a></li>
-<li><a href="#what-about-multi-dimensional-data">What about Multi Dimensional Data?</a></li>
-<li><a href="#how-good-is-the-model">How good is the Model?</a></li>
-<li><a href="#how-to-find-the-best-model-w-b">How to find the Best Model? (W, b)</a></li>
+<li><a href="#task-1">Task - 1</a></li>
+<li><a href="#dataset">Dataset</a></li>
+<li><a href="#scaling-dataset">Scaling Dataset</a></li>
 <li><a href="#linear-regression-in-tensorflow">Linear Regression in TensorFlow</a></li>
+<li><a href="#polynomial-regression">Polynomial Regression</a>
+<ul>
+<li><a href="#polynomial-features">Polynomial Features</a></li>
+</ul></li>
+<li><a href="#task-2">Task - 2</a></li>
+<li><a href="#tensorflow-model-with-2nd-degree">Tensorflow Model with 2nd Degree</a></li>
+<li><a href="#tensorflow-model-with-3rd-degree">Tensorflow Model with 3rd Degree</a></li>
+<li><a href="#tensorflow-model-with-4th-degree">Tensorflow Model with 4th Degree</a></li>
 </ul>
 </nav>
 
@@ -529,375 +536,67 @@ Before starting with Neural Networks, we will look into 2 important machine lear
           <div class="article-style" itemprop="articleBody">
             
 
+<p><a href="https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/2_2_Assignment_Polynomial_Regression.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+
 <p><center><h1><a href='https://shangeth.com/google-ml-academy/'>Google ML Academy 2019</a></h1></center></p>
 
 <p><center><h3>Instructor: <a href='https://shangeth.com/'>Shangeth Rajaa</a></h3></center>
 <hr></p>
 
-<p>Before starting with Neural Networks, we will look into 2 important machine learning models to understand regression and classification tasks</p>
+<h1 id="task-1">Task - 1</h1>
 
 <ul>
-<li>Linear Regression (Regression)</li>
-<li>Logistic Regression (Classification)</li>
+<li>Get X and y from dataset() function</li>
+<li>Train a Linear Regression model for this dataset.</li>
+<li>Visualize the model prediction</li>
 </ul>
 
-<h1 id="linear-regression">Linear Regression</h1>
+<h1 id="dataset">Dataset</h1>
 
-<p>Most of the Deep learning Courses do not start with linear regression(LinReg), but LinReg gave me a better understanding of machine learning, so i will start with that, hoping that will make the understanding of Neural networks easier.</p>
-
-<p>You can think of LinReg model as a curve fitting or function approximation model. Given a dataset $(X, y)$, the task is to find a relation $f$ between $X$ and $y$ such that $y = f(X)$. We are interested in this mapping $f: X \rightarrow y$, as for any given $X$ in the future we can find $y = f(X)$.</p>
-
-<p>For example, given a dataset about housing prices vs area of the house(Toy Dataset)</p>
-
-<table>
-<thead>
-<tr>
-<th>House Price($) y</th>
-<th>Area(1000 sqft) X</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>1034</td>
-<td>2.4</td>
-</tr>
-
-<tr>
-<td>1145</td>
-<td>2.7</td>
-</tr>
-
-<tr>
-<td>1252</td>
-<td>3.04</td>
-</tr>
-
-<tr>
-<td>2231</td>
-<td>4.67</td>
-</tr>
-
-<tr>
-<td>3423</td>
-<td>5.3</td>
-</tr>
-
-<tr>
-<td>&hellip;</td>
-<td>&hellip;</td>
-</tr>
-</tbody>
-</table>
-
-<p>If we can find any the mapping between $X$ and $y$, $y = f(X)$, then its easy to predict the values of $y$ for any given $X$.</p>
-
-<pre><code class="language-python"># example dataset for linear regression
-%matplotlib inline
-
-import numpy as np
-import matplotlib.pyplot as plt
-
-x = np.arange(-25, 25, 0.5)
-y = 2 * x + 1 + np.random.randn(100)*5
-
-plt.figure(figsize=(12,7))
-plt.scatter(x, y, label='Data $(x,y)$')
-plt.xlabel('$X$', fontsize=20)
-plt.ylabel('$y$', fontsize=20)
-plt.grid(True)
-plt.legend(fontsize=20)
-plt.show()
-</code></pre>
-
-<p><img src="../2_1/output_3_0.png" alt="png" /></p>
-
-<p>So the prediction will be a line in case of 2-D data like above.</p>
-
-<p>The predicted model will be line $ y = m x + c $ or in ML world popularly $ y = w x + b $.</p>
-
-<p>$y = f(X) = wX+b$ will be the Linear regression model and the objective is to find the best $w$ and $b$ that will give the nearest values for each $(X,y=wX+b)$ pair in the dataset.</p>
-
-<pre><code class="language-python"># example dataset for linear regression
-
-import numpy as np
-import matplotlib.pyplot as plt
-
-x = np.arange(-25, 25, 0.5)
-y = 2 * x + 1 + np.random.randn(100)*5
-
-plt.figure(figsize=(12,7))
-plt.scatter(x, y, label='Data $(x,y)$')
-plt.plot(x, 2 * x + 1, label='Predicted Line $y = f(X)$', color='r',linewidth=4.0)
-plt.xlabel('$X$', fontsize=20)
-plt.ylabel('$y$', fontsize=20)
-plt.grid(True)
-plt.legend(fontsize=20)
-plt.show()
-</code></pre>
-
-<p><img src="../2_1/output_5_0.png" alt="png" /></p>
-
-<h1 id="what-about-multi-dimensional-data">What about Multi Dimensional Data?</h1>
-
-<p>In real world, the dataset is going to be multi dimensional, ie: the price of a House will not just depend on the area of the house, it may also depend on multiple factors like no of rooms, locality, distance from airport, etc.</p>
-
-<table>
-<thead>
-<tr>
-<th>House Price($) y</th>
-<th>Area(1000 sqft) x1</th>
-<th>No of Rooms x2</th>
-<th>Distance form airport x3</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>1034</td>
-<td>2.4</td>
-<td>2</td>
-<td>5.4</td>
-</tr>
-
-<tr>
-<td>1145</td>
-<td>2.7</td>
-<td>3</td>
-<td>3.1</td>
-</tr>
-
-<tr>
-<td>1252</td>
-<td>3.04</td>
-<td>3</td>
-<td>4.21</td>
-</tr>
-
-<tr>
-<td>2231</td>
-<td>4.67</td>
-<td>2</td>
-<td>2.3</td>
-</tr>
-
-<tr>
-<td>3423</td>
-<td>5.3</td>
-<td>1</td>
-<td>12</td>
-</tr>
-
-<tr>
-<td>&hellip;</td>
-<td>&hellip;</td>
-<td>&hellip;</td>
-<td>&hellip;</td>
-</tr>
-</tbody>
-</table>
-
-<p>In this case the model will be $y = f(X) = w_1x_1 + w_2x_2+w_3x_3+&hellip;+w_nx_n + b$</p>
-
-<p>This can also be represented in matrix form as $y = f(X) =  X.W + b$</p>
-
-<p>$$X =\begin{bmatrix}
-x_1  &amp; x_2 &amp; x_3 &amp; \dots &amp; x_n \
-\end{bmatrix}$$</p>
-
-<p>$$W = \begin{bmatrix}
-x_1\\ x_2 \\ \vdots \\ x_n
-\end{bmatrix}
-$$</p>
-
-<p>$$
-b = [b]$$</p>
-
-<h1 id="how-good-is-the-model">How good is the Model?</h1>
-
-<p>Before learning how to find $W$ and $b$ of a model. Let us assume we have a calculated values for optimal $W$ and $b$, how do we know how good is this model $\hat{y} = f(X) = X.W + b$.</p>
-
-<p>Notice it is not $y$, its $\hat{y}$.
-Because W and b are not the exact values, they are calculated approximate values to get $f(X)$ close to $y$. So we represent the prediction as $\hat{y} = X.W + b$ and the true target as $y$.</p>
-
-<p>Our goal is to make $\hat{y}$ as close as possible to $y$.</p>
-
-<p>So we use a metric function call Mean Squared Error (MSE)</p>
-
-<p>$MSE(y, \hat{y}) = \mathcal{L}(y , \hat{y}) = \dfrac{1}{n} \sum_{i=1}^{i=n}{(y_i - \hat{y}_i)^2}$</p>
-
-<p>Why MSE? Why not just subtraction?
-- model with 5 is better than -5 in sbtraction which actually is not both models are equally bad, but the predictions are in opposite direction.
-- MSE takes care of -5 and 5 ; $(-5)^2$ = $5^2$ = 25.</p>
+<p>Call <code>dataset()</code> function to get X, y</p>
 
 <pre><code class="language-python">import numpy as np
-
-def MSE(y, y_hat):
-  num_ex = len(y)
-  mse_loss = np.sum((y - y_hat)**2)/num_ex
-  return mse_loss
-</code></pre>
-
-<pre><code class="language-python">y = np.array([1.02, 2.3, 6.7, 3])
-y_hat1 = np.array([10.43, 23.4, 12, 11])
-y_hat2 = np.array([1, 1.9, 7, 3.1])
-
-MSE(y,y), MSE(y, y_hat1), MSE(y, y_hat2)
-</code></pre>
-
-<pre><code>(0.0, 156.46202499999998, 0.06509999999999996)
-</code></pre>
-
-<pre><code class="language-python"># example dataset for linear regression
-
-import numpy as np
 import matplotlib.pyplot as plt
 
-x = np.arange(-25, 25, 0.5)
-y = 2 * x + 1 + np.random.randn(100)*5
+def dataset(show=True):
+    X = np.arange(-25, 25, 0.1)
+    y = X**2 + 20 + np.random.randn(500)*50
+    if show:
+        plt.scatter(X, y)
+        plt.show()
+    return X, y
 
-w = -1
-b = 0
-y_hat = w * x + b
-mse_loss = MSE(y, y_hat)
-
-plt.figure(figsize=(12,7))
-plt.scatter(x, y, label='Data $(x,y)$')
-plt.plot(x, y_hat, label='Predicted Line $y = f(X)$', color='r',linewidth=4.0)
-plt.text(0,-40,'MSE = {:.3f}'.format(mse_loss), fontsize=20)
-plt.xlabel('$X$', fontsize=20)
-plt.ylabel('$y$', fontsize=20)
-plt.grid(True)
-plt.legend(fontsize=20)
-plt.show()
+X, y = dataset()
 </code></pre>
 
-<p><img src="../2_1/output_10_0.png" alt="png" /></p>
-
-<pre><code class="language-python"># example dataset for linear regression
-
-import numpy as np
-import matplotlib.pyplot as plt
-
-x = np.arange(-25, 25, 0.5)
-y = 2 * x + 1 + np.random.randn(100)*5
-
-w = 1
-b = 0.5
-y_hat = w * x + b
-mse_loss = MSE(y, y_hat)
-
-plt.figure(figsize=(12,7))
-plt.scatter(x, y, label='Data $(x,y)$')
-plt.plot(x, y_hat, label='Predicted Line $y = f(X)$', color='r',linewidth=4.0)
-plt.text(0,-40,'MSE = {:.3f}'.format(mse_loss), fontsize=20)
-plt.xlabel('$X$', fontsize=20)
-plt.ylabel('$y$', fontsize=20)
-plt.grid(True)
-plt.legend(fontsize=20)
-plt.show()
+<pre><code>&lt;Figure size 640x480 with 1 Axes&gt;
 </code></pre>
 
-<p><img src="../2_1/output_11_0.png" alt="png" /></p>
+<h1 id="scaling-dataset">Scaling Dataset</h1>
 
-<p>You can evidently see that a better model have less MSE loss. So the object of finding $W$ and $b$ will be to reduce the MSE Loss.</p>
+<p>The maximum value of y in the dataset goes upto 700 and the minimum values is less than 0. The range of y is very large which makes the convergence/loss reduction slower. So will we scale the data, scaling the data will help the model converge faster. If all the features and target are in same range, there will be symmetry in the curve of Loss vs weights/bias, which makes the convergence faster.</p>
 
-<p>Its is not generally possible to get a MSE of 0 in real world data, as the real world data is always noisy and with outliers.</p>
+<p>We will do a very simple type of scaling, we will divide all the values of the data with the maximum values for X and y respectively.</p>
 
-<h1 id="how-to-find-the-best-model-w-b">How to find the Best Model? (W, b)</h1>
+<pre><code class="language-python">X, y = dataset()
 
-<ul>
-<li>randomly initialize W, b</li>
-<li>in loop for n steps/epochs{
+print(max(X), max(y), min(X), min(y))
 
-<ul>
-<li>find $\hat{y} = X.W + b$</li>
-<li>find $MSE = \mathcal{L}(y, \hat{y})$</li>
-<li>find $ \frac{\partial \mathcal{L}}{\partial w} $ and $ \frac{\partial \mathcal{L}}{\partial b} $</li>
-<li>Update W and b with $w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \frac{\partial \mathcal{L}}{\partial b}$
-}</li>
-</ul></li>
-</ul>
+X = X/max(X)
+y = y/max(y)
 
-<p>This is called Gradient Descent.</p>
-
-<p>Let&rsquo;s try it first and see why it works.</p>
-
-<p>$\mathcal{L}= \dfrac{1}{n} \sum_{i=1}^{i=n}{(y_i - wx^i-b)^2} $</p>
-
-<p>$ \dfrac{\partial \mathcal{L}}{\partial w}  = \dfrac{1}{n}\sum_{i=1}^{i=n}{2(y_i - wx^i - b)(-x^i)}$</p>
-
-<p>$ \dfrac{\partial \mathcal{L}}{\partial b}  =  \dfrac{1}{n} \sum_{i=1}^{i=n}{ 2 (y_i - wx^i-b) (-1)}$</p>
-
-<p>Therefore</p>
-
-<p>$w := w - \alpha  \dfrac{2}{n} (wX+b - y) (X)$</p>
-
-<p>$b := b - \alpha \dfrac{2}{n}   \sum_{i=1}^{i=n}{ (wX+b - y_i)}$</p>
-
-<pre><code class="language-python">def model_forward(x, w, b):
-  y_hat = w * x + b
-  return y_hat
-  
-  
-def gradient_descent(w, b, X, y, a):
-  w = w - a * 2 / X.shape[0] * np.dot(X.T, model_forward(X, w, b)- y)
-  b = b - a * 2 / X.shape[0] * np.sum(model_forward(X, w, b)- y)
-  return w, b
+print(max(X), max(y), min(X), min(y))
 </code></pre>
 
-<pre><code class="language-python">w, b = np.random.random(1), np.random.random(1)
+<p><img src="../2_2/output_6_0.png" alt="png" /></p>
 
-X = np.arange(-25, 25, 0.5)
-y = 2 * x + 1 + np.random.randn(100)*5
-
-y_hat = model_forward(X, w, b)
-MSE(y, y_hat) # of randomly initialized model
+<pre><code>24.90000000000071 699.9355092361043 -25.0 -156.58348535333417
+1.0 1.0 -1.0040160642569995 -0.22371130380886986
 </code></pre>
 
-<pre><code>831.0459153266066
-</code></pre>
+<p>This is not a great scaling method, but good to start. We will see many more scaling/normalizing methods later.</p>
 
-<pre><code class="language-python">losses = []
-
-alpha = 0.00001
-
-for i in range(1000):
-  y_hat = model_forward(X, w, b)
-  mse = MSE(y_hat, y)
-  losses.append(mse)
-  w, b = gradient_descent(w, b, X, y, alpha)
-  
-  if i%500 == 0:
-    y_hat = model_forward(X, w, b)
-    mse = MSE(y_hat, y)
-    
-    plt.figure(figsize=(12,7))
-    plt.scatter(X, y, label='Data $(X, y)$')
-    plt.plot(X, y_hat, color='red', label='Predicted Line $y = f(X)$',linewidth=4.0)
-    plt.xlabel('$X$', fontsize=20)
-    plt.ylabel('$y$', fontsize=20)
-    plt.text(0,-30,'Epoch = {}'.format(i+1), fontsize=20)
-    plt.text(0,-40,'MSE = {:.3f}'.format(mse), fontsize=20)
-    plt.grid(True)
-    plt.legend(fontsize=20)
-    plt.show()
-
-plt.plot(losses)
-plt.xlabel('Epochs')
-plt.ylabel('MSE Loss')
-plt.show()
-</code></pre>
-
-<p><img src="../2_1/output_16_0.png" alt="png" /></p>
-
-<p><img src="../2_1/output_16_1.png" alt="png" /></p>
-
-<p><img src="../2_1/output_16_2.png" alt="png" /></p>
-
-<p>You can see how the loss decreases and the model prediction becomes better with the number of epochs.</p>
-
-<p>Try to run the code with different alpha, different no of epochs and different initialization of w and b.</p>
+<p><strong>Try training the model with and without scaling and see the difference yourself.</strong></p>
 
 <h1 id="linear-regression-in-tensorflow">Linear Regression in TensorFlow</h1>
 
@@ -906,18 +605,16 @@ from tensorflow import keras
 import matplotlib.pyplot as plt
 import numpy as np
 
-def MSE(y, y_hat):
-  num_ex = len(y)
-  mse_loss = np.sum((y - y_hat)**2)/num_ex
-  return mse_loss
-
-
-X = np.arange(-25, 25, 0.5).astype('float32')
-y = (2 * X + 1 + np.random.randn(100)*5).astype('float32')
+X, y = dataset(show=False)
+X_scaled = X/max(X)
+y_scaled = y/max(y)
 
 model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[1])])
-model.compile(optimizer='adam', loss='mean_squared_error')
-tf_history = model.fit(X, y, epochs=1000, verbose=False)
+
+optimizer = tf.keras.optimizers.Adam(learning_rate=1e-3)
+
+model.compile(optimizer=optimizer, loss='mean_squared_error')
+tf_history = model.fit(X_scaled, y_scaled, epochs=500, verbose=False)
 
 plt.plot(tf_history.history['loss'])
 plt.xlabel('Epochs')
@@ -925,61 +622,222 @@ plt.ylabel('MSE Loss')
 plt.show()
 
 mse = tf_history.history['loss'][-1]
-y_hat = model.predict(X)
+y_hat = model.predict(X_scaled)
 
 plt.figure(figsize=(12,7))
 plt.title('TensorFlow Model')
-plt.scatter(X, y, label='Data $(X, y)$')
-plt.plot(X, y_hat, color='red', label='Predicted Line $y = f(X)$',linewidth=4.0)
+plt.scatter(X_scaled, y_scaled, label='Data $(X, y)$')
+plt.plot(X_scaled, y_hat, color='red', label='Predicted Line $y = f(X)$',linewidth=4.0)
 plt.xlabel('$X$', fontsize=20)
 plt.ylabel('$y$', fontsize=20)
-plt.text(0,-40,'MSE = {:.3f}'.format(mse), fontsize=20)
+plt.text(0,0.70,'MSE = {:.3f}'.format(mse), fontsize=20)
 plt.grid(True)
 plt.legend(fontsize=20)
 plt.show()
 </code></pre>
 
-<p><img src="../2_1/output_19_0.png" alt="png" /></p>
-
-<p><img src="../2_1/output_19_1.png" alt="png" /></p>
-
-<p>Lets look into each line
-- <code>model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[1])])</code></p>
-
-<pre><code>    Sequential is like a container or wrapper which holds all the operations to be performed on your input.
+<pre><code>WARNING: Logging before flag parsing goes to stderr.
+W0827 01:02:10.229988 140184887179072 deprecation.py:506] From /home/shangeth/anaconda3/envs/dlenv/lib/python3.6/site-packages/tensorflow/python/ops/init_ops.py:1251: calling VarianceScaling.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
+Instructions for updating:
+Call initializer instance with the dtype argument instead of passing it to the constructor
 </code></pre>
+
+<p><img src="../2_2/output_9_1.png" alt="png" /></p>
+
+<p><img src="../2_2/output_9_2.png" alt="png" /></p>
+
+<p>Looks the model Prediction for this dataset is very bad, but that is expected as the model is a straight line, it cannot predict non linear regression data.  Is there a way to train a regression model for this task?</p>
+
+<h1 id="polynomial-regression">Polynomial Regression</h1>
+
+<p>So when the dataset is not linear, linear regression cannot learn the dataset and make good predictions.</p>
+
+<p>So we need a polynomial model which consideres the polynomial terms as well. So we need terms like $x^2$, $x^3$, &hellip;, $x^n$ for the model to learn a polynomial of $n^{th}$ degree.</p>
+
+<p>$\hat{y} = w_0 + w_1x + w_2x^2 + &hellip; + w_nx^n$</p>
+
+<p>One down side of this model is that, We will have to decide the value of n. But this is better than a linear regression model. We can get an idea of the value of n by visualizing a dataset, but for multi variable dataset, we will have to try different values of n and check which is better.</p>
+
+<h2 id="polynomial-features">Polynomial Features</h2>
+
+<p>you can calculate the polynomial features for each feature by programming it or you can try <code>sklearn.preprocessing.PolynomialFeatures</code> which allows us to make polynomial terms of our data.</p>
+
+<p>We will try degree 2, 3 and 4</p>
+
+<pre><code class="language-python">X, y = dataset(show=False)
+X_scaled = X/max(X)
+y_scaled = y/max(y)
+</code></pre>
+
+<pre><code class="language-python">from sklearn.preprocessing import PolynomialFeatures
+poly = PolynomialFeatures(degree=2) 
+                                        
+X_2 = poly.fit_transform(X_scaled.reshape(-1,1))
+print(X_2.shape)
+print(X_2[0])
+</code></pre>
+
+<pre><code>(500, 3)
+[ 1.         -1.00401606  1.00804826]
+</code></pre>
+
+<pre><code class="language-python">from sklearn.preprocessing import PolynomialFeatures
+poly = PolynomialFeatures(degree=3) 
+                                        
+X_3 = poly.fit_transform(X_scaled.reshape(-1,1))
+print(X_3.shape)
+print(X_3[0])
+</code></pre>
+
+<pre><code>(500, 4)
+[ 1.         -1.00401606  1.00804826 -1.01209664]
+</code></pre>
+
+<pre><code class="language-python">from sklearn.preprocessing import PolynomialFeatures
+poly = PolynomialFeatures(degree=4) 
+                                        
+X_4 = poly.fit_transform(X_scaled.reshape(-1,1))
+print(X_4.shape)
+print(X_4[0])
+</code></pre>
+
+<pre><code>(500, 5)
+[ 1.         -1.00401606  1.00804826 -1.01209664  1.01616129]
+</code></pre>
+
+<p>The PolynomialFeatures returns $[1, x, x^2, x^3,&hellip;]$.</p>
+
+<h1 id="task-2">Task - 2</h1>
 
 <ul>
-<li><p><code>model.compile(optimizer='adam', loss='mean_squared_error')</code></p>
-
-<pre><code>Compile configures the training process. It defines the metrics, optimizers,..etc. You will understand more about this as we go on with more examples.
-</code></pre></li>
-
-<li><p><code>tf_history = model.fit(x, y, epochs=1000, verbose=False)</code></p>
-
-<pre><code>model.fit actually trains the model for given number of epochs. Note: i've used Verbose=False(as the output will be long), set it to true to check the loss and metrics for each epoch.
-</code></pre></li>
+<li>Train a model with polynomial terms in the dataset.</li>
+<li>Visualize the prediction of the model</li>
 </ul>
 
-<p>Just 3-4 line of Tensorflow code can train a ml model, this is the advantage of using packages like Tensorflow/PyTorch. These packages are best optimized for speed and performance.</p>
+<p>The code remains the same except, the no of input features will be 3, 4, 5 respectively.</p>
 
-<pre><code class="language-python">model.summary()
+<h1 id="tensorflow-model-with-2nd-degree">Tensorflow Model with 2nd Degree</h1>
+
+<pre><code class="language-python">import tensorflow as tf
+from tensorflow import keras
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[3])])
+
+optimizer = tf.keras.optimizers.Adam(learning_rate=1e-3)
+
+model.compile(optimizer=optimizer, loss='mean_squared_error')
+tf_history = model.fit(X_2, y_scaled, epochs=500, verbose=False)
+
+plt.plot(tf_history.history['loss'])
+plt.xlabel('Epochs')
+plt.ylabel('MSE Loss')
+plt.show()
+
+mse = tf_history.history['loss'][-1]
+y_hat = model.predict(X_2)
+
+plt.figure(figsize=(12,7))
+plt.title('TensorFlow Model')
+plt.scatter(X_2[:, 1], y_scaled, label='Data $(X, y)$')
+plt.plot(X_2[:, 1], y_hat, color='red', label='Predicted Line $y = f(X)$',linewidth=4.0)
+plt.xlabel('$X$', fontsize=20)
+plt.ylabel('$y$', fontsize=20)
+plt.text(0,0.70,'MSE = {:.3f}'.format(mse), fontsize=20)
+plt.grid(True)
+plt.legend(fontsize=20)
+plt.show()
 </code></pre>
 
-<pre><code>Model: &quot;sequential&quot;
-_________________________________________________________________
-Layer (type)                 Output Shape              Param #   
-=================================================================
-dense (Dense)                (None, 1)                 2         
-=================================================================
-Total params: 2
-Trainable params: 2
-Non-trainable params: 0
-_________________________________________________________________
+<p><img src="../2_2/output_20_0.png" alt="png" /></p>
+
+<p><img src="../2_2/output_20_1.png" alt="png" /></p>
+
+<h1 id="tensorflow-model-with-3rd-degree">Tensorflow Model with 3rd Degree</h1>
+
+<pre><code class="language-python">import tensorflow as tf
+from tensorflow import keras
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[4])])
+
+optimizer = tf.keras.optimizers.Adam(learning_rate=1e-3)
+
+model.compile(optimizer=optimizer, loss='mean_squared_error')
+tf_history = model.fit(X_3, y_scaled, epochs=500, verbose=False)
+
+plt.plot(tf_history.history['loss'])
+plt.xlabel('Epochs')
+plt.ylabel('MSE Loss')
+plt.show()
+
+mse = tf_history.history['loss'][-1]
+y_hat = model.predict(X_3)
+
+plt.figure(figsize=(12,7))
+plt.title('TensorFlow Model')
+plt.scatter(X_3[:, 1], y_scaled, label='Data $(X, y)$')
+plt.plot(X_3[:, 1], y_hat, color='red', label='Predicted Line $y = f(X)$',linewidth=4.0)
+plt.xlabel('$X$', fontsize=20)
+plt.ylabel('$y$', fontsize=20)
+plt.text(0,0.70,'MSE = {:.3f}'.format(mse), fontsize=20)
+plt.grid(True)
+plt.legend(fontsize=20)
+plt.show()
 </code></pre>
 
-<pre><code class="language-python">tf.keras.Sequential? # if you are not sure of any library, its better to look into the docs.
+<p><img src="../2_2/output_22_0.png" alt="png" /></p>
+
+<p><img src="../2_2/output_22_1.png" alt="png" /></p>
+
+<h1 id="tensorflow-model-with-4th-degree">Tensorflow Model with 4th Degree</h1>
+
+<pre><code class="language-python">import tensorflow as tf
+from tensorflow import keras
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[5])])
+
+optimizer = tf.keras.optimizers.Adam(learning_rate=1e-3)
+
+model.compile(optimizer=optimizer, loss='mean_squared_error')
+tf_history = model.fit(X_4, y_scaled, epochs=500, verbose=False)
+
+plt.plot(tf_history.history['loss'])
+plt.xlabel('Epochs')
+plt.ylabel('MSE Loss')
+plt.show()
+
+mse = tf_history.history['loss'][-1]
+y_hat = model.predict(X_4)
+
+plt.figure(figsize=(12,7))
+plt.title('TensorFlow Model')
+plt.scatter(X_4[:, 1], y_scaled, label='Data $(X, y)$')
+plt.plot(X_4[:, 1], y_hat, color='red', label='Predicted Line $y = f(X)$',linewidth=4.0)
+plt.xlabel('$X$', fontsize=20)
+plt.ylabel('$y$', fontsize=20)
+plt.text(0,0.70,'MSE = {:.3f}'.format(mse), fontsize=20)
+plt.grid(True)
+plt.legend(fontsize=20)
+plt.show()
 </code></pre>
+
+<p><img src="../2_2/output_24_0.png" alt="png" /></p>
+
+<p><img src="../2_2/output_24_1.png" alt="png" /></p>
+
+<p>The Dataset is a 2 degree dataset, so 2nd degree polynomial regression will do a good job, but 3rd, 4th,&hellip;. all also make a good prediction as thay also contain 2nd degree polynomial terms.</p>
+
+<p>This is polynomial regression. Yes, its easy. But one issue, as this was a toy dataset we know its a 2nd degree data, so we tried 2,3,4. But when the data is multi dimensional we cannot visualize the dataset, so its difficult to decide the degree. This is why you will see Neural Networks are awesome. They are End-End, they do not need several feature extraction from our side, they can extract necessary features of their own.</p>
+
+<p><strong>Make a 3rd degree or 4th degree data and try polynomial regression on it. Also try different functions like exponents, trignometric..etc.</strong></p>
 
           </div>
 
@@ -996,15 +854,9 @@ _________________________________________________________________
   
   <div class="post-nav-item">
     <div class="meta-nav">Previous</div>
-    <a href="/google-ml-academy/deeplearning/1.2/" rel="next">Numpy</a>
+    <a href="/google-ml-academy/deeplearning/2.1/" rel="next"></a>
   </div>
   
-  
-  
-  <div class="post-nav-item">
-    <div class="meta-nav">Next</div>
-    <a href="/google-ml-academy/deeplearning/2.2/" rel="prev"></a>
-  </div>
   
 </div>
 

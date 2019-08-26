@@ -452,6 +452,7 @@ plt.ylabel(&#39;MSE Loss&#39;)
 plt.show()
 
 mse = tf_history.history[&#39;loss&#39;][-1]
+y_hat = model.predict(X)
 
 plt.figure(figsize=(12,7))
 plt.title(&#39;TensorFlow Model&#39;)
@@ -506,6 +507,319 @@ _________________________________________________________________
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;tf.keras.Sequential? # if you are not sure of any library, its better to look into the docs.
 &lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/google-ml-academy/deeplearning/2.2/</link>
+      <pubDate>Sat, 06 Jul 2019 00:00:00 +0100</pubDate>
+      
+      <guid>/google-ml-academy/deeplearning/2.2/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/2_2_Assignment_Polynomial_Regression.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;h1&gt;&lt;a href=&#39;https://shangeth.com/google-ml-academy/&#39;&gt;Google ML Academy 2019&lt;/a&gt;&lt;/h1&gt;&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;h3&gt;Instructor: &lt;a href=&#39;https://shangeth.com/&#39;&gt;Shangeth Rajaa&lt;/a&gt;&lt;/h3&gt;&lt;/center&gt;
+&lt;hr&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;task-1&#34;&gt;Task - 1&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Get X and y from dataset() function&lt;/li&gt;
+&lt;li&gt;Train a Linear Regression model for this dataset.&lt;/li&gt;
+&lt;li&gt;Visualize the model prediction&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;dataset&#34;&gt;Dataset&lt;/h1&gt;
+
+&lt;p&gt;Call &lt;code&gt;dataset()&lt;/code&gt; function to get X, y&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import numpy as np
+import matplotlib.pyplot as plt
+
+def dataset(show=True):
+    X = np.arange(-25, 25, 0.1)
+    y = X**2 + 20 + np.random.randn(500)*50
+    if show:
+        plt.scatter(X, y)
+        plt.show()
+    return X, y
+
+X, y = dataset()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;Figure size 640x480 with 1 Axes&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;scaling-dataset&#34;&gt;Scaling Dataset&lt;/h1&gt;
+
+&lt;p&gt;The maximum value of y in the dataset goes upto 700 and the minimum values is less than 0. The range of y is very large which makes the convergence/loss reduction slower. So will we scale the data, scaling the data will help the model converge faster. If all the features and target are in same range, there will be symmetry in the curve of Loss vs weights/bias, which makes the convergence faster.&lt;/p&gt;
+
+&lt;p&gt;We will do a very simple type of scaling, we will divide all the values of the data with the maximum values for X and y respectively.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;X, y = dataset()
+
+print(max(X), max(y), min(X), min(y))
+
+X = X/max(X)
+y = y/max(y)
+
+print(max(X), max(y), min(X), min(y))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_2/output_6_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;24.90000000000071 699.9355092361043 -25.0 -156.58348535333417
+1.0 1.0 -1.0040160642569995 -0.22371130380886986
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is not a great scaling method, but good to start. We will see many more scaling/normalizing methods later.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Try training the model with and without scaling and see the difference yourself.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;linear-regression-in-tensorflow&#34;&gt;Linear Regression in TensorFlow&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
+from tensorflow import keras
+import matplotlib.pyplot as plt
+import numpy as np
+
+X, y = dataset(show=False)
+X_scaled = X/max(X)
+y_scaled = y/max(y)
+
+model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[1])])
+
+optimizer = tf.keras.optimizers.Adam(learning_rate=1e-3)
+
+model.compile(optimizer=optimizer, loss=&#39;mean_squared_error&#39;)
+tf_history = model.fit(X_scaled, y_scaled, epochs=500, verbose=False)
+
+plt.plot(tf_history.history[&#39;loss&#39;])
+plt.xlabel(&#39;Epochs&#39;)
+plt.ylabel(&#39;MSE Loss&#39;)
+plt.show()
+
+mse = tf_history.history[&#39;loss&#39;][-1]
+y_hat = model.predict(X_scaled)
+
+plt.figure(figsize=(12,7))
+plt.title(&#39;TensorFlow Model&#39;)
+plt.scatter(X_scaled, y_scaled, label=&#39;Data $(X, y)$&#39;)
+plt.plot(X_scaled, y_hat, color=&#39;red&#39;, label=&#39;Predicted Line $y = f(X)$&#39;,linewidth=4.0)
+plt.xlabel(&#39;$X$&#39;, fontsize=20)
+plt.ylabel(&#39;$y$&#39;, fontsize=20)
+plt.text(0,0.70,&#39;MSE = {:.3f}&#39;.format(mse), fontsize=20)
+plt.grid(True)
+plt.legend(fontsize=20)
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;WARNING: Logging before flag parsing goes to stderr.
+W0827 01:02:10.229988 140184887179072 deprecation.py:506] From /home/shangeth/anaconda3/envs/dlenv/lib/python3.6/site-packages/tensorflow/python/ops/init_ops.py:1251: calling VarianceScaling.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
+Instructions for updating:
+Call initializer instance with the dtype argument instead of passing it to the constructor
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_2/output_9_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_2/output_9_2.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Looks the model Prediction for this dataset is very bad, but that is expected as the model is a straight line, it cannot predict non linear regression data.  Is there a way to train a regression model for this task?&lt;/p&gt;
+
+&lt;h1 id=&#34;polynomial-regression&#34;&gt;Polynomial Regression&lt;/h1&gt;
+
+&lt;p&gt;So when the dataset is not linear, linear regression cannot learn the dataset and make good predictions.&lt;/p&gt;
+
+&lt;p&gt;So we need a polynomial model which consideres the polynomial terms as well. So we need terms like $x^2$, $x^3$, &amp;hellip;, $x^n$ for the model to learn a polynomial of $n^{th}$ degree.&lt;/p&gt;
+
+&lt;p&gt;$\hat{y} = w_0 + w_1x + w_2x^2 + &amp;hellip; + w_nx^n$&lt;/p&gt;
+
+&lt;p&gt;One down side of this model is that, We will have to decide the value of n. But this is better than a linear regression model. We can get an idea of the value of n by visualizing a dataset, but for multi variable dataset, we will have to try different values of n and check which is better.&lt;/p&gt;
+
+&lt;h2 id=&#34;polynomial-features&#34;&gt;Polynomial Features&lt;/h2&gt;
+
+&lt;p&gt;you can calculate the polynomial features for each feature by programming it or you can try &lt;code&gt;sklearn.preprocessing.PolynomialFeatures&lt;/code&gt; which allows us to make polynomial terms of our data.&lt;/p&gt;
+
+&lt;p&gt;We will try degree 2, 3 and 4&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;X, y = dataset(show=False)
+X_scaled = X/max(X)
+y_scaled = y/max(y)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn.preprocessing import PolynomialFeatures
+poly = PolynomialFeatures(degree=2) 
+                                        
+X_2 = poly.fit_transform(X_scaled.reshape(-1,1))
+print(X_2.shape)
+print(X_2[0])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;(500, 3)
+[ 1.         -1.00401606  1.00804826]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn.preprocessing import PolynomialFeatures
+poly = PolynomialFeatures(degree=3) 
+                                        
+X_3 = poly.fit_transform(X_scaled.reshape(-1,1))
+print(X_3.shape)
+print(X_3[0])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;(500, 4)
+[ 1.         -1.00401606  1.00804826 -1.01209664]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn.preprocessing import PolynomialFeatures
+poly = PolynomialFeatures(degree=4) 
+                                        
+X_4 = poly.fit_transform(X_scaled.reshape(-1,1))
+print(X_4.shape)
+print(X_4[0])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;(500, 5)
+[ 1.         -1.00401606  1.00804826 -1.01209664  1.01616129]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The PolynomialFeatures returns $[1, x, x^2, x^3,&amp;hellip;]$.&lt;/p&gt;
+
+&lt;h1 id=&#34;task-2&#34;&gt;Task - 2&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Train a model with polynomial terms in the dataset.&lt;/li&gt;
+&lt;li&gt;Visualize the prediction of the model&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The code remains the same except, the no of input features will be 3, 4, 5 respectively.&lt;/p&gt;
+
+&lt;h1 id=&#34;tensorflow-model-with-2nd-degree&#34;&gt;Tensorflow Model with 2nd Degree&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
+from tensorflow import keras
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[3])])
+
+optimizer = tf.keras.optimizers.Adam(learning_rate=1e-3)
+
+model.compile(optimizer=optimizer, loss=&#39;mean_squared_error&#39;)
+tf_history = model.fit(X_2, y_scaled, epochs=500, verbose=False)
+
+plt.plot(tf_history.history[&#39;loss&#39;])
+plt.xlabel(&#39;Epochs&#39;)
+plt.ylabel(&#39;MSE Loss&#39;)
+plt.show()
+
+mse = tf_history.history[&#39;loss&#39;][-1]
+y_hat = model.predict(X_2)
+
+plt.figure(figsize=(12,7))
+plt.title(&#39;TensorFlow Model&#39;)
+plt.scatter(X_2[:, 1], y_scaled, label=&#39;Data $(X, y)$&#39;)
+plt.plot(X_2[:, 1], y_hat, color=&#39;red&#39;, label=&#39;Predicted Line $y = f(X)$&#39;,linewidth=4.0)
+plt.xlabel(&#39;$X$&#39;, fontsize=20)
+plt.ylabel(&#39;$y$&#39;, fontsize=20)
+plt.text(0,0.70,&#39;MSE = {:.3f}&#39;.format(mse), fontsize=20)
+plt.grid(True)
+plt.legend(fontsize=20)
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_2/output_20_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_2/output_20_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;tensorflow-model-with-3rd-degree&#34;&gt;Tensorflow Model with 3rd Degree&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
+from tensorflow import keras
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[4])])
+
+optimizer = tf.keras.optimizers.Adam(learning_rate=1e-3)
+
+model.compile(optimizer=optimizer, loss=&#39;mean_squared_error&#39;)
+tf_history = model.fit(X_3, y_scaled, epochs=500, verbose=False)
+
+plt.plot(tf_history.history[&#39;loss&#39;])
+plt.xlabel(&#39;Epochs&#39;)
+plt.ylabel(&#39;MSE Loss&#39;)
+plt.show()
+
+mse = tf_history.history[&#39;loss&#39;][-1]
+y_hat = model.predict(X_3)
+
+plt.figure(figsize=(12,7))
+plt.title(&#39;TensorFlow Model&#39;)
+plt.scatter(X_3[:, 1], y_scaled, label=&#39;Data $(X, y)$&#39;)
+plt.plot(X_3[:, 1], y_hat, color=&#39;red&#39;, label=&#39;Predicted Line $y = f(X)$&#39;,linewidth=4.0)
+plt.xlabel(&#39;$X$&#39;, fontsize=20)
+plt.ylabel(&#39;$y$&#39;, fontsize=20)
+plt.text(0,0.70,&#39;MSE = {:.3f}&#39;.format(mse), fontsize=20)
+plt.grid(True)
+plt.legend(fontsize=20)
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_2/output_22_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_2/output_22_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;tensorflow-model-with-4th-degree&#34;&gt;Tensorflow Model with 4th Degree&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
+from tensorflow import keras
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[5])])
+
+optimizer = tf.keras.optimizers.Adam(learning_rate=1e-3)
+
+model.compile(optimizer=optimizer, loss=&#39;mean_squared_error&#39;)
+tf_history = model.fit(X_4, y_scaled, epochs=500, verbose=False)
+
+plt.plot(tf_history.history[&#39;loss&#39;])
+plt.xlabel(&#39;Epochs&#39;)
+plt.ylabel(&#39;MSE Loss&#39;)
+plt.show()
+
+mse = tf_history.history[&#39;loss&#39;][-1]
+y_hat = model.predict(X_4)
+
+plt.figure(figsize=(12,7))
+plt.title(&#39;TensorFlow Model&#39;)
+plt.scatter(X_4[:, 1], y_scaled, label=&#39;Data $(X, y)$&#39;)
+plt.plot(X_4[:, 1], y_hat, color=&#39;red&#39;, label=&#39;Predicted Line $y = f(X)$&#39;,linewidth=4.0)
+plt.xlabel(&#39;$X$&#39;, fontsize=20)
+plt.ylabel(&#39;$y$&#39;, fontsize=20)
+plt.text(0,0.70,&#39;MSE = {:.3f}&#39;.format(mse), fontsize=20)
+plt.grid(True)
+plt.legend(fontsize=20)
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_2/output_24_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_2/output_24_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The Dataset is a 2 degree dataset, so 2nd degree polynomial regression will do a good job, but 3rd, 4th,&amp;hellip;. all also make a good prediction as thay also contain 2nd degree polynomial terms.&lt;/p&gt;
+
+&lt;p&gt;This is polynomial regression. Yes, its easy. But one issue, as this was a toy dataset we know its a 2nd degree data, so we tried 2,3,4. But when the data is multi dimensional we cannot visualize the dataset, so its difficult to decide the degree. This is why you will see Neural Networks are awesome. They are End-End, they do not need several feature extraction from our side, they can extract necessary features of their own.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Make a 3rd degree or 4th degree data and try polynomial regression on it. Also try different functions like exponents, trignometric..etc.&lt;/strong&gt;&lt;/p&gt;
 </description>
     </item>
     
