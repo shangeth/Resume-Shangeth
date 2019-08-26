@@ -49,16 +49,26 @@
     </item>
     
     <item>
-      <title>Linear Regression</title>
+      <title></title>
       <link>/google-ml-academy/deeplearning/2.1/</link>
       <pubDate>Sat, 06 Jul 2019 00:00:00 +0100</pubDate>
       
       <guid>/google-ml-academy/deeplearning/2.1/</guid>
       <description>
 
-&lt;p&gt;Before starting with Neural Networks, we will look into 2 important machine learning models to understand regression and classification tasks
-- Linear Regression (Regression)
-- Logistic Regression (Classification)&lt;/p&gt;
+&lt;p&gt;&lt;center&gt;&lt;h1&gt;&lt;a href=&#39;https://shangeth.com/google-ml-academy/&#39;&gt;Google ML Academy 2019&lt;/a&gt;&lt;/h1&gt;&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;h3&gt;Instructor: &lt;a href=&#39;https://shangeth.com/&#39;&gt;Shangeth Rajaa&lt;/a&gt;&lt;/h3&gt;&lt;/center&gt;
+&lt;hr&gt;&lt;/p&gt;
+
+&lt;p&gt;Before starting with Neural Networks, we will look into 2 important machine learning models to understand regression and classification tasks&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Linear Regression (Regression)&lt;/li&gt;
+&lt;li&gt;Logistic Regression (Classification)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;linear-regression&#34;&gt;Linear Regression&lt;/h1&gt;
 
 &lt;p&gt;Most of the Deep learning Courses do not start with linear regression(LinReg), but LinReg gave me a better understanding of machine learning, so i will start with that, hoping that will make the understanding of Neural networks easier.&lt;/p&gt;
 
@@ -110,6 +120,7 @@
 &lt;p&gt;If we can find any the mapping between $X$ and $y$, $y = f(X)$, then its easy to predict the values of $y$ for any given $X$.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# example dataset for linear regression
+%matplotlib inline
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -152,7 +163,7 @@ plt.legend(fontsize=20)
 plt.show()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;output_5_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../2_1/output_5_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&#34;what-about-multi-dimensional-data&#34;&gt;What about Multi Dimensional Data?&lt;/h1&gt;
 
@@ -371,7 +382,7 @@ y_hat = model_forward(X, w, b)
 MSE(y, y_hat) # of randomly initialized model
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;401.7790695352882
+&lt;pre&gt;&lt;code&gt;831.0459153266066
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;losses = []
@@ -393,6 +404,7 @@ for i in range(1000):
     plt.plot(X, y_hat, color=&#39;red&#39;, label=&#39;Predicted Line $y = f(X)$&#39;,linewidth=4.0)
     plt.xlabel(&#39;$X$&#39;, fontsize=20)
     plt.ylabel(&#39;$y$&#39;, fontsize=20)
+    plt.text(0,-30,&#39;Epoch = {}&#39;.format(i+1), fontsize=20)
     plt.text(0,-40,&#39;MSE = {:.3f}&#39;.format(mse), fontsize=20)
     plt.grid(True)
     plt.legend(fontsize=20)
@@ -439,10 +451,10 @@ plt.xlabel(&#39;Epochs&#39;)
 plt.ylabel(&#39;MSE Loss&#39;)
 plt.show()
 
-y_hat = model.predict(X)
-mse = MSE(y_hat, y)
+mse = tf_history.history[&#39;loss&#39;][-1]
 
 plt.figure(figsize=(12,7))
+plt.title(&#39;TensorFlow Model&#39;)
 plt.scatter(X, y, label=&#39;Data $(X, y)$&#39;)
 plt.plot(X, y_hat, color=&#39;red&#39;, label=&#39;Predicted Line $y = f(X)$&#39;,linewidth=4.0)
 plt.xlabel(&#39;$X$&#39;, fontsize=20)
@@ -453,15 +465,9 @@ plt.legend(fontsize=20)
 plt.show()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;WARNING: Logging before flag parsing goes to stderr.
-W0826 15:18:20.555401 140045935363968 deprecation.py:506] From /usr/local/lib/python3.6/dist-packages/tensorflow/python/ops/init_ops.py:1251: calling VarianceScaling.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
-Instructions for updating:
-Call initializer instance with the dtype argument instead of passing it to the constructor
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../2_1/output_19_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;../2_1/output_19_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;../2_1/output_19_2.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Lets look into each line
 - &lt;code&gt;model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[1])])&lt;/code&gt;&lt;/p&gt;
