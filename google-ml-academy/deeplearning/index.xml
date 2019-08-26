@@ -13,31 +13,11 @@
     
     
     <item>
-      <title>Example Page 1</title>
-      <link>/google-ml-academy/deeplearning/1.1/</link>
-      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      
-      <guid>/google-ml-academy/deeplearning/1.1/</guid>
-      <description> Watever
-watever topic 1 watever topic 2 another topic 3 </description>
-    </item>
-    
-    <item>
-      <title>Numpy</title>
-      <link>/google-ml-academy/deeplearning/1.2/</link>
-      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      
-      <guid>/google-ml-academy/deeplearning/1.2/</guid>
-      <description> Watever
-watever topic 1 watever topic 2 another topic 3 </description>
-    </item>
-    
-    <item>
       <title></title>
-      <link>/google-ml-academy/deeplearning/2.1/</link>
+      <link>/google-ml-academy/deeplearning/1.1/</link>
       <pubDate>Sat, 06 Jul 2019 00:00:00 +0100</pubDate>
       
-      <guid>/google-ml-academy/deeplearning/2.1/</guid>
+      <guid>/google-ml-academy/deeplearning/1.1/</guid>
       <description>Google ML Academy 2019
 Instructor: Shangeth Rajaa 
 Before starting with Neural Networks, we will look into 2 important machine learning models to understand regression and classification tasks
@@ -46,10 +26,10 @@ Before starting with Neural Networks, we will look into 2 important machine lear
     
     <item>
       <title></title>
-      <link>/google-ml-academy/deeplearning/2.2/</link>
+      <link>/google-ml-academy/deeplearning/1.2/</link>
       <pubDate>Sat, 06 Jul 2019 00:00:00 +0100</pubDate>
       
-      <guid>/google-ml-academy/deeplearning/2.2/</guid>
+      <guid>/google-ml-academy/deeplearning/1.2/</guid>
       <description>Google ML Academy 2019
 Instructor: Shangeth Rajaa 
 Task - 1  Get X and y from dataset() function Train a Linear Regression model for this dataset. Visualize the model prediction  Dataset Call dataset() function to get X, y
