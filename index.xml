@@ -954,6 +954,15 @@ Epoch 50/50
     </item>
     
     <item>
+      <title></title>
+      <link>/google-ml-academy/deeplearning/1.3/</link>
+      <pubDate>Thu, 29 Aug 2019 00:00:00 +0100</pubDate>
+      
+      <guid>/google-ml-academy/deeplearning/1.3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Facial Emotion Recognition PyTorch ONNX</title>
       <link>/project/facial-emotion-recognition-pytorch/</link>
       <pubDate>Mon, 08 Jul 2019 01:07:01 +0530</pubDate>
