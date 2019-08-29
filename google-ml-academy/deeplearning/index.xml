@@ -15,7 +15,7 @@
     <item>
       <title></title>
       <link>/google-ml-academy/deeplearning/1.1/</link>
-      <pubDate>Sat, 06 Jul 2019 00:00:00 +0100</pubDate>
+      <pubDate>Thu, 29 Aug 2019 00:00:00 +0100</pubDate>
       
       <guid>/google-ml-academy/deeplearning/1.1/</guid>
       <description>Open in GitHub
@@ -27,13 +27,13 @@ Linear Regression Most of the Deep learning Courses do not start with linear reg
     <item>
       <title></title>
       <link>/google-ml-academy/deeplearning/1.2/</link>
-      <pubDate>Sat, 06 Jul 2019 00:00:00 +0100</pubDate>
+      <pubDate>Thu, 29 Aug 2019 00:00:00 +0100</pubDate>
       
       <guid>/google-ml-academy/deeplearning/1.2/</guid>
-      <description>Google ML Academy 2019
-Instructor: Shangeth Rajaa 
-Task - 1  Get X and y from dataset() function Train a Linear Regression model for this dataset. Visualize the model prediction  Dataset Call dataset() function to get X, y
-import numpy as np import matplotlib.pyplot as plt def dataset(show=True): X = np.arange(-25, 25, 0.1) y = X**2 + 20 + np.random.randn(500)*50 if show: plt.scatter(X, y) plt.show() return X, y X, y = dataset()  &amp;lt;Figure size 640x480 with 1 Axes&amp;gt;  Scaling Dataset The maximum value of y in the dataset goes upto 700 and the minimum values is less than 0.</description>
+      <description>Open in GitHub
+Google ML Academy 2019 Instructor: Shangeth Rajaa 
+Try Completing this Notebook before going through this page.   Open in GitHub Its a very simple assignment, you can finish it in less than 10 minutes. If you are stuck somewhere refer this page for solutions.
+Task-1 : Linear Regression on Non-Linear Data  Get X and y from dataset() function Train a Linear Regression model for this dataset.</description>
     </item>
     
   </channel>
