@@ -20,17 +20,17 @@
       <guid>/google-ml-academy/deeplearning/1.1/</guid>
       <description>
 
-&lt;p&gt;&lt;center&gt;&lt;h1&gt;&lt;a href=&#39;https://shangeth.com/google-ml-academy/&#39;&gt;Google ML Academy 2019&lt;/a&gt;&lt;/h1&gt;&lt;/center&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/1-Intro-to-Deep-Learning/1_1_Linear_Regression.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;center&gt;&lt;h3&gt;Instructor: &lt;a href=&#39;https://shangeth.com/&#39;&gt;Shangeth Rajaa&lt;/a&gt;&lt;/h3&gt;&lt;/center&gt;
+&lt;p&gt;&lt;center&gt;&lt;a href=&#34;https://github.com/shangeth/Google-ML-Academy/blob/master/1-Intro-to-Deep-Learning/1_1_Linear_Regression.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;svg class=&#34;octicon octicon-mark-github v-align-middle&#34; height=&#34;30&#34; viewBox=&#34;0 0 16 16&#34; version=&#34;1.1&#34; width=&#34;30&#34; aria-hidden=&#34;true&#34;&gt;&lt;path fill-rule=&#34;evenodd&#34; d=&#34;M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; Open in GitHub&lt;/a&gt;&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1&gt;&lt;a href=&#39;https://shangeth.com/google-ml-academy/&#39;&gt;Google ML Academy 2019&lt;/a&gt;&lt;/h1&gt;
+&lt;h3&gt;Instructor: &lt;a href=&#39;https://shangeth.com/&#39;&gt;Shangeth Rajaa&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;&lt;/p&gt;
 
-&lt;p&gt;Before starting with Neural Networks, we will look into 2 important machine learning models to understand regression and classification tasks&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Linear Regression (Regression)&lt;/li&gt;
-&lt;li&gt;Logistic Regression (Classification)&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Before starting with Neural Networks, we will look into 2 important machine learning models to understand regression and classification tasks
+- Linear Regression (Regression)
+- Logistic Regression (Classification)&lt;/p&gt;
 
 &lt;h1 id=&#34;linear-regression&#34;&gt;Linear Regression&lt;/h1&gt;
 
@@ -101,7 +101,7 @@ plt.legend(fontsize=20)
 plt.show()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;../2_1/output_3_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../1_1/output_4_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;So the prediction will be a line in case of 2-D data like above.&lt;/p&gt;
 
@@ -127,7 +127,7 @@ plt.legend(fontsize=20)
 plt.show()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;../2_1/output_5_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../1_1/output_6_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&#34;what-about-multi-dimensional-data&#34;&gt;What about Multi Dimensional Data?&lt;/h1&gt;
 
@@ -192,17 +192,13 @@ plt.show()
 
 &lt;p&gt;This can also be represented in matrix form as $y = f(X) =  X.W + b$&lt;/p&gt;
 
-&lt;p&gt;$$X =\begin{bmatrix}
-x_1  &amp;amp; x_2 &amp;amp; x_3 &amp;amp; \dots &amp;amp; x_n \
+&lt;p&gt;$$X = \begin{bmatrix}
+    x_1  &amp;amp; x_2 &amp;amp; x_3 &amp;amp; \dots &amp;amp; x_n &lt;br /&gt;
 \end{bmatrix}$$&lt;/p&gt;
 
-&lt;p&gt;$$W = \begin{bmatrix}
-x_1\\ x_2 \\ \vdots \\ x_n
-\end{bmatrix}
-$$&lt;/p&gt;
+&lt;p&gt;$$W = \begin{bmatrix}x_1\\x_2\\ \vdots\\x_n\end{bmatrix}$$&lt;/p&gt;
 
-&lt;p&gt;$$
-b = [b]$$&lt;/p&gt;
+&lt;p&gt;$$b = [b]$$&lt;/p&gt;
 
 &lt;h1 id=&#34;how-good-is-the-model&#34;&gt;How good is the Model?&lt;/h1&gt;
 
@@ -263,7 +259,7 @@ plt.legend(fontsize=20)
 plt.show()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;../2_1/output_10_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../1_1/output_11_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# example dataset for linear regression
 
@@ -289,7 +285,7 @@ plt.legend(fontsize=20)
 plt.show()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;../2_1/output_11_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../1_1/output_12_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;You can evidently see that a better model have less MSE loss. So the object of finding $W$ and $b$ will be to reduce the MSE Loss.&lt;/p&gt;
 
@@ -316,9 +312,13 @@ plt.show()
 
 &lt;p&gt;$\mathcal{L}= \dfrac{1}{n} \sum_{i=1}^{i=n}{(y_i - wx^i-b)^2} $&lt;/p&gt;
 
-&lt;p&gt;$ \dfrac{\partial \mathcal{L}}{\partial w}  = \dfrac{1}{n}\sum_{i=1}^{i=n}{2(y_i - wx^i - b)(-x^i)}$&lt;/p&gt;
+&lt;p&gt;$ \dfrac{\partial \mathcal{L}}{\partial w}  =  \dfrac{1}{n} \sum_{i=1}^{i=n}{ 2 (y_i - wx^i-b) (-x^i)} $&lt;/p&gt;
+
+&lt;p&gt;$= \dfrac{2}{n} \sum_{i=1}^{i=n}{ (wx^i+b - y_i) (x^i)}$&lt;/p&gt;
 
 &lt;p&gt;$ \dfrac{\partial \mathcal{L}}{\partial b}  =  \dfrac{1}{n} \sum_{i=1}^{i=n}{ 2 (y_i - wx^i-b) (-1)}$&lt;/p&gt;
+
+&lt;p&gt;$= \dfrac{2}{n} \sum_{i=1}^{i=n}{ (wx^i+b - y_i)}$&lt;/p&gt;
 
 &lt;p&gt;Therefore&lt;/p&gt;
 
@@ -380,11 +380,11 @@ plt.ylabel(&#39;MSE Loss&#39;)
 plt.show()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;../2_1/output_16_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../1_1/output_17_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../2_1/output_16_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../1_1/output_17_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../2_1/output_16_2.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../1_1/output_17_2.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;You can see how the loss decreases and the model prediction becomes better with the number of epochs.&lt;/p&gt;
 
@@ -430,9 +430,9 @@ plt.legend(fontsize=20)
 plt.show()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;../2_1/output_19_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../1_1/output_20_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../2_1/output_19_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../1_1/output_20_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Lets look into each line
 - &lt;code&gt;model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[1])])&lt;/code&gt;&lt;/p&gt;
