@@ -101,7 +101,7 @@ plt.legend(fontsize=20)
 plt.show()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;../1_1/output_4_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../1_1/output_5_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;So the prediction will be a line in case of 2-D data like above.&lt;/p&gt;
 
@@ -127,7 +127,7 @@ plt.legend(fontsize=20)
 plt.show()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;../1_1/output_6_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../1_1/output_7_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&#34;what-about-multi-dimensional-data&#34;&gt;What about Multi Dimensional Data?&lt;/h1&gt;
 
@@ -259,7 +259,7 @@ plt.legend(fontsize=20)
 plt.show()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;../1_1/output_11_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../1_1/output_12_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# example dataset for linear regression
 
@@ -285,7 +285,7 @@ plt.legend(fontsize=20)
 plt.show()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;../1_1/output_12_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../1_1/output_13_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;You can evidently see that a better model have less MSE loss. So the object of finding $W$ and $b$ will be to reduce the MSE Loss.&lt;/p&gt;
 
@@ -380,11 +380,11 @@ plt.ylabel(&#39;MSE Loss&#39;)
 plt.show()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;../1_1/output_17_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../1_1/output_18_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../1_1/output_17_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../1_1/output_18_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../1_1/output_17_2.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../1_1/output_18_2.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;You can see how the loss decreases and the model prediction becomes better with the number of epochs.&lt;/p&gt;
 
@@ -430,9 +430,9 @@ plt.legend(fontsize=20)
 plt.show()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;../1_1/output_20_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../1_1/output_21_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../1_1/output_20_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../1_1/output_21_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Lets look into each line
 - &lt;code&gt;model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[1])])&lt;/code&gt;&lt;/p&gt;
