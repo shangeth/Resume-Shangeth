@@ -48,5 +48,14 @@ Logistic Regression Logistic Regression is one of the most commonly used classif
 For example for a given data (X,y) where X is a recieved email and y is 0 if email is spam and 1 if email is not spam.</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>/google-ml-academy/deeplearning/1.4/</link>
+      <pubDate>Fri, 30 Aug 2019 00:00:00 +0100</pubDate>
+      
+      <guid>/google-ml-academy/deeplearning/1.4/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
