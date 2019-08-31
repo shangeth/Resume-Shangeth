@@ -300,15 +300,15 @@
   </url>
   
   <url>
-    <loc>/google-ml-academy/</loc>
-  </url>
-  
-  <url>
     <loc>/project/character-generating-rnn/</loc>
   </url>
   
   <url>
     <loc>/project/computer-vision-security-system/</loc>
+  </url>
+  
+  <url>
+    <loc>/google-ml-academy/</loc>
   </url>
   
   <url>
