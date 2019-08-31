@@ -32,8 +32,11 @@ Linear Regression Most of the Deep learning Courses do not start with linear reg
       <guid>/google-ml-academy/deeplearning/1.2/</guid>
       <description>Open in GitHub
 Google ML Academy 2019 Instructor: Shangeth Rajaa 
-Try Completing this Notebook before going through this page.   Open in GitHub Its a very simple assignment, you can finish it in less than 10 minutes. If you are stuck somewhere refer this page for solutions.
-Task-1 : Linear Regression on Non-Linear Data  Get X and y from dataset() function Train a Linear Regression model for this dataset.</description>
+Solutions Here:
+
+ Open in GitHub
+Its a very simple assignment, you can finish it in less than 10 minutes. If you are stuck somewhere refer this for solutions.
+Task-1 : Linear Regression on Non-Linear Data  Get X and y from dataset() function Train a Linear Regression model for this dataset. Visualize the model prediction  Dataset Call dataset() function to get X, y</description>
     </item>
     
     <item>
@@ -55,7 +58,12 @@ For example for a given data (X,y) where X is a recieved email and y is 0 if ema
       <pubDate>Fri, 30 Aug 2019 00:00:00 +0100</pubDate>
       
       <guid>/google-ml-academy/deeplearning/1.4/</guid>
-      <description></description>
+      <description>Open in GitHub
+Google ML Academy 2019 Instructor: Shangeth Rajaa 
+Solutions Here: 
+ Open in GitHub
+Multi Class Classification In the previous notebeook we used logistic regression for Binary Classification, now we will see how to train a classifier model for Multi-Class Classification.
+What is Multi-Class Classification? If the target values have n discrete classification classes ie: y can take discrete value from 0 to n-1.</description>
     </item>
     
   </channel>
