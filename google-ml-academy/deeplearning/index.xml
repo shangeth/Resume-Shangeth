@@ -13,7 +13,7 @@
     
     
     <item>
-      <title></title>
+      <title>Linear Regression</title>
       <link>/google-ml-academy/deeplearning/1.1/</link>
       <pubDate>Thu, 29 Aug 2019 00:00:00 +0100</pubDate>
       
@@ -21,11 +21,12 @@
       <description>Open in GitHub
 Google ML Academy 2019 Instructor: Shangeth Rajaa 
 Before starting with Neural Networks, we will look into 2 important machine learning models to understand regression and classification tasks - Linear Regression (Regression) - Logistic Regression (Classification)
-Linear Regression Most of the Deep learning Courses do not start with linear regression(LinReg), but LinReg gave me a better understanding of machine learning, so i will start with that, hoping that will make the understanding of Neural networks easier.</description>
+
+Most of the Deep learning Courses do not start with linear regression(LinReg), but LinReg gave me a better understanding of machine learning, so i will start with that, hoping that will make the understanding of Neural networks easier.</description>
     </item>
     
     <item>
-      <title></title>
+      <title>Polynomial Regression</title>
       <link>/google-ml-academy/deeplearning/1.2/</link>
       <pubDate>Thu, 29 Aug 2019 00:00:00 +0100</pubDate>
       
@@ -40,20 +41,20 @@ Task-1 : Linear Regression on Non-Linear Data  Get X and y from dataset() functi
     </item>
     
     <item>
-      <title></title>
+      <title>Logistic Regression</title>
       <link>/google-ml-academy/deeplearning/1.3/</link>
       <pubDate>Fri, 30 Aug 2019 00:00:00 +0100</pubDate>
       
       <guid>/google-ml-academy/deeplearning/1.3/</guid>
       <description>Open in GitHub
 Google ML Academy 2019 Instructor: Shangeth Rajaa 
-Logistic Regression Logistic Regression is one of the most commonly used classification model. Unlike Linear Regression which predicts a real unbounded value $\hat{y} = f(X) = WX+b$, Logistic Regression predicts the probability of a data belonging to a particular class.
+Logistic Regression is one of the most commonly used classification model. Unlike Linear Regression which predicts a real unbounded value $\hat{y} = f(X) = WX+b$, Logistic Regression predicts the probability of a data belonging to a particular class.
 
 For example for a given data (X,y) where X is a recieved email and y is 0 if email is spam and 1 if email is not spam.</description>
     </item>
     
     <item>
-      <title></title>
+      <title>Multi Class Classification</title>
       <link>/google-ml-academy/deeplearning/1.4/</link>
       <pubDate>Fri, 30 Aug 2019 00:00:00 +0100</pubDate>
       
@@ -62,8 +63,20 @@ For example for a given data (X,y) where X is a recieved email and y is 0 if ema
 Google ML Academy 2019 Instructor: Shangeth Rajaa 
 Solutions Here: 
  Open in GitHub
-Multi Class Classification In the previous notebeook we used logistic regression for Binary Classification, now we will see how to train a classifier model for Multi-Class Classification.
-What is Multi-Class Classification? If the target values have n discrete classification classes ie: y can take discrete value from 0 to n-1.</description>
+In the previous notebeook we used logistic regression for Binary Classification, now we will see how to train a classifier model for Multi-Class Classification.
+What is Multi-Class Classification? If the target values have n discrete classification classes ie: y can take discrete value from 0 to n-1. If $y \in {0, 1, 2, 3, &amp;hellip;, n-1}$, then the classification task is n-Multi-Class.</description>
+    </item>
+    
+    <item>
+      <title>Motivation for Multi Layer Perceptron</title>
+      <link>/google-ml-academy/deeplearning/1.5/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0100</pubDate>
+      
+      <guid>/google-ml-academy/deeplearning/1.5/</guid>
+      <description>Open in GitHub
+Google ML Academy 2019 Instructor: Shangeth Rajaa 
+Non-Linearity Note: We will look mostly at classification examples, but the same concepts apply to regression problems as well with a little change in using activation function(Sigmoid, Softmax which we learned in previous sections).
+So far the datasets we have used are linearly seperable, which means they can be seperated by line(2-d), plane(3-d) and linear multi dimensional classifiers.</description>
     </item>
     
   </channel>
