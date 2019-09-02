@@ -7,7 +7,7 @@
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; {year} Shangeth Rajaa</copyright>
-    <lastBuildDate>Sun, 01 Sep 2019 00:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 02 Sep 2019 00:00:00 +0100</lastBuildDate>
     
 	    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -2529,6 +2529,410 @@ Epoch 500/500
 - different activation function
 - different number of epochs
 - different dataset(especially for the concentric circles dataset)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Architectures, Training of Neural Networks</title>
+      <link>/google-ml-academy/deeplearning/2.1/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0100</pubDate>
+      
+      <guid>/google-ml-academy/deeplearning/2.1/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_1_Deep_Neural_Networks_Architecture.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1&gt;&lt;a href=&#39;https://shangeth.com/google-ml-academy/&#39;&gt;Google ML Academy 2019&lt;/a&gt;&lt;/h1&gt;
+&lt;h3&gt;Instructor: &lt;a href=&#39;https://shangeth.com/&#39;&gt;Shangeth Rajaa&lt;/a&gt;&lt;/h3&gt;
+&lt;hr&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;neural-network-architectures&#34;&gt;Neural Network Architectures&lt;/h1&gt;
+
+&lt;p&gt;We trained our first neural network in the previous notebook which had 3 layers
+- Input Layer
+- Hidden Layer
+- Output Layer&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://drive.google.com/uc?export=view&amp;amp;id=12Vhq8rzQKiCVsRIUuEzKcbW9qraBypNX&#34; alt=&#34;Neural Network 1 hidden 2 node&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;multiple-nodes&#34;&gt;Multiple Nodes&lt;/h2&gt;
+
+&lt;p&gt;The network had 2 linear layers($C_1$,0 $C_2$) in the hidden layer each of which gave us a linear classifier, then we used another linear layer($C_3$) in the output layer to combine $C_1$ and $C_2$ to give us a non-linear classifier($C$). Thaat was amazing, now we can get non-linear classifiers.&lt;/p&gt;
+
+&lt;p&gt;Won&amp;rsquo;t it be even amazing it we can combine more than 2 linear classifiers?. Ofc yes, that will give a more accurate classifier. But how to combine 3 linear classifiers?&lt;/p&gt;
+
+&lt;p&gt;Just increase the number of nodes in hidden layer.
+&lt;img src=&#34;https://drive.google.com/uc?export=view&amp;amp;id=1mzc27z8h50Ctg3IlV4TOsD6rloEa_x_g&#34; alt=&#34;Neural Network 1 hidden 2 node&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This network will consider 3 linear layers and combine them to give a non-linear classifier/regressor.&lt;/p&gt;
+
+&lt;h2 id=&#34;multiple-layers-deeper-neural-network&#34;&gt;Multiple layers (Deeper Neural Network)&lt;/h2&gt;
+
+&lt;p&gt;Combination of multiple linear classifiers gives us a non-linear classifier, &lt;strong&gt;What if we combine multiple non-linear classifiers?&lt;/strong&gt;
+Won&amp;rsquo;t that give us a more complex non-linear classifier which can fit/classify our data more accuractely?&lt;/p&gt;
+
+&lt;p&gt;How to do that?
+We will take multiple copies of linear classifiers and combine them differently using another hidden layer instead of output layer and combine these non-linear classifiers using output layers.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Input(Input Layer)&lt;/li&gt;
+&lt;li&gt;n linear classifiers(Hidden Layer 1)&lt;/li&gt;
+&lt;li&gt;m non linear classifier = m combination of (n linear classifiers)&lt;/li&gt;
+&lt;li&gt;output MORE COMPLEX classifier = combination of (m non-linear classifier)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://drive.google.com/uc?export=view&amp;amp;id=1Ie0dYwjx6a992MnWWI8ttAuednCN_XHW&#34; alt=&#34;Neural Network 2 hidden 3,4 node&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This network, will take 3 linear classifiers and make 4 different combination of linear classifiers to get 4 non-linear classifier and combine them to get a more complex Non-Linear Classifier.&lt;/p&gt;
+
+&lt;p&gt;By stacking more Hidden Layers and nodes, we can get a more and more complex non-linear classifier/regressor. We visualized only for 2-D Data, this also applies for multi dimensional data, but unfortunately we cannot visualize multi dimensioanl data other than &lt;sup&gt;2&lt;/sup&gt;&amp;frasl;&lt;sub&gt;3&lt;/sub&gt;. In 3-d data the linear classifiers will be planes and the non-linear classifier will be some surface which are combinations of planes.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;This is Deep Neural network&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Note: This is a mathematical analysis of how a neural network can make a more complex classifier/regressor, but we really do not know what features a neural network will consider to make the complex function. That is why its called Machine Learning, we can try to understand what features the model is using to classify, but can&amp;rsquo;t be sure.&lt;/p&gt;
+
+&lt;p&gt;Now Let&amp;rsquo;s compare neural network with a deeper neural network and try to visualize the classifier.&lt;/p&gt;
+
+&lt;h1 id=&#34;deep-neural-networks-in-tensorflow&#34;&gt;Deep Neural Networks in Tensorflow&lt;/h1&gt;
+
+&lt;h2 id=&#34;dataset&#34;&gt;Dataset&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn.datasets import make_gaussian_quantiles
+from sklearn.model_selection import train_test_split
+
+X, y = make_gaussian_quantiles(n_samples=2000, n_features=2, n_classes=2, random_state=3, cov=0.1)
+
+plt.figure(figsize=(10,10))
+plt.scatter(X[:,0], X[:,1],c=y)
+plt.grid(True)
+plt.show()
+
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, shuffle=True)
+X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.2, shuffle=True)
+
+print(&#39;Train = {}\nTest = {}\nVal = {}&#39;.format(len(X_train), len(X_test), len(X_val)))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_1/output_4_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Train = 1120
+Test = 600
+Val = 280
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;linear-classifier-0-hidden-layer&#34;&gt;Linear Classifier (0 hidden layer)&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+import matplotlib.pyplot as plt
+tf.keras.backend.clear_session()
+
+# random number initialized will to same, for reproducing same results.
+np.random.seed(0)
+tf.set_random_seed(0)
+
+model = tf.keras.Sequential([
+                             keras.layers.Dense(units=1, input_shape=[2]), 
+                             keras.layers.Activation(&#39;sigmoid&#39;)
+                             ])
+
+model.compile(optimizer=&#39;adam&#39;, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;accuracy&#39;])
+tf_history = model.fit(X_train, y_train, epochs=20, verbose=True, validation_data=(X_val, y_val))
+
+
+# contour plot
+xx, yy = np.mgrid[-2:2:.01, -2:2:.01]
+grid = np.c_[xx.ravel(), yy.ravel()]
+probs = model.predict(grid)[:,0].reshape(xx.shape)
+
+f, ax = plt.subplots(figsize=(8, 6))
+contour = ax.contourf(xx, yy, probs, 25, cmap=&amp;quot;RdBu&amp;quot;,
+                      vmin=0, vmax=1)
+ax_c = f.colorbar(contour)
+ax_c.set_label(&amp;quot;$P(y = 1)$&amp;quot;)
+ax_c.set_ticks([0, .25, .5, .75, 1])
+
+ax.scatter(X[:,0], X[:, 1], c=y, s=50,
+           cmap=&amp;quot;RdBu&amp;quot;, vmin=-.2, vmax=1.2,
+           edgecolor=&amp;quot;white&amp;quot;, linewidth=1)
+
+plt.show()
+
+# test accuracy
+from sklearn.metrics import accuracy_score
+y_test_pred = model.predict(X_test)
+test_accuracy = accuracy_score((y_test_pred &amp;gt; 0.5), y_test)
+
+print(&#39;\nTest Accuracy = &#39;, test_accuracy)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Train on 1120 samples, validate on 280 samples
+Epoch 1/20
+1120/1120 [==============================] - 0s 107us/sample - loss: 0.7116 - acc: 0.4839 - val_loss: 0.7083 - val_acc: 0.5000
+Epoch 2/20
+1120/1120 [==============================] - 0s 40us/sample - loss: 0.7108 - acc: 0.4857 - val_loss: 0.7074 - val_acc: 0.4893
+.
+.
+Epoch 19/20
+1120/1120 [==============================] - 0s 38us/sample - loss: 0.7001 - acc: 0.5071 - val_loss: 0.6994 - val_acc: 0.5107
+Epoch 20/20
+1120/1120 [==============================] - 0s 37us/sample - loss: 0.6997 - acc: 0.5071 - val_loss: 0.6991 - val_acc: 0.5071
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_1/output_6_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Test Accuracy =  0.5183333333333333
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can train for more epochs, but the model won&amp;rsquo;t really impove the metrics.&lt;/p&gt;
+
+&lt;h2 id=&#34;neural-network-1-hidden-layer-3-hidden-units&#34;&gt;Neural network (1 hidden layer, 3 hidden units)&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+import matplotlib.pyplot as plt
+tf.keras.backend.clear_session()
+
+# random number initialized will to same, for reproducing same results.
+np.random.seed(0)
+tf.set_random_seed(0)
+
+model = tf.keras.Sequential([
+                             keras.layers.Dense(units=3, input_shape=[2]), 
+                             keras.layers.Activation(&#39;tanh&#39;),
+                             keras.layers.Dense(units=1), 
+                             keras.layers.Activation(&#39;sigmoid&#39;)
+                             ])
+
+model.compile(optimizer=&#39;adam&#39;, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;accuracy&#39;])
+tf_history = model.fit(X_train, y_train, epochs=500, verbose=True, validation_data=(X_val, y_val))
+
+
+# contour plot
+xx, yy = np.mgrid[-1.5:1.5:.01, -1.5:1.5:.01]
+grid = np.c_[xx.ravel(), yy.ravel()]
+probs = model.predict(grid)[:,0].reshape(xx.shape)
+
+f, ax = plt.subplots(figsize=(8, 6))
+contour = ax.contourf(xx, yy, probs, 25, cmap=&amp;quot;RdBu&amp;quot;,
+                      vmin=0, vmax=1)
+ax_c = f.colorbar(contour)
+ax_c.set_label(&amp;quot;$P(y = 1)$&amp;quot;)
+ax_c.set_ticks([0, .25, .5, .75, 1])
+
+ax.scatter(X[:,0], X[:, 1], c=y, s=50,
+           cmap=&amp;quot;RdBu&amp;quot;, vmin=-.2, vmax=1.2,
+           edgecolor=&amp;quot;white&amp;quot;, linewidth=1)
+
+plt.show()
+
+# test accuracy
+from sklearn.metrics import accuracy_score
+y_test_pred = model.predict(X_test)
+test_accuracy = accuracy_score((y_test_pred &amp;gt; 0.5), y_test)
+
+print(&#39;\nTest Accuracy = &#39;, test_accuracy)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Train on 1120 samples, validate on 280 samples
+Epoch 1/500
+1120/1120 [==============================] - 0s 120us/sample - loss: 0.7086 - acc: 0.4982 - val_loss: 0.6955 - val_acc: 0.5429
+Epoch 2/500
+1120/1120 [==============================] - 0s 43us/sample - loss: 0.7065 - acc: 0.5080 - val_loss: 0.6948 - val_acc: 0.5679
+.
+.
+Epoch 499/500
+1120/1120 [==============================] - 0s 45us/sample - loss: 0.4358 - acc: 0.7973 - val_loss: 0.4756 - val_acc: 0.7643
+Epoch 500/500
+1120/1120 [==============================] - 0s 41us/sample - loss: 0.4355 - acc: 0.8000 - val_loss: 0.4755 - val_acc: 0.7643
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_1/output_9_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Test Accuracy =  0.7683333333333333
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This model learnt some complex classifer, but you can see by adding a hidden layer with 3 nodes, the accuracy increased a lot.&lt;/p&gt;
+
+&lt;p&gt;Now Let&amp;rsquo;s increase the no of nodes in the hidden layer&lt;/p&gt;
+
+&lt;h2 id=&#34;neural-network-1-hidden-layer-10-hidden-units&#34;&gt;Neural network (1 hidden layer, 10 hidden units)&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+import matplotlib.pyplot as plt
+tf.keras.backend.clear_session()
+
+# random number initialized will to same, for reproducing same results.
+np.random.seed(0)
+tf.set_random_seed(0)
+
+model = tf.keras.Sequential([
+                             keras.layers.Dense(units=10, input_shape=[2]), 
+                             keras.layers.Activation(&#39;tanh&#39;),
+                             keras.layers.Dense(units=1), 
+                             keras.layers.Activation(&#39;sigmoid&#39;)
+                             ])
+
+model.compile(optimizer=&#39;adam&#39;, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;accuracy&#39;])
+tf_history = model.fit(X_train, y_train, epochs=500, verbose=True, validation_data=(X_val, y_val))
+
+
+# contour plot
+xx, yy = np.mgrid[-1.5:1.5:.01, -1.5:1.5:.01]
+grid = np.c_[xx.ravel(), yy.ravel()]
+probs = model.predict(grid)[:,0].reshape(xx.shape)
+
+f, ax = plt.subplots(figsize=(8, 6))
+contour = ax.contourf(xx, yy, probs, 25, cmap=&amp;quot;RdBu&amp;quot;,
+                      vmin=0, vmax=1)
+ax_c = f.colorbar(contour)
+ax_c.set_label(&amp;quot;$P(y = 1)$&amp;quot;)
+ax_c.set_ticks([0, .25, .5, .75, 1])
+
+ax.scatter(X[:,0], X[:, 1], c=y, s=50,
+           cmap=&amp;quot;RdBu&amp;quot;, vmin=-.2, vmax=1.2,
+           edgecolor=&amp;quot;white&amp;quot;, linewidth=1)
+
+plt.show()
+
+# test accuracy
+from sklearn.metrics import accuracy_score
+y_test_pred = model.predict(X_test)
+test_accuracy = accuracy_score((y_test_pred &amp;gt; 0.5), y_test)
+
+print(&#39;\nTest Accuracy = &#39;, test_accuracy)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Train on 1120 samples, validate on 280 samples
+Epoch 1/500
+1120/1120 [==============================] - 0s 115us/sample - loss: 0.6930 - acc: 0.5321 - val_loss: 0.6990 - val_acc: 0.5393
+Epoch 2/500
+1120/1120 [==============================] - 0s 41us/sample - loss: 0.6924 - acc: 0.5670 - val_loss: 0.6982 - val_acc: 0.5286
+.
+.
+Epoch 499/500
+1120/1120 [==============================] - 0s 47us/sample - loss: 0.1024 - acc: 0.9732 - val_loss: 0.1357 - val_acc: 0.9643
+Epoch 500/500
+1120/1120 [==============================] - 0s 47us/sample - loss: 0.1023 - acc: 0.9723 - val_loss: 0.1358 - val_acc: 0.9643
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_1/output_12_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Test Accuracy =  0.97
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;neural-network-2-hidden-layers-10-hidden-units-10-hidden-units&#34;&gt;Neural network (2 hidden layers, 10 hidden units, 10 hidden units)&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+import matplotlib.pyplot as plt
+tf.keras.backend.clear_session()
+
+# random number initialized will to same, for reproducing same results.
+np.random.seed(0)
+tf.set_random_seed(0)
+
+model = tf.keras.Sequential([
+                             keras.layers.Dense(units=10, input_shape=[2]), 
+                             keras.layers.Activation(&#39;tanh&#39;),
+                             keras.layers.Dense(units=10),
+                             keras.layers.Activation(&#39;tanh&#39;),
+                             keras.layers.Dense(units=1), 
+                             keras.layers.Activation(&#39;sigmoid&#39;)
+                             ])
+
+model.compile(optimizer=&#39;adam&#39;, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;accuracy&#39;])
+tf_history = model.fit(X_train, y_train, epochs=500, verbose=True, validation_data=(X_val, y_val))
+
+
+# contour plot
+xx, yy = np.mgrid[-1.5:1.5:.01, -1.5:1.5:.01]
+grid = np.c_[xx.ravel(), yy.ravel()]
+probs = model.predict(grid)[:,0].reshape(xx.shape)
+
+f, ax = plt.subplots(figsize=(8, 6))
+contour = ax.contourf(xx, yy, probs, 25, cmap=&amp;quot;RdBu&amp;quot;,
+                      vmin=0, vmax=1)
+ax_c = f.colorbar(contour)
+ax_c.set_label(&amp;quot;$P(y = 1)$&amp;quot;)
+ax_c.set_ticks([0, .25, .5, .75, 1])
+
+ax.scatter(X[:,0], X[:, 1], c=y, s=50,
+           cmap=&amp;quot;RdBu&amp;quot;, vmin=-.2, vmax=1.2,
+           edgecolor=&amp;quot;white&amp;quot;, linewidth=1)
+
+plt.show()
+
+# test accuracy
+from sklearn.metrics import accuracy_score
+y_test_pred = model.predict(X_test)
+test_accuracy = accuracy_score((y_test_pred &amp;gt; 0.5), y_test)
+
+print(&#39;\nTest Accuracy = &#39;, test_accuracy)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Train on 1120 samples, validate on 280 samples
+Epoch 1/500
+1120/1120 [==============================] - 0s 139us/sample - loss: 0.7011 - acc: 0.5357 - val_loss: 0.6926 - val_acc: 0.6036
+Epoch 2/500
+1120/1120 [==============================] - 0s 50us/sample - loss: 0.6947 - acc: 0.6000 - val_loss: 0.6925 - val_acc: 0.6321
+.
+.
+Epoch 499/500
+1120/1120 [==============================] - 0s 52us/sample - loss: 0.0250 - acc: 0.9973 - val_loss: 0.0382 - val_acc: 0.9929
+Epoch 500/500
+1120/1120 [==============================] - 0s 53us/sample - loss: 0.0245 - acc: 0.9964 - val_loss: 0.0386 - val_acc: 0.9893
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_1/output_14_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Test Accuracy =  0.9916666666666667
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;performance-of-different-nn-architectures&#34;&gt;Performance of Different NN Architectures&lt;/h2&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Model Architecture&lt;/th&gt;
+&lt;th&gt;Test Accuracy&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;0 hidden layer&lt;/td&gt;
+&lt;td&gt;0.518&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;1 hidden layer, 3 hidden units&lt;/td&gt;
+&lt;td&gt;0.768&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;1 hidden layer, 10 hidden units&lt;/td&gt;
+&lt;td&gt;0.970&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;2 hidden layers, 10-10 hidden units&lt;/td&gt;
+&lt;td&gt;0.991&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;you have seen how deeper model can help. As the model goes more deeper and complex, the performance of the model increases(although this may not be the case everytime, especially when we have less data and there is something called vanishing gradients, which we will discuss later). But in general, deeper models improves performance.&lt;/p&gt;
 </description>
     </item>
     

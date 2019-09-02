@@ -33,8 +33,13 @@
   </url>
   
   <url>
+    <loc>/google-ml-academy/deeplearning/2.1/</loc>
+    <lastmod>2019-09-02T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/</loc>
-    <lastmod>2019-09-01T00:00:00+01:00</lastmod>
+    <lastmod>2019-09-02T00:00:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
