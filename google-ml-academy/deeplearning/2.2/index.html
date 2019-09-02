@@ -29,11 +29,12 @@
   
   <meta name="description" content="Open in GitHub
 Google ML Academy 2019 Instructor: Shangeth Rajaa 
-We trained our first neural network in the previous notebook which had 3 layers
- Input Layer Hidden Layer Output Layer  Multiple Nodes The network had 2 linear layers($C_1$,0 $C_2$) in the hidden layer each of which gave us a linear classifier, then we used another linear layer($C_3$) in the output layer to combine $C_1$ and $C_2$ to give us a non-linear classifier($C$).">
+Batch Training Batch Training is something very important but we didn&rsquo;t use before as our dataset was smaller and we were just learning how to train models.
+So far,
+ we took each example $(X^i, y^i)$ made prediction with $\hat{y}^i = g(X^i.W&#43;b)$ calculated the loss $\mathcal{L}(y^i , \hat{y}^i)$ used back propagation to update $W$ and $b$ (all parameters in the model) with $w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \frac{\partial \mathcal{L}}{\partial b}$ and repeated this process.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/google-ml-academy/deeplearning/2.1/">
+  <link rel="alternate" hreflang="en-us" href="/google-ml-academy/deeplearning/2.2/">
 
   
 
@@ -122,7 +123,7 @@ We trained our first neural network in the previous notebook which had 3 layers
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/google-ml-academy/deeplearning/2.1/">
+  <link rel="canonical" href="/google-ml-academy/deeplearning/2.2/">
 
   
   
@@ -136,12 +137,13 @@ We trained our first neural network in the previous notebook which had 3 layers
   <meta property="twitter:creator" content="@shangethr">
   
   <meta property="og:site_name" content="Shangeth">
-  <meta property="og:url" content="/google-ml-academy/deeplearning/2.1/">
-  <meta property="og:title" content="Neural Network Architectures | Shangeth">
+  <meta property="og:url" content="/google-ml-academy/deeplearning/2.2/">
+  <meta property="og:title" content="Batch Training | Shangeth">
   <meta property="og:description" content="Open in GitHub
 Google ML Academy 2019 Instructor: Shangeth Rajaa 
-We trained our first neural network in the previous notebook which had 3 layers
- Input Layer Hidden Layer Output Layer  Multiple Nodes The network had 2 linear layers($C_1$,0 $C_2$) in the hidden layer each of which gave us a linear classifier, then we used another linear layer($C_3$) in the output layer to combine $C_1$ and $C_2$ to give us a non-linear classifier($C$)."><meta property="og:image" content="/img/instructor.jpeg">
+Batch Training Batch Training is something very important but we didn&rsquo;t use before as our dataset was smaller and we were just learning how to train models.
+So far,
+ we took each example $(X^i, y^i)$ made prediction with $\hat{y}^i = g(X^i.W&#43;b)$ calculated the loss $\mathcal{L}(y^i , \hat{y}^i)$ used back propagation to update $W$ and $b$ (all parameters in the model) with $w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \frac{\partial \mathcal{L}}{\partial b}$ and repeated this process."><meta property="og:image" content="/img/instructor.jpeg">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-09-02T00:00:00&#43;01:00">
@@ -153,7 +155,7 @@ We trained our first neural network in the previous notebook which had 3 layers
 
   
 
-  <title>Neural Network Architectures | Shangeth</title>
+  <title>Batch Training | Shangeth</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" class="dark">
@@ -489,11 +491,11 @@ We trained our first neural network in the previous notebook which had 3 layers
     <a class="docs-toc-link" href="/google-ml-academy/deeplearning/2.1/">2.Deep Neural Networks</a>
     <ul class="nav docs-sidenav">
       
-      <li class="active">
+      <li >
         <a href="/google-ml-academy/deeplearning/2.1/">2.1.Neural Network Architectures</a>
       </li>
       
-      <li >
+      <li class="active">
         <a href="/google-ml-academy/deeplearning/2.2/">2.1.Batch Training</a>
       </li>
       
@@ -515,20 +517,15 @@ We trained our first neural network in the previous notebook which had 3 layers
 
       <nav id="TableOfContents">
 <ul>
-<li>
+<li><a href="#batch-training">Batch Training</a>
 <ul>
-<li><a href="#multiple-nodes">Multiple Nodes</a></li>
-<li><a href="#multiple-layers-deeper-neural-network">Multiple layers (Deeper Neural Network)</a></li>
-</ul></li>
-<li><a href="#deep-neural-networks-in-tensorflow">Deep Neural Networks in Tensorflow</a>
+<li><a href="#batch-training-in-tensorflow">Batch Training in TensorFlow</a>
 <ul>
-<li><a href="#dataset">Dataset</a></li>
-<li><a href="#linear-classifier-0-hidden-layer">Linear Classifier (0 hidden layer)</a></li>
-<li><a href="#neural-network-1-hidden-layer-3-hidden-units">Neural network (1 hidden layer, 3 hidden units)</a></li>
-<li><a href="#neural-network-1-hidden-layer-10-hidden-units">Neural network (1 hidden layer, 10 hidden units)</a></li>
-<li><a href="#neural-network-2-hidden-layers-10-hidden-units-10-hidden-units">Neural network (2 hidden layers, 10 hidden units, 10 hidden units)</a></li>
-<li><a href="#performance-of-different-nn-architectures">Performance of Different NN Architectures</a></li>
+<li><a href="#batch-size-1">Batch Size = 1</a></li>
+<li><a href="#batch-size-100">Batch Size = 100</a></li>
 </ul></li>
+</ul></li>
+<li><a href="#gradient-descent-in-batch-training">Gradient Descent in Batch Training</a></li>
 </ul>
 </nav>
 
@@ -545,70 +542,71 @@ We trained our first neural network in the previous notebook which had 3 layers
       <article class="article" itemscope itemtype="http://schema.org/Article">
 
         <div class="docs-article-container">
-          <h1 itemprop="name">Neural Network Architectures</h1>
+          <h1 itemprop="name">Batch Training</h1>
 
           <div class="article-style" itemprop="articleBody">
             
 
-<p><a href="https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_1_Deep_Neural_Networks_Architecture.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<p><a href="https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_2_Batch_Training.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 
-<p><center><a href="https://github.com/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_1_Deep_Neural_Networks_Architecture.ipynb" target="_parent"><svg class="octicon octicon-mark-github v-align-middle" height="30" viewBox="0 0 16 16" version="1.1" width="30" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> Open in GitHub</a></center></p>
+<p><center><a href="https://github.com/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_2_Batch_Training.ipynb" target="_parent"><svg class="octicon octicon-mark-github v-align-middle" height="30" viewBox="0 0 16 16" version="1.1" width="30" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> Open in GitHub</a></center></p>
 
 <p><center><h1><a href='https://shangeth.com/google-ml-academy/'>Google ML Academy 2019</a></h1></center>
 <center><h3>Instructor: <a href='https://shangeth.com/'>Shangeth Rajaa</a></h3></center>
 <hr></p>
 
-<p>We trained our first neural network in the previous notebook which had 3 layers</p>
+<h1 id="batch-training">Batch Training</h1>
+
+<p>Batch Training is something very important but we didn&rsquo;t use before as our dataset was smaller and we were just learning how to train models.</p>
+
+<p>So far,</p>
 
 <ul>
-<li>Input Layer</li>
-<li>Hidden Layer</li>
-<li>Output Layer</li>
+<li>we took each example $(X^i, y^i)$</li>
+<li>made prediction with $\hat{y}^i = g(X^i.W+b)$</li>
+<li>calculated the loss $\mathcal{L}(y^i , \hat{y}^i)$</li>
+<li>used back propagation to update $W$ and $b$ (all parameters in the model) with
+$w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \frac{\partial \mathcal{L}}{\partial b}$</li>
+<li>and repeated this process.</li>
 </ul>
 
-<p><img src="https://drive.google.com/uc?export=view&amp;id=12Vhq8rzQKiCVsRIUuEzKcbW9qraBypNX" alt="Neural Network 1 hidden 2 node" /></p>
+<p>What is the problem here?</p>
 
-<h2 id="multiple-nodes">Multiple Nodes</h2>
+<p>We used many toy datasets which were in 1000s, so it will take few seconds/milliseconds for training the model for several epoch. But real world datasets may have millions of data and updating model with one example at a time may take a lot of time.</p>
 
-<p>The network had 2 linear layers($C_1$,0 $C_2$) in the hidden layer each of which gave us a linear classifier, then we used another linear layer($C_3$) in the output layer to combine $C_1$ and $C_2$ to give us a non-linear classifier($C$). Thaat was amazing, now we can get non-linear classifiers.</p>
+<p>This is for multi class classification</p>
 
-<p>Won&rsquo;t it be even amazing it we can combine more than 2 linear classifiers?. Ofc yes, that will give a more accurate classifier. But how to combine 3 linear classifiers?</p>
+<p>$z =\begin{bmatrix}z_1&amp;z_2&amp;z_3\ \end{bmatrix} = \begin{bmatrix}x_1&amp;x_2 \ \end{bmatrix} . \begin{bmatrix}W_{11}&amp;W_{12}&amp;W_{13} \\ W_{21}&amp;W_{22}&amp;W_{23} \\ \end{bmatrix} + \begin{bmatrix}b_1&amp;b_2&amp;b_3\ \end{bmatrix}$</p>
 
-<p>Just increase the number of nodes in hidden layer.
-<img src="https://drive.google.com/uc?export=view&amp;id=1mzc27z8h50Ctg3IlV4TOsD6rloEa_x_g" alt="Neural Network 1 hidden 2 node" /></p>
+<p>$\hat{y} = \sigma(z)$</p>
 
-<p>This network will consider 3 linear layers and combine them to give a non-linear classifier/regressor.</p>
+<p>This uses one example $X = [x_1, x_2]$ at a time, but it is also possible to use all the data together as a matrix(Advantage of matrix multiplication and lienar algebra).</p>
 
-<h2 id="multiple-layers-deeper-neural-network">Multiple layers (Deeper Neural Network)</h2>
+<p>$z = \begin{bmatrix}z_1^1&amp;z_2^1&amp;z_3^1\\ z_1^2&amp;z_2^2&amp;z_3^2\\ \vdots&amp;\vdots&amp;\vdots \\ z_1^n&amp;z_2^n&amp;z_3^n \ \end{bmatrix}  =
+\begin{bmatrix}x_1^1&amp;x_2^1\\ x_1^2&amp;x_2^2\\ \vdots&amp;\vdots \\ x_1^n&amp;x_2^n\\ \end{bmatrix} .
+\begin{bmatrix}W_{11}&amp;W_{12}&amp;W_{13}\\ W_{21}&amp;W_{22}&amp;W_{23}\\ \end{bmatrix} + \begin{bmatrix}b_1&amp;b_2&amp;b_3\\ \end{bmatrix}$</p>
 
-<p>Combination of multiple linear classifiers gives us a non-linear classifier, <strong>What if we combine multiple non-linear classifiers?</strong>
-Won&rsquo;t that give us a more complex non-linear classifier which can fit/classify our data more accuractely?</p>
+<p>$ \hat{y} = \begin{bmatrix}\sigma(z_1^1)&amp;\sigma(z_2^1)&amp;\sigma(z_3^1)\\ \sigma(z_1^2)&amp;\sigma(z_2^2)&amp;\sigma(z_3^2)\\ \vdots&amp;\vdots&amp;\vdots \\ \sigma(z_1^n)&amp;\sigma(z_2^n)&amp;\sigma(z_3^n) \ \end{bmatrix} $</p>
 
-<p>How to do that?
-We will take multiple copies of linear classifiers and combine them differently using another hidden layer instead of output layer and combine these non-linear classifiers using output layers.</p>
+<p>This is called <strong>batch gradient descent</strong>. There is a problem with this. When your data is in millions, holding all the millions of data into a matrix may cause memory issue. Its note possible for the RAM to hold millions of data into the memory altogether.</p>
+
+<p>So we do something called <strong>mini-batch gradient descent</strong>. We take few number of examples say m(batch size) which the memory can hold at a time and use that for training and during the next step we use the next m examples and continue till the complete dataset is used for training.</p>
+
+<p>Example:</p>
 
 <ul>
-<li>Input(Input Layer)</li>
-<li>n linear classifiers(Hidden Layer 1)</li>
-<li>m non linear classifier = m combination of (n linear classifiers)</li>
-<li>output MORE COMPLEX classifier = combination of (m non-linear classifier)</li>
+<li>no of examples (n) = 2300</li>
+<li>batch size (m) = 500</li>
+<li>then we use [500, 500, 500, 500, 300] batches for training at a time.</li>
 </ul>
 
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1Ie0dYwjx6a992MnWWI8ttAuednCN_XHW" alt="Neural Network 2 hidden 3,4 node" /></p>
+<p>By this way we use the advantage of matrix multiplication and do not fill the RAM memory.</p>
 
-<p>This network, will take 3 linear classifiers and make 4 different combination of linear classifiers to get 4 non-linear classifier and combine them to get a more complex Non-Linear Classifier.</p>
+<p>We can change the batch size with a parameter called batch_size in model.fit.</p>
 
-<p>By stacking more Hidden Layers and nodes, we can get a more and more complex non-linear classifier/regressor. We visualized only for 2-D Data, this also applies for multi dimensional data, but unfortunately we cannot visualize multi dimensioanl data other than <sup>2</sup>&frasl;<sub>3</sub>. In 3-d data the linear classifiers will be planes and the non-linear classifier will be some surface which are combinations of planes.</p>
+<p>Lets try different batch size.</p>
 
-<p><strong>This is Deep Neural network</strong>.</p>
-
-<p>Note: This is a mathematical analysis of how a neural network can make a more complex classifier/regressor, but we really do not know what features a neural network will consider to make the complex function. That is why its called Machine Learning, we can try to understand what features the model is using to classify, but can&rsquo;t be sure.</p>
-
-<p>Now Let&rsquo;s compare neural network with a deeper neural network and try to visualize the classifier.</p>
-
-<h1 id="deep-neural-networks-in-tensorflow">Deep Neural Networks in Tensorflow</h1>
-
-<h2 id="dataset">Dataset</h2>
+<h2 id="batch-training-in-tensorflow">Batch Training in TensorFlow</h2>
 
 <pre><code class="language-python">from sklearn.datasets import make_gaussian_quantiles
 from sklearn.model_selection import train_test_split
@@ -628,230 +626,26 @@ X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.
 print('Train = {}\nTest = {}\nVal = {}'.format(len(X_train), len(X_test), len(X_val)))
 </code></pre>
 
-<p><img src="../2_1/output_4_0.png" alt="png" /></p>
+<p><img src="../2_2/output_4_0.png" alt="png" /></p>
 
 <pre><code>Train = 1120
 Test = 600
 Val = 280
 </code></pre>
 
-<h2 id="linear-classifier-0-hidden-layer">Linear Classifier (0 hidden layer)</h2>
+<h3 id="batch-size-1">Batch Size = 1</h3>
 
-<pre><code class="language-python">import tensorflow as tf
+<pre><code class="language-python">%%time 
+#magic function to measure time of the cell
+
+
+import tensorflow as tf
 from tensorflow import keras
 import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized to be same, for reproducing same results.
-np.random.seed(0)
-tf.set_random_seed(0)
-
-model = tf.keras.Sequential([
-                             keras.layers.Dense(units=1, input_shape=[2]), 
-                             keras.layers.Activation('sigmoid')
-                             ])
-
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-tf_history = model.fit(X_train, y_train, epochs=20, verbose=True, validation_data=(X_val, y_val))
-
-
-# contour plot
-xx, yy = np.mgrid[-2:2:.01, -2:2:.01]
-grid = np.c_[xx.ravel(), yy.ravel()]
-probs = model.predict(grid)[:,0].reshape(xx.shape)
-
-f, ax = plt.subplots(figsize=(8, 6))
-contour = ax.contourf(xx, yy, probs, 25, cmap=&quot;RdBu&quot;,
-                      vmin=0, vmax=1)
-ax_c = f.colorbar(contour)
-ax_c.set_label(&quot;$P(y = 1)$&quot;)
-ax_c.set_ticks([0, .25, .5, .75, 1])
-
-ax.scatter(X[:,0], X[:, 1], c=y, s=50,
-           cmap=&quot;RdBu&quot;, vmin=-.2, vmax=1.2,
-           edgecolor=&quot;white&quot;, linewidth=1)
-
-plt.show()
-
-# test accuracy
-from sklearn.metrics import accuracy_score
-y_test_pred = model.predict(X_test)
-test_accuracy = accuracy_score((y_test_pred &gt; 0.5), y_test)
-
-print('\nTest Accuracy = ', test_accuracy)
-
-</code></pre>
-
-<pre><code>Train on 1120 samples, validate on 280 samples
-Epoch 1/20
-1120/1120 [==============================] - 0s 107us/sample - loss: 0.7116 - acc: 0.4839 - val_loss: 0.7083 - val_acc: 0.5000
-Epoch 2/20
-1120/1120 [==============================] - 0s 40us/sample - loss: 0.7108 - acc: 0.4857 - val_loss: 0.7074 - val_acc: 0.4893
-.
-.
-Epoch 19/20
-1120/1120 [==============================] - 0s 38us/sample - loss: 0.7001 - acc: 0.5071 - val_loss: 0.6994 - val_acc: 0.5107
-Epoch 20/20
-1120/1120 [==============================] - 0s 37us/sample - loss: 0.6997 - acc: 0.5071 - val_loss: 0.6991 - val_acc: 0.5071
-</code></pre>
-
-<p><img src="../2_1/output_6_1.png" alt="png" /></p>
-
-<pre><code>Test Accuracy =  0.5183333333333333
-</code></pre>
-
-<p>You can train for more epochs, but the model won&rsquo;t really impove the metrics.</p>
-
-<h2 id="neural-network-1-hidden-layer-3-hidden-units">Neural network (1 hidden layer, 3 hidden units)</h2>
-
-<pre><code class="language-python">import tensorflow as tf
-from tensorflow import keras
-import numpy as np
-import matplotlib.pyplot as plt
-tf.keras.backend.clear_session()
-
-# random number initialized to be same, for reproducing same results.
-np.random.seed(0)
-tf.set_random_seed(0)
-
-model = tf.keras.Sequential([
-                             keras.layers.Dense(units=3, input_shape=[2]), 
-                             keras.layers.Activation('tanh'),
-                             keras.layers.Dense(units=1), 
-                             keras.layers.Activation('sigmoid')
-                             ])
-
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-tf_history = model.fit(X_train, y_train, epochs=500, verbose=True, validation_data=(X_val, y_val))
-
-
-# contour plot
-xx, yy = np.mgrid[-1.5:1.5:.01, -1.5:1.5:.01]
-grid = np.c_[xx.ravel(), yy.ravel()]
-probs = model.predict(grid)[:,0].reshape(xx.shape)
-
-f, ax = plt.subplots(figsize=(8, 6))
-contour = ax.contourf(xx, yy, probs, 25, cmap=&quot;RdBu&quot;,
-                      vmin=0, vmax=1)
-ax_c = f.colorbar(contour)
-ax_c.set_label(&quot;$P(y = 1)$&quot;)
-ax_c.set_ticks([0, .25, .5, .75, 1])
-
-ax.scatter(X[:,0], X[:, 1], c=y, s=50,
-           cmap=&quot;RdBu&quot;, vmin=-.2, vmax=1.2,
-           edgecolor=&quot;white&quot;, linewidth=1)
-
-plt.show()
-
-# test accuracy
-from sklearn.metrics import accuracy_score
-y_test_pred = model.predict(X_test)
-test_accuracy = accuracy_score((y_test_pred &gt; 0.5), y_test)
-
-print('\nTest Accuracy = ', test_accuracy)
-
-</code></pre>
-
-<pre><code>Train on 1120 samples, validate on 280 samples
-Epoch 1/500
-1120/1120 [==============================] - 0s 120us/sample - loss: 0.7086 - acc: 0.4982 - val_loss: 0.6955 - val_acc: 0.5429
-Epoch 2/500
-1120/1120 [==============================] - 0s 43us/sample - loss: 0.7065 - acc: 0.5080 - val_loss: 0.6948 - val_acc: 0.5679
-.
-.
-Epoch 499/500
-1120/1120 [==============================] - 0s 45us/sample - loss: 0.4358 - acc: 0.7973 - val_loss: 0.4756 - val_acc: 0.7643
-Epoch 500/500
-1120/1120 [==============================] - 0s 41us/sample - loss: 0.4355 - acc: 0.8000 - val_loss: 0.4755 - val_acc: 0.7643
-</code></pre>
-
-<p><img src="../2_1/output_9_1.png" alt="png" /></p>
-
-<pre><code>Test Accuracy =  0.7683333333333333
-</code></pre>
-
-<p>This model learnt some complex classifer, but you can see by adding a hidden layer with 3 nodes, the accuracy increased a lot.</p>
-
-<p>Now Let&rsquo;s increase the no of nodes in the hidden layer</p>
-
-<h2 id="neural-network-1-hidden-layer-10-hidden-units">Neural network (1 hidden layer, 10 hidden units)</h2>
-
-<pre><code class="language-python">import tensorflow as tf
-from tensorflow import keras
-import numpy as np
-import matplotlib.pyplot as plt
-tf.keras.backend.clear_session()
-
-# random number initialized to be same, for reproducing same results.
-np.random.seed(0)
-tf.set_random_seed(0)
-
-model = tf.keras.Sequential([
-                             keras.layers.Dense(units=10, input_shape=[2]), 
-                             keras.layers.Activation('tanh'),
-                             keras.layers.Dense(units=1), 
-                             keras.layers.Activation('sigmoid')
-                             ])
-
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-tf_history = model.fit(X_train, y_train, epochs=500, verbose=True, validation_data=(X_val, y_val))
-
-
-# contour plot
-xx, yy = np.mgrid[-1.5:1.5:.01, -1.5:1.5:.01]
-grid = np.c_[xx.ravel(), yy.ravel()]
-probs = model.predict(grid)[:,0].reshape(xx.shape)
-
-f, ax = plt.subplots(figsize=(8, 6))
-contour = ax.contourf(xx, yy, probs, 25, cmap=&quot;RdBu&quot;,
-                      vmin=0, vmax=1)
-ax_c = f.colorbar(contour)
-ax_c.set_label(&quot;$P(y = 1)$&quot;)
-ax_c.set_ticks([0, .25, .5, .75, 1])
-
-ax.scatter(X[:,0], X[:, 1], c=y, s=50,
-           cmap=&quot;RdBu&quot;, vmin=-.2, vmax=1.2,
-           edgecolor=&quot;white&quot;, linewidth=1)
-
-plt.show()
-
-# test accuracy
-from sklearn.metrics import accuracy_score
-y_test_pred = model.predict(X_test)
-test_accuracy = accuracy_score((y_test_pred &gt; 0.5), y_test)
-
-print('\nTest Accuracy = ', test_accuracy)
-
-</code></pre>
-
-<pre><code>Train on 1120 samples, validate on 280 samples
-Epoch 1/500
-1120/1120 [==============================] - 0s 115us/sample - loss: 0.6930 - acc: 0.5321 - val_loss: 0.6990 - val_acc: 0.5393
-Epoch 2/500
-1120/1120 [==============================] - 0s 41us/sample - loss: 0.6924 - acc: 0.5670 - val_loss: 0.6982 - val_acc: 0.5286
-.
-.
-Epoch 499/500
-1120/1120 [==============================] - 0s 47us/sample - loss: 0.1024 - acc: 0.9732 - val_loss: 0.1357 - val_acc: 0.9643
-Epoch 500/500
-1120/1120 [==============================] - 0s 47us/sample - loss: 0.1023 - acc: 0.9723 - val_loss: 0.1358 - val_acc: 0.9643
-</code></pre>
-
-<p><img src="../2_1/output_12_1.png" alt="png" /></p>
-
-<pre><code>Test Accuracy =  0.97
-</code></pre>
-
-<h2 id="neural-network-2-hidden-layers-10-hidden-units-10-hidden-units">Neural network (2 hidden layers, 10 hidden units, 10 hidden units)</h2>
-
-<pre><code class="language-python">import tensorflow as tf
-from tensorflow import keras
-import numpy as np
-import matplotlib.pyplot as plt
-tf.keras.backend.clear_session()
-
-# random number initialized to be same, for reproducing same results.
+# random number initialized will to same, for reproducing same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
@@ -865,7 +659,98 @@ model = tf.keras.Sequential([
                              ])
 
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-tf_history = model.fit(X_train, y_train, epochs=500, verbose=True, validation_data=(X_val, y_val))
+tf_history = model.fit(X_train, y_train, batch_size=1, epochs=10, verbose=True, validation_data=(X_val, y_val))
+
+
+# contour plot
+xx, yy = np.mgrid[-1.5:1.5:.01, -1.5:1.5:.01]
+grid = np.c_[xx.ravel(), yy.ravel()]
+probs = model.predict(grid)[:,0].reshape(xx.shape)
+
+f, ax = plt.subplots(figsize=(8, 6))
+contour = ax.contourf(xx, yy, probs, 25, cmap=&quot;RdBu&quot;,
+                      vmin=0, vmax=1)
+ax_c = f.colorbar(contour)
+ax_c.set_label(&quot;$P(y = 1)$&quot;)
+ax_c.set_ticks([0, .25, .5, .75, 1])
+
+ax.scatter(X[:,0], X[:, 1], c=y, s=50,
+           cmap=&quot;RdBu&quot;, vmin=-.2, vmax=1.2,
+           edgecolor=&quot;white&quot;, linewidth=1)
+
+plt.show()
+
+# test accuracy
+from sklearn.metrics import accuracy_score
+y_test_pred = model.predict(X_test)
+test_accuracy = accuracy_score((y_test_pred &gt; 0.5), y_test)
+
+print('\nTest Accuracy = ', test_accuracy)
+
+</code></pre>
+
+<pre><code>WARNING: Logging before flag parsing goes to stderr.
+W0902 14:17:32.553351 139709616596864 deprecation.py:506] From /usr/local/lib/python3.6/dist-packages/tensorflow/python/ops/init_ops.py:1251: calling VarianceScaling.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
+Instructions for updating:
+Call initializer instance with the dtype argument instead of passing it to the constructor
+W0902 14:17:32.656815 139709616596864 deprecation.py:323] From /usr/local/lib/python3.6/dist-packages/tensorflow/python/ops/nn_impl.py:180: add_dispatch_support.&lt;locals&gt;.wrapper (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+
+
+Train on 1120 samples, validate on 280 samples
+Epoch 1/10
+1120/1120 [==============================] - 2s 2ms/sample - loss: 0.6972 - acc: 0.4634 - val_loss: 0.6945 - val_acc: 0.5321
+Epoch 2/10
+1120/1120 [==============================] - 2s 1ms/sample - loss: 0.6942 - acc: 0.5312 - val_loss: 0.6923 - val_acc: 0.4250
+Epoch 3/10
+1120/1120 [==============================] - 2s 1ms/sample - loss: 0.6922 - acc: 0.4821 - val_loss: 0.6834 - val_acc: 0.6607
+.
+.
+Epoch 8/10
+1120/1120 [==============================] - 2s 1ms/sample - loss: 0.5767 - acc: 0.7554 - val_loss: 0.5457 - val_acc: 0.7964
+Epoch 9/10
+1120/1120 [==============================] - 2s 1ms/sample - loss: 0.5507 - acc: 0.7571 - val_loss: 0.5231 - val_acc: 0.7929
+Epoch 10/10
+1120/1120 [==============================] - 2s 1ms/sample - loss: 0.5296 - acc: 0.7607 - val_loss: 0.4991 - val_acc: 0.8071
+</code></pre>
+
+<p><img src="../2_2/output_6_2.png" alt="png" /></p>
+
+<pre><code>Test Accuracy =  0.7583333333333333
+CPU times: user 21.5 s, sys: 1.52 s, total: 23 s
+Wall time: 19.5 s
+</code></pre>
+
+<p>Batch size of 1 for 10 epochs uses 23s. Let&rsquo;s increase the batch size to 100 and check the time.</p>
+
+<h3 id="batch-size-100">Batch Size = 100</h3>
+
+<pre><code class="language-python">%%time 
+#magic function to measure time of the cell
+
+
+import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+import matplotlib.pyplot as plt
+tf.keras.backend.clear_session()
+
+# random number initialized will to same, for reproducing same results.
+np.random.seed(0)
+tf.set_random_seed(0)
+
+model = tf.keras.Sequential([
+                             keras.layers.Dense(units=10, input_shape=[2]), 
+                             keras.layers.Activation('tanh'),
+                             keras.layers.Dense(units=10),
+                             keras.layers.Activation('tanh'),
+                             keras.layers.Dense(units=1), 
+                             keras.layers.Activation('sigmoid')
+                             ])
+
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+tf_history = model.fit(X_train, y_train, batch_size=100, epochs=10, verbose=True, validation_data=(X_val, y_val))
 
 
 # contour plot
@@ -896,59 +781,43 @@ print('\nTest Accuracy = ', test_accuracy)
 </code></pre>
 
 <pre><code>Train on 1120 samples, validate on 280 samples
-Epoch 1/500
-1120/1120 [==============================] - 0s 139us/sample - loss: 0.7011 - acc: 0.5357 - val_loss: 0.6926 - val_acc: 0.6036
-Epoch 2/500
-1120/1120 [==============================] - 0s 50us/sample - loss: 0.6947 - acc: 0.6000 - val_loss: 0.6925 - val_acc: 0.6321
+Epoch 1/10
+1120/1120 [==============================] - 0s 104us/sample - loss: 0.6993 - acc: 0.5116 - val_loss: 0.7020 - val_acc: 0.5107
+Epoch 2/10
+1120/1120 [==============================] - 0s 21us/sample - loss: 0.6960 - acc: 0.5134 - val_loss: 0.6988 - val_acc: 0.5179
+Epoch 3/10
+1120/1120 [==============================] - 0s 20us/sample - loss: 0.6946 - acc: 0.5223 - val_loss: 0.6963 - val_acc: 0.5143
 .
 .
-Epoch 499/500
-1120/1120 [==============================] - 0s 52us/sample - loss: 0.0250 - acc: 0.9973 - val_loss: 0.0382 - val_acc: 0.9929
-Epoch 500/500
-1120/1120 [==============================] - 0s 53us/sample - loss: 0.0245 - acc: 0.9964 - val_loss: 0.0386 - val_acc: 0.9893
+Epoch 8/10
+1120/1120 [==============================] - 0s 22us/sample - loss: 0.6921 - acc: 0.4384 - val_loss: 0.6926 - val_acc: 0.4214
+Epoch 9/10
+1120/1120 [==============================] - 0s 22us/sample - loss: 0.6921 - acc: 0.4848 - val_loss: 0.6920 - val_acc: 0.5071
+Epoch 10/10
+1120/1120 [==============================] - 0s 19us/sample - loss: 0.6920 - acc: 0.4902 - val_loss: 0.6924 - val_acc: 0.4821
 </code></pre>
 
-<p><img src="../2_1/output_14_1.png" alt="png" /></p>
+<p><img src="../2_2/output_9_1.png" alt="png" /></p>
 
-<pre><code>Test Accuracy =  0.9916666666666667
+<pre><code>Test Accuracy =  0.47333333333333333
+CPU times: user 2.56 s, sys: 387 ms, total: 2.94 s
+Wall time: 2.34 s
 </code></pre>
 
-<h2 id="performance-of-different-nn-architectures">Performance of Different NN Architectures</h2>
+<p>Batch size of 100 took just 2.94s. Hope now you understood the advantage of Batch training.</p>
 
-<table>
-<thead>
-<tr>
-<th>Model Architecture</th>
-<th>Test Accuracy</th>
-</tr>
-</thead>
+<h1 id="gradient-descent-in-batch-training">Gradient Descent in Batch Training</h1>
 
-<tbody>
-<tr>
-<td>0 hidden layer</td>
-<td>0.518</td>
-</tr>
+<p>In batch training, we calculate the loss as average of loss of the batch,
+$\mathcal{L}(y , \hat{y}) = \dfrac{1}{n} \sum_{i=1}^{n}\mathcal{L}(y^i , \hat{y}^i)$</p>
 
-<tr>
-<td>1 hidden layer, 3 hidden units</td>
-<td>0.768</td>
-</tr>
+<p>$\therefore \dfrac{\partial \mathcal{L}}{\partial W} = \dfrac{1}{n} \sum_{i=1}^{n}\dfrac{\partial \mathcal{L}(y^i , \hat{y}^i)}{\partial W}$</p>
 
-<tr>
-<td>1 hidden layer, 10 hidden units</td>
-<td>0.970</td>
-</tr>
+<p>and $\dfrac{\partial \mathcal{L}}{\partial b} = \dfrac{1}{n} \sum_{i=1}^{n}\dfrac{\partial \mathcal{L}(y^i , \hat{y}^i)}{\partial b}$</p>
 
-<tr>
-<td>2 hidden layers, 10-10 hidden units</td>
-<td>0.991</td>
-</tr>
-</tbody>
-</table>
+<p>Which means the gradients are average of gradients over the batch of data.</p>
 
-<p>you have seen how deeper model can help. As the model goes more deeper and complex, the performance of the model increases(although this may not be the case everytime, especially when we have less data and there is something called vanishing gradients, which we will discuss later). But in general, deeper models improves performance.</p>
-
-<p><strong>Train the models in the notebooks with &lsquo;relu&rsquo; activation function instead of &lsquo;tanh&rsquo; and compare the performance.</strong></p>
+<p>Then update the parameters normally with $w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \frac{\partial \mathcal{L}}{\partial b}$.</p>
 
           </div>
 
@@ -965,15 +834,9 @@ Epoch 500/500
   
   <div class="post-nav-item">
     <div class="meta-nav">Previous</div>
-    <a href="/google-ml-academy/deeplearning/1.5/" rel="next">Motivation for Multi Layer Perceptron</a>
+    <a href="/google-ml-academy/deeplearning/2.1/" rel="next">Neural Network Architectures</a>
   </div>
   
-  
-  
-  <div class="post-nav-item">
-    <div class="meta-nav">Next</div>
-    <a href="/google-ml-academy/deeplearning/2.2/" rel="prev">Batch Training</a>
-  </div>
   
 </div>
 
