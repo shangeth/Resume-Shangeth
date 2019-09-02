@@ -2533,7 +2533,7 @@ Epoch 500/500
     </item>
     
     <item>
-      <title>Architectures, Training of Neural Networks</title>
+      <title>Neural Network Architectures</title>
       <link>/google-ml-academy/deeplearning/2.1/</link>
       <pubDate>Mon, 02 Sep 2019 00:00:00 +0100</pubDate>
       
@@ -2547,8 +2547,6 @@ Epoch 500/500
 &lt;p&gt;&lt;center&gt;&lt;h1&gt;&lt;a href=&#39;https://shangeth.com/google-ml-academy/&#39;&gt;Google ML Academy 2019&lt;/a&gt;&lt;/h1&gt;&lt;/center&gt;
 &lt;center&gt;&lt;h3&gt;Instructor: &lt;a href=&#39;https://shangeth.com/&#39;&gt;Shangeth Rajaa&lt;/a&gt;&lt;/h3&gt;&lt;/center&gt;
 &lt;hr&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;neural-network-architectures&#34;&gt;Neural Network Architectures&lt;/h1&gt;
 
 &lt;p&gt;We trained our first neural network in the previous notebook which had 3 layers&lt;/p&gt;
 
