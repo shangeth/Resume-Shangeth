@@ -85,9 +85,10 @@ So far the datasets we have used are linearly seperable, which means they can be
       <pubDate>Mon, 02 Sep 2019 00:00:00 +0100</pubDate>
       
       <guid>/google-ml-academy/deeplearning/2.1/</guid>
-      <description>Google ML Academy 2019 Instructor: Shangeth Rajaa 
-Neural Network Architectures We trained our first neural network in the previous notebook which had 3 layers - Input Layer - Hidden Layer - Output Layer
-Multiple Nodes The network had 2 linear layers($C_1$,0 $C_2$) in the hidden layer each of which gave us a linear classifier, then we used another linear layer($C_3$) in the output layer to combine $C_1$ and $C_2$ to give us a non-linear classifier($C$).</description>
+      <description>Open in GitHub
+Google ML Academy 2019 Instructor: Shangeth Rajaa 
+Neural Network Architectures We trained our first neural network in the previous notebook which had 3 layers
+ Input Layer Hidden Layer Output Layer  Multiple Nodes The network had 2 linear layers($C_1$,0 $C_2$) in the hidden layer each of which gave us a linear classifier, then we used another linear layer($C_3$) in the output layer to combine $C_1$ and $C_2$ to give us a non-linear classifier($C$).</description>
     </item>
     
   </channel>
