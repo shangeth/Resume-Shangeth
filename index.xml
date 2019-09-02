@@ -2936,6 +2936,8 @@ Epoch 500/500
 &lt;/table&gt;
 
 &lt;p&gt;you have seen how deeper model can help. As the model goes more deeper and complex, the performance of the model increases(although this may not be the case everytime, especially when we have less data and there is something called vanishing gradients, which we will discuss later). But in general, deeper models improves performance.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Train the models in the notebooks with &amp;lsquo;relu&amp;rsquo; activation function instead of &amp;lsquo;tanh&amp;rsquo; and compare the performance.&lt;/strong&gt;&lt;/p&gt;
 </description>
     </item>
     
