@@ -7,7 +7,7 @@
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; {year} Shangeth Rajaa</copyright>
-    <lastBuildDate>Mon, 02 Sep 2019 00:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 03 Sep 2019 00:00:00 +0100</lastBuildDate>
     
 	    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -3221,6 +3221,1027 @@ $\mathcal{L}(y , \hat{y}) = \dfrac{1}{n} \sum_{i=1}^{n}\mathcal{L}(y^i , \hat{y}
 &lt;p&gt;Which means the gradients are average of gradients over the batch of data.&lt;/p&gt;
 
 &lt;p&gt;Then update the parameters normally with $w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \frac{\partial \mathcal{L}}{\partial b}$.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Optimizers</title>
+      <link>/google-ml-academy/deeplearning/2.3/</link>
+      <pubDate>Tue, 03 Sep 2019 00:00:00 +0100</pubDate>
+      
+      <guid>/google-ml-academy/deeplearning/2.3/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_3_Optimizers.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;a href=&#34;https://github.com/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_3_Optimizers.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;svg class=&#34;octicon octicon-mark-github v-align-middle&#34; height=&#34;30&#34; viewBox=&#34;0 0 16 16&#34; version=&#34;1.1&#34; width=&#34;30&#34; aria-hidden=&#34;true&#34;&gt;&lt;path fill-rule=&#34;evenodd&#34; d=&#34;M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; Open in GitHub&lt;/a&gt;&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;h1&gt;&lt;a href=&#39;https://shangeth.com/google-ml-academy/&#39;&gt;Google ML Academy 2019&lt;/a&gt;&lt;/h1&gt;&lt;/center&gt;
+&lt;center&gt;&lt;h3&gt;Instructor: &lt;a href=&#39;https://shangeth.com/&#39;&gt;Shangeth Rajaa&lt;/a&gt;&lt;/h3&gt;&lt;/center&gt;
+&lt;hr&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;gradient-descent&#34;&gt;Gradient Descent&lt;/h1&gt;
+
+&lt;p&gt;We have seen what are the steps followed in Gradient Descent to minimize the loss function. Now let&amp;rsquo;s get into more detail.&lt;/p&gt;
+
+&lt;p&gt;The objective of gradient descent is to find $W, b$ for which $\mathcal{L}(W, b) $ is minimum for given pairs of data $(X, y)$.&lt;/p&gt;
+
+&lt;h2 id=&#34;example&#34;&gt;Example&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s forget about Machine learning for sometime and use gradient descent algorithm for optimization of simple functions.&lt;/p&gt;
+
+&lt;p&gt;Given a function $y = f(x) = 0.08x^2+sin(x)$, the objective is to find $x$ at which $y = f(x)$ is minimum.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s use Numpy to solve this.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import numpy as np
+import matplotlib.pyplot as plt
+
+def f(x):
+    return 0.08* x**2 + np.sin(x)
+
+x = np.arange(-10, 10, 0.01)
+y = f(x)
+
+plt.plot(x, y, label=&#39;$y = f(x)$&#39;)
+plt.xlabel(&#39;$x$&#39;)
+plt.ylabel(&#39;$y$&#39;)
+plt.legend()
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_3/output_3_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We are going to use gradient descent to find $x$ for which this function is minimum.&lt;/p&gt;
+
+&lt;h3 id=&#34;step-1&#34;&gt;Step - 1&lt;/h3&gt;
+
+&lt;p&gt;Choose a random point&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;random_idx = np.random.choice(2000)
+random_x = x[random_idx]
+
+plt.plot(x, y, label=&#39;$y = f(x)$&#39;)
+plt.scatter(random_x, f(random_x))
+plt.xlabel(&#39;$x$&#39;)
+plt.ylabel(&#39;$y$&#39;)
+plt.legend()
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_3/output_6_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;step-2&#34;&gt;Step - 2&lt;/h3&gt;
+
+&lt;p&gt;calculate $\dfrac{\partial \mathcal{y}}{\partial x}$.&lt;/p&gt;
+
+&lt;p&gt;Why? Let&amp;rsquo;s visualize it&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;np.random.seed(60)
+
+random_idx = np.random.choice(2000)
+random_x = x[random_idx]
+
+a = random_x
+h = 0.01
+x_tan = np.arange(a-1, a+1, 0.01)
+fprime = (f(a+h)-f(a))/h
+tan = f(a)+fprime*(x_tan-a)  
+
+plt.figure(figsize=(12,8))
+plt.plot(x, y, label=&#39;$y = f(x)$&#39;)
+plt.plot(x_tan, tan, &#39;--&#39;, label=&#39;gradient $\dfrac{\partial \mathcal{y}}{\partial x}$&#39;, linewidth=4.0)
+plt.text(a+0.2,f(a+0.2),&#39;$\dfrac{\partial \mathcal{y}}{\partial x}$=&#39;+&#39;{:.3f}&#39;.format(fprime), fontsize=20)
+plt.scatter(random_x, f(random_x), s=200, color=&#39;black&#39;)
+plt.xlabel(&#39;$x$&#39;, fontsize=20)
+plt.ylabel(&#39;$y$&#39;, fontsize=20)
+plt.legend(fontsize = &#39;xx-large&#39;)
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_3/output_8_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The gradient of $y = f(x) = 0.08x^2+sin(x)$ is $\dfrac{\partial \mathcal{y}}{\partial x} = 0.16x+cos(x)$&lt;/p&gt;
+
+&lt;p&gt;The gradient or slope $\dfrac{\partial \mathcal{y}}{\partial x}$ of the curve at the randomly selected point is negative. Which means the function will decrease as x increases and the function will increase as x decreases.&lt;/p&gt;
+
+&lt;p&gt;Our objective is to minimize the function, so we calculate $\dfrac{\partial \mathcal{y}}{\partial x}$, to decide in which direction to move, so we reach the minimum.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;if $\dfrac{\partial \mathcal{y}}{\partial x} &amp;gt; 0$, we move towards left of decrease x&lt;/li&gt;
+&lt;li&gt;if $\dfrac{\partial \mathcal{y}}{\partial x} &amp;lt; 0$, we move towards right or increase x&lt;/li&gt;
+&lt;li&gt;if $\dfrac{\partial \mathcal{y}}{\partial x} = 0$, which means we are already at a point of minimum&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;But how much to increase x?&lt;/p&gt;
+
+&lt;h3 id=&#34;step-3-learning-rate&#34;&gt;Step - 3 Learning rate&lt;/h3&gt;
+
+&lt;p&gt;We now know, given a point should we increase or decrease x to reach minimum.&lt;/p&gt;
+
+&lt;p&gt;How much to increase or decrease x?&lt;/p&gt;
+
+&lt;p&gt;We change x with a factor called learning rate $\alpha$.
+So we update x with $x := x - \alpha \frac{\partial \mathcal{y}}{\partial x}$&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;when $\alpha$ is small, x is increased in small steps, so more iterations are required to reach minimum, but this will lead to more accurate steps.&lt;/li&gt;
+&lt;li&gt;when $\alpha$ is larger, x will increase in larger steps, so x will reach minimum y in few steps, but there is a risk of x skipping the minimum point, as x is increased in larger value.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;When do we stop?
+We can iterate of any number of iterations, but when x reaches minimum y , then $\dfrac{\partial \mathcal{y}}{\partial x} = 0$&lt;/p&gt;
+
+&lt;p&gt;$\therefore x := x - \alpha . 0$, so x will remain same, even if you iterate more.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s code this.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import numpy as np
+
+def gradient(x):
+    return 0.16*x+np.cos(x)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;np.random.seed(24) # change the seed to start from different point
+
+x = np.arange(-10, 10, 0.01)
+y = f(x)
+
+random_idx = np.random.choice(2000)
+x_iter = x[random_idx]
+
+epochs = 100
+lr = 0.2
+
+for i in range(epochs):
+    dy_dx = gradient(x_iter)    
+    x_iter = x_iter - lr * dy_dx
+
+
+    if i%20 == 0:
+        a = x_iter
+        h = 0.01
+        x_tan = np.arange(a-1, a+1, 0.01)
+        fprime = (f(a+h)-f(a))/h
+        tan = f(a)+fprime*(x_tan-a)  
+
+        plt.figure(figsize=(12,8))
+        plt.plot(x, y, label=&#39;$y = f(x)$&#39;)
+        plt.plot(x_tan, tan, &#39;--&#39;, label=&#39;gradient $\dfrac{\partial \mathcal{y}}{\partial x}$&#39;, linewidth=4.0)
+        plt.text(a+0.2,f(a+0.2),&#39;$\dfrac{\partial \mathcal{y}}{\partial x}$=&#39;+&#39;{:.3f}&#39;.format(fprime), fontsize=20)
+        plt.scatter(a, f(a), s=200, color=&#39;black&#39;)
+        plt.xlabel(&#39;$x$&#39;, fontsize=20)
+        plt.ylabel(&#39;$y$&#39;, fontsize=20)
+        plt.legend(fontsize = &#39;xx-large&#39;)
+        plt.show()
+
+
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_3/output_11_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_3/output_11_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_3/output_11_2.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_3/output_11_3.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_3/output_11_4.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;np.random.seed(24) # change the seed to start from different point
+
+x = np.arange(-10, 10, 0.01)
+y = f(x)
+
+random_idx = np.random.choice(2000)
+x_iter = x[random_idx]
+
+epochs = 100
+lr = 0.2
+
+x_list = []
+y_list = []
+
+for i in range(epochs):
+    dy_dx = gradient(x_iter)
+    
+    x_iter = x_iter - lr * dy_dx
+    x_list.append(x_iter)
+    y_list.append(f(x_iter))
+
+plt.figure(figsize=(12,8))
+plt.plot(x, y, label=&#39;$y = f(x)$&#39;)
+for i in range(len(x_list)):
+    plt.scatter(x_list[i], y_list[i], s=200, color=&#39;black&#39;)
+plt.xlabel(&#39;$x$&#39;, fontsize=20)
+plt.ylabel(&#39;$y$&#39;, fontsize=20)
+plt.legend(fontsize = &#39;xx-large&#39;)
+plt.show()
+
+
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_3/output_12_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This is the path followed to reach the minimum.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Run the code&lt;/strong&gt; with
+- large lr
+- small lr
+- more epochs
+- less epochs&lt;/p&gt;
+
+&lt;h1 id=&#34;gd-with-momentum&#34;&gt;GD with Momentum&lt;/h1&gt;
+
+&lt;p&gt;The updation step is changed with&lt;/p&gt;
+
+&lt;p&gt;$v = \beta v + (1-\beta) \dfrac{\partial \mathcal{y}}{\partial x}$&lt;/p&gt;
+
+&lt;p&gt;$x = x - \alpha v$&lt;/p&gt;
+
+&lt;p&gt;This algorithms smoothens the updation process, by averaging the movement in other direction and forces x to move in the required direction which fastens the process.&lt;/p&gt;
+
+&lt;h2 id=&#34;momentum-in-numpy&#34;&gt;Momentum in Numpy&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;np.random.seed(23) # change the seed to start from different point
+
+x = np.arange(-10, 10, 0.01)
+y = f(x)
+
+random_idx = np.random.choice(2000)
+x_iter = x[random_idx]
+
+epochs = 100
+lr = 0.2
+v = 0
+b = 0.9
+
+for i in range(epochs):
+    dy_dx = gradient(x_iter)
+    v = b * v + (1-b) *  dy_dx   
+    x_iter = x_iter - lr * v
+
+
+    if i%20 == 0:
+        a = x_iter
+        h = 0.01
+        x_tan = np.arange(a-1, a+1, 0.01)
+        fprime = (f(a+h)-f(a))/h
+        tan = f(a)+fprime*(x_tan-a)  
+
+        plt.figure(figsize=(12,8))
+        plt.plot(x, y, label=&#39;$y = f(x)$&#39;)
+        plt.plot(x_tan, tan, &#39;--&#39;, label=&#39;gradient $\dfrac{\partial \mathcal{y}}{\partial x}$&#39;, linewidth=4.0)
+        plt.text(a+0.2,f(a+0.2),&#39;$\dfrac{\partial \mathcal{y}}{\partial x}$=&#39;+&#39;{:.3f}&#39;.format(fprime), fontsize=20)
+        plt.scatter(a, f(a), s=200, color=&#39;black&#39;)
+        plt.xlabel(&#39;$x$&#39;, fontsize=20)
+        plt.ylabel(&#39;$y$&#39;, fontsize=20)
+        plt.legend(fontsize = &#39;xx-large&#39;)
+        plt.show()
+
+
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_3/output_15_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_3/output_15_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_3/output_15_2.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_3/output_15_3.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_3/output_15_4.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;np.random.seed(24) # change the seed to start from different point
+
+x = np.arange(-10, 10, 0.01)
+y = f(x)
+
+random_idx = np.random.choice(2000)
+x_iter = x[random_idx]
+
+epochs = 200
+lr = 0.1
+v = 0
+b = 0.9
+
+x_list = []
+y_list = []
+
+for i in range(epochs):
+    dy_dx = gradient(x_iter)
+    
+    v = b * v + (1-b) *  dy_dx   
+    x_iter = x_iter - lr * v
+
+    x_list.append(x_iter)
+    y_list.append(f(x_iter))
+
+plt.figure(figsize=(12,8))
+plt.plot(x, y, label=&#39;$y = f(x)$&#39;)
+for i in range(len(x_list)):
+    plt.scatter(x_list[i], y_list[i], s=200, color=&#39;black&#39;)
+plt.xlabel(&#39;$x$&#39;, fontsize=20)
+plt.ylabel(&#39;$y$&#39;, fontsize=20)
+plt.legend(fontsize = &#39;xx-large&#39;)
+plt.show()
+
+
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_3/output_16_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;optimization-algorithms-with-tensorflow&#34;&gt;Optimization algorithms with Tensorflow&lt;/h1&gt;
+
+&lt;p&gt;Check the &lt;a href=&#34;https://www.tensorflow.org/api_docs/python/tf/keras/optimizers&#34; target=&#34;_blank&#34;&gt;Tensorflow docs&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;So far we have been using &amp;lsquo;Adam&amp;rsquo; algorithm for optimization with default parameter values. We will now train models with different optimizers and hyper parameters.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn.datasets import make_gaussian_quantiles
+from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
+
+X, y = make_gaussian_quantiles(n_samples=2000, n_features=2, n_classes=2, random_state=3, cov=0.1)
+
+plt.figure(figsize=(10,10))
+plt.scatter(X[:,0], X[:,1],c=y)
+plt.grid(True)
+plt.show()
+
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, shuffle=True)
+X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.2, shuffle=True)
+
+print(&#39;Train = {}\nTest = {}\nVal = {}&#39;.format(len(X_train), len(X_test), len(X_val)))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_3/output_18_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Train = 1120
+Test = 600
+Val = 280
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;sgd-optimizer&#34;&gt;SGD optimizer&lt;/h2&gt;
+
+&lt;h3 id=&#34;stochastic-gradient-descent-without-momentum&#34;&gt;Stochastic gradient descent without momentum&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+import matplotlib.pyplot as plt
+tf.keras.backend.clear_session()
+
+# random number initialized will to same, for reproducing same results.
+np.random.seed(0)
+tf.set_random_seed(0)
+
+model = tf.keras.Sequential([
+                             keras.layers.Dense(units=10, input_shape=[2]), 
+                             keras.layers.Activation(&#39;tanh&#39;),
+                             keras.layers.Dense(units=10),
+                             keras.layers.Activation(&#39;tanh&#39;),
+                             keras.layers.Dense(units=1), 
+                             keras.layers.Activation(&#39;sigmoid&#39;)
+                             ])
+
+# we used the default optimizer parameters by using optimizer=&#39;adam&#39;
+# model.compile(optimizer=&#39;adam&#39;, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;accuracy&#39;])
+
+# we can also define optimizer with
+optimizer = tf.keras.optimizers.SGD(lr=0.01, nesterov=False)
+model.compile(optimizer=optimizer, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;accuracy&#39;])
+tf_history = model.fit(X_train, y_train, batch_size=100, epochs=50, verbose=True, validation_data=(X_val, y_val))
+
+
+# contour plot
+xx, yy = np.mgrid[-1.5:1.5:.01, -1.5:1.5:.01]
+grid = np.c_[xx.ravel(), yy.ravel()]
+probs = model.predict(grid)[:,0].reshape(xx.shape)
+
+f, ax = plt.subplots(figsize=(8, 6))
+contour = ax.contourf(xx, yy, probs, 25, cmap=&amp;quot;RdBu&amp;quot;,
+                      vmin=0, vmax=1)
+ax_c = f.colorbar(contour)
+ax_c.set_label(&amp;quot;$P(y = 1)$&amp;quot;)
+ax_c.set_ticks([0, .25, .5, .75, 1])
+
+ax.scatter(X[:,0], X[:, 1], c=y, s=50,
+           cmap=&amp;quot;RdBu&amp;quot;, vmin=-.2, vmax=1.2,
+           edgecolor=&amp;quot;white&amp;quot;, linewidth=1)
+
+plt.show()
+
+# test accuracy
+from sklearn.metrics import accuracy_score
+y_test_pred = model.predict(X_test)
+test_accuracy = accuracy_score((y_test_pred &amp;gt; 0.5), y_test)
+
+print(&#39;\nTest Accuracy = &#39;, test_accuracy)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Train on 1120 samples, validate on 280 samples
+Epoch 1/50
+1120/1120 [==============================] - 0s 96us/sample - loss: 0.7056 - acc: 0.4991 - val_loss: 0.7119 - val_acc: 0.4536
+Epoch 2/50
+1120/1120 [==============================] - 0s 20us/sample - loss: 0.7048 - acc: 0.5000 - val_loss: 0.7114 - val_acc: 0.4643
+.
+.
+Epoch 49/50
+1120/1120 [==============================] - 0s 19us/sample - loss: 0.6910 - acc: 0.6366 - val_loss: 0.6997 - val_acc: 0.5929
+Epoch 50/50
+1120/1120 [==============================] - 0s 22us/sample - loss: 0.6910 - acc: 0.6348 - val_loss: 0.6991 - val_acc: 0.5714
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_3/output_20_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Test Accuracy =  0.6633333333333333
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;stochastic-gradient-descent-with-momentum&#34;&gt;Stochastic gradient descent with momentum&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+import matplotlib.pyplot as plt
+tf.keras.backend.clear_session()
+
+# random number initialized will to same, for reproducing same results.
+np.random.seed(0)
+tf.set_random_seed(0)
+
+model = tf.keras.Sequential([
+                             keras.layers.Dense(units=10, input_shape=[2]), 
+                             keras.layers.Activation(&#39;tanh&#39;),
+                             keras.layers.Dense(units=10),
+                             keras.layers.Activation(&#39;tanh&#39;),
+                             keras.layers.Dense(units=1), 
+                             keras.layers.Activation(&#39;sigmoid&#39;)
+                             ])
+
+# we used the default optimizer parameters by using optimizer=&#39;adam&#39;
+# model.compile(optimizer=&#39;adam&#39;, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;accuracy&#39;])
+
+# we can also define optimizer with
+optimizer = tf.keras.optimizers.SGD(lr=0.01, momentum=0.9, nesterov=True)
+model.compile(optimizer=optimizer, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;accuracy&#39;])
+tf_history = model.fit(X_train, y_train, batch_size=100, epochs=50, verbose=True, validation_data=(X_val, y_val))
+
+
+# contour plot
+xx, yy = np.mgrid[-1.5:1.5:.01, -1.5:1.5:.01]
+grid = np.c_[xx.ravel(), yy.ravel()]
+probs = model.predict(grid)[:,0].reshape(xx.shape)
+
+f, ax = plt.subplots(figsize=(8, 6))
+contour = ax.contourf(xx, yy, probs, 25, cmap=&amp;quot;RdBu&amp;quot;,
+                      vmin=0, vmax=1)
+ax_c = f.colorbar(contour)
+ax_c.set_label(&amp;quot;$P(y = 1)$&amp;quot;)
+ax_c.set_ticks([0, .25, .5, .75, 1])
+
+ax.scatter(X[:,0], X[:, 1], c=y, s=50,
+           cmap=&amp;quot;RdBu&amp;quot;, vmin=-.2, vmax=1.2,
+           edgecolor=&amp;quot;white&amp;quot;, linewidth=1)
+
+plt.show()
+
+# test accuracy
+from sklearn.metrics import accuracy_score
+y_test_pred = model.predict(X_test)
+test_accuracy = accuracy_score((y_test_pred &amp;gt; 0.5), y_test)
+
+print(&#39;\nTest Accuracy = &#39;, test_accuracy)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Train on 1120 samples, validate on 280 samples
+Epoch 1/50
+1120/1120 [==============================] - 0s 104us/sample - loss: 0.7047 - acc: 0.5080 - val_loss: 0.7094 - val_acc: 0.4821
+Epoch 2/50
+1120/1120 [==============================] - 0s 20us/sample - loss: 0.7002 - acc: 0.5000 - val_loss: 0.7033 - val_acc: 0.4714
+.
+.
+Epoch 49/50
+1120/1120 [==============================] - 0s 20us/sample - loss: 0.6351 - acc: 0.7714 - val_loss: 0.6531 - val_acc: 0.7214
+Epoch 50/50
+1120/1120 [==============================] - 0s 21us/sample - loss: 0.6307 - acc: 0.7750 - val_loss: 0.6463 - val_acc: 0.7393
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_3/output_22_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Test Accuracy =  0.7866666666666666
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can note the difference, optimizer with momentum got accuracy of 0.78 in 50 epochs, whereas optimizer without momentum got 0.663 in 50 epochs&lt;/p&gt;
+
+&lt;h2 id=&#34;adam-optimizer&#34;&gt;Adam optimizer&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://www.math.purdue.edu/~nwinovic/figures/adam.png&#34; alt=&#34;&#34; /&gt;
+Check this &lt;a href=&#34;https://arxiv.org/abs/1412.6980&#34; target=&#34;_blank&#34;&gt;paper&lt;/a&gt; to know about adam.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+import matplotlib.pyplot as plt
+tf.keras.backend.clear_session()
+
+# random number initialized will to same, for reproducing same results.
+np.random.seed(0)
+tf.set_random_seed(0)
+
+model = tf.keras.Sequential([
+                             keras.layers.Dense(units=10, input_shape=[2]), 
+                             keras.layers.Activation(&#39;tanh&#39;),
+                             keras.layers.Dense(units=10),
+                             keras.layers.Activation(&#39;tanh&#39;),
+                             keras.layers.Dense(units=1), 
+                             keras.layers.Activation(&#39;sigmoid&#39;)
+                             ])
+
+# we used the default optimizer parameters by using optimizer=&#39;adam&#39;
+# model.compile(optimizer=&#39;adam&#39;, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;accuracy&#39;])
+
+# we can also define optimizer with
+optimizer = tf.keras.optimizers.Adam(lr=0.01)
+model.compile(optimizer=optimizer, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;accuracy&#39;])
+tf_history = model.fit(X_train, y_train, batch_size=100, epochs=50, verbose=True, validation_data=(X_val, y_val))
+
+
+# contour plot
+xx, yy = np.mgrid[-1.5:1.5:.01, -1.5:1.5:.01]
+grid = np.c_[xx.ravel(), yy.ravel()]
+probs = model.predict(grid)[:,0].reshape(xx.shape)
+
+f, ax = plt.subplots(figsize=(8, 6))
+contour = ax.contourf(xx, yy, probs, 25, cmap=&amp;quot;RdBu&amp;quot;,
+                      vmin=0, vmax=1)
+ax_c = f.colorbar(contour)
+ax_c.set_label(&amp;quot;$P(y = 1)$&amp;quot;)
+ax_c.set_ticks([0, .25, .5, .75, 1])
+
+ax.scatter(X[:,0], X[:, 1], c=y, s=50,
+           cmap=&amp;quot;RdBu&amp;quot;, vmin=-.2, vmax=1.2,
+           edgecolor=&amp;quot;white&amp;quot;, linewidth=1)
+
+plt.show()
+
+# test accuracy
+from sklearn.metrics import accuracy_score
+y_test_pred = model.predict(X_test)
+test_accuracy = accuracy_score((y_test_pred &amp;gt; 0.5), y_test)
+
+print(&#39;\nTest Accuracy = &#39;, test_accuracy)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Train on 1120 samples, validate on 280 samples
+Epoch 1/50
+1120/1120 [==============================] - 0s 120us/sample - loss: 0.6971 - acc: 0.5080 - val_loss: 0.6996 - val_acc: 0.6036
+Epoch 2/50
+1120/1120 [==============================] - 0s 24us/sample - loss: 0.6908 - acc: 0.5545 - val_loss: 0.6979 - val_acc: 0.5357
+.
+.
+Epoch 49/50
+1120/1120 [==============================] - 0s 33us/sample - loss: 0.0785 - acc: 0.9804 - val_loss: 0.0694 - val_acc: 0.9821
+Epoch 50/50
+1120/1120 [==============================] - 0s 25us/sample - loss: 0.0748 - acc: 0.9804 - val_loss: 0.0729 - val_acc: 0.9786
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_3/output_25_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Test Accuracy =  0.9833333333333333
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Adam was able to give an accuracy of 0.98 in the same 50 epochs.&lt;/p&gt;
+
+&lt;p&gt;So Optimization algorithms affect the learning performance a lot. A good(right) optimization algorithm can improve your performance a lot.&lt;/p&gt;
+
+&lt;p&gt;Check out the other optimizers in Tensorflow in the docs.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Learning Rate</title>
+      <link>/google-ml-academy/deeplearning/2.4/</link>
+      <pubDate>Tue, 03 Sep 2019 00:00:00 +0100</pubDate>
+      
+      <guid>/google-ml-academy/deeplearning/2.4/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_4_Learning_Rate.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;a href=&#34;https://github.com/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_4_Learning_Rate.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;svg class=&#34;octicon octicon-mark-github v-align-middle&#34; height=&#34;30&#34; viewBox=&#34;0 0 16 16&#34; version=&#34;1.1&#34; width=&#34;30&#34; aria-hidden=&#34;true&#34;&gt;&lt;path fill-rule=&#34;evenodd&#34; d=&#34;M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; Open in GitHub&lt;/a&gt;&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;h1&gt;&lt;a href=&#39;https://shangeth.com/google-ml-academy/&#39;&gt;Google ML Academy 2019&lt;/a&gt;&lt;/h1&gt;&lt;/center&gt;
+&lt;center&gt;&lt;h3&gt;Instructor: &lt;a href=&#39;https://shangeth.com/&#39;&gt;Shangeth Rajaa&lt;/a&gt;&lt;/h3&gt;&lt;/center&gt;
+&lt;hr&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;learning-rate&#34;&gt;Learning Rate&lt;/h1&gt;
+
+&lt;p&gt;In Gradient Descent we update the parameters of the model with&lt;/p&gt;
+
+&lt;p&gt;$w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \frac{\partial \mathcal{L}}{\partial b}$.&lt;/p&gt;
+
+&lt;p&gt;The learning rate $\alpha$ actually affects the learning process a lot.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;small $\alpha$ is slow, but more accuracte, as it does not miss the minimum, but it also get stuck in the local minimum.&lt;/li&gt;
+&lt;li&gt;larger $\alpha$ make huge steps, sometimes it may converge faster but it may miss the minima.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Learning rate is an important hyper parameter in training a Model. It is important to understand to tune the learning rate.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn.datasets import make_gaussian_quantiles
+from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
+
+X, y = make_gaussian_quantiles(n_samples=2000, n_features=2, n_classes=2, random_state=3, cov=0.1)
+
+plt.figure(figsize=(10,10))
+plt.scatter(X[:,0], X[:,1],c=y)
+plt.grid(True)
+plt.show()
+
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, shuffle=True)
+X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.2, shuffle=True)
+
+print(&#39;Train = {}\nTest = {}\nVal = {}&#39;.format(len(X_train), len(X_test), len(X_val)))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_4/output_3_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Train = 1120
+Test = 600
+Val = 280
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;large-learning-rate&#34;&gt;Large Learning rate&lt;/h2&gt;
+
+&lt;p&gt;We will use adam optimizer with learning rate of 0.5&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+import matplotlib.pyplot as plt
+tf.keras.backend.clear_session()
+
+# random number initialized will to same, for reproducing same results.
+np.random.seed(0)
+tf.set_random_seed(0)
+
+model = tf.keras.Sequential([
+                             keras.layers.Dense(units=10, input_shape=[2]), 
+                             keras.layers.Activation(&#39;tanh&#39;),
+                             keras.layers.Dense(units=10),
+                             keras.layers.Activation(&#39;tanh&#39;),
+                             keras.layers.Dense(units=1), 
+                             keras.layers.Activation(&#39;sigmoid&#39;)
+                             ])
+
+# we used the default optimizer parameters by using optimizer=&#39;adam&#39;
+# model.compile(optimizer=&#39;adam&#39;, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;accuracy&#39;])
+
+# we can also define optimizer with
+optimizer = tf.keras.optimizers.Adam(lr=0.5)
+model.compile(optimizer=optimizer, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;accuracy&#39;])
+tf_history = model.fit(X_train, y_train, batch_size=100, epochs=50, verbose=True, validation_data=(X_val, y_val))
+
+
+# contour plot
+xx, yy = np.mgrid[-1.5:1.5:.01, -1.5:1.5:.01]
+grid = np.c_[xx.ravel(), yy.ravel()]
+probs = model.predict(grid)[:,0].reshape(xx.shape)
+
+f, ax = plt.subplots(figsize=(8, 6))
+contour = ax.contourf(xx, yy, probs, 25, cmap=&amp;quot;RdBu&amp;quot;,
+                      vmin=0, vmax=1)
+ax_c = f.colorbar(contour)
+ax_c.set_label(&amp;quot;$P(y = 1)$&amp;quot;)
+ax_c.set_ticks([0, .25, .5, .75, 1])
+
+ax.scatter(X[:,0], X[:, 1], c=y, s=50,
+           cmap=&amp;quot;RdBu&amp;quot;, vmin=-.2, vmax=1.2,
+           edgecolor=&amp;quot;white&amp;quot;, linewidth=1)
+
+plt.show()
+
+# test accuracy
+from sklearn.metrics import accuracy_score
+y_test_pred = model.predict(X_test)
+test_accuracy = accuracy_score((y_test_pred &amp;gt; 0.5), y_test)
+
+print(&#39;\nTest Accuracy = &#39;, test_accuracy)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;WARNING: Logging before flag parsing goes to stderr.
+W0903 06:12:55.336309 139678620190592 deprecation.py:506] From /usr/local/lib/python3.6/dist-packages/tensorflow/python/ops/init_ops.py:1251: calling VarianceScaling.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
+Instructions for updating:
+Call initializer instance with the dtype argument instead of passing it to the constructor
+W0903 06:12:55.442114 139678620190592 deprecation.py:323] From /usr/local/lib/python3.6/dist-packages/tensorflow/python/ops/nn_impl.py:180: add_dispatch_support.&amp;lt;locals&amp;gt;.wrapper (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+
+
+Train on 1120 samples, validate on 280 samples
+Epoch 1/50
+1120/1120 [==============================] - 0s 130us/sample - loss: 0.8366 - acc: 0.4786 - val_loss: 0.7390 - val_acc: 0.4464
+Epoch 2/50
+1120/1120 [==============================] - 0s 22us/sample - loss: 0.7115 - acc: 0.4902 - val_loss: 0.7462 - val_acc: 0.4464
+.
+.
+Epoch 49/50
+1120/1120 [==============================] - 0s 23us/sample - loss: 0.7400 - acc: 0.4920 - val_loss: 0.6896 - val_acc: 0.5536
+Epoch 50/50
+1120/1120 [==============================] - 0s 22us/sample - loss: 0.7273 - acc: 0.5009 - val_loss: 0.6900 - val_acc: 0.5536
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_4/output_5_2.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Test Accuracy =  0.49666666666666665
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is one of the worst model you can train, as the learning rate is very high the optimizer skips all the minima and the loss does not really reduces much.&lt;/p&gt;
+
+&lt;h2 id=&#34;small-learning-rate&#34;&gt;Small Learning rate&lt;/h2&gt;
+
+&lt;p&gt;We will use adam optimizer with learning rate of 0.00001&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+import matplotlib.pyplot as plt
+tf.keras.backend.clear_session()
+
+# random number initialized will to same, for reproducing same results.
+np.random.seed(0)
+tf.set_random_seed(0)
+
+model = tf.keras.Sequential([
+                             keras.layers.Dense(units=10, input_shape=[2]), 
+                             keras.layers.Activation(&#39;tanh&#39;),
+                             keras.layers.Dense(units=10),
+                             keras.layers.Activation(&#39;tanh&#39;),
+                             keras.layers.Dense(units=1), 
+                             keras.layers.Activation(&#39;sigmoid&#39;)
+                             ])
+
+# we used the default optimizer parameters by using optimizer=&#39;adam&#39;
+# model.compile(optimizer=&#39;adam&#39;, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;accuracy&#39;])
+
+# we can also define optimizer with
+optimizer = tf.keras.optimizers.Adam(lr=0.00001)
+model.compile(optimizer=optimizer, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;accuracy&#39;])
+tf_history = model.fit(X_train, y_train, batch_size=100, epochs=50, verbose=True, validation_data=(X_val, y_val))
+
+
+# contour plot
+xx, yy = np.mgrid[-1.5:1.5:.01, -1.5:1.5:.01]
+grid = np.c_[xx.ravel(), yy.ravel()]
+probs = model.predict(grid)[:,0].reshape(xx.shape)
+
+f, ax = plt.subplots(figsize=(8, 6))
+contour = ax.contourf(xx, yy, probs, 25, cmap=&amp;quot;RdBu&amp;quot;,
+                      vmin=0, vmax=1)
+ax_c = f.colorbar(contour)
+ax_c.set_label(&amp;quot;$P(y = 1)$&amp;quot;)
+ax_c.set_ticks([0, .25, .5, .75, 1])
+
+ax.scatter(X[:,0], X[:, 1], c=y, s=50,
+           cmap=&amp;quot;RdBu&amp;quot;, vmin=-.2, vmax=1.2,
+           edgecolor=&amp;quot;white&amp;quot;, linewidth=1)
+
+plt.show()
+
+# test accuracy
+from sklearn.metrics import accuracy_score
+y_test_pred = model.predict(X_test)
+test_accuracy = accuracy_score((y_test_pred &amp;gt; 0.5), y_test)
+
+print(&#39;\nTest Accuracy = &#39;, test_accuracy)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Train on 1120 samples, validate on 280 samples
+Epoch 1/50
+1120/1120 [==============================] - 0s 108us/sample - loss: 0.7051 - acc: 0.5018 - val_loss: 0.7056 - val_acc: 0.4821
+Epoch 2/50
+1120/1120 [==============================] - 0s 22us/sample - loss: 0.7050 - acc: 0.5018 - val_loss: 0.7055 - val_acc: 0.4821
+.
+.
+Epoch 49/50
+1120/1120 [==============================] - 0s 23us/sample - loss: 0.7027 - acc: 0.5009 - val_loss: 0.7036 - val_acc: 0.4786
+Epoch 50/50
+1120/1120 [==============================] - 0s 21us/sample - loss: 0.7026 - acc: 0.5009 - val_loss: 0.7035 - val_acc: 0.4786
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_4/output_8_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Test Accuracy =  0.5116666666666667
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The loss in this model seems to reduce, but at a very slow rate, so we need to train for more epochs to get a good model.&lt;/p&gt;
+
+&lt;h2 id=&#34;medium-learning-rate&#34;&gt;Medium Learning rate&lt;/h2&gt;
+
+&lt;p&gt;We will use adam optimizer with learning rate of 0.005&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+import matplotlib.pyplot as plt
+tf.keras.backend.clear_session()
+
+# random number initialized will to same, for reproducing same results.
+np.random.seed(0)
+tf.set_random_seed(0)
+
+model = tf.keras.Sequential([
+                             keras.layers.Dense(units=10, input_shape=[2]), 
+                             keras.layers.Activation(&#39;tanh&#39;),
+                             keras.layers.Dense(units=10),
+                             keras.layers.Activation(&#39;tanh&#39;),
+                             keras.layers.Dense(units=1), 
+                             keras.layers.Activation(&#39;sigmoid&#39;)
+                             ])
+
+# we used the default optimizer parameters by using optimizer=&#39;adam&#39;
+# model.compile(optimizer=&#39;adam&#39;, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;accuracy&#39;])
+
+# we can also define optimizer with
+optimizer = tf.keras.optimizers.Adam(lr=0.005)
+model.compile(optimizer=optimizer, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;accuracy&#39;])
+tf_history = model.fit(X_train, y_train, batch_size=100, epochs=50, verbose=True, validation_data=(X_val, y_val))
+
+
+# contour plot
+xx, yy = np.mgrid[-1.5:1.5:.01, -1.5:1.5:.01]
+grid = np.c_[xx.ravel(), yy.ravel()]
+probs = model.predict(grid)[:,0].reshape(xx.shape)
+
+f, ax = plt.subplots(figsize=(8, 6))
+contour = ax.contourf(xx, yy, probs, 25, cmap=&amp;quot;RdBu&amp;quot;,
+                      vmin=0, vmax=1)
+ax_c = f.colorbar(contour)
+ax_c.set_label(&amp;quot;$P(y = 1)$&amp;quot;)
+ax_c.set_ticks([0, .25, .5, .75, 1])
+
+ax.scatter(X[:,0], X[:, 1], c=y, s=50,
+           cmap=&amp;quot;RdBu&amp;quot;, vmin=-.2, vmax=1.2,
+           edgecolor=&amp;quot;white&amp;quot;, linewidth=1)
+
+plt.show()
+
+# test accuracy
+from sklearn.metrics import accuracy_score
+y_test_pred = model.predict(X_test)
+test_accuracy = accuracy_score((y_test_pred &amp;gt; 0.5), y_test)
+
+print(&#39;\nTest Accuracy = &#39;, test_accuracy)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Train on 1120 samples, validate on 280 samples
+Epoch 1/50
+1120/1120 [==============================] - 0s 114us/sample - loss: 0.6968 - acc: 0.5188 - val_loss: 0.6958 - val_acc: 0.3679
+Epoch 2/50
+1120/1120 [==============================] - 0s 28us/sample - loss: 0.6926 - acc: 0.4098 - val_loss: 0.6941 - val_acc: 0.4643
+.
+.
+Epoch 49/50
+1120/1120 [==============================] - 0s 22us/sample - loss: 0.1305 - acc: 0.9652 - val_loss: 0.1324 - val_acc: 0.9607
+Epoch 50/50
+1120/1120 [==============================] - 0s 22us/sample - loss: 0.1247 - acc: 0.9714 - val_loss: 0.1046 - val_acc: 0.9821
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_4/output_11_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Test Accuracy =  0.96
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;See how tuning the model from an accuracy of 0.49 to 0.96. Hyper parameter tuning is so critical in getting a good learning model.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://miro.medium.com/max/2470/0*K0ltbXIgtNLEXsXN.png&#34; alt=&#34;&#34; /&gt;
+&lt;a href=&#34;https://www.jeremyjordan.me&#34; target=&#34;_blank&#34;&gt;Image Source&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;learning-rate-scheduling&#34;&gt;Learning Rate Scheduling&lt;/h1&gt;
+
+&lt;p&gt;We have seen how crucial Learning rate is for training a model. It is also possible that near some minima our optimal learning rate may be big and it doesn&amp;rsquo;t reach the minima , at that point we may want to reduce the learning rate. This is learning rate scheduling. Instead of using a constant learning rate, we change the learning rate during training to reach the minima.&lt;/p&gt;
+
+&lt;p&gt;There are many types of lr scheduling&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;step decay&lt;/li&gt;
+&lt;li&gt;cosine decay&lt;/li&gt;
+&lt;li&gt;reduce on plateau&lt;/li&gt;
+&lt;li&gt;cycline decay&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://3.bp.blogspot.com/-fAN358JEMLc/Wrv1iH17eiI/AAAAAAAAChg/0djM3boHeJA_V_JfBHH8dMS32ekgtic7QCLcBGAs/s640/image1.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;LR scheduling can easily be done in Tensorflow&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+def scheduler(epoch):
+  if epoch &amp;lt; 10:
+    return 0.001
+  else:
+    return 0.001 * tf.math.exp(0.1 * (10 - epoch))
+
+callback = tf.keras.callbacks.LearningRateScheduler(scheduler)
+model.fit(data, labels, epochs=100, callbacks=[callback],
+          validation_data=(val_data, val_labels))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let&amp;rsquo;s train a model with &lt;a href=&#34;https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/ReduceLROnPlateau&#34; target=&#34;_blank&#34;&gt;ReduceOnPlateau&lt;/a&gt; lr scheduling. This checks the loss after every epoch, if the loss is not decreasing for few epochs(say 5) then it reduces the learning by a factor(say 0.1).&lt;/p&gt;
+
+&lt;h2 id=&#34;reduceonplateau-in-tensorflow&#34;&gt;ReduceOnPlateau in TensorFlow&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+import matplotlib.pyplot as plt
+tf.keras.backend.clear_session()
+
+# random number initialized will to same, for reproducing same results.
+np.random.seed(0)
+tf.set_random_seed(0)
+
+model = tf.keras.Sequential([
+                             keras.layers.Dense(units=10, input_shape=[2]), 
+                             keras.layers.Activation(&#39;tanh&#39;),
+                             keras.layers.Dense(units=10),
+                             keras.layers.Activation(&#39;tanh&#39;),
+                             keras.layers.Dense(units=1), 
+                             keras.layers.Activation(&#39;sigmoid&#39;)
+                             ])
+
+optimizer = tf.keras.optimizers.Adam(lr=0.05)
+
+from tensorflow.keras.callbacks import ReduceLROnPlateau
+reduce_lr = ReduceLROnPlateau(monitor=&#39;val_loss&#39;, factor=0.5, patience=10, min_lr=0.00001, verbose=True)
+model.compile(optimizer=optimizer, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;accuracy&#39;])
+tf_history = model.fit(X_train, y_train, batch_size=50, epochs=100, verbose=True, validation_data=(X_val, y_val), callbacks=[reduce_lr])
+
+
+# contour plot
+xx, yy = np.mgrid[-1.5:1.5:.01, -1.5:1.5:.01]
+grid = np.c_[xx.ravel(), yy.ravel()]
+probs = model.predict(grid)[:,0].reshape(xx.shape)
+
+f, ax = plt.subplots(figsize=(8, 6))
+contour = ax.contourf(xx, yy, probs, 25, cmap=&amp;quot;RdBu&amp;quot;,
+                      vmin=0, vmax=1)
+ax_c = f.colorbar(contour)
+ax_c.set_label(&amp;quot;$P(y = 1)$&amp;quot;)
+ax_c.set_ticks([0, .25, .5, .75, 1])
+
+ax.scatter(X[:,0], X[:, 1], c=y, s=50,
+           cmap=&amp;quot;RdBu&amp;quot;, vmin=-.2, vmax=1.2,
+           edgecolor=&amp;quot;white&amp;quot;, linewidth=1)
+
+plt.show()
+
+# test accuracy
+from sklearn.metrics import accuracy_score
+y_test_pred = model.predict(X_test)
+test_accuracy = accuracy_score((y_test_pred &amp;gt; 0.5), y_test)
+
+print(&#39;\nTest Accuracy = &#39;, test_accuracy)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Train on 1120 samples, validate on 280 samples
+Epoch 1/100
+1120/1120 [==============================] - 0s 156us/sample - loss: 0.6948 - acc: 0.5321 - val_loss: 0.6631 - val_acc: 0.8321
+Epoch 2/100
+1120/1120 [==============================] - 0s 45us/sample - loss: 0.6391 - acc: 0.6527 - val_loss: 0.6036 - val_acc: 0.7821
+.
+Epoch 00041: ReduceLROnPlateau reducing learning rate to 0.02500000037252903.
+.
+Epoch 00078: ReduceLROnPlateau reducing learning rate to 0.012500000186264515.
+.
+Epoch 00092: ReduceLROnPlateau reducing learning rate to 0.0062500000931322575.
+.
+Epoch 99/100
+1120/1120 [==============================] - 0s 42us/sample - loss: 0.0165 - acc: 0.9955 - val_loss: 0.0202 - val_acc: 0.9857
+Epoch 100/100
+1120/1120 [==============================] - 0s 43us/sample - loss: 0.0167 - acc: 0.9982 - val_loss: 0.0174 - val_acc: 0.9929
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_4/output_15_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Test Accuracy =  0.9916666666666667
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can see how the learning rates are decreasing when validation loss is not decreasing for 10 steps. Learning rate scheduling will improve the model performance, you will observe it when you train a real world large dataset.&lt;/p&gt;
 </description>
     </item>
     

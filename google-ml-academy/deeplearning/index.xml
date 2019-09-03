@@ -104,5 +104,32 @@ So far,
  we took each example $(X^i, y^i)$ made prediction with $\hat{y}^i = g(X^i.W+b)$ calculated the loss $\mathcal{L}(y^i , \hat{y}^i)$ used back propagation to update $W$ and $b$ (all parameters in the model) with $w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \frac{\partial \mathcal{L}}{\partial b}$ and repeated this process.</description>
     </item>
     
+    <item>
+      <title>Optimizers</title>
+      <link>/google-ml-academy/deeplearning/2.3/</link>
+      <pubDate>Tue, 03 Sep 2019 00:00:00 +0100</pubDate>
+      
+      <guid>/google-ml-academy/deeplearning/2.3/</guid>
+      <description>Open in GitHub
+Google ML Academy 2019 Instructor: Shangeth Rajaa 
+Gradient Descent We have seen what are the steps followed in Gradient Descent to minimize the loss function. Now let&amp;rsquo;s get into more detail.
+The objective of gradient descent is to find $W, b$ for which $\mathcal{L}(W, b) $ is minimum for given pairs of data $(X, y)$.
+Example Let&amp;rsquo;s forget about Machine learning for sometime and use gradient descent algorithm for optimization of simple functions.</description>
+    </item>
+    
+    <item>
+      <title>Learning Rate</title>
+      <link>/google-ml-academy/deeplearning/2.4/</link>
+      <pubDate>Tue, 03 Sep 2019 00:00:00 +0100</pubDate>
+      
+      <guid>/google-ml-academy/deeplearning/2.4/</guid>
+      <description>Open in GitHub
+Google ML Academy 2019 Instructor: Shangeth Rajaa 
+Learning Rate In Gradient Descent we update the parameters of the model with
+$w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \frac{\partial \mathcal{L}}{\partial b}$.
+The learning rate $\alpha$ actually affects the learning process a lot.
+ small $\alpha$ is slow, but more accuracte, as it does not miss the minimum, but it also get stuck in the local minimum.</description>
+    </item>
+    
   </channel>
 </rss>

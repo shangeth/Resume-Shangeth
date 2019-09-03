@@ -29,12 +29,13 @@
   
   <meta name="description" content="Open in GitHub
 Google ML Academy 2019 Instructor: Shangeth Rajaa 
-Batch Training Batch Training is something very important but we didn&rsquo;t use before as our dataset was smaller and we were just learning how to train models.
-So far,
- we took each example $(X^i, y^i)$ made prediction with $\hat{y}^i = g(X^i.W&#43;b)$ calculated the loss $\mathcal{L}(y^i , \hat{y}^i)$ used back propagation to update $W$ and $b$ (all parameters in the model) with $w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \frac{\partial \mathcal{L}}{\partial b}$ and repeated this process.">
+Learning Rate In Gradient Descent we update the parameters of the model with
+$w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \frac{\partial \mathcal{L}}{\partial b}$.
+The learning rate $\alpha$ actually affects the learning process a lot.
+ small $\alpha$ is slow, but more accuracte, as it does not miss the minimum, but it also get stuck in the local minimum.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/google-ml-academy/deeplearning/2.2/">
+  <link rel="alternate" hreflang="en-us" href="/google-ml-academy/deeplearning/2.4/">
 
   
 
@@ -123,7 +124,7 @@ So far,
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/google-ml-academy/deeplearning/2.2/">
+  <link rel="canonical" href="/google-ml-academy/deeplearning/2.4/">
 
   
   
@@ -137,25 +138,26 @@ So far,
   <meta property="twitter:creator" content="@shangethr">
   
   <meta property="og:site_name" content="Shangeth">
-  <meta property="og:url" content="/google-ml-academy/deeplearning/2.2/">
-  <meta property="og:title" content="Batch Training | Shangeth">
+  <meta property="og:url" content="/google-ml-academy/deeplearning/2.4/">
+  <meta property="og:title" content="Learning Rate | Shangeth">
   <meta property="og:description" content="Open in GitHub
 Google ML Academy 2019 Instructor: Shangeth Rajaa 
-Batch Training Batch Training is something very important but we didn&rsquo;t use before as our dataset was smaller and we were just learning how to train models.
-So far,
- we took each example $(X^i, y^i)$ made prediction with $\hat{y}^i = g(X^i.W&#43;b)$ calculated the loss $\mathcal{L}(y^i , \hat{y}^i)$ used back propagation to update $W$ and $b$ (all parameters in the model) with $w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \frac{\partial \mathcal{L}}{\partial b}$ and repeated this process."><meta property="og:image" content="/img/instructor.jpeg">
+Learning Rate In Gradient Descent we update the parameters of the model with
+$w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \frac{\partial \mathcal{L}}{\partial b}$.
+The learning rate $\alpha$ actually affects the learning process a lot.
+ small $\alpha$ is slow, but more accuracte, as it does not miss the minimum, but it also get stuck in the local minimum."><meta property="og:image" content="/img/instructor.jpeg">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2019-09-02T00:00:00&#43;01:00">
+  <meta property="article:published_time" content="2019-09-03T00:00:00&#43;01:00">
   
-  <meta property="article:modified_time" content="2019-09-02T00:00:00&#43;01:00">
-  
-
+  <meta property="article:modified_time" content="2019-09-03T00:00:00&#43;01:00">
   
 
   
 
-  <title>Batch Training | Shangeth</title>
+  
+
+  <title>Learning Rate | Shangeth</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" class="dark">
@@ -495,7 +497,7 @@ So far,
         <a href="/google-ml-academy/deeplearning/2.1/">2.1.Neural Network Architectures</a>
       </li>
       
-      <li class="active">
+      <li >
         <a href="/google-ml-academy/deeplearning/2.2/">2.2.Batch Training</a>
       </li>
       
@@ -503,7 +505,7 @@ So far,
         <a href="/google-ml-academy/deeplearning/2.3/">2.3.Optimizers</a>
       </li>
       
-      <li >
+      <li class="active">
         <a href="/google-ml-academy/deeplearning/2.4/">2.4.Learning Rate</a>
       </li>
       
@@ -525,15 +527,16 @@ So far,
 
       <nav id="TableOfContents">
 <ul>
-<li><a href="#batch-training">Batch Training</a>
+<li><a href="#learning-rate">Learning Rate</a>
 <ul>
-<li><a href="#batch-training-in-tensorflow">Batch Training in TensorFlow</a>
+<li><a href="#large-learning-rate">Large Learning rate</a></li>
+<li><a href="#small-learning-rate">Small Learning rate</a></li>
+<li><a href="#medium-learning-rate">Medium Learning rate</a></li>
+</ul></li>
+<li><a href="#learning-rate-scheduling">Learning Rate Scheduling</a>
 <ul>
-<li><a href="#batch-size-1">Batch Size = 1</a></li>
-<li><a href="#batch-size-100">Batch Size = 100</a></li>
+<li><a href="#reduceonplateau-in-tensorflow">ReduceOnPlateau in TensorFlow</a></li>
 </ul></li>
-</ul></li>
-<li><a href="#gradient-descent-in-batch-training">Gradient Descent in Batch Training</a></li>
 </ul>
 </nav>
 
@@ -550,71 +553,33 @@ So far,
       <article class="article" itemscope itemtype="http://schema.org/Article">
 
         <div class="docs-article-container">
-          <h1 itemprop="name">Batch Training</h1>
+          <h1 itemprop="name">Learning Rate</h1>
 
           <div class="article-style" itemprop="articleBody">
             
 
-<p><a href="https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_2_Batch_Training.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<p><a href="https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_4_Learning_Rate.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 
-<p><center><a href="https://github.com/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_2_Batch_Training.ipynb" target="_parent"><svg class="octicon octicon-mark-github v-align-middle" height="30" viewBox="0 0 16 16" version="1.1" width="30" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> Open in GitHub</a></center></p>
+<p><center><a href="https://github.com/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_4_Learning_Rate.ipynb" target="_parent"><svg class="octicon octicon-mark-github v-align-middle" height="30" viewBox="0 0 16 16" version="1.1" width="30" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> Open in GitHub</a></center></p>
 
 <p><center><h1><a href='https://shangeth.com/google-ml-academy/'>Google ML Academy 2019</a></h1></center>
 <center><h3>Instructor: <a href='https://shangeth.com/'>Shangeth Rajaa</a></h3></center>
 <hr></p>
 
-<h1 id="batch-training">Batch Training</h1>
+<h1 id="learning-rate">Learning Rate</h1>
 
-<p>Batch Training is something very important but we didn&rsquo;t use before as our dataset was smaller and we were just learning how to train models.</p>
+<p>In Gradient Descent we update the parameters of the model with</p>
 
-<p>So far,</p>
+<p>$w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \frac{\partial \mathcal{L}}{\partial b}$.</p>
 
-<ul>
-<li>we took each example $(X^i, y^i)$</li>
-<li>made prediction with $\hat{y}^i = g(X^i.W+b)$</li>
-<li>calculated the loss $\mathcal{L}(y^i , \hat{y}^i)$</li>
-<li>used back propagation to update $W$ and $b$ (all parameters in the model) with
-$w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \frac{\partial \mathcal{L}}{\partial b}$</li>
-<li>and repeated this process.</li>
-</ul>
-
-<p>What is the problem here?</p>
-
-<p>We used many toy datasets which were in 1000s, so it will take few seconds/milliseconds for training the model for several epoch. But real world datasets may have millions of data and updating model with one example at a time may take a lot of time.</p>
-
-<p>This is for multi class classification</p>
-
-<p>$z =\begin{bmatrix}z_1&amp;z_2&amp;z_3\ \end{bmatrix} = \begin{bmatrix}x_1&amp;x_2 \ \end{bmatrix} . \begin{bmatrix}W_{11}&amp;W_{12}&amp;W_{13} \\ W_{21}&amp;W_{22}&amp;W_{23} \\ \end{bmatrix} + \begin{bmatrix}b_1&amp;b_2&amp;b_3\ \end{bmatrix}$</p>
-
-<p>$\hat{y} = \sigma(z)$</p>
-
-<p>This uses one example $X = [x_1, x_2]$ at a time, but it is also possible to use all the data together as a matrix(Advantage of matrix multiplication and lienar algebra).</p>
-
-<p>$z = \begin{bmatrix}z_1^1&amp;z_2^1&amp;z_3^1\\ z_1^2&amp;z_2^2&amp;z_3^2\\ \vdots&amp;\vdots&amp;\vdots \\ z_1^n&amp;z_2^n&amp;z_3^n \ \end{bmatrix}  =
-\begin{bmatrix}x_1^1&amp;x_2^1\\ x_1^2&amp;x_2^2\\ \vdots&amp;\vdots \\ x_1^n&amp;x_2^n\\ \end{bmatrix} .
-\begin{bmatrix}W_{11}&amp;W_{12}&amp;W_{13}\\ W_{21}&amp;W_{22}&amp;W_{23}\\ \end{bmatrix} + \begin{bmatrix}b_1&amp;b_2&amp;b_3\\ \end{bmatrix}$</p>
-
-<p>$ \hat{y} = \begin{bmatrix}\sigma(z_1^1)&amp;\sigma(z_2^1)&amp;\sigma(z_3^1)\\ \sigma(z_1^2)&amp;\sigma(z_2^2)&amp;\sigma(z_3^2)\\ \vdots&amp;\vdots&amp;\vdots \\ \sigma(z_1^n)&amp;\sigma(z_2^n)&amp;\sigma(z_3^n) \ \end{bmatrix} $</p>
-
-<p>This is called <strong>batch gradient descent</strong>. There is a problem with this. When your data is in millions, holding all the millions of data into a matrix may cause memory issue. Its note possible for the RAM to hold millions of data into the memory altogether.</p>
-
-<p>So we do something called <strong>mini-batch gradient descent</strong>. We take few number of examples say m(batch size) which the memory can hold at a time and use that for training and during the next step we use the next m examples and continue till the complete dataset is used for training.</p>
-
-<p>Example:</p>
+<p>The learning rate $\alpha$ actually affects the learning process a lot.</p>
 
 <ul>
-<li>no of examples (n) = 2300</li>
-<li>batch size (m) = 500</li>
-<li>then we use [500, 500, 500, 500, 300] batches for training at a time.</li>
+<li>small $\alpha$ is slow, but more accuracte, as it does not miss the minimum, but it also get stuck in the local minimum.</li>
+<li>larger $\alpha$ make huge steps, sometimes it may converge faster but it may miss the minima.</li>
 </ul>
 
-<p>By this way we use the advantage of matrix multiplication and do not fill the RAM memory.</p>
-
-<p>We can change the batch size with a parameter called batch_size in model.fit.</p>
-
-<p>Lets try different batch size.</p>
-
-<h2 id="batch-training-in-tensorflow">Batch Training in TensorFlow</h2>
+<p>Learning rate is an important hyper parameter in training a Model. It is important to understand to tune the learning rate.</p>
 
 <pre><code class="language-python">from sklearn.datasets import make_gaussian_quantiles
 from sklearn.model_selection import train_test_split
@@ -634,20 +599,18 @@ X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.
 print('Train = {}\nTest = {}\nVal = {}'.format(len(X_train), len(X_test), len(X_val)))
 </code></pre>
 
-<p><img src="../2_2/output_4_0.png" alt="png" /></p>
+<p><img src="../2_4/output_3_0.png" alt="png" /></p>
 
 <pre><code>Train = 1120
 Test = 600
 Val = 280
 </code></pre>
 
-<h3 id="batch-size-1">Batch Size = 1</h3>
+<h2 id="large-learning-rate">Large Learning rate</h2>
 
-<pre><code class="language-python">%%time 
-#magic function to measure time of the cell
+<p>We will use adam optimizer with learning rate of 0.5</p>
 
-
-import tensorflow as tf
+<pre><code class="language-python">import tensorflow as tf
 from tensorflow import keras
 import numpy as np
 import matplotlib.pyplot as plt
@@ -666,8 +629,13 @@ model = tf.keras.Sequential([
                              keras.layers.Activation('sigmoid')
                              ])
 
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-tf_history = model.fit(X_train, y_train, batch_size=1, epochs=10, verbose=True, validation_data=(X_val, y_val))
+# we used the default optimizer parameters by using optimizer='adam'
+# model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+# we can also define optimizer with
+optimizer = tf.keras.optimizers.Adam(lr=0.5)
+model.compile(optimizer=optimizer, loss='binary_crossentropy', metrics=['accuracy'])
+tf_history = model.fit(X_train, y_train, batch_size=100, epochs=50, verbose=True, validation_data=(X_val, y_val))
 
 
 # contour plot
@@ -698,47 +666,39 @@ print('\nTest Accuracy = ', test_accuracy)
 </code></pre>
 
 <pre><code>WARNING: Logging before flag parsing goes to stderr.
-W0902 14:17:32.553351 139709616596864 deprecation.py:506] From /usr/local/lib/python3.6/dist-packages/tensorflow/python/ops/init_ops.py:1251: calling VarianceScaling.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
+W0903 06:12:55.336309 139678620190592 deprecation.py:506] From /usr/local/lib/python3.6/dist-packages/tensorflow/python/ops/init_ops.py:1251: calling VarianceScaling.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
 Instructions for updating:
 Call initializer instance with the dtype argument instead of passing it to the constructor
-W0902 14:17:32.656815 139709616596864 deprecation.py:323] From /usr/local/lib/python3.6/dist-packages/tensorflow/python/ops/nn_impl.py:180: add_dispatch_support.&lt;locals&gt;.wrapper (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+W0903 06:12:55.442114 139678620190592 deprecation.py:323] From /usr/local/lib/python3.6/dist-packages/tensorflow/python/ops/nn_impl.py:180: add_dispatch_support.&lt;locals&gt;.wrapper (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
 Instructions for updating:
 Use tf.where in 2.0, which has the same broadcast rule as np.where
 
 
 Train on 1120 samples, validate on 280 samples
-Epoch 1/10
-1120/1120 [==============================] - 2s 2ms/sample - loss: 0.6972 - acc: 0.4634 - val_loss: 0.6945 - val_acc: 0.5321
-Epoch 2/10
-1120/1120 [==============================] - 2s 1ms/sample - loss: 0.6942 - acc: 0.5312 - val_loss: 0.6923 - val_acc: 0.4250
-Epoch 3/10
-1120/1120 [==============================] - 2s 1ms/sample - loss: 0.6922 - acc: 0.4821 - val_loss: 0.6834 - val_acc: 0.6607
+Epoch 1/50
+1120/1120 [==============================] - 0s 130us/sample - loss: 0.8366 - acc: 0.4786 - val_loss: 0.7390 - val_acc: 0.4464
+Epoch 2/50
+1120/1120 [==============================] - 0s 22us/sample - loss: 0.7115 - acc: 0.4902 - val_loss: 0.7462 - val_acc: 0.4464
 .
 .
-Epoch 8/10
-1120/1120 [==============================] - 2s 1ms/sample - loss: 0.5767 - acc: 0.7554 - val_loss: 0.5457 - val_acc: 0.7964
-Epoch 9/10
-1120/1120 [==============================] - 2s 1ms/sample - loss: 0.5507 - acc: 0.7571 - val_loss: 0.5231 - val_acc: 0.7929
-Epoch 10/10
-1120/1120 [==============================] - 2s 1ms/sample - loss: 0.5296 - acc: 0.7607 - val_loss: 0.4991 - val_acc: 0.8071
+Epoch 49/50
+1120/1120 [==============================] - 0s 23us/sample - loss: 0.7400 - acc: 0.4920 - val_loss: 0.6896 - val_acc: 0.5536
+Epoch 50/50
+1120/1120 [==============================] - 0s 22us/sample - loss: 0.7273 - acc: 0.5009 - val_loss: 0.6900 - val_acc: 0.5536
 </code></pre>
 
-<p><img src="../2_2/output_6_2.png" alt="png" /></p>
+<p><img src="../2_4/output_5_2.png" alt="png" /></p>
 
-<pre><code>Test Accuracy =  0.7583333333333333
-CPU times: user 21.5 s, sys: 1.52 s, total: 23 s
-Wall time: 19.5 s
+<pre><code>Test Accuracy =  0.49666666666666665
 </code></pre>
 
-<p>Batch size of 1 for 10 epochs uses 23s. Let&rsquo;s increase the batch size to 100 and check the time.</p>
+<p>This is one of the worst model you can train, as the learning rate is very high the optimizer skips all the minima and the loss does not really reduces much.</p>
 
-<h3 id="batch-size-100">Batch Size = 100</h3>
+<h2 id="small-learning-rate">Small Learning rate</h2>
 
-<pre><code class="language-python">%%time 
-#magic function to measure time of the cell
+<p>We will use adam optimizer with learning rate of 0.00001</p>
 
-
-import tensorflow as tf
+<pre><code class="language-python">import tensorflow as tf
 from tensorflow import keras
 import numpy as np
 import matplotlib.pyplot as plt
@@ -757,8 +717,13 @@ model = tf.keras.Sequential([
                              keras.layers.Activation('sigmoid')
                              ])
 
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-tf_history = model.fit(X_train, y_train, batch_size=100, epochs=10, verbose=True, validation_data=(X_val, y_val))
+# we used the default optimizer parameters by using optimizer='adam'
+# model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+# we can also define optimizer with
+optimizer = tf.keras.optimizers.Adam(lr=0.00001)
+model.compile(optimizer=optimizer, loss='binary_crossentropy', metrics=['accuracy'])
+tf_history = model.fit(X_train, y_train, batch_size=100, epochs=50, verbose=True, validation_data=(X_val, y_val))
 
 
 # contour plot
@@ -789,43 +754,218 @@ print('\nTest Accuracy = ', test_accuracy)
 </code></pre>
 
 <pre><code>Train on 1120 samples, validate on 280 samples
-Epoch 1/10
-1120/1120 [==============================] - 0s 104us/sample - loss: 0.6993 - acc: 0.5116 - val_loss: 0.7020 - val_acc: 0.5107
-Epoch 2/10
-1120/1120 [==============================] - 0s 21us/sample - loss: 0.6960 - acc: 0.5134 - val_loss: 0.6988 - val_acc: 0.5179
-Epoch 3/10
-1120/1120 [==============================] - 0s 20us/sample - loss: 0.6946 - acc: 0.5223 - val_loss: 0.6963 - val_acc: 0.5143
+Epoch 1/50
+1120/1120 [==============================] - 0s 108us/sample - loss: 0.7051 - acc: 0.5018 - val_loss: 0.7056 - val_acc: 0.4821
+Epoch 2/50
+1120/1120 [==============================] - 0s 22us/sample - loss: 0.7050 - acc: 0.5018 - val_loss: 0.7055 - val_acc: 0.4821
 .
 .
-Epoch 8/10
-1120/1120 [==============================] - 0s 22us/sample - loss: 0.6921 - acc: 0.4384 - val_loss: 0.6926 - val_acc: 0.4214
-Epoch 9/10
-1120/1120 [==============================] - 0s 22us/sample - loss: 0.6921 - acc: 0.4848 - val_loss: 0.6920 - val_acc: 0.5071
-Epoch 10/10
-1120/1120 [==============================] - 0s 19us/sample - loss: 0.6920 - acc: 0.4902 - val_loss: 0.6924 - val_acc: 0.4821
+Epoch 49/50
+1120/1120 [==============================] - 0s 23us/sample - loss: 0.7027 - acc: 0.5009 - val_loss: 0.7036 - val_acc: 0.4786
+Epoch 50/50
+1120/1120 [==============================] - 0s 21us/sample - loss: 0.7026 - acc: 0.5009 - val_loss: 0.7035 - val_acc: 0.4786
 </code></pre>
 
-<p><img src="../2_2/output_9_1.png" alt="png" /></p>
+<p><img src="../2_4/output_8_1.png" alt="png" /></p>
 
-<pre><code>Test Accuracy =  0.47333333333333333
-CPU times: user 2.56 s, sys: 387 ms, total: 2.94 s
-Wall time: 2.34 s
+<pre><code>Test Accuracy =  0.5116666666666667
 </code></pre>
 
-<p>Batch size of 100 took just 2.94s. Hope now you understood the advantage of Batch training.</p>
+<p>The loss in this model seems to reduce, but at a very slow rate, so we need to train for more epochs to get a good model.</p>
 
-<h1 id="gradient-descent-in-batch-training">Gradient Descent in Batch Training</h1>
+<h2 id="medium-learning-rate">Medium Learning rate</h2>
 
-<p>In batch training, we calculate the loss as average of loss of the batch,
-$\mathcal{L}(y , \hat{y}) = \dfrac{1}{n} \sum_{i=1}^{n}\mathcal{L}(y^i , \hat{y}^i)$</p>
+<p>We will use adam optimizer with learning rate of 0.005</p>
 
-<p>$\therefore \dfrac{\partial \mathcal{L}}{\partial W} = \dfrac{1}{n} \sum_{i=1}^{n}\dfrac{\partial \mathcal{L}(y^i , \hat{y}^i)}{\partial W}$</p>
+<pre><code class="language-python">import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+import matplotlib.pyplot as plt
+tf.keras.backend.clear_session()
 
-<p>and $\dfrac{\partial \mathcal{L}}{\partial b} = \dfrac{1}{n} \sum_{i=1}^{n}\dfrac{\partial \mathcal{L}(y^i , \hat{y}^i)}{\partial b}$</p>
+# random number initialized will to same, for reproducing same results.
+np.random.seed(0)
+tf.set_random_seed(0)
 
-<p>Which means the gradients are average of gradients over the batch of data.</p>
+model = tf.keras.Sequential([
+                             keras.layers.Dense(units=10, input_shape=[2]), 
+                             keras.layers.Activation('tanh'),
+                             keras.layers.Dense(units=10),
+                             keras.layers.Activation('tanh'),
+                             keras.layers.Dense(units=1), 
+                             keras.layers.Activation('sigmoid')
+                             ])
 
-<p>Then update the parameters normally with $w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \frac{\partial \mathcal{L}}{\partial b}$.</p>
+# we used the default optimizer parameters by using optimizer='adam'
+# model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+# we can also define optimizer with
+optimizer = tf.keras.optimizers.Adam(lr=0.005)
+model.compile(optimizer=optimizer, loss='binary_crossentropy', metrics=['accuracy'])
+tf_history = model.fit(X_train, y_train, batch_size=100, epochs=50, verbose=True, validation_data=(X_val, y_val))
+
+
+# contour plot
+xx, yy = np.mgrid[-1.5:1.5:.01, -1.5:1.5:.01]
+grid = np.c_[xx.ravel(), yy.ravel()]
+probs = model.predict(grid)[:,0].reshape(xx.shape)
+
+f, ax = plt.subplots(figsize=(8, 6))
+contour = ax.contourf(xx, yy, probs, 25, cmap=&quot;RdBu&quot;,
+                      vmin=0, vmax=1)
+ax_c = f.colorbar(contour)
+ax_c.set_label(&quot;$P(y = 1)$&quot;)
+ax_c.set_ticks([0, .25, .5, .75, 1])
+
+ax.scatter(X[:,0], X[:, 1], c=y, s=50,
+           cmap=&quot;RdBu&quot;, vmin=-.2, vmax=1.2,
+           edgecolor=&quot;white&quot;, linewidth=1)
+
+plt.show()
+
+# test accuracy
+from sklearn.metrics import accuracy_score
+y_test_pred = model.predict(X_test)
+test_accuracy = accuracy_score((y_test_pred &gt; 0.5), y_test)
+
+print('\nTest Accuracy = ', test_accuracy)
+
+</code></pre>
+
+<pre><code>Train on 1120 samples, validate on 280 samples
+Epoch 1/50
+1120/1120 [==============================] - 0s 114us/sample - loss: 0.6968 - acc: 0.5188 - val_loss: 0.6958 - val_acc: 0.3679
+Epoch 2/50
+1120/1120 [==============================] - 0s 28us/sample - loss: 0.6926 - acc: 0.4098 - val_loss: 0.6941 - val_acc: 0.4643
+.
+.
+Epoch 49/50
+1120/1120 [==============================] - 0s 22us/sample - loss: 0.1305 - acc: 0.9652 - val_loss: 0.1324 - val_acc: 0.9607
+Epoch 50/50
+1120/1120 [==============================] - 0s 22us/sample - loss: 0.1247 - acc: 0.9714 - val_loss: 0.1046 - val_acc: 0.9821
+</code></pre>
+
+<p><img src="../2_4/output_11_1.png" alt="png" /></p>
+
+<pre><code>Test Accuracy =  0.96
+</code></pre>
+
+<p>See how tuning the model from an accuracy of 0.49 to 0.96. Hyper parameter tuning is so critical in getting a good learning model.</p>
+
+<p><img src="https://miro.medium.com/max/2470/0*K0ltbXIgtNLEXsXN.png" alt="" />
+<a href="https://www.jeremyjordan.me" target="_blank">Image Source</a></p>
+
+<h1 id="learning-rate-scheduling">Learning Rate Scheduling</h1>
+
+<p>We have seen how crucial Learning rate is for training a model. It is also possible that near some minima our optimal learning rate may be big and it doesn&rsquo;t reach the minima , at that point we may want to reduce the learning rate. This is learning rate scheduling. Instead of using a constant learning rate, we change the learning rate during training to reach the minima.</p>
+
+<p>There are many types of lr scheduling</p>
+
+<ul>
+<li>step decay</li>
+<li>cosine decay</li>
+<li>reduce on plateau</li>
+<li>cycline decay</li>
+</ul>
+
+<p><img src="https://3.bp.blogspot.com/-fAN358JEMLc/Wrv1iH17eiI/AAAAAAAAChg/0djM3boHeJA_V_JfBHH8dMS32ekgtic7QCLcBGAs/s640/image1.png" alt="" /></p>
+
+<p>LR scheduling can easily be done in Tensorflow</p>
+
+<pre><code>
+def scheduler(epoch):
+  if epoch &lt; 10:
+    return 0.001
+  else:
+    return 0.001 * tf.math.exp(0.1 * (10 - epoch))
+
+callback = tf.keras.callbacks.LearningRateScheduler(scheduler)
+model.fit(data, labels, epochs=100, callbacks=[callback],
+          validation_data=(val_data, val_labels))
+</code></pre>
+
+<p>Let&rsquo;s train a model with <a href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/ReduceLROnPlateau" target="_blank">ReduceOnPlateau</a> lr scheduling. This checks the loss after every epoch, if the loss is not decreasing for few epochs(say 5) then it reduces the learning by a factor(say 0.1).</p>
+
+<h2 id="reduceonplateau-in-tensorflow">ReduceOnPlateau in TensorFlow</h2>
+
+<pre><code class="language-python">import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+import matplotlib.pyplot as plt
+tf.keras.backend.clear_session()
+
+# random number initialized will to same, for reproducing same results.
+np.random.seed(0)
+tf.set_random_seed(0)
+
+model = tf.keras.Sequential([
+                             keras.layers.Dense(units=10, input_shape=[2]), 
+                             keras.layers.Activation('tanh'),
+                             keras.layers.Dense(units=10),
+                             keras.layers.Activation('tanh'),
+                             keras.layers.Dense(units=1), 
+                             keras.layers.Activation('sigmoid')
+                             ])
+
+optimizer = tf.keras.optimizers.Adam(lr=0.05)
+
+from tensorflow.keras.callbacks import ReduceLROnPlateau
+reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=10, min_lr=0.00001, verbose=True)
+model.compile(optimizer=optimizer, loss='binary_crossentropy', metrics=['accuracy'])
+tf_history = model.fit(X_train, y_train, batch_size=50, epochs=100, verbose=True, validation_data=(X_val, y_val), callbacks=[reduce_lr])
+
+
+# contour plot
+xx, yy = np.mgrid[-1.5:1.5:.01, -1.5:1.5:.01]
+grid = np.c_[xx.ravel(), yy.ravel()]
+probs = model.predict(grid)[:,0].reshape(xx.shape)
+
+f, ax = plt.subplots(figsize=(8, 6))
+contour = ax.contourf(xx, yy, probs, 25, cmap=&quot;RdBu&quot;,
+                      vmin=0, vmax=1)
+ax_c = f.colorbar(contour)
+ax_c.set_label(&quot;$P(y = 1)$&quot;)
+ax_c.set_ticks([0, .25, .5, .75, 1])
+
+ax.scatter(X[:,0], X[:, 1], c=y, s=50,
+           cmap=&quot;RdBu&quot;, vmin=-.2, vmax=1.2,
+           edgecolor=&quot;white&quot;, linewidth=1)
+
+plt.show()
+
+# test accuracy
+from sklearn.metrics import accuracy_score
+y_test_pred = model.predict(X_test)
+test_accuracy = accuracy_score((y_test_pred &gt; 0.5), y_test)
+
+print('\nTest Accuracy = ', test_accuracy)
+
+</code></pre>
+
+<pre><code>Train on 1120 samples, validate on 280 samples
+Epoch 1/100
+1120/1120 [==============================] - 0s 156us/sample - loss: 0.6948 - acc: 0.5321 - val_loss: 0.6631 - val_acc: 0.8321
+Epoch 2/100
+1120/1120 [==============================] - 0s 45us/sample - loss: 0.6391 - acc: 0.6527 - val_loss: 0.6036 - val_acc: 0.7821
+.
+Epoch 00041: ReduceLROnPlateau reducing learning rate to 0.02500000037252903.
+.
+Epoch 00078: ReduceLROnPlateau reducing learning rate to 0.012500000186264515.
+.
+Epoch 00092: ReduceLROnPlateau reducing learning rate to 0.0062500000931322575.
+.
+Epoch 99/100
+1120/1120 [==============================] - 0s 42us/sample - loss: 0.0165 - acc: 0.9955 - val_loss: 0.0202 - val_acc: 0.9857
+Epoch 100/100
+1120/1120 [==============================] - 0s 43us/sample - loss: 0.0167 - acc: 0.9982 - val_loss: 0.0174 - val_acc: 0.9929
+</code></pre>
+
+<p><img src="../2_4/output_15_1.png" alt="png" /></p>
+
+<pre><code>Test Accuracy =  0.9916666666666667
+</code></pre>
+
+<p>You can see how the learning rates are decreasing when validation loss is not decreasing for 10 steps. Learning rate scheduling will improve the model performance, you will observe it when you train a real world large dataset.</p>
 
           </div>
 
@@ -842,15 +982,9 @@ $\mathcal{L}(y , \hat{y}) = \dfrac{1}{n} \sum_{i=1}^{n}\mathcal{L}(y^i , \hat{y}
   
   <div class="post-nav-item">
     <div class="meta-nav">Previous</div>
-    <a href="/google-ml-academy/deeplearning/2.1/" rel="next">Neural Network Architectures</a>
+    <a href="/google-ml-academy/deeplearning/2.3/" rel="next">Optimizers</a>
   </div>
   
-  
-  
-  <div class="post-nav-item">
-    <div class="meta-nav">Next</div>
-    <a href="/google-ml-academy/deeplearning/2.3/" rel="prev">Optimizers</a>
-  </div>
   
 </div>
 
@@ -885,7 +1019,7 @@ $\mathcal{L}(y , \hat{y}) = \dfrac{1}{n} \sum_{i=1}^{n}\mathcal{L}(y^i , \hat{y}
 
         
         <div class="body-footer">
-          Last updated on Sep 2, 2019
+          Last updated on Sep 3, 2019
         </div>
 
       </article>
