@@ -4251,7 +4251,320 @@ Epoch 100/100
       <pubDate>Tue, 03 Sep 2019 00:00:00 +0100</pubDate>
       
       <guid>/google-ml-academy/deeplearning/2.5/</guid>
-      <description></description>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_5_Bias_Variance.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;a href=&#34;https://github.com/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_5_Bias_Variance.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;svg class=&#34;octicon octicon-mark-github v-align-middle&#34; height=&#34;30&#34; viewBox=&#34;0 0 16 16&#34; version=&#34;1.1&#34; width=&#34;30&#34; aria-hidden=&#34;true&#34;&gt;&lt;path fill-rule=&#34;evenodd&#34; d=&#34;M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; Open in GitHub&lt;/a&gt;&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;h1&gt;&lt;a href=&#39;https://shangeth.com/google-ml-academy/&#39;&gt;Google ML Academy 2019&lt;/a&gt;&lt;/h1&gt;&lt;/center&gt;
+&lt;center&gt;&lt;h3&gt;Instructor: &lt;a href=&#39;https://shangeth.com/&#39;&gt;Shangeth Rajaa&lt;/a&gt;&lt;/h3&gt;&lt;/center&gt;
+&lt;hr&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;bias-variance&#34;&gt;Bias &amp;amp; Variance&lt;/h1&gt;
+
+&lt;p&gt;Let us train a DNN model for a simple regression problem.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import numpy as np
+import matplotlib.pyplot as plt
+
+def dataset(show=True):
+    X = np.arange(-5, 5, 0.01)
+    y = 8 * np.sin(X) + np.random.randn(1000)
+    if show:
+        yy = 8 * np.sin(X)
+        plt.figure(figsize=(15,9))
+        plt.scatter(X, y)
+        plt.plot(X, yy, color=&#39;red&#39;, linewidth=7)
+        plt.show()
+    return X, y
+
+X, y = dataset(show=True)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_5/output_3_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets train 2 models for this dataset&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;a very simple linear model&lt;/li&gt;
+&lt;li&gt;a very complex DNN model&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;simple-linear-model&#34;&gt;Simple Linear Model&lt;/h2&gt;
+
+&lt;p&gt;We are going to split the dataset into 5 groups(random shuffle) and use each of that 5 groups to train 5 different linear models. We will use sklearn&amp;rsquo;s StratifiedKFold to split the dataset into 5. Check the &lt;a href=&#34;https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedKFold.html&#34; target=&#34;_blank&#34;&gt;docs&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+import matplotlib.pyplot as plt
+tf.keras.backend.clear_session()
+import random
+
+predictions = []
+for i in range(5):
+    idx = random.choices(np.arange(1000), k=700)
+    X_train, y_train = X[idx], y[idx]
+
+    model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[1]) ])
+    optimizer = tf.keras.optimizers.Adam(lr=0.001)
+    model.compile(optimizer=optimizer, loss=&#39;mean_squared_error&#39;)
+    tf_history = model.fit(X_train, y_train, batch_size=100, epochs=200, verbose=False)
+
+    prediction = model.predict(X)
+    predictions.append(prediction)
+
+
+plt.figure(figsize=(12,9))
+plt.plot(X, predictions[0])
+plt.plot(X, predictions[1])
+plt.plot(X, predictions[2])
+plt.plot(X, predictions[3])
+plt.plot(X, predictions[4])
+plt.plot(X, 8 * np.sin(X), linewidth=5, label=&#39;True curve y&#39;)
+plt.legend()
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_5/output_6_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;deep-neural-network-model&#34;&gt;Deep Neural Network model&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+import matplotlib.pyplot as plt
+tf.keras.backend.clear_session()
+import random
+
+predictions = []
+for i in range(5):
+    idx = random.choices(np.arange(1000), k=100)
+    X_train, y_train = X[idx], y[idx]
+
+    model = tf.keras.Sequential([
+                             keras.layers.Dense(units=50, input_shape=[1]), 
+                             keras.layers.Activation(&#39;relu&#39;),
+                             keras.layers.Dense(units=50),
+                             keras.layers.Activation(&#39;relu&#39;),
+                             keras.layers.Dense(units=1), 
+                             ])
+    
+    optimizer = tf.keras.optimizers.Adam(lr=0.001)
+    model.compile(optimizer=optimizer, loss=&#39;mean_squared_error&#39;)
+    tf_history = model.fit(X_train, y_train, batch_size=100, epochs=200, verbose=False)
+
+    prediction = model.predict(X)
+    predictions.append(prediction)
+
+
+plt.figure(figsize=(12,9))
+plt.plot(X, predictions[0])
+plt.plot(X, predictions[1])
+plt.plot(X, predictions[2])
+plt.plot(X, predictions[3])
+plt.plot(X, predictions[4])
+plt.plot(X, 8 * np.sin(X), linewidth=5, label=&#39;True curve y&#39;)
+plt.legend()
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_5/output_8_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;bias&#34;&gt;Bias&lt;/h2&gt;
+
+&lt;p&gt;Bias is defined as $ Bias = E[\hat{y}] - y$&lt;/p&gt;
+
+&lt;p&gt;It is the difference between the expected value of prediction and the true curve. The expected value will be calculated by splitting the data into n parts and training n model on those n data parts and average of that n model prediction will be expected value.&lt;/p&gt;
+
+&lt;p&gt;You can see the bias for first model will be very high as the model predicts a straight line, but the true curve is sinusoidal. But the bias for 2nd model will be lower than 1st model.&lt;/p&gt;
+
+&lt;h2 id=&#34;variance&#34;&gt;Variance&lt;/h2&gt;
+
+&lt;p&gt;Variance as you should know defines how much a data is varying.
+$Variance(\hat{y})  = E[(\hat{y} - E[\hat{y}])^2]$
+Although the predictions are not good, but the variance of 2nd model will be higher than 1st model, as the 2nd comple model will try to fit the data more.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Model&lt;/th&gt;
+&lt;th&gt;Bias&lt;/th&gt;
+&lt;th&gt;Variance&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Simple Model&lt;/td&gt;
+&lt;td&gt;High&lt;/td&gt;
+&lt;td&gt;Low&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Very Complex model&lt;/td&gt;
+&lt;td&gt;Low&lt;/td&gt;
+&lt;td&gt;High&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&#34;bias-variance-tradeoff&#34;&gt;Bias-Variance Tradeoff&lt;/h1&gt;
+
+&lt;p&gt;Let&amp;rsquo;s do some math first and discuss about it.&lt;/p&gt;
+
+&lt;h2 id=&#34;bias-variance-decomposition&#34;&gt;Bias-Variance Decomposition&lt;/h2&gt;
+
+&lt;p&gt;$MSE = E[(y - \hat{y})^2] = E[y^2 - 2.y.\hat{y} + \hat{y}^2]$&lt;/p&gt;
+
+&lt;p&gt;here the random variable is $\hat{y}$ as it is dependent on $X$.&lt;/p&gt;
+
+&lt;p&gt;$ MSE = y^2 - 2.y.E[\hat{y}] + E[\hat{y}^2]$&lt;/p&gt;
+
+&lt;p&gt;$Bias = E[\hat{y}] - y$&lt;/p&gt;
+
+&lt;p&gt;$Bias^2 = (E[\hat{y}] - y)^2 = E[\hat{y}]^2 + y^2 - 2yE[\hat{y}]$&lt;/p&gt;
+
+&lt;p&gt;$Variance = E[(\hat{y} - E[\hat{y}])^2] = = E[\hat{y}^2] + E[\hat{y}]^2 - 2E[\hat{y} E[\hat{y}]] = E[\hat{y}^2] + E[\hat{y}]^2 - 2E[\hat{y}]^2 = E[\hat{y}^2] - E[\hat{y}]^2$&lt;/p&gt;
+
+&lt;p&gt;$Bias^2 + Variance  = y^2 - 2.y.E[\hat{y}] + E[\hat{y}^2] = MSE$&lt;/p&gt;
+
+&lt;p&gt;$Bias^2 + Variance  = MSE$&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;when the bias is high(Simple Model), MSE is high, We don&amp;rsquo;t want high Loss, so &lt;strong&gt;we don&amp;rsquo;t want high bias&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;when the variance is high(complex model), again MSE is high, so &lt;strong&gt;we don&amp;rsquo;t want high variance&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Conclusion is we need to choose a model which doesn&amp;rsquo;t have high bias or high variance, somthing optimal bias-variance in between will do good.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://scott.fortmann-roe.com/docs/docs/MeasuringError/ModelError.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://scott.fortmann-roe.com&#34; target=&#34;_blank&#34;&gt;Image Source&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;underfitting&#34;&gt;Underfitting&lt;/h1&gt;
+
+&lt;p&gt;When a model have high bias, then the model is &lt;strong&gt;&amp;ldquo;Underfitting&amp;rdquo;&lt;/strong&gt;.
+Let&amp;rsquo;s see an example first&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import numpy as np
+import matplotlib.pyplot as plt
+
+def dataset(show=True):
+    X = np.arange(-5, 5, 0.1)
+    y = 8 * np.sin(X) + np.random.randn(100)
+    if show:
+        yy = 8 * np.sin(X)
+        plt.figure(figsize=(15,9))
+        plt.scatter(X, y)
+        plt.plot(X, yy, color=&#39;red&#39;, linewidth=7)
+        plt.show()
+    return X, y
+
+X, y = dataset(show=True)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_5/output_12_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+import matplotlib.pyplot as plt
+tf.keras.backend.clear_session()
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, shuffle=True)
+
+model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[1]) ])
+optimizer = tf.keras.optimizers.Adam(lr=0.001)
+model.compile(optimizer=optimizer, loss=&#39;mean_squared_error&#39;)
+tf_history = model.fit(X_train, y_train, batch_size=100, epochs=200, verbose=True, validation_data=(X_test, y_test))
+
+prediction = model.predict(X)
+
+plt.figure(figsize=(12,9))
+plt.plot(X, prediction)
+
+plt.plot(X, 8 * np.sin(X), linewidth=5, label=&#39;True curve y&#39;)
+plt.legend()
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Train on 70 samples, validate on 30 samples
+Epoch 1/200
+70/70 [==============================] - 0s 1ms/sample - loss: 33.6902 - val_loss: 41.1840
+Epoch 2/200
+70/70 [==============================] - 0s 57us/sample - loss: 33.6857 - val_loss: 41.1832
+.
+.
+Epoch 199/200
+70/70 [==============================] - 0s 54us/sample - loss: 33.1816 - val_loss: 41.3314
+Epoch 200/200
+70/70 [==============================] - 0s 59us/sample - loss: 33.1806 - val_loss: 41.3328
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_5/output_13_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can see the Training data loss and Validation data loss both are bad, the model performance is not good. This is called Underfitting.&lt;/p&gt;
+
+&lt;p&gt;Underfitting may happen because the model is not complex enough, or need more training. So, using a deeper network or training for more time may help.&lt;/p&gt;
+
+&lt;h1 id=&#34;overfitting&#34;&gt;Overfitting&lt;/h1&gt;
+
+&lt;p&gt;Let&amp;rsquo;s train a more complex model with less training data.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+import matplotlib.pyplot as plt
+tf.keras.backend.clear_session()
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.9, shuffle=True)
+
+model = tf.keras.Sequential([
+                             keras.layers.Dense(units=50, input_shape=[1]), 
+                             keras.layers.Activation(&#39;relu&#39;),
+                             keras.layers.Dense(units=50),
+                             keras.layers.Activation(&#39;relu&#39;),
+                             keras.layers.Dense(units=1), 
+                             ])
+
+optimizer = tf.keras.optimizers.Adam(lr=0.001)
+model.compile(optimizer=optimizer, loss=&#39;mean_squared_error&#39;)
+tf_history = model.fit(X_train, y_train, batch_size=100, epochs=1000, verbose=True, validation_data=(X_test, y_test))
+
+prediction = model.predict(X_train)
+
+plt.figure(figsize=(12,9))
+plt.scatter(X_train, prediction,label=&#39;Training Data Prediction&#39;)
+plt.scatter(X_test, model.predict(X_test), color=&#39;r&#39;, marker=&#39;x&#39;, label=&#39;Test Data Prediction&#39;)
+
+plt.plot(X, 8 * np.sin(X), linewidth=1, label=&#39;True curve y&#39;)
+plt.legend()
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Train on 10 samples, validate on 90 samples
+Epoch 1/1000
+10/10 [==============================] - 0s 14ms/sample - loss: 31.7417 - val_loss: 37.6045
+Epoch 2/1000
+10/10 [==============================] - 0s 587us/sample - loss: 31.0950 - val_loss: 37.4865
+.
+.
+Epoch 999/1000
+10/10 [==============================] - 0s 561us/sample - loss: 0.5722 - val_loss: 17.3321
+Epoch 1000/1000
+10/10 [==============================] - 0s 497us/sample - loss: 0.5721 - val_loss: 17.3268
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_5/output_16_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here you can see, although the model is comple and can learn more complex featreus of the data, the Validation loss is way higher than training loss. This is called Overfitting. This means the model fits the training data so much that it does not generalize and perform very poor in new unseen data. Adding more data can help to prevent overfitting.&lt;/p&gt;
+</description>
     </item>
     
     <item>

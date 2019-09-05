@@ -137,7 +137,10 @@ The learning rate $\alpha$ actually affects the learning process a lot.
       <pubDate>Tue, 03 Sep 2019 00:00:00 +0100</pubDate>
       
       <guid>/google-ml-academy/deeplearning/2.5/</guid>
-      <description></description>
+      <description>Open in GitHub
+Google ML Academy 2019 Instructor: Shangeth Rajaa 
+Bias &amp;amp; Variance Let us train a DNN model for a simple regression problem.
+import numpy as np import matplotlib.pyplot as plt def dataset(show=True): X = np.arange(-5, 5, 0.01) y = 8 * np.sin(X) + np.random.randn(1000) if show: yy = 8 * np.sin(X) plt.figure(figsize=(15,9)) plt.scatter(X, y) plt.plot(X, yy, color=&#39;red&#39;, linewidth=7) plt.show() return X, y X, y = dataset(show=True)  Lets train 2 models for this dataset</description>
     </item>
     
   </channel>
