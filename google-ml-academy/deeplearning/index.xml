@@ -143,5 +143,18 @@ Bias &amp;amp; Variance Let us train a DNN model for a simple regression problem
 import numpy as np import matplotlib.pyplot as plt def dataset(show=True): X = np.arange(-5, 5, 0.01) y = 8 * np.sin(X) + np.random.randn(1000) if show: yy = 8 * np.sin(X) plt.figure(figsize=(15,9)) plt.scatter(X, y) plt.plot(X, yy, color=&#39;red&#39;, linewidth=7) plt.show() return X, y X, y = dataset(show=True)  Lets train 2 models for this dataset</description>
     </item>
     
+    <item>
+      <title>Overfitting &amp; Regularization</title>
+      <link>/google-ml-academy/deeplearning/2.6/</link>
+      <pubDate>Fri, 06 Sep 2019 00:00:00 +0100</pubDate>
+      
+      <guid>/google-ml-academy/deeplearning/2.6/</guid>
+      <description>Open in GitHub
+Google ML Academy 2019 Instructor: Shangeth Rajaa 
+MNIST Dataset The MNIST database of handwritten digits, has a training set of 60,000 examples, and a test set of 10,000 examples. It is a subset of a larger set available from NIST. The digits have been size-normalized and centered in a fixed-size image.
+Let&amp;rsquo;s get the dataset using tf.keras.datasets
+Download MNIST import tensorflow as tf (x_train, y_train), (x_test, y_test) = tf.</description>
+    </item>
+    
   </channel>
 </rss>
