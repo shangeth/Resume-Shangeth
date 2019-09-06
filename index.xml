@@ -5003,6 +5003,483 @@ plt.show()
     </item>
     
     <item>
+      <title>ANN - Medical Diagnosis</title>
+      <link>/google-ml-academy/deeplearning/2.7/</link>
+      <pubDate>Fri, 06 Sep 2019 00:00:00 +0100</pubDate>
+      
+      <guid>/google-ml-academy/deeplearning/2.7/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_7_ANN_Medical_Diagnosis.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;a href=&#34;https://github.com/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_7_ANN_Medical_Diagnosis.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;svg class=&#34;octicon octicon-mark-github v-align-middle&#34; height=&#34;30&#34; viewBox=&#34;0 0 16 16&#34; version=&#34;1.1&#34; width=&#34;30&#34; aria-hidden=&#34;true&#34;&gt;&lt;path fill-rule=&#34;evenodd&#34; d=&#34;M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; Open in GitHub&lt;/a&gt;&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;h1&gt;&lt;a href=&#39;https://shangeth.com/google-ml-academy/&#39;&gt;Google ML Academy 2019&lt;/a&gt;&lt;/h1&gt;&lt;/center&gt;
+&lt;center&gt;&lt;h3&gt;Instructor: &lt;a href=&#39;https://shangeth.com/&#39;&gt;Shangeth Rajaa&lt;/a&gt;&lt;/h3&gt;&lt;/center&gt;
+&lt;hr&gt;&lt;/p&gt;
+
+&lt;p&gt;We will use ANNs to diagnose Brease Cancer with some characteristics of the cell nuclei.&lt;/p&gt;
+
+&lt;h1 id=&#34;dataset&#34;&gt;Dataset&lt;/h1&gt;
+
+&lt;h2 id=&#34;download-the-dataset&#34;&gt;Download the Dataset&lt;/h2&gt;
+
+&lt;p&gt;We will use a breast cancer diagnosis dataset from Opeml.org&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;%%capture
+!wget https://www.openml.org/data/get_csv/5600/BNG_breast-w.arff
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;explore-the-dataset&#34;&gt;Explore the Dataset&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import pandas as pd
+
+df = pd.read_csv(&#39;/content/BNG_breast-w.arff&#39;)
+df.head()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;style scoped&gt;
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+&lt;/style&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Clump_Thickness&lt;/th&gt;
+      &lt;th&gt;Cell_Size_Uniformity&lt;/th&gt;
+      &lt;th&gt;Cell_Shape_Uniformity&lt;/th&gt;
+      &lt;th&gt;Marginal_Adhesion&lt;/th&gt;
+      &lt;th&gt;Single_Epi_Cell_Size&lt;/th&gt;
+      &lt;th&gt;Bare_Nuclei&lt;/th&gt;
+      &lt;th&gt;Bland_Chromatin&lt;/th&gt;
+      &lt;th&gt;Normal_Nucleoli&lt;/th&gt;
+      &lt;th&gt;Mitoses&lt;/th&gt;
+      &lt;th&gt;Class&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;7.581819&lt;/td&gt;
+      &lt;td&gt;9.745087&lt;/td&gt;
+      &lt;td&gt;1.000000&lt;/td&gt;
+      &lt;td&gt;4.503410&lt;/td&gt;
+      &lt;td&gt;7.039930&lt;/td&gt;
+      &lt;td&gt;10.0&lt;/td&gt;
+      &lt;td&gt;4.412282&lt;/td&gt;
+      &lt;td&gt;10.000000&lt;/td&gt;
+      &lt;td&gt;5.055266&lt;/td&gt;
+      &lt;td&gt;malignant&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;5.210921&lt;/td&gt;
+      &lt;td&gt;8.169596&lt;/td&gt;
+      &lt;td&gt;7.841875&lt;/td&gt;
+      &lt;td&gt;6.033275&lt;/td&gt;
+      &lt;td&gt;4.269619&lt;/td&gt;
+      &lt;td&gt;10.0&lt;/td&gt;
+      &lt;td&gt;4.236312&lt;/td&gt;
+      &lt;td&gt;4.845350&lt;/td&gt;
+      &lt;td&gt;1.000000&lt;/td&gt;
+      &lt;td&gt;malignant&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;4.000000&lt;/td&gt;
+      &lt;td&gt;4.594296&lt;/td&gt;
+      &lt;td&gt;2.330380&lt;/td&gt;
+      &lt;td&gt;2.000000&lt;/td&gt;
+      &lt;td&gt;3.000000&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;10.701823&lt;/td&gt;
+      &lt;td&gt;1.101305&lt;/td&gt;
+      &lt;td&gt;1.000000&lt;/td&gt;
+      &lt;td&gt;benign&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;td&gt;2.428871&lt;/td&gt;
+      &lt;td&gt;1.000000&lt;/td&gt;
+      &lt;td&gt;1.000000&lt;/td&gt;
+      &lt;td&gt;1.000000&lt;/td&gt;
+      &lt;td&gt;4.099291&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;2.000000&lt;/td&gt;
+      &lt;td&gt;1.000000&lt;/td&gt;
+      &lt;td&gt;1.000000&lt;/td&gt;
+      &lt;td&gt;benign&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;td&gt;8.855971&lt;/td&gt;
+      &lt;td&gt;2.697539&lt;/td&gt;
+      &lt;td&gt;6.047068&lt;/td&gt;
+      &lt;td&gt;3.301891&lt;/td&gt;
+      &lt;td&gt;3.000000&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;5.297592&lt;/td&gt;
+      &lt;td&gt;4.104791&lt;/td&gt;
+      &lt;td&gt;3.115741&lt;/td&gt;
+      &lt;td&gt;malignant&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;You can see all the features are real numbers, with different range, so they need to be scaled.&lt;/li&gt;
+&lt;li&gt;Class has to be changes to number {0, 1}.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;label-encoder&#34;&gt;Label Encoder&lt;/h2&gt;
+
+&lt;p&gt;We can use sklearn&amp;rsquo;s Label Encoder to change malignant and benign to {0, 1}.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn.preprocessing import LabelEncoder
+
+label_encoder = LabelEncoder()
+df.loc[:, &#39;Class&#39;] = label_encoder.fit_transform(df.loc[:, &#39;Class&#39;])
+df.head()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;style scoped&gt;
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+&lt;/style&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Clump_Thickness&lt;/th&gt;
+      &lt;th&gt;Cell_Size_Uniformity&lt;/th&gt;
+      &lt;th&gt;Cell_Shape_Uniformity&lt;/th&gt;
+      &lt;th&gt;Marginal_Adhesion&lt;/th&gt;
+      &lt;th&gt;Single_Epi_Cell_Size&lt;/th&gt;
+      &lt;th&gt;Bare_Nuclei&lt;/th&gt;
+      &lt;th&gt;Bland_Chromatin&lt;/th&gt;
+      &lt;th&gt;Normal_Nucleoli&lt;/th&gt;
+      &lt;th&gt;Mitoses&lt;/th&gt;
+      &lt;th&gt;Class&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;7.581819&lt;/td&gt;
+      &lt;td&gt;9.745087&lt;/td&gt;
+      &lt;td&gt;1.000000&lt;/td&gt;
+      &lt;td&gt;4.503410&lt;/td&gt;
+      &lt;td&gt;7.039930&lt;/td&gt;
+      &lt;td&gt;10.0&lt;/td&gt;
+      &lt;td&gt;4.412282&lt;/td&gt;
+      &lt;td&gt;10.000000&lt;/td&gt;
+      &lt;td&gt;5.055266&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;5.210921&lt;/td&gt;
+      &lt;td&gt;8.169596&lt;/td&gt;
+      &lt;td&gt;7.841875&lt;/td&gt;
+      &lt;td&gt;6.033275&lt;/td&gt;
+      &lt;td&gt;4.269619&lt;/td&gt;
+      &lt;td&gt;10.0&lt;/td&gt;
+      &lt;td&gt;4.236312&lt;/td&gt;
+      &lt;td&gt;4.845350&lt;/td&gt;
+      &lt;td&gt;1.000000&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;4.000000&lt;/td&gt;
+      &lt;td&gt;4.594296&lt;/td&gt;
+      &lt;td&gt;2.330380&lt;/td&gt;
+      &lt;td&gt;2.000000&lt;/td&gt;
+      &lt;td&gt;3.000000&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;10.701823&lt;/td&gt;
+      &lt;td&gt;1.101305&lt;/td&gt;
+      &lt;td&gt;1.000000&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;td&gt;2.428871&lt;/td&gt;
+      &lt;td&gt;1.000000&lt;/td&gt;
+      &lt;td&gt;1.000000&lt;/td&gt;
+      &lt;td&gt;1.000000&lt;/td&gt;
+      &lt;td&gt;4.099291&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;2.000000&lt;/td&gt;
+      &lt;td&gt;1.000000&lt;/td&gt;
+      &lt;td&gt;1.000000&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;td&gt;8.855971&lt;/td&gt;
+      &lt;td&gt;2.697539&lt;/td&gt;
+      &lt;td&gt;6.047068&lt;/td&gt;
+      &lt;td&gt;3.301891&lt;/td&gt;
+      &lt;td&gt;3.000000&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;5.297592&lt;/td&gt;
+      &lt;td&gt;4.104791&lt;/td&gt;
+      &lt;td&gt;3.115741&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;scaling-features&#34;&gt;Scaling Features&lt;/h2&gt;
+
+&lt;p&gt;We will use sklearn&amp;rsquo;s MinMaxScaler to scale the features, it will convert each column into a range of [0,1], you can also specify in which range you want to convert the features, by default its [0,1].&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn.preprocessing import MinMaxScaler
+
+scaler = MinMaxScaler()
+
+df.loc[:,  df.columns != &#39;Class&#39;] = scaler.fit_transform(df.loc[:,  df.columns != &#39;Class&#39;])
+df.head()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;style scoped&gt;
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+&lt;/style&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Clump_Thickness&lt;/th&gt;
+      &lt;th&gt;Cell_Size_Uniformity&lt;/th&gt;
+      &lt;th&gt;Cell_Shape_Uniformity&lt;/th&gt;
+      &lt;th&gt;Marginal_Adhesion&lt;/th&gt;
+      &lt;th&gt;Single_Epi_Cell_Size&lt;/th&gt;
+      &lt;th&gt;Bare_Nuclei&lt;/th&gt;
+      &lt;th&gt;Bland_Chromatin&lt;/th&gt;
+      &lt;th&gt;Normal_Nucleoli&lt;/th&gt;
+      &lt;th&gt;Mitoses&lt;/th&gt;
+      &lt;th&gt;Class&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;0.527352&lt;/td&gt;
+      &lt;td&gt;0.885428&lt;/td&gt;
+      &lt;td&gt;0.000000&lt;/td&gt;
+      &lt;td&gt;0.344875&lt;/td&gt;
+      &lt;td&gt;0.450241&lt;/td&gt;
+      &lt;td&gt;0.761964&lt;/td&gt;
+      &lt;td&gt;0.310056&lt;/td&gt;
+      &lt;td&gt;0.929549&lt;/td&gt;
+      &lt;td&gt;0.367161&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;0.344729&lt;/td&gt;
+      &lt;td&gt;0.733487&lt;/td&gt;
+      &lt;td&gt;0.589599&lt;/td&gt;
+      &lt;td&gt;0.495474&lt;/td&gt;
+      &lt;td&gt;0.243731&lt;/td&gt;
+      &lt;td&gt;0.761964&lt;/td&gt;
+      &lt;td&gt;0.294066&lt;/td&gt;
+      &lt;td&gt;0.411081&lt;/td&gt;
+      &lt;td&gt;0.000000&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;0.251456&lt;/td&gt;
+      &lt;td&gt;0.388683&lt;/td&gt;
+      &lt;td&gt;0.114646&lt;/td&gt;
+      &lt;td&gt;0.098440&lt;/td&gt;
+      &lt;td&gt;0.149088&lt;/td&gt;
+      &lt;td&gt;0.084182&lt;/td&gt;
+      &lt;td&gt;0.881553&lt;/td&gt;
+      &lt;td&gt;0.034496&lt;/td&gt;
+      &lt;td&gt;0.000000&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;td&gt;0.130438&lt;/td&gt;
+      &lt;td&gt;0.042047&lt;/td&gt;
+      &lt;td&gt;0.000000&lt;/td&gt;
+      &lt;td&gt;0.000000&lt;/td&gt;
+      &lt;td&gt;0.231034&lt;/td&gt;
+      &lt;td&gt;0.084182&lt;/td&gt;
+      &lt;td&gt;0.090865&lt;/td&gt;
+      &lt;td&gt;0.024306&lt;/td&gt;
+      &lt;td&gt;0.000000&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;td&gt;0.625495&lt;/td&gt;
+      &lt;td&gt;0.205758&lt;/td&gt;
+      &lt;td&gt;0.434931&lt;/td&gt;
+      &lt;td&gt;0.226597&lt;/td&gt;
+      &lt;td&gt;0.149088&lt;/td&gt;
+      &lt;td&gt;0.084182&lt;/td&gt;
+      &lt;td&gt;0.390499&lt;/td&gt;
+      &lt;td&gt;0.336594&lt;/td&gt;
+      &lt;td&gt;0.191558&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;dataframes-to-arrays&#34;&gt;Dataframes to Arrays&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;X = df.loc[:,  df.columns != &#39;Class&#39;].values
+y = df.loc[:, &#39;Class&#39;].values
+
+print(X.shape, y.shape)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;(39366, 9) (39366,)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;train-validation-split&#34;&gt;Train-Validation Split&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn.model_selection import train_test_split
+
+X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, shuffle=True)
+
+print(X_train.shape, X_val.shape, y_train.shape, y_val.shape)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;(31492, 9) (7874, 9) (31492,) (7874,)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;model&#34;&gt;Model&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
+from tensorflow import keras
+
+tf.keras.backend.clear_session()
+
+model = tf.keras.Sequential([
+                             tf.keras.layers.Dense(units=50, input_shape=[9], kernel_regularizer=tf.keras.regularizers.l2(0.00001)), 
+                             tf.keras.layers.Activation(&#39;relu&#39;),
+                             tf.keras.layers.Dropout(0.2),
+                             tf.keras.layers.Dense(units=50, kernel_regularizer=tf.keras.regularizers.l2(0.00001)),
+                             tf.keras.layers.Activation(&#39;relu&#39;),
+                             tf.keras.layers.Dropout(0.2),
+                             tf.keras.layers.Dense(units=1), 
+                             tf.keras.layers.Activation(&#39;sigmoid&#39;)
+                             ])
+model.summary()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Model: &amp;quot;sequential&amp;quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense (Dense)                (None, 50)                500       
+_________________________________________________________________
+activation (Activation)      (None, 50)                0         
+_________________________________________________________________
+dropout (Dropout)            (None, 50)                0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 50)                2550      
+_________________________________________________________________
+activation_1 (Activation)    (None, 50)                0         
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 50)                0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 1)                 51        
+_________________________________________________________________
+activation_2 (Activation)    (None, 1)                 0         
+=================================================================
+Total params: 3,101
+Trainable params: 3,101
+Non-trainable params: 0
+_________________________________________________________________
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;training&#34;&gt;Training&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;optimizer = tf.keras.optimizers.Adam(lr=0.001)
+model.compile(optimizer=optimizer, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;accuracy&#39;])
+tf_history_dp = model.fit(X_train, y_train, batch_size=50, epochs=100, verbose=True, validation_data=(X_val, y_val))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Train on 31492 samples, validate on 7874 samples
+Epoch 1/100
+31492/31492 [==============================] - 3s 104us/sample - loss: 0.1383 - acc: 0.9645 - val_loss: 0.0470 - val_acc: 0.9830
+Epoch 2/100
+31492/31492 [==============================] - 3s 101us/sample - loss: 0.0569 - acc: 0.9796 - val_loss: 0.0431 - val_acc: 0.9850
+.
+.
+Epoch 99/100
+31492/31492 [==============================] - 3s 97us/sample - loss: 0.0402 - acc: 0.9857 - val_loss: 0.0356 - val_acc: 0.9892
+Epoch 100/100
+31492/31492 [==============================] - 3s 92us/sample - loss: 0.0408 - acc: 0.9858 - val_loss: 0.0345 - val_acc: 0.9886
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import matplotlib.pyplot as plt
+
+plt.figure(figsize=(20,7))
+
+plt.subplot(1,2,1)
+plt.plot(tf_history_dp.history[&#39;loss&#39;], label=&#39;Training Loss&#39;)
+plt.plot(tf_history_dp.history[&#39;val_loss&#39;], label=&#39;Validation Loss&#39;)
+plt.legend()
+
+plt.subplot(1,2,2)
+plt.plot(tf_history_dp.history[&#39;acc&#39;], label=&#39;Training Accuracy&#39;)
+plt.plot(tf_history_dp.history[&#39;val_acc&#39;], label=&#39;Validation Accuracy&#39;)
+plt.legend()
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;../2_7/output_21_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We were able to get an accuracy of 98.8% on Validation set, but in these kind of medical diagnosis tasks even a 0.1% improvement is very important.&lt;/p&gt;
+
+&lt;p&gt;Try to improve the performance more.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Facial Emotion Recognition PyTorch ONNX</title>
       <link>/project/facial-emotion-recognition-pytorch/</link>
       <pubDate>Mon, 08 Jul 2019 01:07:01 +0530</pubDate>

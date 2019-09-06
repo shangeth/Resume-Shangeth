@@ -156,5 +156,18 @@ Let&amp;rsquo;s get the dataset using tf.keras.datasets
 Download MNIST import tensorflow as tf (x_train, y_train), (x_test, y_test) = tf.</description>
     </item>
     
+    <item>
+      <title>ANN - Medical Diagnosis</title>
+      <link>/google-ml-academy/deeplearning/2.7/</link>
+      <pubDate>Fri, 06 Sep 2019 00:00:00 +0100</pubDate>
+      
+      <guid>/google-ml-academy/deeplearning/2.7/</guid>
+      <description>Open in GitHub
+Google ML Academy 2019 Instructor: Shangeth Rajaa 
+We will use ANNs to diagnose Brease Cancer with some characteristics of the cell nuclei.
+Dataset Download the Dataset We will use a breast cancer diagnosis dataset from Opeml.org
+%%capture !wget https://www.openml.org/data/get_csv/5600/BNG_breast-w.arff  Explore the Dataset import pandas as pd df = pd.read_csv(&#39;/content/BNG_breast-w.arff&#39;) df.head()   .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .</description>
+    </item>
+    
   </channel>
 </rss>
