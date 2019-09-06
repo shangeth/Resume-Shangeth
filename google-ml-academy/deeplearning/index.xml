@@ -169,5 +169,23 @@ Dataset Download the Dataset We will use a breast cancer diagnosis dataset from 
 %%capture !wget https://www.openml.org/data/get_csv/5600/BNG_breast-w.arff  Explore the Dataset import pandas as pd df = pd.read_csv(&#39;/content/BNG_breast-w.arff&#39;) df.head()   .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .</description>
     </item>
     
+    <item>
+      <title>ANN - Computer Vision</title>
+      <link>/google-ml-academy/deeplearning/2.8/</link>
+      <pubDate>Fri, 06 Sep 2019 00:00:00 +0100</pubDate>
+      
+      <guid>/google-ml-academy/deeplearning/2.8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ANN - Natural Language Processing</title>
+      <link>/google-ml-academy/deeplearning/2.9/</link>
+      <pubDate>Fri, 06 Sep 2019 00:00:00 +0100</pubDate>
+      
+      <guid>/google-ml-academy/deeplearning/2.9/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

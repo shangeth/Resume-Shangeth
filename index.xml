@@ -5480,6 +5480,24 @@ plt.show()
     </item>
     
     <item>
+      <title>ANN - Computer Vision</title>
+      <link>/google-ml-academy/deeplearning/2.8/</link>
+      <pubDate>Fri, 06 Sep 2019 00:00:00 +0100</pubDate>
+      
+      <guid>/google-ml-academy/deeplearning/2.8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ANN - Natural Language Processing</title>
+      <link>/google-ml-academy/deeplearning/2.9/</link>
+      <pubDate>Fri, 06 Sep 2019 00:00:00 +0100</pubDate>
+      
+      <guid>/google-ml-academy/deeplearning/2.9/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Facial Emotion Recognition PyTorch ONNX</title>
       <link>/project/facial-emotion-recognition-pytorch/</link>
       <pubDate>Mon, 08 Jul 2019 01:07:01 +0530</pubDate>
