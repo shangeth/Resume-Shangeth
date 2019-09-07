@@ -14,10 +14,10 @@
     
     <item>
       <title>Linear Regression</title>
-      <link>/google-ml-academy/deeplearning/1.1/</link>
+      <link>/courses/deeplearning/1.1/</link>
       <pubDate>Thu, 29 Aug 2019 00:00:00 +0100</pubDate>
       
-      <guid>/google-ml-academy/deeplearning/1.1/</guid>
+      <guid>/courses/deeplearning/1.1/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/1-Intro-to-Deep-Learning/1_1_Linear_Regression.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
@@ -476,10 +476,10 @@ _________________________________________________________________
     
     <item>
       <title>Polynomial Regression</title>
-      <link>/google-ml-academy/deeplearning/1.2/</link>
+      <link>/courses/deeplearning/1.2/</link>
       <pubDate>Thu, 29 Aug 2019 00:00:00 +0100</pubDate>
       
-      <guid>/google-ml-academy/deeplearning/1.2/</guid>
+      <guid>/courses/deeplearning/1.2/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/1-Intro-to-Deep-Learning/1_2_1_Assignment_Polynomial_Regression.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;/&gt;&lt;/a&gt;
@@ -957,10 +957,10 @@ Epoch 50/50
     
     <item>
       <title>Logistic Regression</title>
-      <link>/google-ml-academy/deeplearning/1.3/</link>
+      <link>/courses/deeplearning/1.3/</link>
       <pubDate>Fri, 30 Aug 2019 00:00:00 +0100</pubDate>
       
-      <guid>/google-ml-academy/deeplearning/1.3/</guid>
+      <guid>/courses/deeplearning/1.3/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/1-Intro-to-Deep-Learning/1_3_Logistic_Regression.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
@@ -1597,10 +1597,10 @@ Epoch 50/50
     
     <item>
       <title>Multi Class Classification</title>
-      <link>/google-ml-academy/deeplearning/1.4/</link>
+      <link>/courses/deeplearning/1.4/</link>
       <pubDate>Fri, 30 Aug 2019 00:00:00 +0100</pubDate>
       
-      <guid>/google-ml-academy/deeplearning/1.4/</guid>
+      <guid>/courses/deeplearning/1.4/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/1-Intro-to-Deep-Learning/1_4_1_MultiClass_Classification.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
@@ -1981,10 +1981,10 @@ Test Accuracy =  0.995
     
     <item>
       <title>Motivation for Multi Layer Perceptron</title>
-      <link>/google-ml-academy/deeplearning/1.5/</link>
+      <link>/courses/deeplearning/1.5/</link>
       <pubDate>Sun, 01 Sep 2019 00:00:00 +0100</pubDate>
       
-      <guid>/google-ml-academy/deeplearning/1.5/</guid>
+      <guid>/courses/deeplearning/1.5/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/1-Intro-to-Deep-Learning/1_5_Motivation_for_Multi_Layer_Perceptron.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
@@ -2534,10 +2534,10 @@ Epoch 500/500
     
     <item>
       <title>Neural Network Architectures</title>
-      <link>/google-ml-academy/deeplearning/2.1/</link>
+      <link>/courses/deeplearning/2.1/</link>
       <pubDate>Mon, 02 Sep 2019 00:00:00 +0100</pubDate>
       
-      <guid>/google-ml-academy/deeplearning/2.1/</guid>
+      <guid>/courses/deeplearning/2.1/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_1_Deep_Neural_Networks_Architecture.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
@@ -2944,10 +2944,10 @@ Epoch 500/500
     
     <item>
       <title>Batch Training</title>
-      <link>/google-ml-academy/deeplearning/2.2/</link>
+      <link>/courses/deeplearning/2.2/</link>
       <pubDate>Mon, 02 Sep 2019 00:00:00 +0100</pubDate>
       
-      <guid>/google-ml-academy/deeplearning/2.2/</guid>
+      <guid>/courses/deeplearning/2.2/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_2_Batch_Training.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
@@ -3226,10 +3226,10 @@ $\mathcal{L}(y , \hat{y}) = \dfrac{1}{n} \sum_{i=1}^{n}\mathcal{L}(y^i , \hat{y}
     
     <item>
       <title>Optimizers</title>
-      <link>/google-ml-academy/deeplearning/2.3/</link>
+      <link>/courses/deeplearning/2.3/</link>
       <pubDate>Tue, 03 Sep 2019 00:00:00 +0100</pubDate>
       
-      <guid>/google-ml-academy/deeplearning/2.3/</guid>
+      <guid>/courses/deeplearning/2.3/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_3_Optimizers.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
@@ -3828,10 +3828,10 @@ Epoch 50/50
     
     <item>
       <title>Learning Rate</title>
-      <link>/google-ml-academy/deeplearning/2.4/</link>
+      <link>/courses/deeplearning/2.4/</link>
       <pubDate>Tue, 03 Sep 2019 00:00:00 +0100</pubDate>
       
-      <guid>/google-ml-academy/deeplearning/2.4/</guid>
+      <guid>/courses/deeplearning/2.4/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_4_Learning_Rate.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
@@ -4247,10 +4247,10 @@ Epoch 100/100
     
     <item>
       <title>Bias &amp; Variance</title>
-      <link>/google-ml-academy/deeplearning/2.5/</link>
+      <link>/courses/deeplearning/2.5/</link>
       <pubDate>Tue, 03 Sep 2019 00:00:00 +0100</pubDate>
       
-      <guid>/google-ml-academy/deeplearning/2.5/</guid>
+      <guid>/courses/deeplearning/2.5/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_5_Bias_Variance.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
@@ -4569,10 +4569,10 @@ Epoch 1000/1000
     
     <item>
       <title>Overfitting &amp; Regularization</title>
-      <link>/google-ml-academy/deeplearning/2.6/</link>
+      <link>/courses/deeplearning/2.6/</link>
       <pubDate>Fri, 06 Sep 2019 00:00:00 +0100</pubDate>
       
-      <guid>/google-ml-academy/deeplearning/2.6/</guid>
+      <guid>/courses/deeplearning/2.6/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_6_Overfitting_Regularization.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
@@ -5004,10 +5004,10 @@ plt.show()
     
     <item>
       <title>ANN - Medical Diagnosis</title>
-      <link>/google-ml-academy/deeplearning/2.7/</link>
+      <link>/courses/deeplearning/2.7/</link>
       <pubDate>Fri, 06 Sep 2019 00:00:00 +0100</pubDate>
       
-      <guid>/google-ml-academy/deeplearning/2.7/</guid>
+      <guid>/courses/deeplearning/2.7/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_7_ANN_Medical_Diagnosis.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;img src=&#34;https://colab.research.google.com/assets/colab-badge.svg&#34; alt=&#34;Open In Colab&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
@@ -5481,19 +5481,19 @@ plt.show()
     
     <item>
       <title>ANN - Computer Vision</title>
-      <link>/google-ml-academy/deeplearning/2.8/</link>
+      <link>/courses/deeplearning/2.8/</link>
       <pubDate>Fri, 06 Sep 2019 00:00:00 +0100</pubDate>
       
-      <guid>/google-ml-academy/deeplearning/2.8/</guid>
+      <guid>/courses/deeplearning/2.8/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ANN - Natural Language Processing</title>
-      <link>/google-ml-academy/deeplearning/2.9/</link>
+      <link>/courses/deeplearning/2.9/</link>
       <pubDate>Fri, 06 Sep 2019 00:00:00 +0100</pubDate>
       
-      <guid>/google-ml-academy/deeplearning/2.9/</guid>
+      <guid>/courses/deeplearning/2.9/</guid>
       <description></description>
     </item>
     
