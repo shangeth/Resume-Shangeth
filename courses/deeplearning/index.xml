@@ -175,7 +175,11 @@ Dataset Download the Dataset We will use a breast cancer diagnosis dataset from 
       <pubDate>Fri, 06 Sep 2019 00:00:00 +0100</pubDate>
       
       <guid>/courses/deeplearning/2.8/</guid>
-      <description></description>
+      <description>Open in GitHub
+Google ML Academy 2019 Instructor: Shangeth Rajaa 
+We will use ANNs for a basic computer vision application of image classification on CIFAR10 Dataset
+Dataset CIFAR-10 The CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images.
+Download the Dataset Tensorflow has inbuilt dataset which makes it easy to get training and testing data.</description>
     </item>
     
     <item>
