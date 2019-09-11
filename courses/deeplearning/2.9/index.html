@@ -27,7 +27,9 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content="Google Explore ML Academy Instructor: Shangeth Rajaa 
+Sentiment Analysis We are going to classify a movie review as Positive or Negative review given a text review.
+We&rsquo;ll use the IMDB dataset that contains the text of 50,000 movie reviews from the Internet Movie Database. These are split into 25,000 reviews for training and 25,000 reviews for testing. The training and testing sets are balanced, meaning they contain an equal number of positive and negative reviews.">
 
   
   <link rel="alternate" hreflang="en-us" href="/courses/deeplearning/2.9/">
@@ -135,7 +137,9 @@
   <meta property="og:site_name" content="Shangeth">
   <meta property="og:url" content="/courses/deeplearning/2.9/">
   <meta property="og:title" content="ANN - Natural Language Processing | Shangeth">
-  <meta property="og:description" content=""><meta property="og:image" content="/img/instructor.jpeg">
+  <meta property="og:description" content="Google Explore ML Academy Instructor: Shangeth Rajaa 
+Sentiment Analysis We are going to classify a movie review as Positive or Negative review given a text review.
+We&rsquo;ll use the IMDB dataset that contains the text of 50,000 movie reviews from the Internet Movie Database. These are split into 25,000 reviews for training and 25,000 reviews for testing. The training and testing sets are balanced, meaning they contain an equal number of positive and negative reviews."><meta property="og:image" content="/img/instructor.jpeg">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-09-06T00:00:00&#43;01:00">
@@ -535,7 +539,26 @@
       <p class="docs-toc-title">On this page</p>
       
 
-      
+      <nav id="TableOfContents">
+<ul>
+<li><a href="#sentiment-analysis">Sentiment Analysis</a></li>
+<li><a href="#imdb-dataset">IMDB Dataset</a>
+<ul>
+<li><a href="#download-the-dataset">Download the Dataset</a></li>
+<li><a href="#explore-the-dataset">Explore the Dataset</a></li>
+<li><a href="#preparing-the-data">Preparing the data</a>
+<ul>
+<li><a href="#padding">Padding</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#ann-model">ANN Model</a></li>
+<li><a href="#model-pipeline">Model Pipeline</a>
+<ul>
+<li><a href="#load-trained-model">Load trained Model</a></li>
+<li><a href="#sentence-to-vectors">Sentence to Vectors</a></li>
+</ul></li>
+</ul>
+</nav>
 
       <ul class="nav toc-top">
         <li><a href="#">Back to top</a></li>
@@ -554,6 +577,318 @@
 
           <div class="article-style" itemprop="articleBody">
             
+
+<p><a href="https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_9_ANN_Natural_Language_Processing.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+
+<p><h1><a href='https://shangeth.com/courses/'>Google Explore ML Academy</a></h1>
+<h3>Instructor: <a href='https://shangeth.com/'>Shangeth Rajaa</a></h3>
+<hr></p>
+
+<h1 id="sentiment-analysis">Sentiment Analysis</h1>
+
+<p>We are going to classify a movie review as Positive or Negative review given a text review.</p>
+
+<p><img src="https://cfml.se/img/blog/sentiment_classification/top_img.png" alt="" /></p>
+
+<p>We&rsquo;ll use the IMDB dataset that contains the text of 50,000 movie reviews from the Internet Movie Database. These are split into 25,000 reviews for training and 25,000 reviews for testing. The training and testing sets are balanced, meaning they contain an equal number of positive and negative reviews.</p>
+
+<h1 id="imdb-dataset">IMDB Dataset</h1>
+
+<h2 id="download-the-dataset">Download the Dataset</h2>
+
+<pre><code class="language-python">import tensorflow as tf
+
+imdb = tf.keras.datasets.imdb
+(train_data, train_labels), (test_data, test_labels) = imdb.load_data(num_words=10000)
+</code></pre>
+
+<h2 id="explore-the-dataset">Explore the Dataset</h2>
+
+<pre><code class="language-python">train_data.shape, train_labels.shape, test_data.shape, test_labels.shape
+</code></pre>
+
+<pre><code>((25000,), (25000,), (25000,), (25000,))
+</code></pre>
+
+<pre><code class="language-python">len(train_data[0])
+</code></pre>
+
+<pre><code>218
+</code></pre>
+
+<p>Each of these numbers correspond to a word.</p>
+
+<pre><code class="language-python">word_2_int = tf.keras.datasets.imdb.get_word_index(path='imdb_word_index.json')
+
+word_2_int['hello'], word_2_int['world']
+</code></pre>
+
+<pre><code>(4822, 179)
+</code></pre>
+
+<pre><code class="language-python">len(word_2_int)
+</code></pre>
+
+<pre><code>88584
+</code></pre>
+
+<pre><code class="language-python">def sentence_2_int(sentence):
+    sentence_2_int_list = []
+    for i in sentence.lower().split(' '):
+        sentence_2_int_list.append(word_2_int[i])
+    return sentence_2_int_list
+
+sentence = &quot;Worst movie i've ever seen&quot;
+sentence_2_int(sentence)
+</code></pre>
+
+<pre><code>[246, 17, 204, 123, 107]
+</code></pre>
+
+<h2 id="preparing-the-data">Preparing the data</h2>
+
+<h3 id="padding">Padding</h3>
+
+<p>Every sentence will be off different length, to pass the sentences through the ANN model, we need to have a fixed length data.
+So we
+- pad small sentence
+- cut very long sentence</p>
+
+<pre><code class="language-python">pad_value = 0
+sentence_len = 100
+
+train_data = tf.keras.preprocessing.sequence.pad_sequences(train_data,
+                                                        value=0,
+                                                        padding='post',
+                                                        maxlen=sentence_len)
+
+test_data = tf.keras.preprocessing.sequence.pad_sequences(test_data,
+                                                       value=0,
+                                                       padding='post',
+                                                       maxlen=sentence_len)
+
+train_data.shape, train_labels.shape, test_data.shape, test_labels.shape
+</code></pre>
+
+<pre><code>((25000, 100), (25000,), (25000, 100), (25000,))
+</code></pre>
+
+<h1 id="ann-model">ANN Model</h1>
+
+<p>We will use a new layer into our model called the Embedding layer.</p>
+
+<p>The words of each sentence are now represented with numbers, we cannot directly feed those number into the model, we need to convert the numbers into vectors for the model to understand what word it is?</p>
+
+<p>but how do we decide the vectors? we leave that to the model.</p>
+
+<p>So embedding layer, takes in an integer and converts it into a vector.</p>
+
+<pre><code class="language-python">vocab_size = 10000
+embedding_dim = 16
+
+import tensorflow as tf
+from tensorflow import keras
+
+tf.keras.backend.clear_session()
+
+model = tf.keras.Sequential([
+                             tf.keras.layers.Embedding(vocab_size, embedding_dim, input_length=sentence_len),
+                             # the model will take as input an integer matrix of size (batch, input_length).
+                             # now model.output_shape == (None, 100, 16), where None is the batch dimension.
+                             tf.keras.layers.Dropout(0.4),
+                             tf.keras.layers.Flatten(),
+                             tf.keras.layers.Dense(units=sentence_len*embedding_dim), 
+                             tf.keras.layers.Activation('relu'),
+                             tf.keras.layers.Dropout(0.4),
+                             tf.keras.layers.Dense(units=500),
+                             tf.keras.layers.Activation('relu'),
+                             tf.keras.layers.Dropout(0.4),
+                             tf.keras.layers.Dense(units=1), 
+                             tf.keras.layers.Activation('sigmoid')
+                             ])
+model.summary()
+</code></pre>
+
+<pre><code>Model: &quot;sequential&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+embedding (Embedding)        (None, 100, 16)           160000    
+_________________________________________________________________
+dropout (Dropout)            (None, 100, 16)           0         
+_________________________________________________________________
+flatten (Flatten)            (None, 1600)              0         
+_________________________________________________________________
+dense (Dense)                (None, 1600)              2561600   
+_________________________________________________________________
+activation (Activation)      (None, 1600)              0         
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 1600)              0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 500)               800500    
+_________________________________________________________________
+activation_1 (Activation)    (None, 500)               0         
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 500)               0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 1)                 501       
+_________________________________________________________________
+activation_2 (Activation)    (None, 1)                 0         
+=================================================================
+Total params: 3,522,601
+Trainable params: 3,522,601
+Non-trainable params: 0
+_________________________________________________________________
+</code></pre>
+
+<pre><code class="language-python">optimizer = tf.keras.optimizers.Adam(lr=0.001)
+model.compile(optimizer=optimizer, loss='binary_crossentropy', metrics=['accuracy'])
+
+tf_history = model.fit(train_data, train_labels, batch_size=2000, epochs=10, verbose=True, validation_data=(test_data, test_labels))
+</code></pre>
+
+<pre><code>Train on 25000 samples, validate on 25000 samples
+Epoch 1/10
+25000/25000 [==============================] - 12s 489us/sample - loss: 0.6917 - acc: 0.5162 - val_loss: 0.6860 - val_acc: 0.5558
+Epoch 2/10
+25000/25000 [==============================] - 12s 485us/sample - loss: 0.6434 - acc: 0.6450 - val_loss: 0.5741 - val_acc: 0.7036
+Epoch 3/10
+25000/25000 [==============================] - 12s 482us/sample - loss: 0.4729 - acc: 0.7753 - val_loss: 0.4278 - val_acc: 0.8019
+Epoch 4/10
+25000/25000 [==============================] - 12s 487us/sample - loss: 0.3406 - acc: 0.8524 - val_loss: 0.3833 - val_acc: 0.8292
+Epoch 5/10
+25000/25000 [==============================] - 12s 483us/sample - loss: 0.2646 - acc: 0.8873 - val_loss: 0.3691 - val_acc: 0.8388
+Epoch 6/10
+25000/25000 [==============================] - 12s 482us/sample - loss: 0.2038 - acc: 0.9180 - val_loss: 0.3913 - val_acc: 0.8380
+Epoch 7/10
+25000/25000 [==============================] - 12s 484us/sample - loss: 0.1641 - acc: 0.9350 - val_loss: 0.4083 - val_acc: 0.8380
+Epoch 8/10
+25000/25000 [==============================] - 12s 483us/sample - loss: 0.1318 - acc: 0.9490 - val_loss: 0.4307 - val_acc: 0.8374
+Epoch 9/10
+25000/25000 [==============================] - 12s 484us/sample - loss: 0.1029 - acc: 0.9595 - val_loss: 0.4761 - val_acc: 0.8348
+Epoch 10/10
+25000/25000 [==============================] - 12s 485us/sample - loss: 0.0871 - acc: 0.9660 - val_loss: 0.4966 - val_acc: 0.8368
+</code></pre>
+
+<pre><code class="language-python">model.save('trained_model.h5')
+</code></pre>
+
+<h1 id="model-pipeline">Model Pipeline</h1>
+
+<h2 id="load-trained-model">Load trained Model</h2>
+
+<pre><code class="language-python">trained_model = tf.keras.models.load_model('trained_model.h5')
+
+trained_model.summary()
+</code></pre>
+
+<pre><code>WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/tensorflow/python/ops/init_ops.py:97: calling GlorotUniform.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
+Instructions for updating:
+Call initializer instance with the dtype argument instead of passing it to the constructor
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/tensorflow/python/ops/init_ops.py:97: calling Zeros.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
+Instructions for updating:
+Call initializer instance with the dtype argument instead of passing it to the constructor
+Model: &quot;sequential&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+embedding (Embedding)        (None, 100, 16)           160000    
+_________________________________________________________________
+dropout (Dropout)            (None, 100, 16)           0         
+_________________________________________________________________
+flatten (Flatten)            (None, 1600)              0         
+_________________________________________________________________
+dense (Dense)                (None, 1600)              2561600   
+_________________________________________________________________
+activation (Activation)      (None, 1600)              0         
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 1600)              0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 500)               800500    
+_________________________________________________________________
+activation_1 (Activation)    (None, 500)               0         
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 500)               0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 1)                 501       
+_________________________________________________________________
+activation_2 (Activation)    (None, 1)                 0         
+=================================================================
+Total params: 3,522,601
+Trainable params: 3,522,601
+Non-trainable params: 0
+_________________________________________________________________
+</code></pre>
+
+<h2 id="sentence-to-vectors">Sentence to Vectors</h2>
+
+<pre><code class="language-python">import numpy as np
+
+def sentence_2_int(sentence):
+    sentence_2_int_list = []
+    for i in sentence.lower().split(' '):
+        sentence_2_int_list.append(word_2_int[i])
+    arr = np.array(sentence_2_int_list).reshape(1,-1)
+    arr = tf.keras.preprocessing.sequence.pad_sequences(arr, value=0, padding='post', maxlen=100)
+    return arr
+
+sentence = &quot;Worst movie i've ever seen&quot;
+sentence_2_int(sentence)
+</code></pre>
+
+<pre><code>array([[246,  17, 204, 123, 107,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0]], dtype=int32)
+</code></pre>
+
+<pre><code class="language-python">model.predict(sentence_2_int(sentence))
+</code></pre>
+
+<pre><code>array([[0.22403198]], dtype=float32)
+</code></pre>
+
+<pre><code class="language-python">def sentence_2_prediction(sentence):
+    vector = sentence_2_int(sentence)
+    prob = model.predict(vector)
+    prediction = prob &gt; 0.5
+    if prediction == 1:
+        print('Positive Review :D')
+    else:
+        print('Negative Review :(')
+</code></pre>
+
+<pre><code class="language-python">sentence = 'Good Movie i really enjoyed it'
+
+sentence_2_prediction(sentence)
+</code></pre>
+
+<pre><code>Positive Review :D
+</code></pre>
+
+<pre><code class="language-python">sentence = 'worst movie'
+
+sentence_2_prediction(sentence)
+</code></pre>
+
+<pre><code>Negative Review :(
+</code></pre>
+
+<p>If you try many different sentences, you may notice the model actually doen&rsquo;t perform well. There may be many reasons for it.</p>
+
+<ul>
+<li>vocabulary size</li>
+<li>sequence length(no of words in a sentence for padding)</li>
+<li>model architecture</li>
+<li>embedding dim</li>
+</ul>
+
+<p>Train the model by changing all the above to improve its performance.</p>
+
           </div>
 
           
