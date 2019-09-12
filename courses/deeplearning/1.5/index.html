@@ -30,7 +30,7 @@
   <meta name="description" content="Open in GitHub
 Google Explore ML Academy Instructor: Shangeth Rajaa 
 Non-Linearity Note: We will look mostly at classification examples, but the same concepts apply to regression problems as well with a little change in using activation function(Sigmoid, Softmax which we learned in previous sections).
-So far the datasets we have used are linearly seperable, which means they can be seperated by line(2-d), plane(3-d) and linear multi dimensional classifiers.">
+So far the datasets we have used are linearly separable, which means they can be separated by line(2-d), plane(3-d) and linear multi dimensional classifiers.">
 
   
   <link rel="alternate" hreflang="en-us" href="/courses/deeplearning/1.5/">
@@ -141,7 +141,7 @@ So far the datasets we have used are linearly seperable, which means they can be
   <meta property="og:description" content="Open in GitHub
 Google Explore ML Academy Instructor: Shangeth Rajaa 
 Non-Linearity Note: We will look mostly at classification examples, but the same concepts apply to regression problems as well with a little change in using activation function(Sigmoid, Softmax which we learned in previous sections).
-So far the datasets we have used are linearly seperable, which means they can be seperated by line(2-d), plane(3-d) and linear multi dimensional classifiers."><meta property="og:image" content="/img/instructor.jpeg">
+So far the datasets we have used are linearly separable, which means they can be separated by line(2-d), plane(3-d) and linear multi dimensional classifiers."><meta property="og:image" content="/img/instructor.jpeg">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-09-01T00:00:00&#43;01:00">
@@ -546,7 +546,7 @@ So far the datasets we have used are linearly seperable, which means they can be
 <li><a href="#non-linearity">Non-Linearity</a>
 <ul>
 <li><a href="#visualize-linear-dataset-and-linear-model">Visualize Linear Dataset and Linear Model</a></li>
-<li><a href="#train-a-logistic-regression-model-with-tensorflow-for-linearly-seperable-dataset">Train a Logistic Regression Model with TensorFlow for Linearly Seperable Dataset</a></li>
+<li><a href="#train-a-logistic-regression-model-with-tensorflow-for-linearly-separable-dataset">Train a Logistic Regression Model with TensorFlow for Linearly Separable Dataset</a></li>
 <li><a href="#visualize-non-linear-dataset-and-linear-model">Visualize Non-Linear Dataset and Linear Model</a></li>
 <li><a href="#train-a-logistic-regression-model-with-tensorflow-for-non-linear-dataset">Train a Logistic Regression Model with TensorFlow for Non-Linear Dataset</a></li>
 <li><a href="#another-example-more-difficult">Another Example (More difficult)</a></li>
@@ -602,9 +602,9 @@ So far the datasets we have used are linearly seperable, which means they can be
 
 <p>Note: We will look mostly at classification examples, but the same concepts apply to regression problems as well with a little change in using activation function(Sigmoid, Softmax which we learned in previous sections).</p>
 
-<p>So far the datasets we have used are linearly seperable, which means they can be seperated by line(2-d), plane(3-d) and linear multi dimensional classifiers.</p>
+<p>So far the datasets we have used are linearly separable, which means they can be separated by line(2-d), plane(3-d) and linear multi dimensional classifiers.</p>
 
-<p>But in real world, not all datasets are 2-d(visualizable) and linearly seperable.</p>
+<p>But in the real world, not all datasets are 2-d(visualizable) and linearly separable.</p>
 
 <p><img src="https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/more_images/linear_vs_nonlinear_problems.png" alt="" /></p>
 
@@ -619,18 +619,18 @@ They are note good at classifying a non-linear data.</p>
 
 <ul>
 <li>Make a Linear Dataset</li>
-<li>Train a Logisitc Regression</li>
+<li>Train a Logistic Regression</li>
 <li>Predict the probabilities using the model for whole plot grid, and colour it based on if p&gt;0.5 or not.</li>
 </ul>
 
-<p>It&rsquo;s fine if you don&rsquo;t understand how we are going to visualize it, its just a matplotlib plot.</p>
+<p>It&rsquo;s fine if you don&rsquo;t understand how we are going to visualize it, it&rsquo;s just a matplotlib plot.</p>
 
 <pre><code class="language-python">from sklearn.datasets import make_blobs
 import matplotlib.pyplot as plt
 
 X, y = make_blobs(n_samples=1000, n_features=2, centers=2, random_state=3)
 
-# remember the code we wrote to get the index of 0, 1 classes and scatter it seperately
+# remember the code we wrote to get the index of 0, 1 classes and scatter it separately
 # that was to understand how to plot each class
 # that plotting can also be done easily in a single line :D :p
 
@@ -642,7 +642,7 @@ plt.show()
 
 <p><img src="../1_5/output_4_0.png" alt="png" /></p>
 
-<h2 id="train-a-logistic-regression-model-with-tensorflow-for-linearly-seperable-dataset">Train a Logistic Regression Model with TensorFlow for Linearly Seperable Dataset</h2>
+<h2 id="train-a-logistic-regression-model-with-tensorflow-for-linearly-separable-dataset">Train a Logistic Regression Model with TensorFlow for Linearly Separable Dataset</h2>
 
 <pre><code class="language-python">import tensorflow as tf
 from tensorflow import keras
@@ -697,13 +697,13 @@ plt.show()
 
 <p><img src="../1_5/output_7_0.png" alt="png" /></p>
 
-<p>This plot shows the probability of each point in the grid belongs to class &lsquo;1&rsquo;. We can see the white line is able to seperate almost all the points and accuracy is also good.</p>
+<p>This plot shows the probability of each point in the grid belongs to class &lsquo;1&rsquo;. We can see the white line is able to separate almost all the points and accuracy is also good.</p>
 
 <h2 id="visualize-non-linear-dataset-and-linear-model">Visualize Non-Linear Dataset and Linear Model</h2>
 
 <ul>
 <li>Make a Non-Linear Dataset with <code>sklearn.datasets.make_gaussian_quantiles</code>.</li>
-<li>Train a Logisitc Regression</li>
+<li>Train a Logistic Regression</li>
 <li>Predict the probabilities using the model for whole plot grid, and visualize the model classifier</li>
 </ul>
 
@@ -784,7 +784,7 @@ plt.show()
 
 <p><img src="../1_5/output_13_0.png" alt="png" /></p>
 
-<p>You can see the logistic regression model, cannot seperate a non-linear data. The model(white area) seperates the grid into 2 regions lienarly which is not a good classifier for this dataset.</p>
+<p>You can see the logistic regression model, cannot separate a non-linear data. The model(white area) separates the grid into 2 regions linearly which is not a good classifier for this dataset.</p>
 
 <p>Let&rsquo;s make another dataset</p>
 
@@ -847,7 +847,7 @@ Epoch 20/20
 
 <p><img src="../1_5/output_16_2.png" alt="png" /></p>
 
-<p>Logistic Regression Classifier for this dataset is worse. It uses a straight line to seperate concentric circles. We cannot depend much on Linear classifiers on real world dataset(non-linear).</p>
+<p>Logistic Regression Classifier for this dataset is worse. It uses a straight line to separate concentric circles. We cannot depend much on Linear classifiers on real world dataset(non-linear).</p>
 
 <h1 id="non-linear-dataset-with-linear-classifier">Non-linear Dataset with Linear Classifier</h1>
 
@@ -923,11 +923,11 @@ Epoch 200/200
 
 <p>The model with 2nd degree data performed well, it got an accuracy of 0.91 in 200 epochs and seems to increase if you train longer.</p>
 
-<p>The problem is, as we were able visualize this dataset, we concluded to include 2nd degree terms, but real world datasets are multi-dimensional, you cannot visualize those.</p>
+<p>The problem is, as we were able to visualize this dataset, we concluded to include 2nd degree terms, but real world datasets are multi-dimensional, you cannot visualize those.</p>
 
 <p>Multi-Layer Perceptron or usually called as Artificial neural Networks or simply Neural Networks can help us with this problem.</p>
 
-<p>Note: Linear Regression, Logistic Regression are also Neurons(not Network). Softmax Regression is a network of several linear classifier so it is also a network. But we usually denote something as neural netowrk when it has a hidden layer, which we will discuss later.</p>
+<p>Note: Linear Regression, Logistic Regression are also Neurons(not Network). Softmax Regression is a network of several linear classifiers so it is also a network. But we usually denote something as neural network when it has a hidden layer, which we will discuss later.</p>
 
 <h1 id="combination-of-linear-classifiers">Combination of Linear Classifiers</h1>
 
@@ -956,7 +956,7 @@ plt.show()
 
 <p><img src="../1_5/output_25_0.png" alt="png" /></p>
 
-<p>This line can be one of the classifier, but does not give a better accuracy, as yellow side also have few blue data points.</p>
+<p>This line can be one of the classifiers, but does not give a better accuracy, as yellow side also have few blue data points.</p>
 
 <h3 id="classifier-2">classifier 2</h3>
 
@@ -987,7 +987,7 @@ plt.show()
 - classifier 1 - clf1
 - classifier 2 - clf2</p>
 
-<p>both are fine, but they also misclassifies some data points.</p>
+<p>both are fine, but they also misclassified some data points.</p>
 
 <p>So both the classifiers individually cannot classify the data very well because the data is non-linear and the classifiers are linear.</p>
 
@@ -1018,7 +1018,7 @@ plt.show()
 
 <p><img src="../1_5/output_30_0.png" alt="png" /></p>
 
-<p>This will be one of best classifier, by moving the 2 lines little more, we can get a accuracy of nearly 1.0 for this dataset. Also we can make this classifier more better by combining more number of linear classifiers.</p>
+<p>This will be one of the best classifiers, by moving the 2 lines a little more, we can get an accuracy of nearly 1.0 for this dataset. Also we can make this classifier better by combining more number of linear classifiers.</p>
 
 <p>So <strong>combination of linear classifiers can be a good non-linear classifier</strong>.</p>
 
@@ -1026,15 +1026,15 @@ plt.show()
 
 <h1 id="how-do-we-combine-the-linear-classifiers">How do we combine the Linear Classifiers?</h1>
 
-<p>We saw thet combining multiple linear classifiers can give a non-linear classifier. But how do we do that?</p>
+<p>We saw that combining multiple linear classifiers can give a non-linear classifier. But how do we do that?</p>
 
-<p>Lets assume we have 2 classifiers: $C_1, C_2$</p>
+<p>Let&rsquo;s assume we have 2 classifiers: $C_1, C_2$</p>
 
 <p>$C_1 : \hat{y}_1 = \sigma(X.W_1+b_1)$</p>
 
 <p>$C_2 : \hat{y}_2 = \sigma(X.W_2+b_2)$</p>
 
-<p>So both $C_1, C_2$ gives the probability that a points belongs to class &lsquo;1&rsquo;. We need to combine $C_1, C_2$, so we can take the outputs of $C_1, C_2$ ie: $\hat{y}_1$ and $\hat{y}_2$ and send it to a new logistic regression model $C_3$.</p>
+<p>So both $C_1, C_2$ gives the probability that a point belongs to class &lsquo;1&rsquo;. We need to combine $C_1, C_2$, so we can take the outputs of $C_1, C_2$ ie: $\hat{y}_1$ and $\hat{y}_2$ and send it to a new logistic regression model $C_3$.</p>
 
 <p>But we no more need probabilities from $C_1, C_2$, so we may/maynot use sigmoid function. But we need to use some non-linearity as combination of linear function directly will be a linear function, which is of no use to us. So we can also use some other famous activations like tanh, ReLU, etc.
 <br></p>
@@ -1049,7 +1049,7 @@ plt.show()
 
 <p>$C_3 : \hat{y} = \sigma(X_{new}.W_3 + b_3)$</p>
 
-<p>This combination of Neurons is called Multi Layer Perceptron or ANN or Neural netowrks in general.</p>
+<p>This combination of Neurons is called Multi Layer Perceptron or ANN or Neural networks in general.</p>
 
 <p><br></p>
 
@@ -1120,7 +1120,7 @@ Epoch 500/500
 
 <p><img src="../1_5/output_34_1.png" alt="png" /></p>
 
-<p><strong>Yay! We just trained our first Neural Network</strong>(atleast for this course).</p>
+<p><strong>Yay! We just trained our first Neural Network</strong>(at least for this course).</p>
 
 <p>You can see the neural network model is as expected, it combined 2 linear models to give a better non-linear model.</p>
 

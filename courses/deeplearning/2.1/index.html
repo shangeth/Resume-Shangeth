@@ -598,11 +598,11 @@ We trained our first neural network in the previous notebook which had 3 layers
 
 <h2 id="multiple-nodes">Multiple Nodes</h2>
 
-<p>The network had 2 linear layers($C_1$,0 $C_2$) in the hidden layer each of which gave us a linear classifier, then we used another linear layer($C_3$) in the output layer to combine $C_1$ and $C_2$ to give us a non-linear classifier($C$). Thaat was amazing, now we can get non-linear classifiers.</p>
+<p>The network had 2 linear layers($C_1$,0 $C_2$) in the hidden layer each of which gave us a linear classifier, then we used another linear layer($C_3$) in the output layer to combine $C_1$ and $C_2$ to give us a non-linear classifier($C$). That was amazing, now we can get non-linear classifiers.</p>
 
 <p>Won&rsquo;t it be even amazing it we can combine more than 2 linear classifiers?. Ofc yes, that will give a more accurate classifier. But how to combine 3 linear classifiers?</p>
 
-<p>Just increase the number of nodes in hidden layer.
+<p>Just increase the number of nodes in the hidden layer.
 <img src="https://drive.google.com/uc?export=view&amp;id=1mzc27z8h50Ctg3IlV4TOsD6rloEa_x_g" alt="Neural Network 1 hidden 2 node" /></p>
 
 <p>This network will consider 3 linear layers and combine them to give a non-linear classifier/regressor.</p>
@@ -610,7 +610,7 @@ We trained our first neural network in the previous notebook which had 3 layers
 <h2 id="multiple-layers-deeper-neural-network">Multiple layers (Deeper Neural Network)</h2>
 
 <p>Combination of multiple linear classifiers gives us a non-linear classifier, <strong>What if we combine multiple non-linear classifiers?</strong>
-Won&rsquo;t that give us a more complex non-linear classifier which can fit/classify our data more accuractely?</p>
+Won&rsquo;t that give us a more complex non-linear classifier which can fit/classify our data more accurately?</p>
 
 <p>How to do that?
 We will take multiple copies of linear classifiers and combine them differently using another hidden layer instead of output layer and combine these non-linear classifiers using output layers.</p>
@@ -618,19 +618,19 @@ We will take multiple copies of linear classifiers and combine them differently 
 <ul>
 <li>Input(Input Layer)</li>
 <li>n linear classifiers(Hidden Layer 1)</li>
-<li>m non linear classifier = m combination of (n linear classifiers)</li>
+<li>m non linear classifier = m combinations of (n linear classifiers)</li>
 <li>output MORE COMPLEX classifier = combination of (m non-linear classifier)</li>
 </ul>
 
 <p><img src="https://drive.google.com/uc?export=view&amp;id=1Ie0dYwjx6a992MnWWI8ttAuednCN_XHW" alt="Neural Network 2 hidden 3,4 node" /></p>
 
-<p>This network, will take 3 linear classifiers and make 4 different combination of linear classifiers to get 4 non-linear classifier and combine them to get a more complex Non-Linear Classifier.</p>
+<p>This network, will take 3 linear classifiers and make 4 different combination of linear classifiers to get 4 non-linear classifiers and combine them to get a more complex Non-Linear Classifier.</p>
 
-<p>By stacking more Hidden Layers and nodes, we can get a more and more complex non-linear classifier/regressor. We visualized only for 2-D Data, this also applies for multi dimensional data, but unfortunately we cannot visualize multi dimensioanl data other than <sup>2</sup>&frasl;<sub>3</sub>. In 3-d data the linear classifiers will be planes and the non-linear classifier will be some surface which are combinations of planes.</p>
+<p>By stacking more Hidden Layers and nodes, we can get a more and more complex non-linear classifier/regressor. We visualized only for 2-D Data, this also applies for multi dimensional data, but unfortunately we cannot visualize multidimensioanl data other than <sup>2</sup>&frasl;<sub>3</sub>. In 3-d data the linear classifiers will be planes and the non-linear classifier will be some surface which are combinations of planes.</p>
 
 <p><strong>This is Deep Neural network</strong>.</p>
 
-<p>Note: This is a mathematical analysis of how a neural network can make a more complex classifier/regressor, but we really do not know what features a neural network will consider to make the complex function. That is why its called Machine Learning, we can try to understand what features the model is using to classify, but can&rsquo;t be sure.</p>
+<p>Note: This is a mathematical analysis of how a neural network can make a more complex classifier/regressor, but we really do not know what features a neural network will consider to make the complex function. That is why it&rsquo;s called Machine Learning, we can try to understand what features the model is using to classify, but can&rsquo;t be sure.</p>
 
 <p>Now Let&rsquo;s compare neural network with a deeper neural network and try to visualize the classifier.</p>
 
@@ -671,7 +671,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized to be same, for reproducing same results.
+# random number initialized to be the same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
@@ -729,7 +729,7 @@ Epoch 20/20
 <pre><code>Test Accuracy =  0.5183333333333333
 </code></pre>
 
-<p>You can train for more epochs, but the model won&rsquo;t really impove the metrics.</p>
+<p>You can train for more epochs, but the model won&rsquo;t really improve the metrics.</p>
 
 <h2 id="neural-network-1-hidden-layer-3-hidden-units">Neural network (1 hidden layer, 3 hidden units)</h2>
 
@@ -739,7 +739,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized to be same, for reproducing same results.
+# random number initialized to be the same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
@@ -799,7 +799,7 @@ Epoch 500/500
 <pre><code>Test Accuracy =  0.7683333333333333
 </code></pre>
 
-<p>This model learnt some complex classifer, but you can see by adding a hidden layer with 3 nodes, the accuracy increased a lot.</p>
+<p>This model learnt some complex classifers, but you can see by adding a hidden layer with 3 nodes, the accuracy increased a lot.</p>
 
 <p>Now Let&rsquo;s increase the no of nodes in the hidden layer</p>
 
@@ -811,7 +811,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized to be same, for reproducing same results.
+# random number initialized to be the same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
@@ -879,7 +879,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized to be same, for reproducing same results.
+# random number initialized to be the same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
@@ -974,7 +974,7 @@ Epoch 500/500
 </tbody>
 </table>
 
-<p>you have seen how deeper model can help. As the model goes more deeper and complex, the performance of the model increases(although this may not be the case everytime, especially when we have less data and there is something called vanishing gradients, which we will discuss later). But in general, deeper models improves performance.</p>
+<p>you have seen how deeper model can help. As the model goes more deeper and complex, the performance of the model increases(although this may not be the case every time, especially when we have less data and there is something called vanishing gradients, which we will discuss later). But in general, deeper models improves performance.</p>
 
 <p><strong>Train the models in the notebooks with &lsquo;relu&rsquo; activation function instead of &lsquo;tanh&rsquo; and compare the performance.</strong></p>
 

@@ -681,7 +681,7 @@ plt.show()
 
 <h1 id="what-about-multi-dimensional-data">What about Multi Dimensional Data?</h1>
 
-<p>In real world, the dataset is going to be multi dimensional, ie: the price of a House will not just depend on the area of the house, it may also depend on multiple factors like no of rooms, locality, distance from airport, etc.</p>
+<p>In the real world, the dataset is going to be multi dimensional, ie: the price of a House will not just depend on the area of the house, it may also depend on multiple factors like no of rooms, locality, distance from airport, etc.</p>
 
 <table>
 <thead>
@@ -689,7 +689,7 @@ plt.show()
 <th>House Price($) y</th>
 <th>Area(1000 sqft) x1</th>
 <th>No of Rooms x2</th>
-<th>Distance form airport x3</th>
+<th>Distance from airport x3</th>
 </tr>
 </thead>
 
@@ -764,7 +764,7 @@ Because W and b are not the exact values, they are calculated approximate values
 <p>$MSE(y, \hat{y}) = \mathcal{L}(y , \hat{y}) = \dfrac{1}{n} \sum_{i=1}^{i=n}{(y_i - \hat{y}_i)^2}$</p>
 
 <p>Why MSE? Why not just subtraction?
-- model with 5 is better than -5 in sbtraction which actually is not both models are equally bad, but the predictions are in opposite direction.
+- model with 5 is better than -5 in subtraction which actually is not both models are equally bad, but the predictions are in opposite direction.
 - MSE takes care of -5 and 5 ; $(-5)^2$ = $5^2$ = 25.</p>
 
 <pre><code class="language-python">import numpy as np
@@ -998,11 +998,11 @@ plt.show()
 
 <li><p><code>tf_history = model.fit(x, y, epochs=1000, verbose=False)</code></p>
 
-<pre><code>model.fit actually trains the model for given number of epochs. Note: i've used Verbose=False(as the output will be long), set it to true to check the loss and metrics for each epoch.
+<pre><code>model.fit actually trains the model for given number of epochs. Note: We've used Verbose=False(as the output will be long), set it to true to check the loss and metrics for each epoch.
 </code></pre></li>
 </ul>
 
-<p>Just 3-4 line of Tensorflow code can train a ml model, this is the advantage of using packages like Tensorflow/PyTorch. These packages are best optimized for speed and performance.</p>
+<p>Just 3-4 line of Tensorflow code can train a machine learning model, this is the advantage of using packages like Tensorflow/PyTorch. These packages are best optimized for speed and performance.</p>
 
 <pre><code class="language-python">model.summary()
 </code></pre>

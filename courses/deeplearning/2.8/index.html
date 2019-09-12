@@ -657,8 +657,8 @@ np.max(x_train), np.min(x_train)
 </code></pre>
 
 <p>The range of values in the data is 0-255,
--  we can to scale it to [0,1], dividing it by 255 will do.
-- or we can standardize it by subtracting mean and dividing std.</p>
+-  we can scale it to [0,1], dividing it by 255 will do.
+- or we can standardize it by subtracting the mean and dividing std.</p>
 
 <pre><code class="language-python">mean = np.mean(x_train)
 std = np.std(x_train)
@@ -701,7 +701,7 @@ print(y_train[:5])
 
 <h1 id="colour-channels">Colour Channels</h1>
 
-<p>Lets check the shape of the arrays</p>
+<p>Let&rsquo;s check the shape of the arrays</p>
 
 <pre><code class="language-python">x_train.shape, y_train.shape, x_test.shape, y_test.shape
 </code></pre>
@@ -711,7 +711,7 @@ print(y_train[:5])
 
 <p>The shape of each image is (32 x 32 x 3), previously we saw MNIST dataset had a shape of (28 x 28), why is it so?</p>
 
-<p>MNIST is a gray-scale image, it has a single channel of gray scale. But CIFAR-10 is a colour image, every colour pixel has 3 channels RGB, all these 3 channels contribute to what colour you see.</p>
+<p>MNIST is a gray-scale image, it has a single channel of gray scale. But CIFAR-10 is a colour image, every colour pixel has 3 channels RGB, all these 3 channel contribute to what colour you see.</p>
 
 <p>Any colour image is made of 3 channels RGB.</p>
 
@@ -828,7 +828,7 @@ plt.show()
 
 <h1 id="image-augmentation">Image Augmentation</h1>
 
-<p>We have discussed that, more images/data improves the model performance and avoid overfitting. But its not always possible to get new data, so we can augment the old data to create new data.</p>
+<p>We have discussed that, more images/data improves the model performance and avoid overfitting. But it&rsquo;s not always possible to get new data, so we can augment the old data to create new data.</p>
 
 <p><img src="https://miro.medium.com/max/665/1*Jujct_Pt-zvdWtSFpHUp3Q.png" alt="" /></p>
 
@@ -939,7 +939,7 @@ for x_batch, y_batch in train_datagen.flow(x_train, y_train, batch_size=1):
 
 <p><img src="../2_8/output_33_1.png" alt="png" /></p>
 
-<p>You can see the some of the images are zoomed, some are rotated&hellip;etc. SO these images are now different that the original image and for the model these are new images.</p>
+<p>You can see some of the images are zoomed, some are rotated&hellip;etc. SO these images are now different that the original image and for the model these are new images.</p>
 
 <pre><code class="language-python">optimizer = tf.keras.optimizers.SGD(lr=0.001, momentum=0.9)
 model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
@@ -1002,7 +1002,7 @@ plt.show()
 
 <h1 id="saving-a-trained-model">Saving a Trained Model</h1>
 
-<p>Saving a trained model is very important, hours of training should not be wasted and we need the trained model to be deployed in some other device. Its very simple in tf.keras</p>
+<p>Saving a trained model is very important, hours of training should not be wasted and we need the trained model to be deployed in some other device. It&rsquo;s very simple in tf.keras</p>
 
 <pre><code class="language-python">model_path = 'cifar10_trained_model.h5'
 

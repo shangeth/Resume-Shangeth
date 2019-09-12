@@ -31,7 +31,7 @@
 Google Explore ML Academy Instructor: Shangeth Rajaa 
 Solutions Here: 
  Open in GitHub
-In the previous notebeook we used logistic regression for Binary Classification, now we will see how to train a classifier model for Multi-Class Classification.
+In the previous notebook we used logistic regression for Binary Classification, now we will see how to train a classifier model for Multi-Class Classification.
 What is Multi-Class Classification? If the target values have n discrete classification classes ie: y can take discrete value from 0 to n-1. If $y \in {0, 1, 2, 3, &hellip;, n-1}$, then the classification task is n-Multi-Class.">
 
   
@@ -144,7 +144,7 @@ What is Multi-Class Classification? If the target values have n discrete classif
 Google Explore ML Academy Instructor: Shangeth Rajaa 
 Solutions Here: 
  Open in GitHub
-In the previous notebeook we used logistic regression for Binary Classification, now we will see how to train a classifier model for Multi-Class Classification.
+In the previous notebook we used logistic regression for Binary Classification, now we will see how to train a classifier model for Multi-Class Classification.
 What is Multi-Class Classification? If the target values have n discrete classification classes ie: y can take discrete value from 0 to n-1. If $y \in {0, 1, 2, 3, &hellip;, n-1}$, then the classification task is n-Multi-Class."><meta property="og:image" content="/img/instructor.jpeg">
   <meta property="og:locale" content="en-us">
   
@@ -605,7 +605,7 @@ What is Multi-Class Classification? If the target values have n discrete classif
 
 <p><center><a href="https://github.com/shangeth/Google-ML-Academy/blob/master/1-Intro-to-Deep-Learning/1_4_2_MultiClass_Classification_Solution.ipynb" target="_parent"><svg class="octicon octicon-mark-github v-align-middle" height="30" viewBox="0 0 16 16" version="1.1" width="30" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> Open in GitHub</a></center></p>
 
-<p>In the previous notebeook we used logistic regression for Binary Classification, now we will see how to train a classifier model for Multi-Class Classification.</p>
+<p>In the previous notebook we used logistic regression for Binary Classification, now we will see how to train a classifier model for Multi-Class Classification.</p>
 
 <h2 id="what-is-multi-class-classification">What is Multi-Class Classification?</h2>
 
@@ -619,7 +619,7 @@ What is Multi-Class Classification? If the target values have n discrete classif
 
 <p>Create a 3-Multi-Class dataset with sklearn.datasets and visualize it.</p>
 
-<p>It&rsquo;s very easy, use the same code form previous notebook and make changes for 3 classes.</p>
+<p>It&rsquo;s very easy, use the same code from previous notebook and make changes for 3 classes.</p>
 
 <pre><code class="language-python">from sklearn.datasets import make_blobs
 
@@ -631,7 +631,7 @@ X.shape, y.shape, set(y)
 <pre><code>((300, 2), (300,), {0, 1, 2})
 </code></pre>
 
-<p>If you made 3 centers, you can see <code>set(y)</code> will return <code>{0, 1, 2}</code>. where 0 represent the first class, 1 represent second and 2 represents the third class.</p>
+<p>If you made 3 centers, you can see <code>set(y)</code> will return <code>{0, 1, 2}</code>. where 0 represents the first class, 1 represents second and 2 represents the third class.</p>
 
 <pre><code class="language-python">import numpy as np
 
@@ -687,7 +687,9 @@ One possible function can be class_logit/sum of all class logits. Lets try it</p
 
 <p>Example:</p>
 
-<p>$logits = [-100, 40, -10]$, right now don&rsquo;t bother how do we get 3 logits, we will discuss it below.</p>
+<p>$logits = [-100, 40, -10]$</p>
+
+<p>Don&rsquo;t bother how do we get 3 logits, we will discuss it below.</p>
 
 <p>$probabilities = [\dfrac{-100}{(-100+40-10)}, \dfrac{40}{(-100+40-10)}, \dfrac{-10}{(-100+40-10)}]$</p>
 
@@ -721,7 +723,7 @@ softmax(x)
 <pre><code>array([[1.52299795e-08, 9.99999985e-01, 9.35762283e-14]])
 </code></pre>
 
-<p>Now we know, replacing sigmoid with with softmax will help in the case of multi class classification. This softmax model is also called <strong>Softmax Regression</strong>.</p>
+<p>Now we know, replacing sigmoid with softmax will help in the case of multi class classification. This softmax model is also called <strong>Softmax Regression</strong>.</p>
 
 <h2 id="loss-function">Loss Function</h2>
 
@@ -866,7 +868,7 @@ print(y.shape)
 
 <h2 id="train-validation-test-split">Train-Validation-Test Split</h2>
 
-<p>So far we had a dataset and we used it for training and checked the accuracy/loss to see the performance. But its not the right way to check the preformance of a model. Usually any dataset is split into 3 parts namely Train-Validation-Test.</p>
+<p>So far we had a dataset and we used it for training and checked the accuracy/loss to see the performance. But it&rsquo;s not the right way to check the performance of a model. Usually any dataset is split into 3 parts namely Train-Validation-Test.</p>
 
 <h3 id="train-set">train set</h3>
 
@@ -874,11 +876,11 @@ print(y.shape)
 
 <h3 id="validation-set">validation set</h3>
 
-<p>After every epoch(generally) of training, metrics of this dataset is checked to ensure, the model is also performing good on unseen data as much as it performs on the training dataset. If the model performs well on training dataset but not good on validation set, it means the model has a problem called &lsquo;Overfitting&rsquo; whcih we will look in more detail later. Some hyper parameters are adjusted to make the model perform well in validation set as well during training. 10-20% of data is given to validation set.</p>
+<p>After every epoch(generally) of training, metrics of this dataset is checked to ensure the model is also performing well on unseen data as much as it performs on the training dataset. If the model performs well on training dataset but not good on validation set, it means the model has a problem called &lsquo;Overfitting&rsquo; which we will look in more detail later. Some hyper parameters are adjusted to make the model perform well in validation set as well during training. 10-20% of the data is given to validation set.</p>
 
 <h3 id="testing-set">testing set</h3>
 
-<p>After the training is over for n epochs, when the model performs good in both training and validation sets, a final check is done to see the performance of the model on new unseen dataset. 20-30% of data is given to Test set.</p>
+<p>After the training is over for n epochs, when the model performs well in both training and validation sets, a final check is done to see the performance of the model on new unseen dataset. 20-30% of the data is given to Test set.</p>
 
 <p>The percentage numbers depends on the total number of data we have access to, which you will understand as you work on more projects.</p>
 

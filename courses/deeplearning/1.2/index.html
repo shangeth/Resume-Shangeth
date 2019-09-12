@@ -32,7 +32,7 @@ Google Explore ML Academy - BPGC Instructor: Shangeth Rajaa
 Solutions Here:
 
  Open in GitHub
-Its a very simple assignment, you can finish it in less than 10 minutes. If you are stuck somewhere refer this for solutions.
+It&rsquo;s a very simple assignment, you can finish it in less than 10 minutes. If you are stuck somewhere refer this for solutions.
 Task-1 : Linear Regression on Non-Linear Data  Get X and y from dataset() function Train a Linear Regression model for this dataset. Visualize the model prediction  Dataset Call dataset() function to get X, y">
 
   
@@ -146,7 +146,7 @@ Google Explore ML Academy - BPGC Instructor: Shangeth Rajaa
 Solutions Here:
 
  Open in GitHub
-Its a very simple assignment, you can finish it in less than 10 minutes. If you are stuck somewhere refer this for solutions.
+It&rsquo;s a very simple assignment, you can finish it in less than 10 minutes. If you are stuck somewhere refer this for solutions.
 Task-1 : Linear Regression on Non-Linear Data  Get X and y from dataset() function Train a Linear Regression model for this dataset. Visualize the model prediction  Dataset Call dataset() function to get X, y"><meta property="og:image" content="/img/instructor.jpeg">
   <meta property="og:locale" content="en-us">
   
@@ -599,7 +599,7 @@ Task-1 : Linear Regression on Non-Linear Data  Get X and y from dataset() functi
 
 <p><center><a href="https://github.com/shangeth/Google-ML-Academy/blob/master/1-Intro-to-Deep-Learning/1_2_2_Assignment_Polynomial_Regression_Solution.ipynb" target="_parent"><svg class="octicon octicon-mark-github v-align-middle" height="30" viewBox="0 0 16 16" version="1.1" width="30" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> Open in GitHub</a></center></p>
 
-<p>Its a very simple assignment, you can finish it in less than 10 minutes. If you are stuck somewhere refer this for solutions.</p>
+<p>It&rsquo;s a very simple assignment, you can finish it in less than 10 minutes. If you are stuck somewhere refer this for solutions.</p>
 
 <h1 id="task-1-linear-regression-on-non-linear-data">Task-1 : Linear Regression on Non-Linear Data</h1>
 
@@ -632,7 +632,7 @@ X, y = dataset()
 
 <h2 id="scaling-dataset">Scaling Dataset</h2>
 
-<p>The maximum value of y in the dataset goes upto 15000 and the minimum values is less than -15000. The range of y is very large which makes the convergence/loss reduction slower. So will we scale the data, scaling the data will help the model converge faster. If all the features and target are in same range, there will be symmetry in the curve of Loss vs weights/bias, which makes the convergence faster.</p>
+<p>The maximum value of y in the dataset goes upto 15000 and the minimum values is less than -15000. The range of y is very large which makes the convergence/loss reduction slower. So will we scale the data, scaling the data will help the model converge faster. If all the features and target are in the same range, there will be symmetry in the curve of Loss vs weights/bias, which makes the convergence faster.</p>
 
 <p>We will do a very simple type of scaling, we will divide all the values of the data with the maximum values for X and y respectively.</p>
 
@@ -652,7 +652,7 @@ print(max(X), max(y), min(X), min(y))
 1.0 1.0 -1.0040160642569995 -0.9659642280642613
 </code></pre>
 
-<p>This is not a great scaling method, but good to start. We will see many more scaling/normalizing methods later.</p>
+<p>This is not a great scaling method, but good to start. We will see many more scaling/normalization methods later.</p>
 
 <p><strong>Try training the model with and without scaling and see the difference yourself.</strong></p>
 
@@ -722,7 +722,7 @@ Epoch 500/500
 
 <p>So when the dataset is not linear, linear regression cannot learn the dataset and make good predictions.</p>
 
-<p>So we need a polynomial model which consideres the polynomial terms as well. So we need terms like $x^2$, $x^3$, &hellip;, $x^n$ for the model to learn a polynomial of $n^{th}$ degree.</p>
+<p>So we need a polynomial model which considered the polynomial terms as well. So we need terms like $x^2$, $x^3$, &hellip;, $x^n$ for the model to learn a polynomial of $n^{th}$ degree.</p>
 
 <p>$\hat{y} = w_0 + w_1x + w_2x^2 + &hellip; + w_nx^n$</p>
 
@@ -784,7 +784,7 @@ print(X_4[0])
 <li>Visualize the prediction of the model</li>
 </ul>
 
-<p>The code remains the same except, the no of input features will be 3, 4, 5 respectively.</p>
+<p>The code remains the same except the no of input features will be 3, 4, 5 respectively.</p>
 
 <h2 id="tensorflow-model-with-2nd-degree">Tensorflow Model with 2nd Degree</h2>
 
@@ -839,7 +839,7 @@ Epoch 500/500
 
 <p>Why is the polynomial regression with 2-d features look like a straight line?</p>
 
-<p>Well because the model thinks that a straight line(look like, we can&rsquo;t be sure if its a straight like, it can a parabola as well) better fits the dataset than a parabola. If you train the model for less epochs you can notice the model tries to fit the data with a parabola(2-d) but it improves as it moves to a line.</p>
+<p>Well because the model thinks that a straight line(look like, we can&rsquo;t be sure if it&rsquo;s a straight like, it can a parabola as well) better fits the dataset than a parabola. If you train the model for less epochs you can notice the model tries to fit the data with a parabola(2-d) but it improves as it moves to a line.</p>
 
 <p>Train the same model for may be 50 epochs.</p>
 
@@ -892,7 +892,7 @@ Epoch 50/50
 
 <p><img src="../1_2/output_22_2.png" alt="png" /></p>
 
-<p>You can clearly see that the model tries to fit the data with a parabola which doen&rsquo;t seem to fit well, so it changes the parameters to fit a line.</p>
+<p>You can clearly see that the model tries to fit the data with a parabola which doesn&rsquo;t seem to fit well, so it changes the parameters to fit a line.</p>
 
 <h2 id="tensorflow-model-with-3rd-degree">Tensorflow Model with 3rd Degree</h2>
 
@@ -902,7 +902,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[4])])
+model = tf.keras.Sequential([keras.layers.Dense(unit's=1, input_shape=[4])])
 
 optimizer = tf.keras.optimizers.Adam(learning_rate=1e-3)
 
@@ -1053,9 +1053,9 @@ Epoch 50/50
 
 <p>If you run the 4th degree poly-regression for fewer epochs, you can notice, the model tries to fit a 4th(or higher than 3rd) degree polynomial but as the loss is high, the model changes it parameters to set the 4th degree terms to almost 0 and thus giving a 3rd degree polynomial as you train for more epochs.</p>
 
-<p>This is polynomial regression. Yes, its easy. But one issue, as this was a toy dataset we know its a 3rd degree data, so we tried 2,3,4. But when the data is multi dimensional we cannot visualize the dataset, so its difficult to decide the degree. This is why you will see Neural Networks are awesome. They are End-End, they do not need several feature extraction from our side, they can extract necessary features of their own.</p>
+<p>This is polynomial regression. Yes, it&rsquo;s easy. But one issue, as this was a toy dataset we know it&rsquo;s a 3rd degree data, so we tried 2,3,4. But when the data is multi dimensional we cannot visualize the dataset, so it&rsquo;s difficult to decide the degree. This is why you will see Neural Networks are awesome. They are End-End, they do not need several feature extraction from our side, they can extract necessary features of their own.</p>
 
-<p><strong>Make a Higher degree (4th/5th degree) data and try polynomial regression on it. Also try different functions like exponents, trignometric..etc.</strong></p>
+<p><strong>Make a Higher degree (4th/5th degree) data and try polynomial regression on it. Also try different functions like exponents, trigonometric..etc.</strong></p>
 
           </div>
 

@@ -608,7 +608,7 @@ $w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \
 
 <p>$\hat{y} = \sigma(z)$</p>
 
-<p>This uses one example $X = [x_1, x_2]$ at a time, but it is also possible to use all the data together as a matrix(Advantage of matrix multiplication and lienar algebra).</p>
+<p>This uses one example $X = [x_1, x_2]$ at a time, but it is also possible to use all the data together as a matrix(Advantage of matrix multiplication and linear algebra).</p>
 
 <p>$z = \begin{bmatrix}z_1^1&amp;z_2^1&amp;z_3^1\\ z_1^2&amp;z_2^2&amp;z_3^2\\ \vdots&amp;\vdots&amp;\vdots \\ z_1^n&amp;z_2^n&amp;z_3^n \ \end{bmatrix}  =
 \begin{bmatrix}x_1^1&amp;x_2^1\\ x_1^2&amp;x_2^2\\ \vdots&amp;\vdots \\ x_1^n&amp;x_2^n\\ \end{bmatrix} .
@@ -616,7 +616,7 @@ $w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \
 
 <p>$ \hat{y} = \begin{bmatrix}\sigma(z_1^1)&amp;\sigma(z_2^1)&amp;\sigma(z_3^1)\\ \sigma(z_1^2)&amp;\sigma(z_2^2)&amp;\sigma(z_3^2)\\ \vdots&amp;\vdots&amp;\vdots \\ \sigma(z_1^n)&amp;\sigma(z_2^n)&amp;\sigma(z_3^n) \ \end{bmatrix} $</p>
 
-<p>This is called <strong>batch gradient descent</strong>. There is a problem with this. When your data is in millions, holding all the millions of data into a matrix may cause memory issue. Its note possible for the RAM to hold millions of data into the memory altogether.</p>
+<p>This is called <strong>batch gradient descent</strong>. There is a problem with this. When your data is in millions, holding all the millions of data into a matrix may cause memory issues. It&rsquo;s not possible for the RAM to hold millions of data into the memory altogether.</p>
 
 <p>So we do something called <strong>mini-batch gradient descent</strong>. We take few number of examples say m(batch size) which the memory can hold at a time and use that for training and during the next step we use the next m examples and continue till the complete dataset is used for training.</p>
 
@@ -673,7 +673,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized will to same, for reproducing same results.
+# random number initialized to same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
@@ -764,7 +764,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized will to same, for reproducing same results.
+# random number initialized to same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 

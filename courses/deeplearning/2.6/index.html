@@ -557,7 +557,7 @@ Download MNIST import tensorflow as tf (x_train, y_train), (x_test, y_test) = tf
 </ul></li>
 <li><a href="#weight-regularization">Weight Regularization</a>
 <ul>
-<li><a href="#regualrization-in-tensorflow">Regualrization in Tensorflow</a></li>
+<li><a href="#regularization-in-tensorflow">Regularization in Tensorflow</a></li>
 </ul></li>
 <li><a href="#dropouts">Dropouts</a>
 <ul>
@@ -796,7 +796,7 @@ plt.show()
 <p><img src="../2_6/output_21_0.png" alt="png" /></p>
 
 <p>You can observe from this learning curve, as we train more, the training performance improves, but the validation performance goes in reverse direction. This is because the model tries to overfit the training data to improve training data and does not generalize. We have few methods to avoid overfitting.
-Adding More data always work, but its not always possible get more data, so few regularization techniques may help.</p>
+Adding More data always work, but it&rsquo;s not always possible to get more data, so few regularization techniques may help.</p>
 
 <h1 id="weight-regularization">Weight Regularization</h1>
 
@@ -821,7 +821,7 @@ Adding More data always work, but its not always possible get more data, so few 
 
 <p>You don&rsquo;t need to implement it, you can regularize the weights in keras easily with kernel_regularizer.</p>
 
-<h2 id="regualrization-in-tensorflow">Regualrization in Tensorflow</h2>
+<h2 id="regularization-in-tensorflow">Regularization in Tensorflow</h2>
 
 <pre><code class="language-python">import tensorflow as tf
 from tensorflow import keras
@@ -907,13 +907,13 @@ plt.show()
 
 <p>L2 Regularization slightly improved the performance on validation set.</p>
 
-<p>Try changing the l2 regularization $\lambda$ and observer the performance.</p>
+<p>Try changing the l2 regularization $\lambda$ and observe the performance.</p>
 
 <h1 id="dropouts">Dropouts</h1>
 
 <p>Dropout drops certain nodes in our network during each pass with a defined probability p. So if p=0.5, then each node have a probability of 0.5 to get dropped.</p>
 
-<p>This will make the network simpler duirng each pass depending on p and now the network cannot rely on any node as it may be dropped, so the network will not give high weights to any node as it may be dropped any time and every node will be utilized equally as all of them have equal probability of being dropped.</p>
+<p>This will make the network simpler during each pass depending on p and now the network cannot rely on any node as it may be dropped, so the network will not give high weights to any node as it may be dropped any time and every node will be utilized equally as all of them have equal probability of being dropped.</p>
 
 <p><img src="https://miro.medium.com/proxy/1*iWQzxhVlvadk6VAJjsgXgg.png" alt="" /></p>
 

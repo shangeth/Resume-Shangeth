@@ -618,7 +618,7 @@ X, y = dataset(show=True)
 
 <h2 id="simple-linear-model">Simple Linear Model</h2>
 
-<p>We are going to split the dataset into 5 groups(random shuffle) and use each of that 5 groups to train 5 different linear models. We will use sklearn&rsquo;s StratifiedKFold to split the dataset into 5. Check the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedKFold.html" target="_blank">docs</a>.</p>
+<p>We are going to split the dataset into 5 groups(random shuffle) and use each of the 5 groups to train 5 different linear models. We will use sklearn&rsquo;s StratifiedKFold to split the dataset into 5. Check the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedKFold.html" target="_blank">docs</a>.</p>
 
 <pre><code class="language-python">import tensorflow as tf
 from tensorflow import keras
@@ -709,7 +709,7 @@ plt.show()
 
 <p>Variance as you should know defines how much a data is varying.
 $Variance(\hat{y})  = E[(\hat{y} - E[\hat{y}])^2]$
-Although the predictions are not good, but the variance of 2nd model will be higher than 1st model, as the 2nd comple model will try to fit the data more.</p>
+Although the predictions are not good, but the variance of 2nd model will be higher than 1st model, as the 2nd complex model will try to fit the data more.</p>
 
 <table>
 <thead>
@@ -762,7 +762,7 @@ Although the predictions are not good, but the variance of 2nd model will be hig
 <li>when the variance is high(complex model), again MSE is high, so <strong>we don&rsquo;t want high variance</strong></li>
 </ul>
 
-<p>Conclusion is we need to choose a model which doesn&rsquo;t have high bias or high variance, somthing optimal bias-variance in between will do good.</p>
+<p>Conclusion is that we need to choose a model which doesn&rsquo;t have high bias or high variance, something optimal bias-variance in between will do good.</p>
 
 <p><img src="http://scott.fortmann-roe.com/docs/docs/MeasuringError/ModelError.png" alt="" /></p>
 
@@ -771,7 +771,7 @@ Although the predictions are not good, but the variance of 2nd model will be hig
 <h1 id="underfitting">Underfitting</h1>
 
 <p>When a model have high bias, then the model is <strong>&ldquo;Underfitting&rdquo;</strong>.
-Let&rsquo;s see an example first</p>
+Let&rsquo;s look at an example first</p>
 
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
@@ -887,7 +887,7 @@ Epoch 1000/1000
 
 <p><img src="../2_5/output_16_1.png" alt="png" /></p>
 
-<p>Here you can see, although the model is comple and can learn more complex featreus of the data, the Validation loss is way higher than training loss. This is called Overfitting. This means the model fits the training data so much that it does not generalize and perform very poor in new unseen data. Adding more data can help to prevent overfitting.</p>
+<p>Here you can see, although the model is complex and can learn more complex features of the data, the Validation loss is way higher than training loss. This is called Overfitting. This means the model fits the training data so much that it does not generalize and perform very poorly in new unseen data. Adding more data can help to prevent overfitting.</p>
 
           </div>
 

@@ -651,8 +651,8 @@ sentence_2_int(sentence)
 
 <p>Every sentence will be off different length, to pass the sentences through the ANN model, we need to have a fixed length data.
 So we
-- pad small sentence
-- cut very long sentence</p>
+- pad small sentences
+- cut very long sentences to a fixed length</p>
 
 <pre><code class="language-python">pad_value = 0
 sentence_len = 100
@@ -677,7 +677,7 @@ train_data.shape, train_labels.shape, test_data.shape, test_labels.shape
 
 <p>We will use a new layer into our model called the Embedding layer.</p>
 
-<p>The words of each sentence are now represented with numbers, we cannot directly feed those number into the model, we need to convert the numbers into vectors for the model to understand what word it is?</p>
+<p>The words of each sentence are now represented with numbers, we cannot directly feed those numbers into the model, we need to convert the numbers into vectors for the model to understand what word it is?</p>
 
 <p>but how do we decide the vectors? we leave that to the model.</p>
 
@@ -878,7 +878,7 @@ sentence_2_prediction(sentence)
 <pre><code>Negative Review :(
 </code></pre>
 
-<p>If you try many different sentences, you may notice the model actually doen&rsquo;t perform well. There may be many reasons for it.</p>
+<p>If you try many different sentences, you may notice the model actually doesn&rsquo;t perform well. There may be many reasons for it.</p>
 
 <ul>
 <li>vocabulary size</li>

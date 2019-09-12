@@ -32,7 +32,7 @@ Google Explore ML Academy Instructor: Shangeth Rajaa
 Learning Rate In Gradient Descent we update the parameters of the model with
 $w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \frac{\partial \mathcal{L}}{\partial b}$.
 The learning rate $\alpha$ actually affects the learning process a lot.
- small $\alpha$ is slow, but more accuracte, as it does not miss the minimum, but it also get stuck in the local minimum.">
+ small $\alpha$ is slow, but more accurate, as it does not miss the minimum, but it also get stuck in a local minimum.">
 
   
   <link rel="alternate" hreflang="en-us" href="/courses/deeplearning/2.4/">
@@ -145,7 +145,7 @@ Google Explore ML Academy Instructor: Shangeth Rajaa
 Learning Rate In Gradient Descent we update the parameters of the model with
 $w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \frac{\partial \mathcal{L}}{\partial b}$.
 The learning rate $\alpha$ actually affects the learning process a lot.
- small $\alpha$ is slow, but more accuracte, as it does not miss the minimum, but it also get stuck in the local minimum."><meta property="og:image" content="/img/instructor.jpeg">
+ small $\alpha$ is slow, but more accurate, as it does not miss the minimum, but it also get stuck in a local minimum."><meta property="og:image" content="/img/instructor.jpeg">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-09-03T00:00:00&#43;01:00">
@@ -595,11 +595,11 @@ The learning rate $\alpha$ actually affects the learning process a lot.
 <p>The learning rate $\alpha$ actually affects the learning process a lot.</p>
 
 <ul>
-<li>small $\alpha$ is slow, but more accuracte, as it does not miss the minimum, but it also get stuck in the local minimum.</li>
+<li>small $\alpha$ is slow, but more accurate, as it does not miss the minimum, but it also get stuck in a local minimum.</li>
 <li>larger $\alpha$ make huge steps, sometimes it may converge faster but it may miss the minima.</li>
 </ul>
 
-<p>Learning rate is an important hyper parameter in training a Model. It is important to understand to tune the learning rate.</p>
+<p>Learning rate is an important hyper parameter in training a Model. It is important to understand how to tune the learning rate.</p>
 
 <pre><code class="language-python">from sklearn.datasets import make_gaussian_quantiles
 from sklearn.model_selection import train_test_split
@@ -636,7 +636,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized will to same, for reproducing same results.
+# random number initialized to same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
@@ -712,7 +712,7 @@ Epoch 50/50
 <pre><code>Test Accuracy =  0.49666666666666665
 </code></pre>
 
-<p>This is one of the worst model you can train, as the learning rate is very high the optimizer skips all the minima and the loss does not really reduces much.</p>
+<p>This is one of the worst models you can train, as the learning rate is very high the optimizer skips all the minima and the loss does not really reduces much.</p>
 
 <h2 id="small-learning-rate">Small Learning rate</h2>
 
@@ -724,7 +724,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized will to same, for reproducing same results.
+# random number initialized to same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
@@ -803,7 +803,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized will to same, for reproducing same results.
+# random number initialized to same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
@@ -914,7 +914,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized will to same, for reproducing same results.
+# random number initialized to same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 

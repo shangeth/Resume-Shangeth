@@ -131,7 +131,7 @@ plt.show()
 
 &lt;h1 id=&#34;what-about-multi-dimensional-data&#34;&gt;What about Multi Dimensional Data?&lt;/h1&gt;
 
-&lt;p&gt;In real world, the dataset is going to be multi dimensional, ie: the price of a House will not just depend on the area of the house, it may also depend on multiple factors like no of rooms, locality, distance from airport, etc.&lt;/p&gt;
+&lt;p&gt;In the real world, the dataset is going to be multi dimensional, ie: the price of a House will not just depend on the area of the house, it may also depend on multiple factors like no of rooms, locality, distance from airport, etc.&lt;/p&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -139,7 +139,7 @@ plt.show()
 &lt;th&gt;House Price($) y&lt;/th&gt;
 &lt;th&gt;Area(1000 sqft) x1&lt;/th&gt;
 &lt;th&gt;No of Rooms x2&lt;/th&gt;
-&lt;th&gt;Distance form airport x3&lt;/th&gt;
+&lt;th&gt;Distance from airport x3&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 
@@ -214,7 +214,7 @@ Because W and b are not the exact values, they are calculated approximate values
 &lt;p&gt;$MSE(y, \hat{y}) = \mathcal{L}(y , \hat{y}) = \dfrac{1}{n} \sum_{i=1}^{i=n}{(y_i - \hat{y}_i)^2}$&lt;/p&gt;
 
 &lt;p&gt;Why MSE? Why not just subtraction?
-- model with 5 is better than -5 in sbtraction which actually is not both models are equally bad, but the predictions are in opposite direction.
+- model with 5 is better than -5 in subtraction which actually is not both models are equally bad, but the predictions are in opposite direction.
 - MSE takes care of -5 and 5 ; $(-5)^2$ = $5^2$ = 25.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import numpy as np
@@ -448,11 +448,11 @@ plt.show()
 
 &lt;li&gt;&lt;p&gt;&lt;code&gt;tf_history = model.fit(x, y, epochs=1000, verbose=False)&lt;/code&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;model.fit actually trains the model for given number of epochs. Note: i&#39;ve used Verbose=False(as the output will be long), set it to true to check the loss and metrics for each epoch.
+&lt;pre&gt;&lt;code&gt;model.fit actually trains the model for given number of epochs. Note: We&#39;ve used Verbose=False(as the output will be long), set it to true to check the loss and metrics for each epoch.
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Just 3-4 line of Tensorflow code can train a ml model, this is the advantage of using packages like Tensorflow/PyTorch. These packages are best optimized for speed and performance.&lt;/p&gt;
+&lt;p&gt;Just 3-4 line of Tensorflow code can train a machine learning model, this is the advantage of using packages like Tensorflow/PyTorch. These packages are best optimized for speed and performance.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;model.summary()
 &lt;/code&gt;&lt;/pre&gt;
@@ -495,7 +495,7 @@ _________________________________________________________________
 
 &lt;p&gt;&lt;center&gt;&lt;a href=&#34;https://github.com/shangeth/Google-ML-Academy/blob/master/1-Intro-to-Deep-Learning/1_2_2_Assignment_Polynomial_Regression_Solution.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;svg class=&#34;octicon octicon-mark-github v-align-middle&#34; height=&#34;30&#34; viewBox=&#34;0 0 16 16&#34; version=&#34;1.1&#34; width=&#34;30&#34; aria-hidden=&#34;true&#34;&gt;&lt;path fill-rule=&#34;evenodd&#34; d=&#34;M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; Open in GitHub&lt;/a&gt;&lt;/center&gt;&lt;/p&gt;
 
-&lt;p&gt;Its a very simple assignment, you can finish it in less than 10 minutes. If you are stuck somewhere refer this for solutions.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s a very simple assignment, you can finish it in less than 10 minutes. If you are stuck somewhere refer this for solutions.&lt;/p&gt;
 
 &lt;h1 id=&#34;task-1-linear-regression-on-non-linear-data&#34;&gt;Task-1 : Linear Regression on Non-Linear Data&lt;/h1&gt;
 
@@ -528,7 +528,7 @@ X, y = dataset()
 
 &lt;h2 id=&#34;scaling-dataset&#34;&gt;Scaling Dataset&lt;/h2&gt;
 
-&lt;p&gt;The maximum value of y in the dataset goes upto 15000 and the minimum values is less than -15000. The range of y is very large which makes the convergence/loss reduction slower. So will we scale the data, scaling the data will help the model converge faster. If all the features and target are in same range, there will be symmetry in the curve of Loss vs weights/bias, which makes the convergence faster.&lt;/p&gt;
+&lt;p&gt;The maximum value of y in the dataset goes upto 15000 and the minimum values is less than -15000. The range of y is very large which makes the convergence/loss reduction slower. So will we scale the data, scaling the data will help the model converge faster. If all the features and target are in the same range, there will be symmetry in the curve of Loss vs weights/bias, which makes the convergence faster.&lt;/p&gt;
 
 &lt;p&gt;We will do a very simple type of scaling, we will divide all the values of the data with the maximum values for X and y respectively.&lt;/p&gt;
 
@@ -548,7 +548,7 @@ print(max(X), max(y), min(X), min(y))
 1.0 1.0 -1.0040160642569995 -0.9659642280642613
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;This is not a great scaling method, but good to start. We will see many more scaling/normalizing methods later.&lt;/p&gt;
+&lt;p&gt;This is not a great scaling method, but good to start. We will see many more scaling/normalization methods later.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Try training the model with and without scaling and see the difference yourself.&lt;/strong&gt;&lt;/p&gt;
 
@@ -618,7 +618,7 @@ Epoch 500/500
 
 &lt;p&gt;So when the dataset is not linear, linear regression cannot learn the dataset and make good predictions.&lt;/p&gt;
 
-&lt;p&gt;So we need a polynomial model which consideres the polynomial terms as well. So we need terms like $x^2$, $x^3$, &amp;hellip;, $x^n$ for the model to learn a polynomial of $n^{th}$ degree.&lt;/p&gt;
+&lt;p&gt;So we need a polynomial model which considered the polynomial terms as well. So we need terms like $x^2$, $x^3$, &amp;hellip;, $x^n$ for the model to learn a polynomial of $n^{th}$ degree.&lt;/p&gt;
 
 &lt;p&gt;$\hat{y} = w_0 + w_1x + w_2x^2 + &amp;hellip; + w_nx^n$&lt;/p&gt;
 
@@ -680,7 +680,7 @@ print(X_4[0])
 &lt;li&gt;Visualize the prediction of the model&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;The code remains the same except, the no of input features will be 3, 4, 5 respectively.&lt;/p&gt;
+&lt;p&gt;The code remains the same except the no of input features will be 3, 4, 5 respectively.&lt;/p&gt;
 
 &lt;h2 id=&#34;tensorflow-model-with-2nd-degree&#34;&gt;Tensorflow Model with 2nd Degree&lt;/h2&gt;
 
@@ -735,7 +735,7 @@ Epoch 500/500
 
 &lt;p&gt;Why is the polynomial regression with 2-d features look like a straight line?&lt;/p&gt;
 
-&lt;p&gt;Well because the model thinks that a straight line(look like, we can&amp;rsquo;t be sure if its a straight like, it can a parabola as well) better fits the dataset than a parabola. If you train the model for less epochs you can notice the model tries to fit the data with a parabola(2-d) but it improves as it moves to a line.&lt;/p&gt;
+&lt;p&gt;Well because the model thinks that a straight line(look like, we can&amp;rsquo;t be sure if it&amp;rsquo;s a straight like, it can a parabola as well) better fits the dataset than a parabola. If you train the model for less epochs you can notice the model tries to fit the data with a parabola(2-d) but it improves as it moves to a line.&lt;/p&gt;
 
 &lt;p&gt;Train the same model for may be 50 epochs.&lt;/p&gt;
 
@@ -788,7 +788,7 @@ Epoch 50/50
 
 &lt;p&gt;&lt;img src=&#34;../1_2/output_22_2.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;You can clearly see that the model tries to fit the data with a parabola which doen&amp;rsquo;t seem to fit well, so it changes the parameters to fit a line.&lt;/p&gt;
+&lt;p&gt;You can clearly see that the model tries to fit the data with a parabola which doesn&amp;rsquo;t seem to fit well, so it changes the parameters to fit a line.&lt;/p&gt;
 
 &lt;h2 id=&#34;tensorflow-model-with-3rd-degree&#34;&gt;Tensorflow Model with 3rd Degree&lt;/h2&gt;
 
@@ -798,7 +798,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[4])])
+model = tf.keras.Sequential([keras.layers.Dense(unit&#39;s=1, input_shape=[4])])
 
 optimizer = tf.keras.optimizers.Adam(learning_rate=1e-3)
 
@@ -949,9 +949,9 @@ Epoch 50/50
 
 &lt;p&gt;If you run the 4th degree poly-regression for fewer epochs, you can notice, the model tries to fit a 4th(or higher than 3rd) degree polynomial but as the loss is high, the model changes it parameters to set the 4th degree terms to almost 0 and thus giving a 3rd degree polynomial as you train for more epochs.&lt;/p&gt;
 
-&lt;p&gt;This is polynomial regression. Yes, its easy. But one issue, as this was a toy dataset we know its a 3rd degree data, so we tried 2,3,4. But when the data is multi dimensional we cannot visualize the dataset, so its difficult to decide the degree. This is why you will see Neural Networks are awesome. They are End-End, they do not need several feature extraction from our side, they can extract necessary features of their own.&lt;/p&gt;
+&lt;p&gt;This is polynomial regression. Yes, it&amp;rsquo;s easy. But one issue, as this was a toy dataset we know it&amp;rsquo;s a 3rd degree data, so we tried 2,3,4. But when the data is multi dimensional we cannot visualize the dataset, so it&amp;rsquo;s difficult to decide the degree. This is why you will see Neural Networks are awesome. They are End-End, they do not need several feature extraction from our side, they can extract necessary features of their own.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Make a Higher degree (4th/5th degree) data and try polynomial regression on it. Also try different functions like exponents, trignometric..etc.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Make a Higher degree (4th/5th degree) data and try polynomial regression on it. Also try different functions like exponents, trigonometric..etc.&lt;/strong&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -971,11 +971,11 @@ Epoch 50/50
 &lt;center&gt;&lt;h3&gt;Instructor: &lt;a href=&#39;https://shangeth.com/&#39;&gt;Shangeth Rajaa&lt;/a&gt;&lt;/h3&gt;&lt;/center&gt;
 &lt;hr&gt;&lt;/p&gt;
 
-&lt;p&gt;Logistic Regression is one of the most commonly used classification model. Unlike Linear Regression which predicts a real unbounded value $\hat{y} = f(X) = WX+b$, Logistic Regression predicts the probability of a data belonging to a particular class.&lt;/p&gt;
+&lt;p&gt;Logistic Regression is one of the most commonly used classification models. Unlike Linear Regression which predicts a real unbounded value $\hat{y} = f(X) = WX+b$, Logistic Regression predicts the probability of a data belonging to a particular class.&lt;/p&gt;
 
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
 
-&lt;p&gt;For example for a given data (X,y) where X is a recieved email and y is 0 if email is spam and 1 if email is not spam. Logistic regression predicts the probability of the email X to be not spam.
+&lt;p&gt;For example for a given data (X,y) where X is a received email and y is 0 if email is spam and 1 if email is not spam. Logistic regression predicts the probability of the email X to be not spam.
 $\hat{y} = f(X) = P(y=1|X)$&lt;/p&gt;
 
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
@@ -985,7 +985,7 @@ $\hat{y} = f(X) = P(y=1|X)$&lt;/p&gt;
 &lt;p&gt;Other examples of classification can be&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Classification of image as cat, dog, parrot $ y = {0, 1, 2}$. Here y can be 0 or 1 or 2 depending on the probability of model prediction. (Multi class Classification)&lt;/li&gt;
+&lt;li&gt;Classification of image as cat, dog, parrot $ y = {0, 1, 2}$. Here y can be a 0 or 1 or 2 depending on the probability of model prediction. (Multi class Classification)&lt;/li&gt;
 &lt;li&gt;Classification of Cancer report as Malignant/Benign $y = {0, 1}$. (Binary Classification)&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -993,7 +993,7 @@ $\hat{y} = f(X) = P(y=1|X)$&lt;/p&gt;
 
 &lt;p&gt;$\hat{y}_{linreg} = WX+b$ where $\hat{y} \in \mathbf{R} $, so the prediction can take value from $-\infty$ to $\infty$.&lt;/p&gt;
 
-&lt;p&gt;$\hat{y}_{classification} \in { 0, 1, 2, &amp;hellip;, n }$, Classification prediction takes discrete values depening on number of class.&lt;/p&gt;
+&lt;p&gt;$\hat{y}_{classification} \in { 0, 1, 2, &amp;hellip;, n }$, Classification prediction takes discrete values depending on number of classes.&lt;/p&gt;
 
 &lt;p&gt;So we need a model which limits the prediction in the range ${0,1}$ for binary classification and ${0,1, 2, &amp;hellip;, n}$ for multi-class classification.&lt;/p&gt;
 
@@ -1005,7 +1005,7 @@ $\hat{y} = f(X) = P(y=1|X)$&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn.datasets import make_blobs
 
-# 10 examples, (X)2 feature, (y)2 classes
+# 10 examples, (X)2 features, (y)2 classes
 X, y = make_blobs(n_samples=10, n_features=2, centers=2, random_state=0)
 
 X.shape, y.shape
@@ -1014,7 +1014,7 @@ X.shape, y.shape
 &lt;pre&gt;&lt;code&gt;((10, 2), (10,))
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Let&amp;rsquo;s seperate the 0 and 1 class to visualize it.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s separate the 0 and 1 class to visualize it.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import numpy as np
 
@@ -1066,7 +1066,7 @@ plt.show()
 
 &lt;p&gt;&lt;img src=&#34;../1_3/output_10_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Let us consider the line $y = 3-x/2$ is the best classifier which seperates the data.&lt;/p&gt;
+&lt;p&gt;Let us consider the line $y = 3-x/2$ is the best classifier which separates the data.&lt;/p&gt;
 
 &lt;p&gt;Let $C(x,y) = y + x/2-3 $.&lt;/p&gt;
 
@@ -1082,7 +1082,7 @@ Well, this can tell something about how good a classifier is.&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;one which classifies all points correctly&lt;/li&gt;
-&lt;li&gt;one which misclassifies few points&lt;/li&gt;
+&lt;li&gt;one which misclassified few points&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;calculate the $C(x,y)$ for every point and check how its different for both classifiers.&lt;/li&gt;
 &lt;/ul&gt;
@@ -1143,7 +1143,7 @@ plt.show()
 
 &lt;p&gt;&lt;img src=&#34;../1_3/output_14_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;You can see, the same class points have same sign when the classifier is good. So this metric C is actually a good way to find how good a classifier is.&lt;/p&gt;
+&lt;p&gt;You can see, the same class points have the same sign when the classifier is good. So this metric C is actually a good way to find out how good a classifier is.&lt;/p&gt;
 
 &lt;p&gt;We would like to know the probability of a point to be class 1. $P(y=1|X)$&lt;/p&gt;
 
@@ -1250,7 +1250,7 @@ plt.show()
 - if true label $y=1$, then we want to maximize $\hat{y}_1 = \hat{y} = g(W.X+b)$.
 - if true label $y=0$, then we want to maximize $\hat{y}_0 = 1 - \hat{y} = 1 - g(W.X+b)$.&lt;/p&gt;
 
-&lt;p&gt;As a point can have only 2 option either ${0, 1}$. so $\hat{y}_0 + \hat{y}_1 = 1$.&lt;/p&gt;
+&lt;p&gt;As a point can have only 2 options either ${0, 1}$. so $\hat{y}_0 + \hat{y}_1 = 1$.&lt;/p&gt;
 
 &lt;h3 id=&#34;likelihood&#34;&gt;Likelihood&lt;/h3&gt;
 
@@ -1302,7 +1302,7 @@ LogL
 &lt;pre&gt;&lt;code&gt;-8.516734149556177
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;This number is can be used in computation easily and you can observe for any dataset Log likelihood will be in a good range of computation and it will be a negative number as log of any number less than one is negative.&lt;/p&gt;
+&lt;p&gt;This number can be used in computation easily and you can observe for any dataset Log likelihood will be in a good range of computation and it will be a negative number as log of any number less than one is negative.&lt;/p&gt;
 
 &lt;p&gt;So we introduce a negative sign to make it positive. Why? We would like to make this problem to find minimum loss, optimization is relatively easier for convex functions than concave.&lt;/p&gt;
 
@@ -1355,11 +1355,11 @@ CrossEntropy(y_hat_1, y),CrossEntropy(y_hat_2, y)
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Every thing remains same as Linear Regression except now the Loss function $\mathcal{L}(y, \hat{y})$ is different, so  $ \frac{\partial \mathcal{L}}{\partial w} $ and $ \frac{\partial \mathcal{L}}{\partial b} $ may be different. But it can easily be alculated with chain rule.&lt;/p&gt;
+&lt;p&gt;Every thing remains same as Linear Regression except now the Loss function $\mathcal{L}(y, \hat{y})$ is different, so  $ \frac{\partial \mathcal{L}}{\partial w} $ and $ \frac{\partial \mathcal{L}}{\partial b} $ may be different. But it can easily be calculated with chain rule.&lt;/p&gt;
 
 &lt;p&gt;If you didn&amp;rsquo;t understand how we calculated  $ \frac{\partial \mathcal{L}}{\partial w} $ and $ \frac{\partial \mathcal{L}}{\partial b} $ in Linear Regression , I strongly recommend you to learn multi variable calculus. Its very easy and interesting.&lt;/p&gt;
 
-&lt;p&gt;One good thing about frameworks like Tensorflow, PyTorch is that they have soemthing called Automatic Gradient. So you don&amp;rsquo;t need to perform these gradient calculation by hand and code it, you give the loss function and parameters, the framework will calculate the gradients of Loss wrt every parameter and update the parameter.&lt;/p&gt;
+&lt;p&gt;One good thing about frameworks like Tensorflow, PyTorch is that they have something called Automatic Gradient. So you don&amp;rsquo;t need to perform these gradient calculation by hand and code it, you give the loss function and parameters, the framework will calculate the gradients of Loss wrt every parameter and update the parameter.&lt;/p&gt;
 
 &lt;p&gt;So after chain rule,&lt;/p&gt;
 
@@ -1373,7 +1373,7 @@ CrossEntropy(y_hat_1, y),CrossEntropy(y_hat_2, y)
 
 &lt;p&gt;$b := b - \alpha \dfrac{1}{m} \sum_{j=1}^{m}{((\hat{y}^j - y^j)}$&lt;/p&gt;
 
-&lt;p&gt;where $\alpha$ is called learning rate, if learning rate is very high the model will learn faster, but may not converge well. if the learning rate is less, the model may take more time but will converge well ie: will get to less loss.&lt;/p&gt;
+&lt;p&gt;where $\alpha$ is called learning rate, if the learning rate is very high the model will learn faster, but may not converge well. if the learning rate is less, the model may take more time but will converge well ie: will get to less loss.&lt;/p&gt;
 
 &lt;p&gt;Now Let&amp;rsquo;s code Logistic Regression model in Numpy and train it. Then use Tensorflow&amp;rsquo;s Keras API to train Logistic Regression Model.&lt;/p&gt;
 
@@ -1431,7 +1431,7 @@ CrossEntropy(y_hat, y)
 &lt;pre&gt;&lt;code&gt;0.5361011603546345
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Lets code a function to visualize&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s code a function to visualize&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import matplotlib.pyplot as plt
 
@@ -1591,7 +1591,7 @@ Epoch 50/50
 10000/10000 [==============================] - 0s 37us/sample - loss: 0.0043 - acc: 0.9993
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;You can see from the plot, that is not possible to get a accuracy of 1.0 with a linear classifier like Logistic Regression for this dataset as few of the class points are overlapping. But it still gives a very good result with just few lines of code.&lt;/p&gt;
+&lt;p&gt;You can see from the plot, that is not possible to get an accuracy of 1.0 with a linear classifier like Logistic Regression for this dataset as few of the class points are overlapping. But it still gives a very good result with just a few lines of code.&lt;/p&gt;
 </description>
     </item>
     
@@ -1616,7 +1616,7 @@ Epoch 50/50
 
 &lt;p&gt;&lt;center&gt;&lt;a href=&#34;https://github.com/shangeth/Google-ML-Academy/blob/master/1-Intro-to-Deep-Learning/1_4_2_MultiClass_Classification_Solution.ipynb&#34; target=&#34;_parent&#34;&gt;&lt;svg class=&#34;octicon octicon-mark-github v-align-middle&#34; height=&#34;30&#34; viewBox=&#34;0 0 16 16&#34; version=&#34;1.1&#34; width=&#34;30&#34; aria-hidden=&#34;true&#34;&gt;&lt;path fill-rule=&#34;evenodd&#34; d=&#34;M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; Open in GitHub&lt;/a&gt;&lt;/center&gt;&lt;/p&gt;
 
-&lt;p&gt;In the previous notebeook we used logistic regression for Binary Classification, now we will see how to train a classifier model for Multi-Class Classification.&lt;/p&gt;
+&lt;p&gt;In the previous notebook we used logistic regression for Binary Classification, now we will see how to train a classifier model for Multi-Class Classification.&lt;/p&gt;
 
 &lt;h2 id=&#34;what-is-multi-class-classification&#34;&gt;What is Multi-Class Classification?&lt;/h2&gt;
 
@@ -1630,7 +1630,7 @@ Epoch 50/50
 
 &lt;p&gt;Create a 3-Multi-Class dataset with sklearn.datasets and visualize it.&lt;/p&gt;
 
-&lt;p&gt;It&amp;rsquo;s very easy, use the same code form previous notebook and make changes for 3 classes.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s very easy, use the same code from previous notebook and make changes for 3 classes.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn.datasets import make_blobs
 
@@ -1642,7 +1642,7 @@ X.shape, y.shape, set(y)
 &lt;pre&gt;&lt;code&gt;((300, 2), (300,), {0, 1, 2})
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;If you made 3 centers, you can see &lt;code&gt;set(y)&lt;/code&gt; will return &lt;code&gt;{0, 1, 2}&lt;/code&gt;. where 0 represent the first class, 1 represent second and 2 represents the third class.&lt;/p&gt;
+&lt;p&gt;If you made 3 centers, you can see &lt;code&gt;set(y)&lt;/code&gt; will return &lt;code&gt;{0, 1, 2}&lt;/code&gt;. where 0 represents the first class, 1 represents second and 2 represents the third class.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import numpy as np
 
@@ -1698,7 +1698,9 @@ One possible function can be class_logit/sum of all class logits. Lets try it&lt
 
 &lt;p&gt;Example:&lt;/p&gt;
 
-&lt;p&gt;$logits = [-100, 40, -10]$, right now don&amp;rsquo;t bother how do we get 3 logits, we will discuss it below.&lt;/p&gt;
+&lt;p&gt;$logits = [-100, 40, -10]$&lt;/p&gt;
+
+&lt;p&gt;Don&amp;rsquo;t bother how do we get 3 logits, we will discuss it below.&lt;/p&gt;
 
 &lt;p&gt;$probabilities = [\dfrac{-100}{(-100+40-10)}, \dfrac{40}{(-100+40-10)}, \dfrac{-10}{(-100+40-10)}]$&lt;/p&gt;
 
@@ -1732,7 +1734,7 @@ softmax(x)
 &lt;pre&gt;&lt;code&gt;array([[1.52299795e-08, 9.99999985e-01, 9.35762283e-14]])
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Now we know, replacing sigmoid with with softmax will help in the case of multi class classification. This softmax model is also called &lt;strong&gt;Softmax Regression&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Now we know, replacing sigmoid with softmax will help in the case of multi class classification. This softmax model is also called &lt;strong&gt;Softmax Regression&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;h2 id=&#34;loss-function&#34;&gt;Loss Function&lt;/h2&gt;
 
@@ -1877,7 +1879,7 @@ print(y.shape)
 
 &lt;h2 id=&#34;train-validation-test-split&#34;&gt;Train-Validation-Test Split&lt;/h2&gt;
 
-&lt;p&gt;So far we had a dataset and we used it for training and checked the accuracy/loss to see the performance. But its not the right way to check the preformance of a model. Usually any dataset is split into 3 parts namely Train-Validation-Test.&lt;/p&gt;
+&lt;p&gt;So far we had a dataset and we used it for training and checked the accuracy/loss to see the performance. But it&amp;rsquo;s not the right way to check the performance of a model. Usually any dataset is split into 3 parts namely Train-Validation-Test.&lt;/p&gt;
 
 &lt;h3 id=&#34;train-set&#34;&gt;train set&lt;/h3&gt;
 
@@ -1885,11 +1887,11 @@ print(y.shape)
 
 &lt;h3 id=&#34;validation-set&#34;&gt;validation set&lt;/h3&gt;
 
-&lt;p&gt;After every epoch(generally) of training, metrics of this dataset is checked to ensure, the model is also performing good on unseen data as much as it performs on the training dataset. If the model performs well on training dataset but not good on validation set, it means the model has a problem called &amp;lsquo;Overfitting&amp;rsquo; whcih we will look in more detail later. Some hyper parameters are adjusted to make the model perform well in validation set as well during training. 10-20% of data is given to validation set.&lt;/p&gt;
+&lt;p&gt;After every epoch(generally) of training, metrics of this dataset is checked to ensure the model is also performing well on unseen data as much as it performs on the training dataset. If the model performs well on training dataset but not good on validation set, it means the model has a problem called &amp;lsquo;Overfitting&amp;rsquo; which we will look in more detail later. Some hyper parameters are adjusted to make the model perform well in validation set as well during training. 10-20% of the data is given to validation set.&lt;/p&gt;
 
 &lt;h3 id=&#34;testing-set&#34;&gt;testing set&lt;/h3&gt;
 
-&lt;p&gt;After the training is over for n epochs, when the model performs good in both training and validation sets, a final check is done to see the performance of the model on new unseen dataset. 20-30% of data is given to Test set.&lt;/p&gt;
+&lt;p&gt;After the training is over for n epochs, when the model performs well in both training and validation sets, a final check is done to see the performance of the model on new unseen dataset. 20-30% of the data is given to Test set.&lt;/p&gt;
 
 &lt;p&gt;The percentage numbers depends on the total number of data we have access to, which you will understand as you work on more projects.&lt;/p&gt;
 
@@ -1999,9 +2001,9 @@ Test Accuracy =  0.995
 
 &lt;p&gt;Note: We will look mostly at classification examples, but the same concepts apply to regression problems as well with a little change in using activation function(Sigmoid, Softmax which we learned in previous sections).&lt;/p&gt;
 
-&lt;p&gt;So far the datasets we have used are linearly seperable, which means they can be seperated by line(2-d), plane(3-d) and linear multi dimensional classifiers.&lt;/p&gt;
+&lt;p&gt;So far the datasets we have used are linearly separable, which means they can be separated by line(2-d), plane(3-d) and linear multi dimensional classifiers.&lt;/p&gt;
 
-&lt;p&gt;But in real world, not all datasets are 2-d(visualizable) and linearly seperable.&lt;/p&gt;
+&lt;p&gt;But in the real world, not all datasets are 2-d(visualizable) and linearly separable.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/more_images/linear_vs_nonlinear_problems.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
@@ -2016,18 +2018,18 @@ They are note good at classifying a non-linear data.&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Make a Linear Dataset&lt;/li&gt;
-&lt;li&gt;Train a Logisitc Regression&lt;/li&gt;
+&lt;li&gt;Train a Logistic Regression&lt;/li&gt;
 &lt;li&gt;Predict the probabilities using the model for whole plot grid, and colour it based on if p&amp;gt;0.5 or not.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;It&amp;rsquo;s fine if you don&amp;rsquo;t understand how we are going to visualize it, its just a matplotlib plot.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s fine if you don&amp;rsquo;t understand how we are going to visualize it, it&amp;rsquo;s just a matplotlib plot.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn.datasets import make_blobs
 import matplotlib.pyplot as plt
 
 X, y = make_blobs(n_samples=1000, n_features=2, centers=2, random_state=3)
 
-# remember the code we wrote to get the index of 0, 1 classes and scatter it seperately
+# remember the code we wrote to get the index of 0, 1 classes and scatter it separately
 # that was to understand how to plot each class
 # that plotting can also be done easily in a single line :D :p
 
@@ -2039,7 +2041,7 @@ plt.show()
 
 &lt;p&gt;&lt;img src=&#34;../1_5/output_4_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;train-a-logistic-regression-model-with-tensorflow-for-linearly-seperable-dataset&#34;&gt;Train a Logistic Regression Model with TensorFlow for Linearly Seperable Dataset&lt;/h2&gt;
+&lt;h2 id=&#34;train-a-logistic-regression-model-with-tensorflow-for-linearly-separable-dataset&#34;&gt;Train a Logistic Regression Model with TensorFlow for Linearly Separable Dataset&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
 from tensorflow import keras
@@ -2094,13 +2096,13 @@ plt.show()
 
 &lt;p&gt;&lt;img src=&#34;../1_5/output_7_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;This plot shows the probability of each point in the grid belongs to class &amp;lsquo;1&amp;rsquo;. We can see the white line is able to seperate almost all the points and accuracy is also good.&lt;/p&gt;
+&lt;p&gt;This plot shows the probability of each point in the grid belongs to class &amp;lsquo;1&amp;rsquo;. We can see the white line is able to separate almost all the points and accuracy is also good.&lt;/p&gt;
 
 &lt;h2 id=&#34;visualize-non-linear-dataset-and-linear-model&#34;&gt;Visualize Non-Linear Dataset and Linear Model&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Make a Non-Linear Dataset with &lt;code&gt;sklearn.datasets.make_gaussian_quantiles&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Train a Logisitc Regression&lt;/li&gt;
+&lt;li&gt;Train a Logistic Regression&lt;/li&gt;
 &lt;li&gt;Predict the probabilities using the model for whole plot grid, and visualize the model classifier&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -2181,7 +2183,7 @@ plt.show()
 
 &lt;p&gt;&lt;img src=&#34;../1_5/output_13_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;You can see the logistic regression model, cannot seperate a non-linear data. The model(white area) seperates the grid into 2 regions lienarly which is not a good classifier for this dataset.&lt;/p&gt;
+&lt;p&gt;You can see the logistic regression model, cannot separate a non-linear data. The model(white area) separates the grid into 2 regions linearly which is not a good classifier for this dataset.&lt;/p&gt;
 
 &lt;p&gt;Let&amp;rsquo;s make another dataset&lt;/p&gt;
 
@@ -2244,7 +2246,7 @@ Epoch 20/20
 
 &lt;p&gt;&lt;img src=&#34;../1_5/output_16_2.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Logistic Regression Classifier for this dataset is worse. It uses a straight line to seperate concentric circles. We cannot depend much on Linear classifiers on real world dataset(non-linear).&lt;/p&gt;
+&lt;p&gt;Logistic Regression Classifier for this dataset is worse. It uses a straight line to separate concentric circles. We cannot depend much on Linear classifiers on real world dataset(non-linear).&lt;/p&gt;
 
 &lt;h1 id=&#34;non-linear-dataset-with-linear-classifier&#34;&gt;Non-linear Dataset with Linear Classifier&lt;/h1&gt;
 
@@ -2320,11 +2322,11 @@ Epoch 200/200
 
 &lt;p&gt;The model with 2nd degree data performed well, it got an accuracy of 0.91 in 200 epochs and seems to increase if you train longer.&lt;/p&gt;
 
-&lt;p&gt;The problem is, as we were able visualize this dataset, we concluded to include 2nd degree terms, but real world datasets are multi-dimensional, you cannot visualize those.&lt;/p&gt;
+&lt;p&gt;The problem is, as we were able to visualize this dataset, we concluded to include 2nd degree terms, but real world datasets are multi-dimensional, you cannot visualize those.&lt;/p&gt;
 
 &lt;p&gt;Multi-Layer Perceptron or usually called as Artificial neural Networks or simply Neural Networks can help us with this problem.&lt;/p&gt;
 
-&lt;p&gt;Note: Linear Regression, Logistic Regression are also Neurons(not Network). Softmax Regression is a network of several linear classifier so it is also a network. But we usually denote something as neural netowrk when it has a hidden layer, which we will discuss later.&lt;/p&gt;
+&lt;p&gt;Note: Linear Regression, Logistic Regression are also Neurons(not Network). Softmax Regression is a network of several linear classifiers so it is also a network. But we usually denote something as neural network when it has a hidden layer, which we will discuss later.&lt;/p&gt;
 
 &lt;h1 id=&#34;combination-of-linear-classifiers&#34;&gt;Combination of Linear Classifiers&lt;/h1&gt;
 
@@ -2353,7 +2355,7 @@ plt.show()
 
 &lt;p&gt;&lt;img src=&#34;../1_5/output_25_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;This line can be one of the classifier, but does not give a better accuracy, as yellow side also have few blue data points.&lt;/p&gt;
+&lt;p&gt;This line can be one of the classifiers, but does not give a better accuracy, as yellow side also have few blue data points.&lt;/p&gt;
 
 &lt;h3 id=&#34;classifier-2&#34;&gt;classifier 2&lt;/h3&gt;
 
@@ -2384,7 +2386,7 @@ plt.show()
 - classifier 1 - clf1
 - classifier 2 - clf2&lt;/p&gt;
 
-&lt;p&gt;both are fine, but they also misclassifies some data points.&lt;/p&gt;
+&lt;p&gt;both are fine, but they also misclassified some data points.&lt;/p&gt;
 
 &lt;p&gt;So both the classifiers individually cannot classify the data very well because the data is non-linear and the classifiers are linear.&lt;/p&gt;
 
@@ -2415,7 +2417,7 @@ plt.show()
 
 &lt;p&gt;&lt;img src=&#34;../1_5/output_30_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;This will be one of best classifier, by moving the 2 lines little more, we can get a accuracy of nearly 1.0 for this dataset. Also we can make this classifier more better by combining more number of linear classifiers.&lt;/p&gt;
+&lt;p&gt;This will be one of the best classifiers, by moving the 2 lines a little more, we can get an accuracy of nearly 1.0 for this dataset. Also we can make this classifier better by combining more number of linear classifiers.&lt;/p&gt;
 
 &lt;p&gt;So &lt;strong&gt;combination of linear classifiers can be a good non-linear classifier&lt;/strong&gt;.&lt;/p&gt;
 
@@ -2423,15 +2425,15 @@ plt.show()
 
 &lt;h1 id=&#34;how-do-we-combine-the-linear-classifiers&#34;&gt;How do we combine the Linear Classifiers?&lt;/h1&gt;
 
-&lt;p&gt;We saw thet combining multiple linear classifiers can give a non-linear classifier. But how do we do that?&lt;/p&gt;
+&lt;p&gt;We saw that combining multiple linear classifiers can give a non-linear classifier. But how do we do that?&lt;/p&gt;
 
-&lt;p&gt;Lets assume we have 2 classifiers: $C_1, C_2$&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s assume we have 2 classifiers: $C_1, C_2$&lt;/p&gt;
 
 &lt;p&gt;$C_1 : \hat{y}_1 = \sigma(X.W_1+b_1)$&lt;/p&gt;
 
 &lt;p&gt;$C_2 : \hat{y}_2 = \sigma(X.W_2+b_2)$&lt;/p&gt;
 
-&lt;p&gt;So both $C_1, C_2$ gives the probability that a points belongs to class &amp;lsquo;1&amp;rsquo;. We need to combine $C_1, C_2$, so we can take the outputs of $C_1, C_2$ ie: $\hat{y}_1$ and $\hat{y}_2$ and send it to a new logistic regression model $C_3$.&lt;/p&gt;
+&lt;p&gt;So both $C_1, C_2$ gives the probability that a point belongs to class &amp;lsquo;1&amp;rsquo;. We need to combine $C_1, C_2$, so we can take the outputs of $C_1, C_2$ ie: $\hat{y}_1$ and $\hat{y}_2$ and send it to a new logistic regression model $C_3$.&lt;/p&gt;
 
 &lt;p&gt;But we no more need probabilities from $C_1, C_2$, so we may/maynot use sigmoid function. But we need to use some non-linearity as combination of linear function directly will be a linear function, which is of no use to us. So we can also use some other famous activations like tanh, ReLU, etc.
 &lt;br&gt;&lt;/p&gt;
@@ -2446,7 +2448,7 @@ plt.show()
 
 &lt;p&gt;$C_3 : \hat{y} = \sigma(X_{new}.W_3 + b_3)$&lt;/p&gt;
 
-&lt;p&gt;This combination of Neurons is called Multi Layer Perceptron or ANN or Neural netowrks in general.&lt;/p&gt;
+&lt;p&gt;This combination of Neurons is called Multi Layer Perceptron or ANN or Neural networks in general.&lt;/p&gt;
 
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
 
@@ -2517,7 +2519,7 @@ Epoch 500/500
 
 &lt;p&gt;&lt;img src=&#34;../1_5/output_34_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Yay! We just trained our first Neural Network&lt;/strong&gt;(atleast for this course).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Yay! We just trained our first Neural Network&lt;/strong&gt;(at least for this course).&lt;/p&gt;
 
 &lt;p&gt;You can see the neural network model is as expected, it combined 2 linear models to give a better non-linear model.&lt;/p&gt;
 
@@ -2560,11 +2562,11 @@ Epoch 500/500
 
 &lt;h2 id=&#34;multiple-nodes&#34;&gt;Multiple Nodes&lt;/h2&gt;
 
-&lt;p&gt;The network had 2 linear layers($C_1$,0 $C_2$) in the hidden layer each of which gave us a linear classifier, then we used another linear layer($C_3$) in the output layer to combine $C_1$ and $C_2$ to give us a non-linear classifier($C$). Thaat was amazing, now we can get non-linear classifiers.&lt;/p&gt;
+&lt;p&gt;The network had 2 linear layers($C_1$,0 $C_2$) in the hidden layer each of which gave us a linear classifier, then we used another linear layer($C_3$) in the output layer to combine $C_1$ and $C_2$ to give us a non-linear classifier($C$). That was amazing, now we can get non-linear classifiers.&lt;/p&gt;
 
 &lt;p&gt;Won&amp;rsquo;t it be even amazing it we can combine more than 2 linear classifiers?. Ofc yes, that will give a more accurate classifier. But how to combine 3 linear classifiers?&lt;/p&gt;
 
-&lt;p&gt;Just increase the number of nodes in hidden layer.
+&lt;p&gt;Just increase the number of nodes in the hidden layer.
 &lt;img src=&#34;https://drive.google.com/uc?export=view&amp;amp;id=1mzc27z8h50Ctg3IlV4TOsD6rloEa_x_g&#34; alt=&#34;Neural Network 1 hidden 2 node&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;This network will consider 3 linear layers and combine them to give a non-linear classifier/regressor.&lt;/p&gt;
@@ -2572,7 +2574,7 @@ Epoch 500/500
 &lt;h2 id=&#34;multiple-layers-deeper-neural-network&#34;&gt;Multiple layers (Deeper Neural Network)&lt;/h2&gt;
 
 &lt;p&gt;Combination of multiple linear classifiers gives us a non-linear classifier, &lt;strong&gt;What if we combine multiple non-linear classifiers?&lt;/strong&gt;
-Won&amp;rsquo;t that give us a more complex non-linear classifier which can fit/classify our data more accuractely?&lt;/p&gt;
+Won&amp;rsquo;t that give us a more complex non-linear classifier which can fit/classify our data more accurately?&lt;/p&gt;
 
 &lt;p&gt;How to do that?
 We will take multiple copies of linear classifiers and combine them differently using another hidden layer instead of output layer and combine these non-linear classifiers using output layers.&lt;/p&gt;
@@ -2580,19 +2582,19 @@ We will take multiple copies of linear classifiers and combine them differently 
 &lt;ul&gt;
 &lt;li&gt;Input(Input Layer)&lt;/li&gt;
 &lt;li&gt;n linear classifiers(Hidden Layer 1)&lt;/li&gt;
-&lt;li&gt;m non linear classifier = m combination of (n linear classifiers)&lt;/li&gt;
+&lt;li&gt;m non linear classifier = m combinations of (n linear classifiers)&lt;/li&gt;
 &lt;li&gt;output MORE COMPLEX classifier = combination of (m non-linear classifier)&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://drive.google.com/uc?export=view&amp;amp;id=1Ie0dYwjx6a992MnWWI8ttAuednCN_XHW&#34; alt=&#34;Neural Network 2 hidden 3,4 node&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;This network, will take 3 linear classifiers and make 4 different combination of linear classifiers to get 4 non-linear classifier and combine them to get a more complex Non-Linear Classifier.&lt;/p&gt;
+&lt;p&gt;This network, will take 3 linear classifiers and make 4 different combination of linear classifiers to get 4 non-linear classifiers and combine them to get a more complex Non-Linear Classifier.&lt;/p&gt;
 
-&lt;p&gt;By stacking more Hidden Layers and nodes, we can get a more and more complex non-linear classifier/regressor. We visualized only for 2-D Data, this also applies for multi dimensional data, but unfortunately we cannot visualize multi dimensioanl data other than &lt;sup&gt;2&lt;/sup&gt;&amp;frasl;&lt;sub&gt;3&lt;/sub&gt;. In 3-d data the linear classifiers will be planes and the non-linear classifier will be some surface which are combinations of planes.&lt;/p&gt;
+&lt;p&gt;By stacking more Hidden Layers and nodes, we can get a more and more complex non-linear classifier/regressor. We visualized only for 2-D Data, this also applies for multi dimensional data, but unfortunately we cannot visualize multidimensioanl data other than &lt;sup&gt;2&lt;/sup&gt;&amp;frasl;&lt;sub&gt;3&lt;/sub&gt;. In 3-d data the linear classifiers will be planes and the non-linear classifier will be some surface which are combinations of planes.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;This is Deep Neural network&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;Note: This is a mathematical analysis of how a neural network can make a more complex classifier/regressor, but we really do not know what features a neural network will consider to make the complex function. That is why its called Machine Learning, we can try to understand what features the model is using to classify, but can&amp;rsquo;t be sure.&lt;/p&gt;
+&lt;p&gt;Note: This is a mathematical analysis of how a neural network can make a more complex classifier/regressor, but we really do not know what features a neural network will consider to make the complex function. That is why it&amp;rsquo;s called Machine Learning, we can try to understand what features the model is using to classify, but can&amp;rsquo;t be sure.&lt;/p&gt;
 
 &lt;p&gt;Now Let&amp;rsquo;s compare neural network with a deeper neural network and try to visualize the classifier.&lt;/p&gt;
 
@@ -2633,7 +2635,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized to be same, for reproducing same results.
+# random number initialized to be the same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
@@ -2691,7 +2693,7 @@ Epoch 20/20
 &lt;pre&gt;&lt;code&gt;Test Accuracy =  0.5183333333333333
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;You can train for more epochs, but the model won&amp;rsquo;t really impove the metrics.&lt;/p&gt;
+&lt;p&gt;You can train for more epochs, but the model won&amp;rsquo;t really improve the metrics.&lt;/p&gt;
 
 &lt;h2 id=&#34;neural-network-1-hidden-layer-3-hidden-units&#34;&gt;Neural network (1 hidden layer, 3 hidden units)&lt;/h2&gt;
 
@@ -2701,7 +2703,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized to be same, for reproducing same results.
+# random number initialized to be the same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
@@ -2761,7 +2763,7 @@ Epoch 500/500
 &lt;pre&gt;&lt;code&gt;Test Accuracy =  0.7683333333333333
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;This model learnt some complex classifer, but you can see by adding a hidden layer with 3 nodes, the accuracy increased a lot.&lt;/p&gt;
+&lt;p&gt;This model learnt some complex classifers, but you can see by adding a hidden layer with 3 nodes, the accuracy increased a lot.&lt;/p&gt;
 
 &lt;p&gt;Now Let&amp;rsquo;s increase the no of nodes in the hidden layer&lt;/p&gt;
 
@@ -2773,7 +2775,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized to be same, for reproducing same results.
+# random number initialized to be the same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
@@ -2841,7 +2843,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized to be same, for reproducing same results.
+# random number initialized to be the same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
@@ -2936,7 +2938,7 @@ Epoch 500/500
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;you have seen how deeper model can help. As the model goes more deeper and complex, the performance of the model increases(although this may not be the case everytime, especially when we have less data and there is something called vanishing gradients, which we will discuss later). But in general, deeper models improves performance.&lt;/p&gt;
+&lt;p&gt;you have seen how deeper model can help. As the model goes more deeper and complex, the performance of the model increases(although this may not be the case every time, especially when we have less data and there is something called vanishing gradients, which we will discuss later). But in general, deeper models improves performance.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Train the models in the notebooks with &amp;lsquo;relu&amp;rsquo; activation function instead of &amp;lsquo;tanh&amp;rsquo; and compare the performance.&lt;/strong&gt;&lt;/p&gt;
 </description>
@@ -2983,7 +2985,7 @@ $w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \
 
 &lt;p&gt;$\hat{y} = \sigma(z)$&lt;/p&gt;
 
-&lt;p&gt;This uses one example $X = [x_1, x_2]$ at a time, but it is also possible to use all the data together as a matrix(Advantage of matrix multiplication and lienar algebra).&lt;/p&gt;
+&lt;p&gt;This uses one example $X = [x_1, x_2]$ at a time, but it is also possible to use all the data together as a matrix(Advantage of matrix multiplication and linear algebra).&lt;/p&gt;
 
 &lt;p&gt;$z = \begin{bmatrix}z_1^1&amp;amp;z_2^1&amp;amp;z_3^1\\ z_1^2&amp;amp;z_2^2&amp;amp;z_3^2\\ \vdots&amp;amp;\vdots&amp;amp;\vdots \\ z_1^n&amp;amp;z_2^n&amp;amp;z_3^n \ \end{bmatrix}  =
 \begin{bmatrix}x_1^1&amp;amp;x_2^1\\ x_1^2&amp;amp;x_2^2\\ \vdots&amp;amp;\vdots \\ x_1^n&amp;amp;x_2^n\\ \end{bmatrix} .
@@ -2991,7 +2993,7 @@ $w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \
 
 &lt;p&gt;$ \hat{y} = \begin{bmatrix}\sigma(z_1^1)&amp;amp;\sigma(z_2^1)&amp;amp;\sigma(z_3^1)\\ \sigma(z_1^2)&amp;amp;\sigma(z_2^2)&amp;amp;\sigma(z_3^2)\\ \vdots&amp;amp;\vdots&amp;amp;\vdots \\ \sigma(z_1^n)&amp;amp;\sigma(z_2^n)&amp;amp;\sigma(z_3^n) \ \end{bmatrix} $&lt;/p&gt;
 
-&lt;p&gt;This is called &lt;strong&gt;batch gradient descent&lt;/strong&gt;. There is a problem with this. When your data is in millions, holding all the millions of data into a matrix may cause memory issue. Its note possible for the RAM to hold millions of data into the memory altogether.&lt;/p&gt;
+&lt;p&gt;This is called &lt;strong&gt;batch gradient descent&lt;/strong&gt;. There is a problem with this. When your data is in millions, holding all the millions of data into a matrix may cause memory issues. It&amp;rsquo;s not possible for the RAM to hold millions of data into the memory altogether.&lt;/p&gt;
 
 &lt;p&gt;So we do something called &lt;strong&gt;mini-batch gradient descent&lt;/strong&gt;. We take few number of examples say m(batch size) which the memory can hold at a time and use that for training and during the next step we use the next m examples and continue till the complete dataset is used for training.&lt;/p&gt;
 
@@ -3048,7 +3050,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized will to same, for reproducing same results.
+# random number initialized to same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
@@ -3139,7 +3141,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized will to same, for reproducing same results.
+# random number initialized to same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
@@ -3352,7 +3354,7 @@ So we update x with $x := x - \alpha \frac{\partial \mathcal{y}}{\partial x}$&lt
 &lt;p&gt;When do we stop?
 We can iterate of any number of iterations, but when x reaches minimum y , then $\dfrac{\partial \mathcal{y}}{\partial x} = 0$&lt;/p&gt;
 
-&lt;p&gt;$\therefore x := x - \alpha . 0$, so x will remain same, even if you iterate more.&lt;/p&gt;
+&lt;p&gt;$\therefore x := x - \alpha . 0$, so x will remain the same, even if you iterate more.&lt;/p&gt;
 
 &lt;p&gt;Let&amp;rsquo;s code this.&lt;/p&gt;
 
@@ -3362,7 +3364,7 @@ def gradient(x):
     return 0.16*x+np.cos(x)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;np.random.seed(24) # change the seed to start from different point
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;np.random.seed(24) # change the seed to start from different points
 
 x = np.arange(-10, 10, 0.01)
 y = f(x)
@@ -3409,7 +3411,7 @@ for i in range(epochs):
 
 &lt;p&gt;&lt;img src=&#34;../2_3/output_11_4.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;np.random.seed(24) # change the seed to start from different point
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;np.random.seed(24) # change the seed to start from different points
 
 x = np.arange(-10, 10, 0.01)
 y = f(x)
@@ -3461,11 +3463,11 @@ plt.show()
 
 &lt;p&gt;$x = x - \alpha v$&lt;/p&gt;
 
-&lt;p&gt;This algorithms smoothens the updation process, by averaging the movement in other direction and forces x to move in the required direction which fastens the process.&lt;/p&gt;
+&lt;p&gt;This algorithms smoothens the updation process, by averaging the movement in other the direction and forces x to move in the required direction which fastens the process.&lt;/p&gt;
 
 &lt;h2 id=&#34;momentum-in-numpy&#34;&gt;Momentum in Numpy&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;np.random.seed(23) # change the seed to start from different point
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;np.random.seed(23) # change the seed to start from different points
 
 x = np.arange(-10, 10, 0.01)
 y = f(x)
@@ -3515,7 +3517,7 @@ for i in range(epochs):
 
 &lt;p&gt;&lt;img src=&#34;../2_3/output_15_4.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;np.random.seed(24) # change the seed to start from different point
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;np.random.seed(24) # change the seed to start from different points
 
 x = np.arange(-10, 10, 0.01)
 y = f(x)
@@ -3596,7 +3598,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized will to same, for reproducing same results.
+# random number initialized to same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
@@ -3671,7 +3673,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized will to same, for reproducing same results.
+# random number initialized to same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
@@ -3751,7 +3753,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized will to same, for reproducing same results.
+# random number initialized to same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
@@ -3851,11 +3853,11 @@ Epoch 50/50
 &lt;p&gt;The learning rate $\alpha$ actually affects the learning process a lot.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;small $\alpha$ is slow, but more accuracte, as it does not miss the minimum, but it also get stuck in the local minimum.&lt;/li&gt;
+&lt;li&gt;small $\alpha$ is slow, but more accurate, as it does not miss the minimum, but it also get stuck in a local minimum.&lt;/li&gt;
 &lt;li&gt;larger $\alpha$ make huge steps, sometimes it may converge faster but it may miss the minima.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Learning rate is an important hyper parameter in training a Model. It is important to understand to tune the learning rate.&lt;/p&gt;
+&lt;p&gt;Learning rate is an important hyper parameter in training a Model. It is important to understand how to tune the learning rate.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn.datasets import make_gaussian_quantiles
 from sklearn.model_selection import train_test_split
@@ -3892,7 +3894,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized will to same, for reproducing same results.
+# random number initialized to same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
@@ -3968,7 +3970,7 @@ Epoch 50/50
 &lt;pre&gt;&lt;code&gt;Test Accuracy =  0.49666666666666665
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;This is one of the worst model you can train, as the learning rate is very high the optimizer skips all the minima and the loss does not really reduces much.&lt;/p&gt;
+&lt;p&gt;This is one of the worst models you can train, as the learning rate is very high the optimizer skips all the minima and the loss does not really reduces much.&lt;/p&gt;
 
 &lt;h2 id=&#34;small-learning-rate&#34;&gt;Small Learning rate&lt;/h2&gt;
 
@@ -3980,7 +3982,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized will to same, for reproducing same results.
+# random number initialized to same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
@@ -4059,7 +4061,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized will to same, for reproducing same results.
+# random number initialized to same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
@@ -4170,7 +4172,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized will to same, for reproducing same results.
+# random number initialized to same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
@@ -4294,7 +4296,7 @@ X, y = dataset(show=True)
 
 &lt;h2 id=&#34;simple-linear-model&#34;&gt;Simple Linear Model&lt;/h2&gt;
 
-&lt;p&gt;We are going to split the dataset into 5 groups(random shuffle) and use each of that 5 groups to train 5 different linear models. We will use sklearn&amp;rsquo;s StratifiedKFold to split the dataset into 5. Check the &lt;a href=&#34;https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedKFold.html&#34; target=&#34;_blank&#34;&gt;docs&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We are going to split the dataset into 5 groups(random shuffle) and use each of the 5 groups to train 5 different linear models. We will use sklearn&amp;rsquo;s StratifiedKFold to split the dataset into 5. Check the &lt;a href=&#34;https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedKFold.html&#34; target=&#34;_blank&#34;&gt;docs&lt;/a&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
 from tensorflow import keras
@@ -4385,7 +4387,7 @@ plt.show()
 
 &lt;p&gt;Variance as you should know defines how much a data is varying.
 $Variance(\hat{y})  = E[(\hat{y} - E[\hat{y}])^2]$
-Although the predictions are not good, but the variance of 2nd model will be higher than 1st model, as the 2nd comple model will try to fit the data more.&lt;/p&gt;
+Although the predictions are not good, but the variance of 2nd model will be higher than 1st model, as the 2nd complex model will try to fit the data more.&lt;/p&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -4438,7 +4440,7 @@ Although the predictions are not good, but the variance of 2nd model will be hig
 &lt;li&gt;when the variance is high(complex model), again MSE is high, so &lt;strong&gt;we don&amp;rsquo;t want high variance&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Conclusion is we need to choose a model which doesn&amp;rsquo;t have high bias or high variance, somthing optimal bias-variance in between will do good.&lt;/p&gt;
+&lt;p&gt;Conclusion is that we need to choose a model which doesn&amp;rsquo;t have high bias or high variance, something optimal bias-variance in between will do good.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://scott.fortmann-roe.com/docs/docs/MeasuringError/ModelError.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
@@ -4447,7 +4449,7 @@ Although the predictions are not good, but the variance of 2nd model will be hig
 &lt;h1 id=&#34;underfitting&#34;&gt;Underfitting&lt;/h1&gt;
 
 &lt;p&gt;When a model have high bias, then the model is &lt;strong&gt;&amp;ldquo;Underfitting&amp;rdquo;&lt;/strong&gt;.
-Let&amp;rsquo;s see an example first&lt;/p&gt;
+Let&amp;rsquo;s look at an example first&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import numpy as np
 import matplotlib.pyplot as plt
@@ -4563,7 +4565,7 @@ Epoch 1000/1000
 
 &lt;p&gt;&lt;img src=&#34;../2_5/output_16_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Here you can see, although the model is comple and can learn more complex featreus of the data, the Validation loss is way higher than training loss. This is called Overfitting. This means the model fits the training data so much that it does not generalize and perform very poor in new unseen data. Adding more data can help to prevent overfitting.&lt;/p&gt;
+&lt;p&gt;Here you can see, although the model is complex and can learn more complex features of the data, the Validation loss is way higher than training loss. This is called Overfitting. This means the model fits the training data so much that it does not generalize and perform very poorly in new unseen data. Adding more data can help to prevent overfitting.&lt;/p&gt;
 </description>
     </item>
     
@@ -4787,7 +4789,7 @@ plt.show()
 &lt;p&gt;&lt;img src=&#34;../2_6/output_21_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;You can observe from this learning curve, as we train more, the training performance improves, but the validation performance goes in reverse direction. This is because the model tries to overfit the training data to improve training data and does not generalize. We have few methods to avoid overfitting.
-Adding More data always work, but its not always possible get more data, so few regularization techniques may help.&lt;/p&gt;
+Adding More data always work, but it&amp;rsquo;s not always possible to get more data, so few regularization techniques may help.&lt;/p&gt;
 
 &lt;h1 id=&#34;weight-regularization&#34;&gt;Weight Regularization&lt;/h1&gt;
 
@@ -4812,7 +4814,7 @@ Adding More data always work, but its not always possible get more data, so few 
 
 &lt;p&gt;You don&amp;rsquo;t need to implement it, you can regularize the weights in keras easily with kernel_regularizer.&lt;/p&gt;
 
-&lt;h2 id=&#34;regualrization-in-tensorflow&#34;&gt;Regualrization in Tensorflow&lt;/h2&gt;
+&lt;h2 id=&#34;regularization-in-tensorflow&#34;&gt;Regularization in Tensorflow&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
 from tensorflow import keras
@@ -4898,13 +4900,13 @@ plt.show()
 
 &lt;p&gt;L2 Regularization slightly improved the performance on validation set.&lt;/p&gt;
 
-&lt;p&gt;Try changing the l2 regularization $\lambda$ and observer the performance.&lt;/p&gt;
+&lt;p&gt;Try changing the l2 regularization $\lambda$ and observe the performance.&lt;/p&gt;
 
 &lt;h1 id=&#34;dropouts&#34;&gt;Dropouts&lt;/h1&gt;
 
 &lt;p&gt;Dropout drops certain nodes in our network during each pass with a defined probability p. So if p=0.5, then each node have a probability of 0.5 to get dropped.&lt;/p&gt;
 
-&lt;p&gt;This will make the network simpler duirng each pass depending on p and now the network cannot rely on any node as it may be dropped, so the network will not give high weights to any node as it may be dropped any time and every node will be utilized equally as all of them have equal probability of being dropped.&lt;/p&gt;
+&lt;p&gt;This will make the network simpler during each pass depending on p and now the network cannot rely on any node as it may be dropped, so the network will not give high weights to any node as it may be dropped any time and every node will be utilized equally as all of them have equal probability of being dropped.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://miro.medium.com/proxy/1*iWQzxhVlvadk6VAJjsgXgg.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
@@ -5018,7 +5020,7 @@ plt.show()
 &lt;center&gt;&lt;h3&gt;Instructor: &lt;a href=&#39;https://shangeth.com/&#39;&gt;Shangeth Rajaa&lt;/a&gt;&lt;/h3&gt;&lt;/center&gt;
 &lt;hr&gt;&lt;/p&gt;
 
-&lt;p&gt;We will use ANNs to diagnose Brease Cancer with some characteristics of the cell nuclei.&lt;/p&gt;
+&lt;p&gt;We will use ANNs to diagnose Breast Cancer with some characteristics of the cell nuclei.&lt;/p&gt;
 
 &lt;h1 id=&#34;dataset&#34;&gt;Dataset&lt;/h1&gt;
 
@@ -5556,8 +5558,8 @@ np.max(x_train), np.min(x_train)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;The range of values in the data is 0-255,
--  we can to scale it to [0,1], dividing it by 255 will do.
-- or we can standardize it by subtracting mean and dividing std.&lt;/p&gt;
+-  we can scale it to [0,1], dividing it by 255 will do.
+- or we can standardize it by subtracting the mean and dividing std.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;mean = np.mean(x_train)
 std = np.std(x_train)
@@ -5600,7 +5602,7 @@ print(y_train[:5])
 
 &lt;h1 id=&#34;colour-channels&#34;&gt;Colour Channels&lt;/h1&gt;
 
-&lt;p&gt;Lets check the shape of the arrays&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s check the shape of the arrays&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;x_train.shape, y_train.shape, x_test.shape, y_test.shape
 &lt;/code&gt;&lt;/pre&gt;
@@ -5610,7 +5612,7 @@ print(y_train[:5])
 
 &lt;p&gt;The shape of each image is (32 x 32 x 3), previously we saw MNIST dataset had a shape of (28 x 28), why is it so?&lt;/p&gt;
 
-&lt;p&gt;MNIST is a gray-scale image, it has a single channel of gray scale. But CIFAR-10 is a colour image, every colour pixel has 3 channels RGB, all these 3 channels contribute to what colour you see.&lt;/p&gt;
+&lt;p&gt;MNIST is a gray-scale image, it has a single channel of gray scale. But CIFAR-10 is a colour image, every colour pixel has 3 channels RGB, all these 3 channel contribute to what colour you see.&lt;/p&gt;
 
 &lt;p&gt;Any colour image is made of 3 channels RGB.&lt;/p&gt;
 
@@ -5727,7 +5729,7 @@ plt.show()
 
 &lt;h1 id=&#34;image-augmentation&#34;&gt;Image Augmentation&lt;/h1&gt;
 
-&lt;p&gt;We have discussed that, more images/data improves the model performance and avoid overfitting. But its not always possible to get new data, so we can augment the old data to create new data.&lt;/p&gt;
+&lt;p&gt;We have discussed that, more images/data improves the model performance and avoid overfitting. But it&amp;rsquo;s not always possible to get new data, so we can augment the old data to create new data.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://miro.medium.com/max/665/1*Jujct_Pt-zvdWtSFpHUp3Q.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
@@ -5838,7 +5840,7 @@ for x_batch, y_batch in train_datagen.flow(x_train, y_train, batch_size=1):
 
 &lt;p&gt;&lt;img src=&#34;../2_8/output_33_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;You can see the some of the images are zoomed, some are rotated&amp;hellip;etc. SO these images are now different that the original image and for the model these are new images.&lt;/p&gt;
+&lt;p&gt;You can see some of the images are zoomed, some are rotated&amp;hellip;etc. SO these images are now different that the original image and for the model these are new images.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;optimizer = tf.keras.optimizers.SGD(lr=0.001, momentum=0.9)
 model.compile(optimizer=optimizer, loss=&#39;categorical_crossentropy&#39;, metrics=[&#39;accuracy&#39;])
@@ -5901,7 +5903,7 @@ plt.show()
 
 &lt;h1 id=&#34;saving-a-trained-model&#34;&gt;Saving a Trained Model&lt;/h1&gt;
 
-&lt;p&gt;Saving a trained model is very important, hours of training should not be wasted and we need the trained model to be deployed in some other device. Its very simple in tf.keras&lt;/p&gt;
+&lt;p&gt;Saving a trained model is very important, hours of training should not be wasted and we need the trained model to be deployed in some other device. It&amp;rsquo;s very simple in tf.keras&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;model_path = &#39;cifar10_trained_model.h5&#39;
 
@@ -6033,8 +6035,8 @@ sentence_2_int(sentence)
 
 &lt;p&gt;Every sentence will be off different length, to pass the sentences through the ANN model, we need to have a fixed length data.
 So we
-- pad small sentence
-- cut very long sentence&lt;/p&gt;
+- pad small sentences
+- cut very long sentences to a fixed length&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;pad_value = 0
 sentence_len = 100
@@ -6059,7 +6061,7 @@ train_data.shape, train_labels.shape, test_data.shape, test_labels.shape
 
 &lt;p&gt;We will use a new layer into our model called the Embedding layer.&lt;/p&gt;
 
-&lt;p&gt;The words of each sentence are now represented with numbers, we cannot directly feed those number into the model, we need to convert the numbers into vectors for the model to understand what word it is?&lt;/p&gt;
+&lt;p&gt;The words of each sentence are now represented with numbers, we cannot directly feed those numbers into the model, we need to convert the numbers into vectors for the model to understand what word it is?&lt;/p&gt;
 
 &lt;p&gt;but how do we decide the vectors? we leave that to the model.&lt;/p&gt;
 
@@ -6260,7 +6262,7 @@ sentence_2_prediction(sentence)
 &lt;pre&gt;&lt;code&gt;Negative Review :(
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;If you try many different sentences, you may notice the model actually doen&amp;rsquo;t perform well. There may be many reasons for it.&lt;/p&gt;
+&lt;p&gt;If you try many different sentences, you may notice the model actually doesn&amp;rsquo;t perform well. There may be many reasons for it.&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;vocabulary size&lt;/li&gt;

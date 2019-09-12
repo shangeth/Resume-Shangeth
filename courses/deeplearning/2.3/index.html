@@ -708,7 +708,7 @@ So we update x with $x := x - \alpha \frac{\partial \mathcal{y}}{\partial x}$</p
 <p>When do we stop?
 We can iterate of any number of iterations, but when x reaches minimum y , then $\dfrac{\partial \mathcal{y}}{\partial x} = 0$</p>
 
-<p>$\therefore x := x - \alpha . 0$, so x will remain same, even if you iterate more.</p>
+<p>$\therefore x := x - \alpha . 0$, so x will remain the same, even if you iterate more.</p>
 
 <p>Let&rsquo;s code this.</p>
 
@@ -718,7 +718,7 @@ def gradient(x):
     return 0.16*x+np.cos(x)
 </code></pre>
 
-<pre><code class="language-python">np.random.seed(24) # change the seed to start from different point
+<pre><code class="language-python">np.random.seed(24) # change the seed to start from different points
 
 x = np.arange(-10, 10, 0.01)
 y = f(x)
@@ -765,7 +765,7 @@ for i in range(epochs):
 
 <p><img src="../2_3/output_11_4.png" alt="png" /></p>
 
-<pre><code class="language-python">np.random.seed(24) # change the seed to start from different point
+<pre><code class="language-python">np.random.seed(24) # change the seed to start from different points
 
 x = np.arange(-10, 10, 0.01)
 y = f(x)
@@ -817,11 +817,11 @@ plt.show()
 
 <p>$x = x - \alpha v$</p>
 
-<p>This algorithms smoothens the updation process, by averaging the movement in other direction and forces x to move in the required direction which fastens the process.</p>
+<p>This algorithms smoothens the updation process, by averaging the movement in other the direction and forces x to move in the required direction which fastens the process.</p>
 
 <h2 id="momentum-in-numpy">Momentum in Numpy</h2>
 
-<pre><code class="language-python">np.random.seed(23) # change the seed to start from different point
+<pre><code class="language-python">np.random.seed(23) # change the seed to start from different points
 
 x = np.arange(-10, 10, 0.01)
 y = f(x)
@@ -871,7 +871,7 @@ for i in range(epochs):
 
 <p><img src="../2_3/output_15_4.png" alt="png" /></p>
 
-<pre><code class="language-python">np.random.seed(24) # change the seed to start from different point
+<pre><code class="language-python">np.random.seed(24) # change the seed to start from different points
 
 x = np.arange(-10, 10, 0.01)
 y = f(x)
@@ -952,7 +952,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized will to same, for reproducing same results.
+# random number initialized to same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
@@ -1027,7 +1027,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized will to same, for reproducing same results.
+# random number initialized to same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
@@ -1107,7 +1107,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
 
-# random number initialized will to same, for reproducing same results.
+# random number initialized to same, for reproducing the same results.
 np.random.seed(0)
 tf.set_random_seed(0)
 
