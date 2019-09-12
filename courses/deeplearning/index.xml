@@ -20,9 +20,9 @@
       <guid>/courses/deeplearning/1.1/</guid>
       <description>Open in GitHub
 Google Explore ML Academy Instructor: Shangeth Rajaa 
-Before starting with Neural Networks, we will look into 2 important machine learning models to understand regression and classification tasks - Linear Regression (Regression) - Logistic Regression (Classification)
-
-Most of the Deep learning Courses do not start with linear regression(LinReg), but LinReg gave me a better understanding of machine learning, so i will start with that, hoping that will make the understanding of Neural networks easier.</description>
+Before starting with Neural Networks, we will look into 2 important machine learning models to understand regression and classification tasks
+ Linear Regression (Regression) Logistic Regression (Classification)  
+You can think of Linear Regression model as a curve fitting or function approximation model. Given a dataset $(X, y)$, the task is to find a relation $f$ between $X$ and $y$ such that $y = f(X)$.</description>
     </item>
     
     <item>

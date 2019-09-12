@@ -37,15 +37,16 @@
 &lt;center&gt;&lt;h3&gt;Instructor: &lt;a href=&#39;https://shangeth.com/&#39;&gt;Shangeth Rajaa&lt;/a&gt;&lt;/h3&gt;&lt;/center&gt;
 &lt;hr&gt;&lt;/p&gt;
 
-&lt;p&gt;Before starting with Neural Networks, we will look into 2 important machine learning models to understand regression and classification tasks
-- Linear Regression (Regression)
-- Logistic Regression (Classification)&lt;/p&gt;
+&lt;p&gt;Before starting with Neural Networks, we will look into 2 important machine learning models to understand regression and classification tasks&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Linear Regression (Regression)&lt;/li&gt;
+&lt;li&gt;Logistic Regression (Classification)&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
 
-&lt;p&gt;Most of the Deep learning Courses do not start with linear regression(LinReg), but LinReg gave me a better understanding of machine learning, so i will start with that, hoping that will make the understanding of Neural networks easier.&lt;/p&gt;
-
-&lt;p&gt;You can think of LinReg model as a curve fitting or function approximation model. Given a dataset $(X, y)$, the task is to find a relation $f$ between $X$ and $y$ such that $y = f(X)$. We are interested in this mapping $f: X \rightarrow y$, as for any given $X$ in the future we can find $y = f(X)$.&lt;/p&gt;
+&lt;p&gt;You can think of Linear Regression model as a curve fitting or function approximation model. Given a dataset $(X, y)$, the task is to find a relation $f$ between $X$ and $y$ such that $y = f(X)$. We are interested in this mapping $f: X \rightarrow y$, as for any given $X$ in the future we can find $y = f(X)$.&lt;/p&gt;
 
 &lt;p&gt;For example, given a dataset about housing prices vs area of the house(Toy Dataset)&lt;/p&gt;
 
