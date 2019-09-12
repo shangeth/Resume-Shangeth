@@ -7,7 +7,7 @@
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; {year} Shangeth Rajaa</copyright>
-    <lastBuildDate>Fri, 06 Sep 2019 00:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 12 Sep 2019 00:00:00 +0100</lastBuildDate>
     
 	    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -5484,7 +5484,7 @@ plt.show()
     <item>
       <title>ANN - Computer Vision</title>
       <link>/courses/deeplearning/2.8/</link>
-      <pubDate>Fri, 06 Sep 2019 00:00:00 +0100</pubDate>
+      <pubDate>Tue, 10 Sep 2019 00:00:00 +0100</pubDate>
       
       <guid>/courses/deeplearning/2.8/</guid>
       <description>
@@ -5957,7 +5957,7 @@ _________________________________________________________________
     <item>
       <title>ANN - Natural Language Processing</title>
       <link>/courses/deeplearning/2.9/</link>
-      <pubDate>Fri, 06 Sep 2019 00:00:00 +0100</pubDate>
+      <pubDate>Thu, 12 Sep 2019 00:00:00 +0100</pubDate>
       
       <guid>/courses/deeplearning/2.9/</guid>
       <description>
