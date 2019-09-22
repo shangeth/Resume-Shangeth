@@ -18,7 +18,8 @@
       <pubDate>Wed, 18 Sep 2019 00:00:00 +0100</pubDate>
       
       <guid>/courses/deeplearning/0.1/</guid>
-      <description> </description>
+      <description>Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
+ </description>
     </item>
     
     <item>
@@ -28,7 +29,7 @@
       
       <guid>/courses/deeplearning/1.1/</guid>
       <description>Open in GitHub
-Google Explore ML Academy Instructor: Shangeth Rajaa 
+Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
 Before starting with Neural Networks, we will look into 2 important machine learning models to understand regression and classification tasks
  Linear Regression (Regression) Logistic Regression (Classification)  
 You can think of Linear Regression model as a curve fitting or function approximation model. Given a dataset $(X, y)$, the task is to find a relation $f$ between $X$ and $y$ such that $y = f(X)$.</description>
@@ -41,7 +42,7 @@ You can think of Linear Regression model as a curve fitting or function approxim
       
       <guid>/courses/deeplearning/1.2/</guid>
       <description>Open in GitHub
-Google Explore ML Academy - BPGC Instructor: Shangeth Rajaa 
+Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
 Solutions Here:
 
  Open in GitHub
@@ -56,7 +57,7 @@ Task-1 : Linear Regression on Non-Linear Data  Get X and y from dataset() functi
       
       <guid>/courses/deeplearning/1.3/</guid>
       <description>Open in GitHub
-Google Explore ML Academy Instructor: Shangeth Rajaa 
+Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
 Logistic Regression is one of the most commonly used classification models. Unlike Linear Regression which predicts a real unbounded value $\hat{y} = f(X) = WX+b$, Logistic Regression predicts the probability of a data belonging to a particular class.
 
 For example for a given data (X,y) where X is a received email and y is 0 if email is spam and 1 if email is not spam.</description>
@@ -69,7 +70,7 @@ For example for a given data (X,y) where X is a received email and y is 0 if ema
       
       <guid>/courses/deeplearning/1.4/</guid>
       <description>Open in GitHub
-Google Explore ML Academy Instructor: Shangeth Rajaa 
+Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
 Solutions Here: 
  Open in GitHub
 In the previous notebook we used logistic regression for Binary Classification, now we will see how to train a classifier model for Multi-Class Classification.
@@ -83,7 +84,7 @@ What is Multi-Class Classification? If the target values have n discrete classif
       
       <guid>/courses/deeplearning/1.5/</guid>
       <description>Open in GitHub
-Google Explore ML Academy Instructor: Shangeth Rajaa 
+Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
 Non-Linearity Note: We will look mostly at classification examples, but the same concepts apply to regression problems as well with a little change in using activation function(Sigmoid, Softmax which we learned in previous sections).
 So far the datasets we have used are linearly separable, which means they can be separated by line(2-d), plane(3-d) and linear multi dimensional classifiers.</description>
     </item>
@@ -95,7 +96,7 @@ So far the datasets we have used are linearly separable, which means they can be
       
       <guid>/courses/deeplearning/2.1/</guid>
       <description>Open in GitHub
-Google Explore ML Academy Instructor: Shangeth Rajaa 
+Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
 We trained our first neural network in the previous notebook which had 3 layers
  Input Layer Hidden Layer Output Layer  Multiple Nodes The network had 2 linear layers($C_1$,0 $C_2$) in the hidden layer each of which gave us a linear classifier, then we used another linear layer($C_3$) in the output layer to combine $C_1$ and $C_2$ to give us a non-linear classifier($C$).</description>
     </item>
@@ -107,7 +108,7 @@ We trained our first neural network in the previous notebook which had 3 layers
       
       <guid>/courses/deeplearning/2.2/</guid>
       <description>Open in GitHub
-Google Explore ML Academy Instructor: Shangeth Rajaa 
+Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
 Batch Training Batch Training is something very important but we didn&amp;rsquo;t use before as our dataset was smaller and we were just learning how to train models.
 So far,
  we took each example $(X^i, y^i)$ made prediction with $\hat{y}^i = g(X^i.W+b)$ calculated the loss $\mathcal{L}(y^i , \hat{y}^i)$ used back propagation to update $W$ and $b$ (all parameters in the model) with $w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \frac{\partial \mathcal{L}}{\partial b}$ and repeated this process.</description>
@@ -120,7 +121,7 @@ So far,
       
       <guid>/courses/deeplearning/2.3/</guid>
       <description>Open in GitHub
-Google Explore ML Academy Instructor: Shangeth Rajaa 
+Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
 Gradient Descent We have seen what are the steps followed in Gradient Descent to minimize the loss function. Now let&amp;rsquo;s get into more detail.
 The objective of gradient descent is to find $W, b$ for which $\mathcal{L}(W, b) $ is minimum for given pairs of data $(X, y)$.
 Example Let&amp;rsquo;s forget about Machine learning for sometime and use gradient descent algorithm for optimization of simple functions.</description>
@@ -133,7 +134,7 @@ Example Let&amp;rsquo;s forget about Machine learning for sometime and use gradi
       
       <guid>/courses/deeplearning/2.4/</guid>
       <description>Open in GitHub
-Google Explore ML Academy Instructor: Shangeth Rajaa 
+Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
 Learning Rate In Gradient Descent we update the parameters of the model with
 $w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \frac{\partial \mathcal{L}}{\partial b}$.
 The learning rate $\alpha$ actually affects the learning process a lot.
@@ -147,7 +148,7 @@ The learning rate $\alpha$ actually affects the learning process a lot.
       
       <guid>/courses/deeplearning/2.5/</guid>
       <description>Open in GitHub
-Google Explore ML Academy Instructor: Shangeth Rajaa 
+Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
 Bias &amp;amp; Variance Let us train a DNN model for a simple regression problem.
 import numpy as np import matplotlib.pyplot as plt def dataset(show=True): X = np.arange(-5, 5, 0.01) y = 8 * np.sin(X) + np.random.randn(1000) if show: yy = 8 * np.sin(X) plt.figure(figsize=(15,9)) plt.scatter(X, y) plt.plot(X, yy, color=&#39;red&#39;, linewidth=7) plt.show() return X, y X, y = dataset(show=True)  Lets train 2 models for this dataset</description>
     </item>
@@ -159,7 +160,7 @@ import numpy as np import matplotlib.pyplot as plt def dataset(show=True): X = n
       
       <guid>/courses/deeplearning/2.6/</guid>
       <description>Open in GitHub
-Google Explore ML Academy Instructor: Shangeth Rajaa 
+Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
 MNIST Dataset The MNIST database of handwritten digits, has a training set of 60,000 examples, and a test set of 10,000 examples. It is a subset of a larger set available from NIST. The digits have been size-normalized and centered in a fixed-size image.
 Let&amp;rsquo;s get the dataset using tf.keras.datasets
 Download MNIST import tensorflow as tf (x_train, y_train), (x_test, y_test) = tf.</description>
@@ -172,7 +173,7 @@ Download MNIST import tensorflow as tf (x_train, y_train), (x_test, y_test) = tf
       
       <guid>/courses/deeplearning/2.7/</guid>
       <description>Open in GitHub
-Google Explore ML Academy Instructor: Shangeth Rajaa 
+Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
 We will use ANNs to diagnose Breast Cancer with some characteristics of the cell nuclei.
 Dataset Download the Dataset We will use a breast cancer diagnosis dataset from Opeml.org
 %%capture !wget https://www.openml.org/data/get_csv/5600/BNG_breast-w.arff  Explore the Dataset import pandas as pd df = pd.read_csv(&#39;/content/BNG_breast-w.arff&#39;) df.head()   .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .</description>
@@ -185,7 +186,7 @@ Dataset Download the Dataset We will use a breast cancer diagnosis dataset from 
       
       <guid>/courses/deeplearning/2.8/</guid>
       <description>Open in GitHub
-Google Explore ML Academy Instructor: Shangeth Rajaa 
+Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
 We will use ANNs for a basic computer vision application of image classification on CIFAR10 Dataset
 Dataset CIFAR-10 The CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images.
 Download the Dataset Tensorflow has inbuilt dataset which makes it easy to get training and testing data.</description>
@@ -197,7 +198,7 @@ Download the Dataset Tensorflow has inbuilt dataset which makes it easy to get t
       <pubDate>Thu, 12 Sep 2019 00:00:00 +0100</pubDate>
       
       <guid>/courses/deeplearning/2.9/</guid>
-      <description>Google Explore ML Academy Instructor: Shangeth Rajaa 
+      <description>Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
 Sentiment Analysis We are going to classify a movie review as Positive or Negative review given a text review.
 We&amp;rsquo;ll use the IMDB dataset that contains the text of 50,000 movie reviews from the Internet Movie Database. These are split into 25,000 reviews for training and 25,000 reviews for testing. The training and testing sets are balanced, meaning they contain an equal number of positive and negative reviews.</description>
     </item>
