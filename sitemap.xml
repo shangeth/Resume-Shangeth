@@ -100,19 +100,16 @@
   <url>
     <loc>/</loc>
     <lastmod>2019-09-18T00:00:00+01:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/computer-vision/</loc>
     <lastmod>2019-07-08T01:07:01+05:30</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/deep-learning/</loc>
     <lastmod>2019-07-08T01:07:01+05:30</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -123,67 +120,56 @@
   <url>
     <loc>/tags/javascript/</loc>
     <lastmod>2019-07-08T01:07:01+05:30</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/project/</loc>
     <lastmod>2019-07-08T01:07:01+05:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/pytorch/</loc>
-    <lastmod>2019-07-08T01:07:01+05:30</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/python/</loc>
     <lastmod>2019-07-08T01:07:01+05:30</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/pytorch/</loc>
+    <lastmod>2019-07-08T01:07:01+05:30</lastmod>
   </url>
   
   <url>
     <loc>/tags/</loc>
     <lastmod>2019-07-08T01:07:01+05:30</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/tensorflow/</loc>
     <lastmod>2019-07-08T01:07:01+05:30</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/publication_types/1/</loc>
     <lastmod>2019-06-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/authors/</loc>
     <lastmod>2019-06-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/flask/</loc>
     <lastmod>2019-06-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/authors/julio-jacques-junior/</loc>
     <lastmod>2019-06-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/authors/meysam-madadi/</loc>
     <lastmod>2019-06-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -199,7 +185,6 @@
   <url>
     <loc>/publication_types/</loc>
     <lastmod>2019-06-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -210,31 +195,26 @@
   <url>
     <loc>/authors/sergio-escalera/</loc>
     <lastmod>2019-06-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/authors/shangeth-rajaa/</loc>
     <lastmod>2019-06-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/source-themes/</loc>
     <lastmod>2019-06-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/authors/zhen-xu/</loc>
     <lastmod>2019-06-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/authors/zhengying-liu/</loc>
     <lastmod>2019-06-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -245,19 +225,16 @@
   <url>
     <loc>/categories/</loc>
     <lastmod>2019-05-25T04:43:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/deep-learning/</loc>
     <lastmod>2019-05-25T04:43:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/deep-learning-post/</loc>
     <lastmod>2019-05-25T04:43:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -268,25 +245,21 @@
   <url>
     <loc>/tags/gan-post/</loc>
     <lastmod>2019-05-25T04:43:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/post/</loc>
     <lastmod>2019-05-25T04:43:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/pytorch/</loc>
-    <lastmod>2019-05-25T04:43:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/python/</loc>
     <lastmod>2019-05-25T04:43:00+00:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/pytorch/</loc>
+    <lastmod>2019-05-25T04:43:00+00:00</lastmod>
   </url>
   
   <url>
@@ -302,7 +275,6 @@
   <url>
     <loc>/tags/gan-post#%23-supervised-learning/</loc>
     <lastmod>2019-05-21T03:43:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -318,7 +290,6 @@
   <url>
     <loc>/categories/unsupervised-learning/</loc>
     <lastmod>2019-05-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -329,7 +300,6 @@
   <url>
     <loc>/tags/unsupervised-learning-post/</loc>
     <lastmod>2019-05-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -340,7 +310,6 @@
   <url>
     <loc>/authors/jk-sahoo/</loc>
     <lastmod>2019-05-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -356,7 +325,6 @@
   <url>
     <loc>/slides/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -391,7 +359,6 @@
   
   <url>
     <loc>/tags/keras/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -403,16 +370,15 @@
   </url>
   
   <url>
+    <loc>/project/neural-style-transfer/</loc>
+  </url>
+  
+  <url>
     <loc>/tags/nlp/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/project/nytimes-topic-modelling/</loc>
-  </url>
-  
-  <url>
-    <loc>/project/neural-style-transfer/</loc>
   </url>
   
   <url>
@@ -421,7 +387,6 @@
   
   <url>
     <loc>/tags/self-driving-cars/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -450,7 +415,6 @@
   
   <url>
     <loc>/tags/topic-modelling/</loc>
-    <priority>0</priority>
   </url>
   
   <url>

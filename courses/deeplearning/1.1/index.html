@@ -143,7 +143,7 @@ You can think of Linear Regression model as a curve fitting or function approxim
 Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
 Before starting with Neural Networks, we will look into 2 important machine learning models to understand regression and classification tasks
  Linear Regression (Regression) Logistic Regression (Classification)  
-You can think of Linear Regression model as a curve fitting or function approximation model. Given a dataset $(X, y)$, the task is to find a relation $f$ between $X$ and $y$ such that $y = f(X)$."><meta property="og:image" content="/img/instructor.jpeg">
+You can think of Linear Regression model as a curve fitting or function approximation model. Given a dataset $(X, y)$, the task is to find a relation $f$ between $X$ and $y$ such that $y = f(X)$."><meta property="og:image" content="/img/instructor2.jpeg">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-08-29T00:00:00&#43;01:00">
@@ -1005,36 +1005,43 @@ plt.show()
 </code></pre>
 
 <ul>
-<li><p><code>model.compile(optimizer='adam', loss='mean_squared_error')</code></p>
+<li><pre><code class="language-model.compile(optimizer='adam',">
+    Compile configures the training process. It defines the metrics, optimizers,..etc. You will understand more about this as we go on with more examples.
 
-<pre><code>Compile configures the training process. It defines the metrics, optimizers,..etc. You will understand more about this as we go on with more examples.
-</code></pre></li>
+- ``` tf_history = model.fit(x, y, epochs=1000, verbose=False) ```
 
-<li><p><code>tf_history = model.fit(x, y, epochs=1000, verbose=False)</code></p>
+    model.fit actually trains the model for given number of epochs. Note: We've used Verbose=False(as the output will be long), set it to true to check the loss and metrics for each epoch.
 
-<pre><code>model.fit actually trains the model for given number of epochs. Note: We've used Verbose=False(as the output will be long), set it to true to check the loss and metrics for each epoch.
-</code></pre></li>
+
+Just 3-4 line of Tensorflow code can train a machine learning model, this is the advantage of using packages like Tensorflow/PyTorch. These packages are best optimized for speed and performance.
+
+
+</code></pre>
+
+<p>python</p></li>
 </ul>
 
-<p>Just 3-4 line of Tensorflow code can train a machine learning model, this is the advantage of using packages like Tensorflow/PyTorch. These packages are best optimized for speed and performance.</p>
+<p>model.summary()</p>
 
-<pre><code class="language-python">model.summary()
+<pre><code>
+    Model: &quot;sequential&quot;
+    _________________________________________________________________
+    Layer (type)                 Output Shape              Param #   
+    =================================================================
+    dense (Dense)                (None, 1)                 2         
+    =================================================================
+    Total params: 2
+    Trainable params: 2
+    Non-trainable params: 0
+    _________________________________________________________________
+
+
+
 </code></pre>
 
-<pre><code>Model: &quot;sequential&quot;
-_________________________________________________________________
-Layer (type)                 Output Shape              Param #   
-=================================================================
-dense (Dense)                (None, 1)                 2         
-=================================================================
-Total params: 2
-Trainable params: 2
-Non-trainable params: 0
-_________________________________________________________________
-</code></pre>
-
-<pre><code class="language-python">tf.keras.Sequential? # if you are not sure of any library, its better to look into the docs.
-</code></pre>
+<p>python
+tf.keras.Sequential? # if you are not sure of any library, its better to look into the docs.
+```</p>
 
           </div>
 
@@ -1224,7 +1231,7 @@ _________________________________________________________________
     
     
     
-    <script src="/js/academic.min.3258b3a711acd6208568ec000de4beec.js"></script>
+    <script src="/js/academic.min.ee8463f2a394889d45e169a983fe913d.js"></script>
 
   </body>
 </html>

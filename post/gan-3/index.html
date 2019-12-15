@@ -867,28 +867,28 @@ print(G_network)
 minimize real_loss(p) or p to be closer to 1. ie: fool generator by making realistic images.</p></li>
 
 <li><p>For Discriminator :
-minimize real_loss + fake loss. ie: p of real image close to 1 and p of fake image close to 0.</p></li>
-</ul>
+minimize real_loss + fake loss. ie: p of real image close to 1 and p of fake image close to 0.</p>
 
 <pre><code class="language-python">def real_loss(D_out, smooth=False):
-    batch_size = D_out.size(0)
-    # label smoothing
-    if smooth:
-        # smooth, real labels = 0.9
-        labels = torch.ones(batch_size)*0.9
-    else:
-        labels = torch.ones(batch_size) # real labels = 1
-    criterion = nn.NLLLoss()
-    loss = criterion(D_out.squeeze(), labels.long().cuda())
-    return loss
+batch_size = D_out.size(0)
+# label smoothing
+if smooth:
+    # smooth, real labels = 0.9
+    labels = torch.ones(batch_size)*0.9
+else:
+    labels = torch.ones(batch_size) # real labels = 1
+criterion = nn.NLLLoss()
+loss = criterion(D_out.squeeze(), labels.long().cuda())
+return loss
 
 def fake_loss(D_out):
-    batch_size = D_out.size(0)
-    labels = torch.zeros(batch_size) # fake labels = 0
-    criterion = nn.NLLLoss()
-    loss = criterion(D_out.squeeze(), labels.long().cuda())
-    return loss
-</code></pre>
+batch_size = D_out.size(0)
+labels = torch.zeros(batch_size) # fake labels = 0
+criterion = nn.NLLLoss()
+loss = criterion(D_out.squeeze(), labels.long().cuda())
+return loss
+</code></pre></li>
+</ul>
 
 <p><a href="https://towardsdatascience.com/gan-ways-to-improve-gan-performance-acf37f9f59b" target="_blank">label smoothing</a> is also done for better convergence.</p>
 
@@ -1030,8 +1030,8 @@ Also <a href="https://github.com/Yangyangii/GAN-Tutorial/blob/master/MNIST/Vanil
 
     <div class="media-body">
       <h5 class="card-title" itemprop="name"><a href="/authors/admin/">Shangeth Rajaa</a></h5>
-      <h6 class="card-subtitle">Content Developer at OpenCV.org | Research Collaborator INRIA, Paris.</h6>
-      <p class="card-text" itemprop="description">Research Collaborator at INRIA, Deep Learning content developer at OpenCV.org, Deep Learning Research</p>
+      <h6 class="card-subtitle">ML Facilitator at Google AI | Research Collaborator INRIA, Paris.</h6>
+      <p class="card-text" itemprop="description">ML Facilitator at Google AI ,Research Collaborator at INRIA, Deep Learning content developer at OpenCV.org, Deep Learning Research</p>
       <ul class="network-icon" aria-hidden="true">
         
           
@@ -1356,7 +1356,7 @@ Also <a href="https://github.com/Yangyangii/GAN-Tutorial/blob/master/MNIST/Vanil
     
     
     
-    <script src="/js/academic.min.3258b3a711acd6208568ec000de4beec.js"></script>
+    <script src="/js/academic.min.ee8463f2a394889d45e169a983fe913d.js"></script>
 
   </body>
 </html>

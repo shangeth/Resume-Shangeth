@@ -145,7 +145,7 @@ Deep Learning - Beginners Track Instructor: Shangeth Rajaa
 Solutions Here: 
  Open in GitHub
 In the previous notebook we used logistic regression for Binary Classification, now we will see how to train a classifier model for Multi-Class Classification.
-What is Multi-Class Classification? If the target values have n discrete classification classes ie: y can take discrete value from 0 to n-1. If $y \in {0, 1, 2, 3, &hellip;, n-1}$, then the classification task is n-Multi-Class."><meta property="og:image" content="/img/instructor.jpeg">
+What is Multi-Class Classification? If the target values have n discrete classification classes ie: y can take discrete value from 0 to n-1. If $y \in {0, 1, 2, 3, &hellip;, n-1}$, then the classification task is n-Multi-Class."><meta property="og:image" content="/img/instructor2.jpeg">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-08-30T00:00:00&#43;01:00">
@@ -921,8 +921,8 @@ print(X_train.shape, X_test.shape, y_train.shape, y_test.shape)
 <li>Train Model with Validation Dataset, check the <a href="https://keras.io/models/model/" target="_blank">docs</a> on how to use validation data.</li>
 <li>predict X_test with the trained model, refer the docs(model.predict function)</li>
 <li>convert the prediction of X_test and y_test from one-hot to labels using np.argmax(pred, axis=1)</li>
-<li>use sklearn.metrics.accuracy_score on prediction of X_test and y_test to find the accuracy on Test set.</li>
-</ul>
+
+<li><p>use sklearn.metrics.accuracy_score on prediction of X_test and y_test to find the accuracy on Test set.</p>
 
 <pre><code class="language-python">import tensorflow as tf
 from tensorflow import keras
@@ -959,20 +959,20 @@ test_accuracy = accuracy_score(np.argmax(y_test_pred, axis=1), np.argmax(y_test,
 print('\nTest Accuracy = ', test_accuracy)
 </code></pre>
 
-<pre><code>Train on 1280 samples, validate on 320 samples
-Epoch 1/30
-1280/1280 [==============================] - 0s 300us/sample - loss: 5.9285 - acc: 0.3305 - val_loss: 5.8832 - val_acc: 0.3281
-Epoch 2/30
-1280/1280 [==============================] - 0s 40us/sample - loss: 5.3884 - acc: 0.3305 - val_loss: 5.3271 - val_acc: 0.3281
+<p>Train on 1280 samples, validate on 320 samples
+Epoch <sup>1</sup>&frasl;<sub>30</sub>
+<sup>1280</sup>&frasl;<sub>1280</sub> [==============================] - 0s 300us/sample - loss: 5.9285 - acc: 0.3305 - val_loss: 5.8832 - val_acc: 0.3281
+Epoch <sup>2</sup>&frasl;<sub>30</sub>
+<sup>1280</sup>&frasl;<sub>1280</sub> [==============================] - 0s 40us/sample - loss: 5.3884 - acc: 0.3305 - val_loss: 5.3271 - val_acc: 0.3281
 .
 .
-Epoch 29/30
-1280/1280 [==============================] - 0s 41us/sample - loss: 0.0755 - acc: 0.9969 - val_loss: 0.0691 - val_acc: 0.9969
-Epoch 30/30
-1280/1280 [==============================] - 0s 41us/sample - loss: 0.0699 - acc: 0.9969 - val_loss: 0.0637 - val_acc: 0.9969
+Epoch <sup>29</sup>&frasl;<sub>30</sub>
+<sup>1280</sup>&frasl;<sub>1280</sub> [==============================] - 0s 41us/sample - loss: 0.0755 - acc: 0.9969 - val_loss: 0.0691 - val_acc: 0.9969
+Epoch <sup>30</sup>&frasl;<sub>30</sub>
+<sup>1280</sup>&frasl;<sub>1280</sub> [==============================] - 0s 41us/sample - loss: 0.0699 - acc: 0.9969 - val_loss: 0.0637 - val_acc: 0.9969</p>
 
-Test Accuracy =  0.995
-</code></pre>
+<p>Test Accuracy =  0.995</p></li>
+</ul>
 
 <p>Train the model with different
 - no of input features
@@ -1169,7 +1169,7 @@ Test Accuracy =  0.995
     
     
     
-    <script src="/js/academic.min.3258b3a711acd6208568ec000de4beec.js"></script>
+    <script src="/js/academic.min.ee8463f2a394889d45e169a983fe913d.js"></script>
 
   </body>
 </html>

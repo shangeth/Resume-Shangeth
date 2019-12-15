@@ -22,20 +22,20 @@
     </item>
     
     <item>
-      <title>PyTorch</title>
-      <link>/categories/pytorch/</link>
-      <pubDate>Sat, 25 May 2019 04:43:00 +0000</pubDate>
-      
-      <guid>/categories/pytorch/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Python</title>
       <link>/categories/python/</link>
       <pubDate>Sat, 25 May 2019 04:43:00 +0000</pubDate>
       
       <guid>/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PyTorch</title>
+      <link>/categories/pytorch/</link>
+      <pubDate>Sat, 25 May 2019 04:43:00 +0000</pubDate>
+      
+      <guid>/categories/pytorch/</guid>
       <description></description>
     </item>
     
