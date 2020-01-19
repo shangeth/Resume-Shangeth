@@ -98,6 +98,66 @@
   </url>
   
   <url>
+    <loc>/authors/admin/</loc>
+    <lastmod>2020-01-19T02:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/</loc>
+    <lastmod>2020-01-19T02:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <lastmod>2020-01-19T02:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/deep-learning/</loc>
+    <lastmod>2020-01-19T02:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/off-policy-monte-carlo/</loc>
+    <lastmod>2020-01-19T02:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/openai-gym/</loc>
+    <lastmod>2020-01-19T02:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-01-19T02:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/python/</loc>
+    <lastmod>2020-01-19T02:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/python/</loc>
+    <lastmod>2020-01-19T02:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/reinforcement-learning/</loc>
+    <lastmod>2020-01-19T02:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-01-19T02:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-01-19T02:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/deep-learning/</loc>
     <lastmod>2019-11-14T00:00:00+00:00</lastmod>
   </url>
@@ -113,27 +173,7 @@
   </url>
   
   <url>
-    <loc>/tags/python/</loc>
-    <lastmod>2019-11-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/pytorch/</loc>
-    <lastmod>2019-11-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/reinforcement-learning/</loc>
-    <lastmod>2019-11-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2019-11-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2019-11-14T00:00:00+00:00</lastmod>
   </url>
   
@@ -174,11 +214,6 @@
   
   <url>
     <loc>/publication_types/1/</loc>
-    <lastmod>2019-06-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/</loc>
     <lastmod>2019-06-14T00:00:00+00:00</lastmod>
   </url>
   
@@ -243,42 +278,12 @@
   </url>
   
   <url>
-    <loc>/authors/admin/</loc>
-    <lastmod>2019-05-25T04:43:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
-    <lastmod>2019-05-25T04:43:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/deep-learning/</loc>
-    <lastmod>2019-05-25T04:43:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/deep-learning-post/</loc>
+    <loc>/tags/gan/</loc>
     <lastmod>2019-05-25T04:43:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/post/gan-5/</loc>
-    <lastmod>2019-05-25T04:43:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/gan-post/</loc>
-    <lastmod>2019-05-25T04:43:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2019-05-25T04:43:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/python/</loc>
     <lastmod>2019-05-25T04:43:00+00:00</lastmod>
   </url>
   
@@ -298,11 +303,6 @@
   </url>
   
   <url>
-    <loc>/tags/gan-post#%23-supervised-learning/</loc>
-    <lastmod>2019-05-21T03:43:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/post/gan-2/</loc>
     <lastmod>2019-05-21T02:43:00+00:00</lastmod>
   </url>
@@ -313,17 +313,17 @@
   </url>
   
   <url>
+    <loc>/tags/unsupervised-learning/</loc>
+    <lastmod>2019-05-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/categories/unsupervised-learning/</loc>
     <lastmod>2019-05-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/post/unsupervised-learning/</loc>
-    <lastmod>2019-05-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/unsupervised-learning-post/</loc>
     <lastmod>2019-05-20T00:00:00+00:00</lastmod>
   </url>
   

@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; {year} Shangeth Rajaa</copyright>
-    <lastBuildDate>Thu, 14 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jan 2020 02:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Python</title>
+      <link>/tags/python/</link>
+      <pubDate>Sun, 19 Jan 2020 02:00:00 +0000</pubDate>
+      
+      <guid>/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reinforcement Learning</title>
+      <link>/tags/reinforcement-learning/</link>
+      <pubDate>Sun, 19 Jan 2020 02:00:00 +0000</pubDate>
+      
+      <guid>/tags/reinforcement-learning/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Deep Learning</title>
@@ -22,29 +40,11 @@
     </item>
     
     <item>
-      <title>Python</title>
-      <link>/tags/python/</link>
-      <pubDate>Thu, 14 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>PyTorch</title>
       <link>/tags/pytorch/</link>
       <pubDate>Thu, 14 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/pytorch/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Reinforcement Learning</title>
-      <link>/tags/reinforcement-learning/</link>
-      <pubDate>Thu, 14 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/reinforcement-learning/</guid>
       <description></description>
     </item>
     
@@ -94,38 +94,20 @@
     </item>
     
     <item>
-      <title>Deep Learning post</title>
-      <link>/tags/deep-learning-post/</link>
+      <title>GAN</title>
+      <link>/tags/gan/</link>
       <pubDate>Sat, 25 May 2019 04:43:00 +0000</pubDate>
       
-      <guid>/tags/deep-learning-post/</guid>
+      <guid>/tags/gan/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>GAN post</title>
-      <link>/tags/gan-post/</link>
-      <pubDate>Sat, 25 May 2019 04:43:00 +0000</pubDate>
-      
-      <guid>/tags/gan-post/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>GAN post## Supervised learning</title>
-      <link>/tags/gan-post#%23-supervised-learning/</link>
-      <pubDate>Tue, 21 May 2019 03:43:00 +0000</pubDate>
-      
-      <guid>/tags/gan-post#%23-supervised-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Unsupervised Learning post</title>
-      <link>/tags/unsupervised-learning-post/</link>
+      <title>Unsupervised Learning</title>
+      <link>/tags/unsupervised-learning/</link>
       <pubDate>Mon, 20 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/unsupervised-learning-post/</guid>
+      <guid>/tags/unsupervised-learning/</guid>
       <description></description>
     </item>
     
