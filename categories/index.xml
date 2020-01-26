@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; {year} Shangeth Rajaa</copyright>
-    <lastBuildDate>Sun, 19 Jan 2020 02:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 Jan 2020 02:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,9 +15,27 @@
     <item>
       <title>Deep Learning</title>
       <link>/categories/deep-learning/</link>
-      <pubDate>Sun, 19 Jan 2020 02:00:00 +0000</pubDate>
+      <pubDate>Sun, 26 Jan 2020 02:00:00 +0000</pubDate>
       
       <guid>/categories/deep-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Information Theory</title>
+      <link>/categories/information-theory/</link>
+      <pubDate>Sun, 26 Jan 2020 02:00:00 +0000</pubDate>
+      
+      <guid>/categories/information-theory/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>/categories/python/</link>
+      <pubDate>Sun, 26 Jan 2020 02:00:00 +0000</pubDate>
+      
+      <guid>/categories/python/</guid>
       <description></description>
     </item>
     
@@ -27,15 +45,6 @@
       <pubDate>Sun, 19 Jan 2020 02:00:00 +0000</pubDate>
       
       <guid>/categories/openai-gym/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>/categories/python/</link>
-      <pubDate>Sun, 19 Jan 2020 02:00:00 +0000</pubDate>
-      
-      <guid>/categories/python/</guid>
       <description></description>
     </item>
     
