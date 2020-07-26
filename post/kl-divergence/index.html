@@ -95,7 +95,7 @@ $H(x) = \sum{p(x)I(x)}$ where $I(x)$ is called the Information content of $x$.
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.26264af3549d61c0ce873bd043df951e.css">
+  <link rel="stylesheet" href="/css/academic.min.04bf00581ae5351cdd9e3f0836914cc1.css">
 
   
 
@@ -585,164 +585,118 @@ $H(x) = \sum{p(x)I(x)}$ where $I(x)$ is called the Information content of $x$.
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<p><a href="https://colab.research.google.com/drive/1EXb4dW-jVaYsYOpYvLRZ5WVhivh-aglU" target="_blank">Colab Notebook</a></p>
-
+      <p><a href="https://colab.research.google.com/drive/1EXb4dW-jVaYsYOpYvLRZ5WVhivh-aglU">Colab Notebook</a></p>
 <p>Before seeing KL Divergence, let&rsquo;s see a very simple concept called Entropy</p>
-
 <h1 id="entropy">Entropy</h1>
-
 <p>Entropy is the expected information contained in a Distribution. It measures the uncertainty.</p>
-
 <p>$H(x) = \sum{p(x)I(x)}$ where $I(x)$ is called the Information content of $x$.</p>
-
-<p>&ldquo;If an event is very probable, it is no surprise (and generally uninteresting) when that event happens as expected. However, if an event is unlikely to occur, it has much more information to learn that the event happened or will happen. For instance, the knowledge that some particular number will not be the winning number of a lottery provides very little information, because any particular chosen number will almost certainly not win. However, the knowledge that a particular number will win a lottery has a high value because it communicates the outcome of a very low probability event. &ldquo;</p>
-
-<p><br />
+<p>&ldquo;If an event is very probable, it is no surprise (and generally uninteresting) when that event happens as expected. However, if an event is unlikely to occur, it has much more information to learn that the event happened or will happen. For instance, the knowledge that some particular number will not be the winning number of a lottery provides very little information, because any particular chosen number will almost certainly not win. However, the knowledge that a particular number will win a lottery has a high value because it communicates the outcome of a very low probability event. &quot;</p>
+<p><br>
 So the information content is an increasing function of inverse of its probability. More the probability, lesser the information content and vice versa.
 ${\bf I(x) = log_2(\dfrac{1}{p(x)}) = -log_2(p(x))}$</p>
-
 <p>Therefore,
 ${\bf H(x) = \sum{p(x)I(x)} = -\sum{p(x)log_2(p(x))}}$
 and for continuous case ${\bf H(x) = -\int{p(x)log_2(p(x))}}$.</p>
-
 <h2 id="entropy-in-pytorch">Entropy in Pytorch</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> torch
 
-<pre><code class="language-python">import torch
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">entropy</span>(p, epsilon<span style="color:#f92672">=</span><span style="color:#ae81ff">1e-8</span>):
+    <span style="color:#e6db74">&#39;&#39;&#39;
+</span><span style="color:#e6db74">    epsilon to avoid log(0) error
+</span><span style="color:#e6db74">    &#39;&#39;&#39;</span>
+    logp <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>log2(p <span style="color:#f92672">+</span> epsilon)
+    e <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>sum(<span style="color:#f92672">-</span>p<span style="color:#f92672">*</span>logp)
+    <span style="color:#66d9ef">return</span> e
 
-def entropy(p, epsilon=1e-8):
-    '''
-    epsilon to avoid log(0) error
-    '''
-    logp = torch.log2(p + epsilon)
-    e = torch.sum(-p*logp)
-    return e
+<span style="color:#75715e"># probability of choosing [a, b, c, d]</span>
+p1 <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>Tensor([<span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">0.2</span>, <span style="color:#ae81ff">0.4</span>, <span style="color:#ae81ff">0.3</span>])
+p2 <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>Tensor([<span style="color:#ae81ff">0.9</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.1</span>])
 
-# probability of choosing [a, b, c, d]
-p1 = torch.Tensor([0.1, 0.2, 0.4, 0.3])
-p2 = torch.Tensor([0.9, 0.0, 0.0, 0.1])
-
-print('Entropy of Distribution {} = {}'.format(p1.numpy(), entropy(p1)))
-print('Entropy of Distribution {} = {}'.format(p2.numpy(), entropy(p2)))
-</code></pre>
-
-<pre><code>Entropy of Distribution [0.1 0.2 0.4 0.3] = 1.846439242362976
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Entropy of Distribution {} = {}&#39;</span><span style="color:#f92672">.</span>format(p1<span style="color:#f92672">.</span>numpy(), entropy(p1)))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Entropy of Distribution {} = {}&#39;</span><span style="color:#f92672">.</span>format(p2<span style="color:#f92672">.</span>numpy(), entropy(p2)))
+</code></pre></div><pre><code>Entropy of Distribution [0.1 0.2 0.4 0.3] = 1.846439242362976
 Entropy of Distribution [0.9 0.  0.  0.1] = 0.4689956307411194
 </code></pre>
-
 <p>The first distribution has more entropy(uncertainty) as when we sample a data, there is a fair chance of the sampled data is from any of a, b, c, d.</p>
-
 <p>But the second distribution is almost deterministic and has less uncertainty.</p>
-
 <h1 id="kullback-leibler-divergence">Kullback-Leibler Divergence</h1>
-
 <p>KL Divergence measures the similarity of two probability distribution. Let $P$ and $Q$ be two probability distributions. For ex: Let $P$ be a Gaussian Distribution and $Q$ be Uniform.</p>
-
 <p>The Kullback-Leibler Divergence is</p>
-
 <p>${\bf D_{KL}(p(x)||q(x)) = \int_{-\infty}^{+\infty} p(x)ln{\dfrac{p(x)}{q(x)}}}$</p>
-
-<p><br />
+<p><br>
 For discrete distribution,</p>
-
 <p>${\bf D_{KL}(p(x)||q(x)) = \sum p(x)ln{\dfrac{p(x)}{q(x)}}}$</p>
-
 <h2 id="properties-of-kl-divergence">Properties of KL Divergence</h2>
-
 <ul>
 <li>KLdivergence is not a distance measure or &ldquo;metric&rdquo; measure.</li>
 <li>It is not symmetric ie: $D_{KL}(p(x)||q(x)) \neq D_{KL}(q(x)||p(x))$.</li>
 <li>It need not satisfy the triangular inequality.</li>
 <li>It is a non-negative measure ie:$D_{KL}(p(x)||q(x)) \geq 0$ and $D_{KL}(p(x)||q(x)) = 0$ if and only if $p(x)=q(x)$.</li>
 </ul>
-
 <h2 id="kl-divergence-in-pytorch">KL Divergence in PyTorch</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> torch
 
-<pre><code class="language-python">import torch
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">kl_divergence</span>(p, q, epsilon<span style="color:#f92672">=</span><span style="color:#ae81ff">1e-8</span>):
+    <span style="color:#e6db74">&#39;&#39;&#39;
+</span><span style="color:#e6db74">    epsilon to avoid log(0) or divided by 0 error
+</span><span style="color:#e6db74">    &#39;&#39;&#39;</span>
+    d_kl <span style="color:#f92672">=</span> (p <span style="color:#f92672">*</span> torch<span style="color:#f92672">.</span>log((p <span style="color:#f92672">/</span> (q<span style="color:#f92672">+</span> epsilon)) <span style="color:#f92672">+</span> epsilon))<span style="color:#f92672">.</span>sum()
+    <span style="color:#66d9ef">return</span> d_kl
 
-def kl_divergence(p, q, epsilon=1e-8):
-    '''
-    epsilon to avoid log(0) or divided by 0 error
-    '''
-    d_kl = (p * torch.log((p / (q+ epsilon)) + epsilon)).sum()
-    return d_kl
+<span style="color:#75715e"># comparison of kl of similar distribution p2-p3 </span>
+<span style="color:#75715e"># and dissimilar distribution p1-p2</span>
+p1 <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>Tensor([<span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">0.2</span>, <span style="color:#ae81ff">0.4</span>, <span style="color:#ae81ff">0.3</span>])
+p2 <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>Tensor([<span style="color:#ae81ff">0.9</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.1</span>])
+p3 <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>Tensor([<span style="color:#ae81ff">0.8</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.05</span>, <span style="color:#ae81ff">0.15</span>])
 
-# comparison of kl of similar distribution p2-p3 
-# and dissimilar distribution p1-p2
-p1 = torch.Tensor([0.1, 0.2, 0.4, 0.3])
-p2 = torch.Tensor([0.9, 0.0, 0.0, 0.1])
-p3 = torch.Tensor([0.8, 0.0, 0.05, 0.15])
-
-print('KL Divergence of {} and {} = {}'.format(p1.numpy(), p1.numpy(), kl_divergence(p1, p2)))
-print('KL Divergence of {} and {} = {}'.format(p2.numpy(), p3.numpy(), kl_divergence(p2, p3)))
-</code></pre>
-
-<pre><code>KL Divergence of [0.1 0.2 0.4 0.3] and [0.1 0.2 0.4 0.3] = 10.47386646270752
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;KL Divergence of {} and {} = {}&#39;</span><span style="color:#f92672">.</span>format(p1<span style="color:#f92672">.</span>numpy(), p1<span style="color:#f92672">.</span>numpy(), kl_divergence(p1, p2)))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;KL Divergence of {} and {} = {}&#39;</span><span style="color:#f92672">.</span>format(p2<span style="color:#f92672">.</span>numpy(), p3<span style="color:#f92672">.</span>numpy(), kl_divergence(p2, p3)))
+</code></pre></div><pre><code>KL Divergence of [0.1 0.2 0.4 0.3] and [0.1 0.2 0.4 0.3] = 10.47386646270752
 KL Divergence of [0.9 0.  0.  0.1] and [0.8  0.   0.05 0.15] = 0.06545820087194443
 </code></pre>
-
 <h1 id="mutual-information-with-kl-divergence">Mutual Information with KL Divergence</h1>
-
 <p>Let random variable $x$ and $y$ has distribution of $p(x)$ and $p(y)$.
 If $x$ and $y$ are independent, then $p(x,y) = p(x)p(y)$.</p>
-
 <p>If the distance between $p(x,y)$ and $p(x)p(y)$ becomes larger, $p(x)$ and $p(y)$ becomes dependent. We can use KL Divergence of $p(x,y)$ and $p(x)p(y)$ to measure the dependency of x and y.</p>
-
 <p>${\bf I(x, y) = D_{KL}(p(x,y)||p(x)p(y)) = \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} p(x, y)ln{\dfrac{p(x, y)}{p(x)p(y)}}}$</p>
-
 <h1 id="cross-entropy">Cross Entropy</h1>
-
 <p>The Kullback-Leibler Divergence of $p(x)$ and $q(x)$ is given by</p>
-
 <p>$D_{KL}(p(x)||q(x)) = \int_{-\infty}^{+\infty} p(x)ln{\dfrac{p(x)}{q(x)}}$</p>
-
 <p>$\qquad = \int_{-\infty}^{+\infty} p(x)ln(p(x))-\int_{-\infty}^{+\infty}p(x)ln(q(x))$</p>
-
 <p>$D_{KL}(p(x)||q(x)) = - H(p(x)) -\int_{-\infty}^{+\infty}p(x)ln(q(x))$</p>
-
 <p>$D_{KL}(p(x)||q(x)) + H(p(x)) = -\int_{-\infty}^{+\infty}p(x)ln(q(x)) = H(p(x), q(x))$</p>
-
-<p><br />
+<p><br>
 $H(p(x), q(x))$ is called the Cross-Entropy. When $p(x)$ and $q(x)$ are same, then the Cross Entropy is equal to the entropy as $D_{KL}(p(x)||q(x))=0$.</p>
-
 <p>The amount by which the cross entropy exceeds the entropy is called relative entropy or KL Divergence.</p>
-
 <p>${\bf Cross\ Entropy = KL\ Divergence + Entropy }$</p>
-
 <h2 id="cross-entropy-in-pytorch">Cross Entropy in PyTorch</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> torch
 
-<pre><code class="language-python">import torch
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">cross_entropy</span>(p, q, epsilon<span style="color:#f92672">=</span><span style="color:#ae81ff">1e-8</span>):
+    <span style="color:#e6db74">&#39;&#39;&#39;
+</span><span style="color:#e6db74">    epsilon to avoid log(0) error
+</span><span style="color:#e6db74">    &#39;&#39;&#39;</span>
+    logq <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>log2(q <span style="color:#f92672">+</span> epsilon)
+    ce <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>sum(<span style="color:#f92672">-</span>p<span style="color:#f92672">*</span>logq)
+    <span style="color:#66d9ef">return</span> ce
 
-def cross_entropy(p, q, epsilon=1e-8):
-    '''
-    epsilon to avoid log(0) error
-    '''
-    logq = torch.log2(q + epsilon)
-    ce = torch.sum(-p*logq)
-    return ce
+<span style="color:#75715e"># comparison of cross_entropy of similar distribution p2-p3 </span>
+<span style="color:#75715e"># and dissimilar distribution p1-p2</span>
+p1 <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>Tensor([<span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">0.2</span>, <span style="color:#ae81ff">0.4</span>, <span style="color:#ae81ff">0.3</span>])
+p2 <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>Tensor([<span style="color:#ae81ff">0.9</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.1</span>])
+p3 <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>Tensor([<span style="color:#ae81ff">0.8</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.05</span>, <span style="color:#ae81ff">0.15</span>])
 
-# comparison of cross_entropy of similar distribution p2-p3 
-# and dissimilar distribution p1-p2
-p1 = torch.Tensor([0.1, 0.2, 0.4, 0.3])
-p2 = torch.Tensor([0.9, 0.0, 0.0, 0.1])
-p3 = torch.Tensor([0.8, 0.0, 0.05, 0.15])
-
-print('Cross Entropy of {} and {} = {}'.format(p1.numpy(), p2.numpy(), cross_entropy(p1, p2)))
-print('Cross Entropy of {} and {} = {}'.format(p2.numpy(), p3.numpy(), cross_entropy(p2, p3)))
-</code></pre>
-
-<pre><code>Cross Entropy of [0.1 0.2 0.4 0.3] and [0.9 0.  0.  0.1] = 16.957033157348633
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Cross Entropy of {} and {} = {}&#39;</span><span style="color:#f92672">.</span>format(p1<span style="color:#f92672">.</span>numpy(), p2<span style="color:#f92672">.</span>numpy(), cross_entropy(p1, p2)))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Cross Entropy of {} and {} = {}&#39;</span><span style="color:#f92672">.</span>format(p2<span style="color:#f92672">.</span>numpy(), p3<span style="color:#f92672">.</span>numpy(), cross_entropy(p2, p3)))
+</code></pre></div><pre><code>Cross Entropy of [0.1 0.2 0.4 0.3] and [0.9 0.  0.  0.1] = 16.957033157348633
 Cross Entropy of [0.9 0.  0.  0.1] and [0.8  0.   0.05 0.15] = 0.5634317994117737
 </code></pre>
-
 <h4 id="reference">Reference</h4>
-
 <ul>
 <li>Elements of Information Theory
 Thomas M. Cover, Joy A. Thomas</li>
-<li><a href="https://web.stanford.edu/~montanar/RESEARCH/BOOK/partA.pdf" target="_blank">https://web.stanford.edu/~montanar/RESEARCH/BOOK/partA.pdf</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Cross_entropy" target="_blank">https://en.wikipedia.org/wiki/Cross_entropy</a></li>
+<li><a href="https://web.stanford.edu/~montanar/RESEARCH/BOOK/partA.pdf">https://web.stanford.edu/~montanar/RESEARCH/BOOK/partA.pdf</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cross_entropy">https://en.wikipedia.org/wiki/Cross_entropy</a></li>
 </ul>
 
     </div>
@@ -971,7 +925,7 @@ Thomas M. Cover, Joy A. Thomas</li>
   
 
   <p class="powered-by">
-    &copy; 2020 Shangeth Rajaa &middot; 
+    © 2020 Shangeth Rajaa &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

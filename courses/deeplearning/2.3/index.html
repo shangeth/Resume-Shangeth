@@ -27,11 +27,10 @@
   
     
   
-  <meta name="description" content="Open in GitHub
-Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
-Gradient Descent We have seen what are the steps followed in Gradient Descent to minimize the loss function. Now let&rsquo;s get into more detail.
+  <meta name="description" content="Gradient Descent We have seen what are the steps followed in Gradient Descent to minimize the loss function. Now let&rsquo;s get into more detail.
 The objective of gradient descent is to find $W, b$ for which $\mathcal{L}(W, b) $ is minimum for given pairs of data $(X, y)$.
-Example Let&rsquo;s forget about Machine learning for sometime and use gradient descent algorithm for optimization of simple functions.">
+Example Let&rsquo;s forget about Machine learning for sometime and use gradient descent algorithm for optimization of simple functions.
+Given a function $y = f(x) = 0.">
 
   
   <link rel="alternate" hreflang="en-us" href="/courses/deeplearning/2.3/">
@@ -95,7 +94,7 @@ Example Let&rsquo;s forget about Machine learning for sometime and use gradient 
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.26264af3549d61c0ce873bd043df951e.css">
+  <link rel="stylesheet" href="/css/academic.min.04bf00581ae5351cdd9e3f0836914cc1.css">
 
   
 
@@ -139,11 +138,10 @@ Example Let&rsquo;s forget about Machine learning for sometime and use gradient 
   <meta property="og:site_name" content="Shangeth">
   <meta property="og:url" content="/courses/deeplearning/2.3/">
   <meta property="og:title" content="Optimizers | Shangeth">
-  <meta property="og:description" content="Open in GitHub
-Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
-Gradient Descent We have seen what are the steps followed in Gradient Descent to minimize the loss function. Now let&rsquo;s get into more detail.
+  <meta property="og:description" content="Gradient Descent We have seen what are the steps followed in Gradient Descent to minimize the loss function. Now let&rsquo;s get into more detail.
 The objective of gradient descent is to find $W, b$ for which $\mathcal{L}(W, b) $ is minimum for given pairs of data $(X, y)$.
-Example Let&rsquo;s forget about Machine learning for sometime and use gradient descent algorithm for optimization of simple functions."><meta property="og:image" content="/img/instructor2.jpeg">
+Example Let&rsquo;s forget about Machine learning for sometime and use gradient descent algorithm for optimization of simple functions.
+Given a function $y = f(x) = 0."><meta property="og:image" content="/img/instructor2.jpeg">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-09-03T00:00:00&#43;01:00">
@@ -557,30 +555,29 @@ Example Let&rsquo;s forget about Machine learning for sometime and use gradient 
       
 
       <nav id="TableOfContents">
-<ul>
-<li><a href="#gradient-descent">Gradient Descent</a>
-<ul>
-<li><a href="#example">Example</a>
-<ul>
-<li><a href="#step-1">Step - 1</a></li>
-<li><a href="#step-2">Step - 2</a></li>
-<li><a href="#step-3-learning-rate">Step - 3 Learning rate</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#gd-with-momentum">GD with Momentum</a>
-<ul>
-<li><a href="#momentum-in-numpy">Momentum in Numpy</a></li>
-</ul></li>
-<li><a href="#optimization-algorithms-with-tensorflow">Optimization algorithms with Tensorflow</a>
-<ul>
-<li><a href="#sgd-optimizer">SGD optimizer</a>
-<ul>
-<li><a href="#stochastic-gradient-descent-without-momentum">Stochastic gradient descent without momentum</a></li>
-<li><a href="#stochastic-gradient-descent-with-momentum">Stochastic gradient descent with momentum</a></li>
-</ul></li>
-<li><a href="#adam-optimizer">Adam optimizer</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#example">Example</a>
+      <ul>
+        <li><a href="#step---1">Step - 1</a></li>
+        <li><a href="#step---2">Step - 2</a></li>
+        <li><a href="#step---3-learning-rate">Step - 3 Learning rate</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#momentum-in-numpy">Momentum in Numpy</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#sgd-optimizer">SGD optimizer</a>
+      <ul>
+        <li><a href="#stochastic-gradient-descent-without-momentum">Stochastic gradient descent without momentum</a></li>
+        <li><a href="#stochastic-gradient-descent-with-momentum">Stochastic gradient descent with momentum</a></li>
+      </ul>
+    </li>
+    <li><a href="#adam-optimizer">Adam optimizer</a></li>
+  </ul>
 </nav>
 
       <ul class="nav toc-top">
@@ -599,422 +596,341 @@ Example Let&rsquo;s forget about Machine learning for sometime and use gradient 
           <h1 itemprop="name">Optimizers</h1>
 
           <div class="article-style" itemprop="articleBody">
-            
-
-<p><a href="https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_3_Optimizers.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-
-<p><center><a href="https://github.com/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_3_Optimizers.ipynb" target="_parent"><svg class="octicon octicon-mark-github v-align-middle" height="30" viewBox="0 0 16 16" version="1.1" width="30" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> Open in GitHub</a></center></p>
-
-<p><center><h1><a href='https://shangeth.com/courses/'>Deep Learning - Beginners Track</a></h1></center>
-<center><h3>Instructor: <a href='https://shangeth.com/'>Shangeth Rajaa</a></h3></center>
-<hr></p>
-
+            <p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <h1 id="gradient-descent">Gradient Descent</h1>
-
 <p>We have seen what are the steps followed in Gradient Descent to minimize the loss function. Now let&rsquo;s get into more detail.</p>
-
 <p>The objective of gradient descent is to find $W, b$ for which $\mathcal{L}(W, b) $ is minimum for given pairs of data $(X, y)$.</p>
-
 <h2 id="example">Example</h2>
-
 <p>Let&rsquo;s forget about Machine learning for sometime and use gradient descent algorithm for optimization of simple functions.</p>
-
 <p>Given a function $y = f(x) = 0.08x^2+sin(x)$, the objective is to find $x$ at which $y = f(x)$ is minimum.</p>
-
 <p>Let&rsquo;s use Numpy to solve this.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
 
-<pre><code class="language-python">import numpy as np
-import matplotlib.pyplot as plt
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">f</span>(x):
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0.08</span><span style="color:#f92672">*</span> x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> np<span style="color:#f92672">.</span>sin(x)
 
-def f(x):
-    return 0.08* x**2 + np.sin(x)
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">0.01</span>)
+y <span style="color:#f92672">=</span> f(x)
 
-x = np.arange(-10, 10, 0.01)
-y = f(x)
-
-plt.plot(x, y, label='$y = f(x)$')
-plt.xlabel('$x$')
-plt.ylabel('$y$')
-plt.legend()
-plt.show()
-</code></pre>
-
-<p><img src="../2_3/output_3_0.png" alt="png" /></p>
-
+plt<span style="color:#f92672">.</span>plot(x, y, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;$y = f(x)$&#39;</span>)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;$x$&#39;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;$y$&#39;</span>)
+plt<span style="color:#f92672">.</span>legend()
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="../2_3/output_3_0.png" alt="png"></p>
 <p>We are going to use gradient descent to find $x$ for which this function is minimum.</p>
-
-<h3 id="step-1">Step - 1</h3>
-
+<h3 id="step---1">Step - 1</h3>
 <p>Choose a random point</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">random_idx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>choice(<span style="color:#ae81ff">2000</span>)
+random_x <span style="color:#f92672">=</span> x[random_idx]
 
-<pre><code class="language-python">random_idx = np.random.choice(2000)
-random_x = x[random_idx]
-
-plt.plot(x, y, label='$y = f(x)$')
-plt.scatter(random_x, f(random_x))
-plt.xlabel('$x$')
-plt.ylabel('$y$')
-plt.legend()
-plt.show()
-</code></pre>
-
-<p><img src="../2_3/output_6_0.png" alt="png" /></p>
-
-<h3 id="step-2">Step - 2</h3>
-
+plt<span style="color:#f92672">.</span>plot(x, y, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;$y = f(x)$&#39;</span>)
+plt<span style="color:#f92672">.</span>scatter(random_x, f(random_x))
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;$x$&#39;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;$y$&#39;</span>)
+plt<span style="color:#f92672">.</span>legend()
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="../2_3/output_6_0.png" alt="png"></p>
+<h3 id="step---2">Step - 2</h3>
 <p>calculate $\dfrac{\partial \mathcal{y}}{\partial x}$.</p>
-
 <p>Why? Let&rsquo;s visualize it</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">60</span>)
 
-<pre><code class="language-python">np.random.seed(60)
+random_idx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>choice(<span style="color:#ae81ff">2000</span>)
+random_x <span style="color:#f92672">=</span> x[random_idx]
 
-random_idx = np.random.choice(2000)
-random_x = x[random_idx]
+a <span style="color:#f92672">=</span> random_x
+h <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.01</span>
+x_tan <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(a<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, a<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0.01</span>)
+fprime <span style="color:#f92672">=</span> (f(a<span style="color:#f92672">+</span>h)<span style="color:#f92672">-</span>f(a))<span style="color:#f92672">/</span>h
+tan <span style="color:#f92672">=</span> f(a)<span style="color:#f92672">+</span>fprime<span style="color:#f92672">*</span>(x_tan<span style="color:#f92672">-</span>a)  
 
-a = random_x
-h = 0.01
-x_tan = np.arange(a-1, a+1, 0.01)
-fprime = (f(a+h)-f(a))/h
-tan = f(a)+fprime*(x_tan-a)  
-
-plt.figure(figsize=(12,8))
-plt.plot(x, y, label='$y = f(x)$')
-plt.plot(x_tan, tan, '--', label='gradient $\dfrac{\partial \mathcal{y}}{\partial x}$', linewidth=4.0)
-plt.text(a+0.2,f(a+0.2),'$\dfrac{\partial \mathcal{y}}{\partial x}$='+'{:.3f}'.format(fprime), fontsize=20)
-plt.scatter(random_x, f(random_x), s=200, color='black')
-plt.xlabel('$x$', fontsize=20)
-plt.ylabel('$y$', fontsize=20)
-plt.legend(fontsize = 'xx-large')
-plt.show()
-</code></pre>
-
-<p><img src="../2_3/output_8_0.png" alt="png" /></p>
-
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">8</span>))
+plt<span style="color:#f92672">.</span>plot(x, y, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;$y = f(x)$&#39;</span>)
+plt<span style="color:#f92672">.</span>plot(x_tan, tan, <span style="color:#e6db74">&#39;--&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;gradient $\dfrac{\partial \mathcal{y}}{\partial x}$&#39;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">4.0</span>)
+plt<span style="color:#f92672">.</span>text(a<span style="color:#f92672">+</span><span style="color:#ae81ff">0.2</span>,f(a<span style="color:#f92672">+</span><span style="color:#ae81ff">0.2</span>),<span style="color:#e6db74">&#39;$\dfrac{\partial \mathcal{y}}{\partial x}$=&#39;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#39;{:.3f}&#39;</span><span style="color:#f92672">.</span>format(fprime), fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>scatter(random_x, f(random_x), s<span style="color:#f92672">=</span><span style="color:#ae81ff">200</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;$x$&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;$y$&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>legend(fontsize <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;xx-large&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="../2_3/output_8_0.png" alt="png"></p>
 <p>The gradient of $y = f(x) = 0.08x^2+sin(x)$ is $\dfrac{\partial \mathcal{y}}{\partial x} = 0.16x+cos(x)$</p>
-
 <p>The gradient or slope $\dfrac{\partial \mathcal{y}}{\partial x}$ of the curve at the randomly selected point is negative. Which means the function will decrease as x increases and the function will increase as x decreases.</p>
-
 <p>Our objective is to minimize the function, so we calculate $\dfrac{\partial \mathcal{y}}{\partial x}$, to decide in which direction to move, so we reach the minimum.</p>
-
 <ul>
 <li>if $\dfrac{\partial \mathcal{y}}{\partial x} &gt; 0$, we move towards left of decrease x</li>
 <li>if $\dfrac{\partial \mathcal{y}}{\partial x} &lt; 0$, we move towards right or increase x</li>
 <li>if $\dfrac{\partial \mathcal{y}}{\partial x} = 0$, which means we are already at a point of minimum</li>
 </ul>
-
 <p>But how much to increase x?</p>
-
-<h3 id="step-3-learning-rate">Step - 3 Learning rate</h3>
-
+<h3 id="step---3-learning-rate">Step - 3 Learning rate</h3>
 <p>We now know, given a point should we increase or decrease x to reach minimum.</p>
-
 <p>How much to increase or decrease x?</p>
-
 <p>We change x with a factor called learning rate $\alpha$.
 So we update x with $x := x - \alpha \frac{\partial \mathcal{y}}{\partial x}$</p>
-
 <ul>
 <li>when $\alpha$ is small, x is increased in small steps, so more iterations are required to reach minimum, but this will lead to more accurate steps.</li>
 <li>when $\alpha$ is larger, x will increase in larger steps, so x will reach minimum y in few steps, but there is a risk of x skipping the minimum point, as x is increased in larger value.</li>
 </ul>
-
 <p>When do we stop?
 We can iterate of any number of iterations, but when x reaches minimum y , then $\dfrac{\partial \mathcal{y}}{\partial x} = 0$</p>
-
 <p>$\therefore x := x - \alpha . 0$, so x will remain the same, even if you iterate more.</p>
-
 <p>Let&rsquo;s code this.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
 
-<pre><code class="language-python">import numpy as np
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">gradient</span>(x):
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0.16</span><span style="color:#f92672">*</span>x<span style="color:#f92672">+</span>np<span style="color:#f92672">.</span>cos(x)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">24</span>) <span style="color:#75715e"># change the seed to start from different points</span>
 
-def gradient(x):
-    return 0.16*x+np.cos(x)
-</code></pre>
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">0.01</span>)
+y <span style="color:#f92672">=</span> f(x)
 
-<pre><code class="language-python">np.random.seed(24) # change the seed to start from different points
+random_idx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>choice(<span style="color:#ae81ff">2000</span>)
+x_iter <span style="color:#f92672">=</span> x[random_idx]
 
-x = np.arange(-10, 10, 0.01)
-y = f(x)
+epochs <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
+lr <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>
 
-random_idx = np.random.choice(2000)
-x_iter = x[random_idx]
-
-epochs = 100
-lr = 0.2
-
-for i in range(epochs):
-    dy_dx = gradient(x_iter)    
-    x_iter = x_iter - lr * dy_dx
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(epochs):
+    dy_dx <span style="color:#f92672">=</span> gradient(x_iter)    
+    x_iter <span style="color:#f92672">=</span> x_iter <span style="color:#f92672">-</span> lr <span style="color:#f92672">*</span> dy_dx
 
 
-    if i%20 == 0:
-        a = x_iter
-        h = 0.01
-        x_tan = np.arange(a-1, a+1, 0.01)
-        fprime = (f(a+h)-f(a))/h
-        tan = f(a)+fprime*(x_tan-a)  
+    <span style="color:#66d9ef">if</span> i<span style="color:#f92672">%</span><span style="color:#ae81ff">20</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+        a <span style="color:#f92672">=</span> x_iter
+        h <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.01</span>
+        x_tan <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(a<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, a<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0.01</span>)
+        fprime <span style="color:#f92672">=</span> (f(a<span style="color:#f92672">+</span>h)<span style="color:#f92672">-</span>f(a))<span style="color:#f92672">/</span>h
+        tan <span style="color:#f92672">=</span> f(a)<span style="color:#f92672">+</span>fprime<span style="color:#f92672">*</span>(x_tan<span style="color:#f92672">-</span>a)  
 
-        plt.figure(figsize=(12,8))
-        plt.plot(x, y, label='$y = f(x)$')
-        plt.plot(x_tan, tan, '--', label='gradient $\dfrac{\partial \mathcal{y}}{\partial x}$', linewidth=4.0)
-        plt.text(a+0.2,f(a+0.2),'$\dfrac{\partial \mathcal{y}}{\partial x}$='+'{:.3f}'.format(fprime), fontsize=20)
-        plt.scatter(a, f(a), s=200, color='black')
-        plt.xlabel('$x$', fontsize=20)
-        plt.ylabel('$y$', fontsize=20)
-        plt.legend(fontsize = 'xx-large')
-        plt.show()
+        plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">8</span>))
+        plt<span style="color:#f92672">.</span>plot(x, y, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;$y = f(x)$&#39;</span>)
+        plt<span style="color:#f92672">.</span>plot(x_tan, tan, <span style="color:#e6db74">&#39;--&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;gradient $\dfrac{\partial \mathcal{y}}{\partial x}$&#39;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">4.0</span>)
+        plt<span style="color:#f92672">.</span>text(a<span style="color:#f92672">+</span><span style="color:#ae81ff">0.2</span>,f(a<span style="color:#f92672">+</span><span style="color:#ae81ff">0.2</span>),<span style="color:#e6db74">&#39;$\dfrac{\partial \mathcal{y}}{\partial x}$=&#39;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#39;{:.3f}&#39;</span><span style="color:#f92672">.</span>format(fprime), fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+        plt<span style="color:#f92672">.</span>scatter(a, f(a), s<span style="color:#f92672">=</span><span style="color:#ae81ff">200</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>)
+        plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;$x$&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+        plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;$y$&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+        plt<span style="color:#f92672">.</span>legend(fontsize <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;xx-large&#39;</span>)
+        plt<span style="color:#f92672">.</span>show()
 
 
 
-</code></pre>
+</code></pre></div><p><img src="../2_3/output_11_0.png" alt="png"></p>
+<p><img src="../2_3/output_11_1.png" alt="png"></p>
+<p><img src="../2_3/output_11_2.png" alt="png"></p>
+<p><img src="../2_3/output_11_3.png" alt="png"></p>
+<p><img src="../2_3/output_11_4.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">24</span>) <span style="color:#75715e"># change the seed to start from different points</span>
 
-<p><img src="../2_3/output_11_0.png" alt="png" /></p>
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">0.01</span>)
+y <span style="color:#f92672">=</span> f(x)
 
-<p><img src="../2_3/output_11_1.png" alt="png" /></p>
+random_idx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>choice(<span style="color:#ae81ff">2000</span>)
+x_iter <span style="color:#f92672">=</span> x[random_idx]
 
-<p><img src="../2_3/output_11_2.png" alt="png" /></p>
+epochs <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
+lr <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>
 
-<p><img src="../2_3/output_11_3.png" alt="png" /></p>
+x_list <span style="color:#f92672">=</span> []
+y_list <span style="color:#f92672">=</span> []
 
-<p><img src="../2_3/output_11_4.png" alt="png" /></p>
-
-<pre><code class="language-python">np.random.seed(24) # change the seed to start from different points
-
-x = np.arange(-10, 10, 0.01)
-y = f(x)
-
-random_idx = np.random.choice(2000)
-x_iter = x[random_idx]
-
-epochs = 100
-lr = 0.2
-
-x_list = []
-y_list = []
-
-for i in range(epochs):
-    dy_dx = gradient(x_iter)
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(epochs):
+    dy_dx <span style="color:#f92672">=</span> gradient(x_iter)
     
-    x_iter = x_iter - lr * dy_dx
-    x_list.append(x_iter)
-    y_list.append(f(x_iter))
+    x_iter <span style="color:#f92672">=</span> x_iter <span style="color:#f92672">-</span> lr <span style="color:#f92672">*</span> dy_dx
+    x_list<span style="color:#f92672">.</span>append(x_iter)
+    y_list<span style="color:#f92672">.</span>append(f(x_iter))
 
-plt.figure(figsize=(12,8))
-plt.plot(x, y, label='$y = f(x)$')
-for i in range(len(x_list)):
-    plt.scatter(x_list[i], y_list[i], s=200, color='black')
-plt.xlabel('$x$', fontsize=20)
-plt.ylabel('$y$', fontsize=20)
-plt.legend(fontsize = 'xx-large')
-plt.show()
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">8</span>))
+plt<span style="color:#f92672">.</span>plot(x, y, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;$y = f(x)$&#39;</span>)
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(x_list)):
+    plt<span style="color:#f92672">.</span>scatter(x_list[i], y_list[i], s<span style="color:#f92672">=</span><span style="color:#ae81ff">200</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;$x$&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;$y$&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>legend(fontsize <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;xx-large&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
 
 
 
-</code></pre>
-
-<p><img src="../2_3/output_12_0.png" alt="png" /></p>
-
+</code></pre></div><p><img src="../2_3/output_12_0.png" alt="png"></p>
 <p>This is the path followed to reach the minimum.</p>
-
-<p><strong>Run the code</strong> with
-- large lr
-- small lr
-- more epochs
-- less epochs</p>
-
+<p><strong>Run the code</strong> with</p>
+<ul>
+<li>large lr</li>
+<li>small lr</li>
+<li>more epochs</li>
+<li>less epochs</li>
+</ul>
 <h1 id="gd-with-momentum">GD with Momentum</h1>
-
 <p>The updation step is changed with</p>
-
 <p>$v = \beta v + (1-\beta) \dfrac{\partial \mathcal{y}}{\partial x}$</p>
-
 <p>$x = x - \alpha v$</p>
-
 <p>This algorithms smoothens the updation process, by averaging the movement in other the direction and forces x to move in the required direction which fastens the process.</p>
-
 <h2 id="momentum-in-numpy">Momentum in Numpy</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">23</span>) <span style="color:#75715e"># change the seed to start from different points</span>
 
-<pre><code class="language-python">np.random.seed(23) # change the seed to start from different points
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">0.01</span>)
+y <span style="color:#f92672">=</span> f(x)
 
-x = np.arange(-10, 10, 0.01)
-y = f(x)
+random_idx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>choice(<span style="color:#ae81ff">2000</span>)
+x_iter <span style="color:#f92672">=</span> x[random_idx]
 
-random_idx = np.random.choice(2000)
-x_iter = x[random_idx]
+epochs <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
+lr <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>
+v <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+b <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.9</span>
 
-epochs = 100
-lr = 0.2
-v = 0
-b = 0.9
-
-for i in range(epochs):
-    dy_dx = gradient(x_iter)
-    v = b * v + (1-b) *  dy_dx   
-    x_iter = x_iter - lr * v
-
-
-    if i%20 == 0:
-        a = x_iter
-        h = 0.01
-        x_tan = np.arange(a-1, a+1, 0.01)
-        fprime = (f(a+h)-f(a))/h
-        tan = f(a)+fprime*(x_tan-a)  
-
-        plt.figure(figsize=(12,8))
-        plt.plot(x, y, label='$y = f(x)$')
-        plt.plot(x_tan, tan, '--', label='gradient $\dfrac{\partial \mathcal{y}}{\partial x}$', linewidth=4.0)
-        plt.text(a+0.2,f(a+0.2),'$\dfrac{\partial \mathcal{y}}{\partial x}$='+'{:.3f}'.format(fprime), fontsize=20)
-        plt.scatter(a, f(a), s=200, color='black')
-        plt.xlabel('$x$', fontsize=20)
-        plt.ylabel('$y$', fontsize=20)
-        plt.legend(fontsize = 'xx-large')
-        plt.show()
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(epochs):
+    dy_dx <span style="color:#f92672">=</span> gradient(x_iter)
+    v <span style="color:#f92672">=</span> b <span style="color:#f92672">*</span> v <span style="color:#f92672">+</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672">-</span>b) <span style="color:#f92672">*</span>  dy_dx   
+    x_iter <span style="color:#f92672">=</span> x_iter <span style="color:#f92672">-</span> lr <span style="color:#f92672">*</span> v
 
 
+    <span style="color:#66d9ef">if</span> i<span style="color:#f92672">%</span><span style="color:#ae81ff">20</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+        a <span style="color:#f92672">=</span> x_iter
+        h <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.01</span>
+        x_tan <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(a<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, a<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0.01</span>)
+        fprime <span style="color:#f92672">=</span> (f(a<span style="color:#f92672">+</span>h)<span style="color:#f92672">-</span>f(a))<span style="color:#f92672">/</span>h
+        tan <span style="color:#f92672">=</span> f(a)<span style="color:#f92672">+</span>fprime<span style="color:#f92672">*</span>(x_tan<span style="color:#f92672">-</span>a)  
 
-</code></pre>
+        plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">8</span>))
+        plt<span style="color:#f92672">.</span>plot(x, y, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;$y = f(x)$&#39;</span>)
+        plt<span style="color:#f92672">.</span>plot(x_tan, tan, <span style="color:#e6db74">&#39;--&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;gradient $\dfrac{\partial \mathcal{y}}{\partial x}$&#39;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">4.0</span>)
+        plt<span style="color:#f92672">.</span>text(a<span style="color:#f92672">+</span><span style="color:#ae81ff">0.2</span>,f(a<span style="color:#f92672">+</span><span style="color:#ae81ff">0.2</span>),<span style="color:#e6db74">&#39;$\dfrac{\partial \mathcal{y}}{\partial x}$=&#39;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#39;{:.3f}&#39;</span><span style="color:#f92672">.</span>format(fprime), fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+        plt<span style="color:#f92672">.</span>scatter(a, f(a), s<span style="color:#f92672">=</span><span style="color:#ae81ff">200</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>)
+        plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;$x$&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+        plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;$y$&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+        plt<span style="color:#f92672">.</span>legend(fontsize <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;xx-large&#39;</span>)
+        plt<span style="color:#f92672">.</span>show()
 
-<p><img src="../2_3/output_15_0.png" alt="png" /></p>
 
-<p><img src="../2_3/output_15_1.png" alt="png" /></p>
 
-<p><img src="../2_3/output_15_2.png" alt="png" /></p>
+</code></pre></div><p><img src="../2_3/output_15_0.png" alt="png"></p>
+<p><img src="../2_3/output_15_1.png" alt="png"></p>
+<p><img src="../2_3/output_15_2.png" alt="png"></p>
+<p><img src="../2_3/output_15_3.png" alt="png"></p>
+<p><img src="../2_3/output_15_4.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">24</span>) <span style="color:#75715e"># change the seed to start from different points</span>
 
-<p><img src="../2_3/output_15_3.png" alt="png" /></p>
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">0.01</span>)
+y <span style="color:#f92672">=</span> f(x)
 
-<p><img src="../2_3/output_15_4.png" alt="png" /></p>
+random_idx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>choice(<span style="color:#ae81ff">2000</span>)
+x_iter <span style="color:#f92672">=</span> x[random_idx]
 
-<pre><code class="language-python">np.random.seed(24) # change the seed to start from different points
+epochs <span style="color:#f92672">=</span> <span style="color:#ae81ff">200</span>
+lr <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.1</span>
+v <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+b <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.9</span>
 
-x = np.arange(-10, 10, 0.01)
-y = f(x)
+x_list <span style="color:#f92672">=</span> []
+y_list <span style="color:#f92672">=</span> []
 
-random_idx = np.random.choice(2000)
-x_iter = x[random_idx]
-
-epochs = 200
-lr = 0.1
-v = 0
-b = 0.9
-
-x_list = []
-y_list = []
-
-for i in range(epochs):
-    dy_dx = gradient(x_iter)
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(epochs):
+    dy_dx <span style="color:#f92672">=</span> gradient(x_iter)
     
-    v = b * v + (1-b) *  dy_dx   
-    x_iter = x_iter - lr * v
+    v <span style="color:#f92672">=</span> b <span style="color:#f92672">*</span> v <span style="color:#f92672">+</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672">-</span>b) <span style="color:#f92672">*</span>  dy_dx   
+    x_iter <span style="color:#f92672">=</span> x_iter <span style="color:#f92672">-</span> lr <span style="color:#f92672">*</span> v
 
-    x_list.append(x_iter)
-    y_list.append(f(x_iter))
+    x_list<span style="color:#f92672">.</span>append(x_iter)
+    y_list<span style="color:#f92672">.</span>append(f(x_iter))
 
-plt.figure(figsize=(12,8))
-plt.plot(x, y, label='$y = f(x)$')
-for i in range(len(x_list)):
-    plt.scatter(x_list[i], y_list[i], s=200, color='black')
-plt.xlabel('$x$', fontsize=20)
-plt.ylabel('$y$', fontsize=20)
-plt.legend(fontsize = 'xx-large')
-plt.show()
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">8</span>))
+plt<span style="color:#f92672">.</span>plot(x, y, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;$y = f(x)$&#39;</span>)
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(x_list)):
+    plt<span style="color:#f92672">.</span>scatter(x_list[i], y_list[i], s<span style="color:#f92672">=</span><span style="color:#ae81ff">200</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;$x$&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;$y$&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>legend(fontsize <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;xx-large&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
 
 
 
-</code></pre>
-
-<p><img src="../2_3/output_16_0.png" alt="png" /></p>
-
+</code></pre></div><p><img src="../2_3/output_16_0.png" alt="png"></p>
 <h1 id="optimization-algorithms-with-tensorflow">Optimization algorithms with Tensorflow</h1>
-
-<p>Check the <a href="https://www.tensorflow.org/api_docs/python/tf/keras/optimizers" target="_blank">Tensorflow docs</a>.</p>
-
+<p>Check the <a href="https://www.tensorflow.org/api_docs/python/tf/keras/optimizers">Tensorflow docs</a>.</p>
 <p>So far we have been using &lsquo;Adam&rsquo; algorithm for optimization with default parameter values. We will now train models with different optimizers and hyper parameters.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.datasets <span style="color:#f92672">import</span> make_gaussian_quantiles
+<span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
 
-<pre><code class="language-python">from sklearn.datasets import make_gaussian_quantiles
-from sklearn.model_selection import train_test_split
-import matplotlib.pyplot as plt
+X, y <span style="color:#f92672">=</span> make_gaussian_quantiles(n_samples<span style="color:#f92672">=</span><span style="color:#ae81ff">2000</span>, n_features<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, n_classes<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, cov<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
 
-X, y = make_gaussian_quantiles(n_samples=2000, n_features=2, n_classes=2, random_state=3, cov=0.1)
-
-plt.figure(figsize=(10,10))
-plt.scatter(X[:,0], X[:,1],c=y)
-plt.grid(True)
-plt.show()
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">10</span>))
+plt<span style="color:#f92672">.</span>scatter(X[:,<span style="color:#ae81ff">0</span>], X[:,<span style="color:#ae81ff">1</span>],c<span style="color:#f92672">=</span>y)
+plt<span style="color:#f92672">.</span>grid(True)
+plt<span style="color:#f92672">.</span>show()
 
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, shuffle=True)
-X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.2, shuffle=True)
+X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(X, y, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>, shuffle<span style="color:#f92672">=</span>True)
+X_train, X_val, y_train, y_val <span style="color:#f92672">=</span> train_test_split(X_train, y_train, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.2</span>, shuffle<span style="color:#f92672">=</span>True)
 
-print('Train = {}\nTest = {}\nVal = {}'.format(len(X_train), len(X_test), len(X_val)))
-</code></pre>
-
-<p><img src="../2_3/output_18_0.png" alt="png" /></p>
-
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Train = {}</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Test = {}</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Val = {}&#39;</span><span style="color:#f92672">.</span>format(len(X_train), len(X_test), len(X_val)))
+</code></pre></div><p><img src="../2_3/output_18_0.png" alt="png"></p>
 <pre><code>Train = 1120
 Test = 600
 Val = 280
 </code></pre>
-
 <h2 id="sgd-optimizer">SGD optimizer</h2>
-
 <h3 id="stochastic-gradient-descent-without-momentum">Stochastic gradient descent without momentum</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> tensorflow <span style="color:#f92672">as</span> tf
+<span style="color:#f92672">from</span> tensorflow <span style="color:#f92672">import</span> keras
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>backend<span style="color:#f92672">.</span>clear_session()
 
-<pre><code class="language-python">import tensorflow as tf
-from tensorflow import keras
-import numpy as np
-import matplotlib.pyplot as plt
-tf.keras.backend.clear_session()
+<span style="color:#75715e"># random number initialized to same, for reproducing the same results.</span>
+np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">0</span>)
+tf<span style="color:#f92672">.</span>set_random_seed(<span style="color:#ae81ff">0</span>)
 
-# random number initialized to same, for reproducing the same results.
-np.random.seed(0)
-tf.set_random_seed(0)
-
-model = tf.keras.Sequential([
-                             keras.layers.Dense(units=10, input_shape=[2]), 
-                             keras.layers.Activation('tanh'),
-                             keras.layers.Dense(units=10),
-                             keras.layers.Activation('tanh'),
-                             keras.layers.Dense(units=1), 
-                             keras.layers.Activation('sigmoid')
+model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>Sequential([
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, input_shape<span style="color:#f92672">=</span>[<span style="color:#ae81ff">2</span>]), 
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;tanh&#39;</span>),
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>),
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;tanh&#39;</span>),
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), 
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;sigmoid&#39;</span>)
                              ])
 
-# we used the default optimizer parameters by using optimizer='adam'
-# model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+<span style="color:#75715e"># we used the default optimizer parameters by using optimizer=&#39;adam&#39;</span>
+<span style="color:#75715e"># model.compile(optimizer=&#39;adam&#39;, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;accuracy&#39;])</span>
 
-# we can also define optimizer with
-optimizer = tf.keras.optimizers.SGD(lr=0.01, nesterov=False)
-model.compile(optimizer=optimizer, loss='binary_crossentropy', metrics=['accuracy'])
-tf_history = model.fit(X_train, y_train, batch_size=100, epochs=50, verbose=True, validation_data=(X_val, y_val))
+<span style="color:#75715e"># we can also define optimizer with</span>
+optimizer <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>optimizers<span style="color:#f92672">.</span>SGD(lr<span style="color:#f92672">=</span><span style="color:#ae81ff">0.01</span>, nesterov<span style="color:#f92672">=</span>False)
+model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span>optimizer, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;binary_crossentropy&#39;</span>, metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>])
+tf_history <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(X_train, y_train, batch_size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>, verbose<span style="color:#f92672">=</span>True, validation_data<span style="color:#f92672">=</span>(X_val, y_val))
 
 
-# contour plot
-xx, yy = np.mgrid[-1.5:1.5:.01, -1.5:1.5:.01]
-grid = np.c_[xx.ravel(), yy.ravel()]
-probs = model.predict(grid)[:,0].reshape(xx.shape)
+<span style="color:#75715e"># contour plot</span>
+xx, yy <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mgrid[<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>:<span style="color:#ae81ff">1.5</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">01</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>:<span style="color:#ae81ff">1.5</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">01</span>]
+grid <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>c_[xx<span style="color:#f92672">.</span>ravel(), yy<span style="color:#f92672">.</span>ravel()]
+probs <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(grid)[:,<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>reshape(xx<span style="color:#f92672">.</span>shape)
 
-f, ax = plt.subplots(figsize=(8, 6))
-contour = ax.contourf(xx, yy, probs, 25, cmap=&quot;RdBu&quot;,
-                      vmin=0, vmax=1)
-ax_c = f.colorbar(contour)
-ax_c.set_label(&quot;$P(y = 1)$&quot;)
-ax_c.set_ticks([0, .25, .5, .75, 1])
+f, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">6</span>))
+contour <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>contourf(xx, yy, probs, <span style="color:#ae81ff">25</span>, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>,
+                      vmin<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+ax_c <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>colorbar(contour)
+ax_c<span style="color:#f92672">.</span>set_label(<span style="color:#e6db74">&#34;$P(y = 1)$&#34;</span>)
+ax_c<span style="color:#f92672">.</span>set_ticks([<span style="color:#ae81ff">0</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">25</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">5</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">75</span>, <span style="color:#ae81ff">1</span>])
 
-ax.scatter(X[:,0], X[:, 1], c=y, s=50,
-           cmap=&quot;RdBu&quot;, vmin=-.2, vmax=1.2,
-           edgecolor=&quot;white&quot;, linewidth=1)
+ax<span style="color:#f92672">.</span>scatter(X[:,<span style="color:#ae81ff">0</span>], X[:, <span style="color:#ae81ff">1</span>], c<span style="color:#f92672">=</span>y, s<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>,
+           cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>, vmin<span style="color:#f92672">=-.</span><span style="color:#ae81ff">2</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1.2</span>,
+           edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;white&#34;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
 
-plt.show()
+plt<span style="color:#f92672">.</span>show()
 
-# test accuracy
-from sklearn.metrics import accuracy_score
-y_test_pred = model.predict(X_test)
-test_accuracy = accuracy_score((y_test_pred &gt; 0.5), y_test)
+<span style="color:#75715e"># test accuracy</span>
+<span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> accuracy_score
+y_test_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test)
+test_accuracy <span style="color:#f92672">=</span> accuracy_score((y_test_pred <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>), y_test)
 
-print('\nTest Accuracy = ', test_accuracy)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Test Accuracy = &#39;</span>, test_accuracy)
 
-</code></pre>
-
-<pre><code>Train on 1120 samples, validate on 280 samples
+</code></pre></div><pre><code>Train on 1120 samples, validate on 280 samples
 Epoch 1/50
 1120/1120 [==============================] - 0s 96us/sample - loss: 0.7056 - acc: 0.4991 - val_loss: 0.7119 - val_acc: 0.4536
 Epoch 2/50
@@ -1026,70 +942,64 @@ Epoch 49/50
 Epoch 50/50
 1120/1120 [==============================] - 0s 22us/sample - loss: 0.6910 - acc: 0.6348 - val_loss: 0.6991 - val_acc: 0.5714
 </code></pre>
-
-<p><img src="../2_3/output_20_1.png" alt="png" /></p>
-
+<p><img src="../2_3/output_20_1.png" alt="png"></p>
 <pre><code>Test Accuracy =  0.6633333333333333
 </code></pre>
-
 <h3 id="stochastic-gradient-descent-with-momentum">Stochastic gradient descent with momentum</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> tensorflow <span style="color:#f92672">as</span> tf
+<span style="color:#f92672">from</span> tensorflow <span style="color:#f92672">import</span> keras
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>backend<span style="color:#f92672">.</span>clear_session()
 
-<pre><code class="language-python">import tensorflow as tf
-from tensorflow import keras
-import numpy as np
-import matplotlib.pyplot as plt
-tf.keras.backend.clear_session()
+<span style="color:#75715e"># random number initialized to same, for reproducing the same results.</span>
+np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">0</span>)
+tf<span style="color:#f92672">.</span>set_random_seed(<span style="color:#ae81ff">0</span>)
 
-# random number initialized to same, for reproducing the same results.
-np.random.seed(0)
-tf.set_random_seed(0)
-
-model = tf.keras.Sequential([
-                             keras.layers.Dense(units=10, input_shape=[2]), 
-                             keras.layers.Activation('tanh'),
-                             keras.layers.Dense(units=10),
-                             keras.layers.Activation('tanh'),
-                             keras.layers.Dense(units=1), 
-                             keras.layers.Activation('sigmoid')
+model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>Sequential([
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, input_shape<span style="color:#f92672">=</span>[<span style="color:#ae81ff">2</span>]), 
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;tanh&#39;</span>),
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>),
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;tanh&#39;</span>),
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), 
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;sigmoid&#39;</span>)
                              ])
 
-# we used the default optimizer parameters by using optimizer='adam'
-# model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+<span style="color:#75715e"># we used the default optimizer parameters by using optimizer=&#39;adam&#39;</span>
+<span style="color:#75715e"># model.compile(optimizer=&#39;adam&#39;, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;accuracy&#39;])</span>
 
-# we can also define optimizer with
-optimizer = tf.keras.optimizers.SGD(lr=0.01, momentum=0.9, nesterov=True)
-model.compile(optimizer=optimizer, loss='binary_crossentropy', metrics=['accuracy'])
-tf_history = model.fit(X_train, y_train, batch_size=100, epochs=50, verbose=True, validation_data=(X_val, y_val))
+<span style="color:#75715e"># we can also define optimizer with</span>
+optimizer <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>optimizers<span style="color:#f92672">.</span>SGD(lr<span style="color:#f92672">=</span><span style="color:#ae81ff">0.01</span>, momentum<span style="color:#f92672">=</span><span style="color:#ae81ff">0.9</span>, nesterov<span style="color:#f92672">=</span>True)
+model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span>optimizer, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;binary_crossentropy&#39;</span>, metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>])
+tf_history <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(X_train, y_train, batch_size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>, verbose<span style="color:#f92672">=</span>True, validation_data<span style="color:#f92672">=</span>(X_val, y_val))
 
 
-# contour plot
-xx, yy = np.mgrid[-1.5:1.5:.01, -1.5:1.5:.01]
-grid = np.c_[xx.ravel(), yy.ravel()]
-probs = model.predict(grid)[:,0].reshape(xx.shape)
+<span style="color:#75715e"># contour plot</span>
+xx, yy <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mgrid[<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>:<span style="color:#ae81ff">1.5</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">01</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>:<span style="color:#ae81ff">1.5</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">01</span>]
+grid <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>c_[xx<span style="color:#f92672">.</span>ravel(), yy<span style="color:#f92672">.</span>ravel()]
+probs <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(grid)[:,<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>reshape(xx<span style="color:#f92672">.</span>shape)
 
-f, ax = plt.subplots(figsize=(8, 6))
-contour = ax.contourf(xx, yy, probs, 25, cmap=&quot;RdBu&quot;,
-                      vmin=0, vmax=1)
-ax_c = f.colorbar(contour)
-ax_c.set_label(&quot;$P(y = 1)$&quot;)
-ax_c.set_ticks([0, .25, .5, .75, 1])
+f, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">6</span>))
+contour <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>contourf(xx, yy, probs, <span style="color:#ae81ff">25</span>, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>,
+                      vmin<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+ax_c <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>colorbar(contour)
+ax_c<span style="color:#f92672">.</span>set_label(<span style="color:#e6db74">&#34;$P(y = 1)$&#34;</span>)
+ax_c<span style="color:#f92672">.</span>set_ticks([<span style="color:#ae81ff">0</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">25</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">5</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">75</span>, <span style="color:#ae81ff">1</span>])
 
-ax.scatter(X[:,0], X[:, 1], c=y, s=50,
-           cmap=&quot;RdBu&quot;, vmin=-.2, vmax=1.2,
-           edgecolor=&quot;white&quot;, linewidth=1)
+ax<span style="color:#f92672">.</span>scatter(X[:,<span style="color:#ae81ff">0</span>], X[:, <span style="color:#ae81ff">1</span>], c<span style="color:#f92672">=</span>y, s<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>,
+           cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>, vmin<span style="color:#f92672">=-.</span><span style="color:#ae81ff">2</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1.2</span>,
+           edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;white&#34;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
 
-plt.show()
+plt<span style="color:#f92672">.</span>show()
 
-# test accuracy
-from sklearn.metrics import accuracy_score
-y_test_pred = model.predict(X_test)
-test_accuracy = accuracy_score((y_test_pred &gt; 0.5), y_test)
+<span style="color:#75715e"># test accuracy</span>
+<span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> accuracy_score
+y_test_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test)
+test_accuracy <span style="color:#f92672">=</span> accuracy_score((y_test_pred <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>), y_test)
 
-print('\nTest Accuracy = ', test_accuracy)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Test Accuracy = &#39;</span>, test_accuracy)
 
-</code></pre>
-
-<pre><code>Train on 1120 samples, validate on 280 samples
+</code></pre></div><pre><code>Train on 1120 samples, validate on 280 samples
 Epoch 1/50
 1120/1120 [==============================] - 0s 104us/sample - loss: 0.7047 - acc: 0.5080 - val_loss: 0.7094 - val_acc: 0.4821
 Epoch 2/50
@@ -1101,75 +1011,67 @@ Epoch 49/50
 Epoch 50/50
 1120/1120 [==============================] - 0s 21us/sample - loss: 0.6307 - acc: 0.7750 - val_loss: 0.6463 - val_acc: 0.7393
 </code></pre>
-
-<p><img src="../2_3/output_22_1.png" alt="png" /></p>
-
+<p><img src="../2_3/output_22_1.png" alt="png"></p>
 <pre><code>Test Accuracy =  0.7866666666666666
 </code></pre>
-
 <p>You can note the difference, optimizer with momentum got accuracy of 0.78 in 50 epochs, whereas optimizer without momentum got 0.663 in 50 epochs</p>
-
 <h2 id="adam-optimizer">Adam optimizer</h2>
+<p><img src="https://www.math.purdue.edu/~nwinovic/figures/adam.png" alt="">
+Check this <a href="https://arxiv.org/abs/1412.6980">paper</a> to know about adam.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> tensorflow <span style="color:#f92672">as</span> tf
+<span style="color:#f92672">from</span> tensorflow <span style="color:#f92672">import</span> keras
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>backend<span style="color:#f92672">.</span>clear_session()
 
-<p><img src="https://www.math.purdue.edu/~nwinovic/figures/adam.png" alt="" />
-Check this <a href="https://arxiv.org/abs/1412.6980" target="_blank">paper</a> to know about adam.</p>
+<span style="color:#75715e"># random number initialized to same, for reproducing the same results.</span>
+np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">0</span>)
+tf<span style="color:#f92672">.</span>set_random_seed(<span style="color:#ae81ff">0</span>)
 
-<pre><code class="language-python">import tensorflow as tf
-from tensorflow import keras
-import numpy as np
-import matplotlib.pyplot as plt
-tf.keras.backend.clear_session()
-
-# random number initialized to same, for reproducing the same results.
-np.random.seed(0)
-tf.set_random_seed(0)
-
-model = tf.keras.Sequential([
-                             keras.layers.Dense(units=10, input_shape=[2]), 
-                             keras.layers.Activation('tanh'),
-                             keras.layers.Dense(units=10),
-                             keras.layers.Activation('tanh'),
-                             keras.layers.Dense(units=1), 
-                             keras.layers.Activation('sigmoid')
+model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>Sequential([
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, input_shape<span style="color:#f92672">=</span>[<span style="color:#ae81ff">2</span>]), 
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;tanh&#39;</span>),
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>),
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;tanh&#39;</span>),
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), 
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;sigmoid&#39;</span>)
                              ])
 
-# we used the default optimizer parameters by using optimizer='adam'
-# model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+<span style="color:#75715e"># we used the default optimizer parameters by using optimizer=&#39;adam&#39;</span>
+<span style="color:#75715e"># model.compile(optimizer=&#39;adam&#39;, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;accuracy&#39;])</span>
 
-# we can also define optimizer with
-optimizer = tf.keras.optimizers.Adam(lr=0.01)
-model.compile(optimizer=optimizer, loss='binary_crossentropy', metrics=['accuracy'])
-tf_history = model.fit(X_train, y_train, batch_size=100, epochs=50, verbose=True, validation_data=(X_val, y_val))
+<span style="color:#75715e"># we can also define optimizer with</span>
+optimizer <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>optimizers<span style="color:#f92672">.</span>Adam(lr<span style="color:#f92672">=</span><span style="color:#ae81ff">0.01</span>)
+model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span>optimizer, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;binary_crossentropy&#39;</span>, metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>])
+tf_history <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(X_train, y_train, batch_size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>, verbose<span style="color:#f92672">=</span>True, validation_data<span style="color:#f92672">=</span>(X_val, y_val))
 
 
-# contour plot
-xx, yy = np.mgrid[-1.5:1.5:.01, -1.5:1.5:.01]
-grid = np.c_[xx.ravel(), yy.ravel()]
-probs = model.predict(grid)[:,0].reshape(xx.shape)
+<span style="color:#75715e"># contour plot</span>
+xx, yy <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mgrid[<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>:<span style="color:#ae81ff">1.5</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">01</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>:<span style="color:#ae81ff">1.5</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">01</span>]
+grid <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>c_[xx<span style="color:#f92672">.</span>ravel(), yy<span style="color:#f92672">.</span>ravel()]
+probs <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(grid)[:,<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>reshape(xx<span style="color:#f92672">.</span>shape)
 
-f, ax = plt.subplots(figsize=(8, 6))
-contour = ax.contourf(xx, yy, probs, 25, cmap=&quot;RdBu&quot;,
-                      vmin=0, vmax=1)
-ax_c = f.colorbar(contour)
-ax_c.set_label(&quot;$P(y = 1)$&quot;)
-ax_c.set_ticks([0, .25, .5, .75, 1])
+f, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">6</span>))
+contour <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>contourf(xx, yy, probs, <span style="color:#ae81ff">25</span>, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>,
+                      vmin<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+ax_c <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>colorbar(contour)
+ax_c<span style="color:#f92672">.</span>set_label(<span style="color:#e6db74">&#34;$P(y = 1)$&#34;</span>)
+ax_c<span style="color:#f92672">.</span>set_ticks([<span style="color:#ae81ff">0</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">25</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">5</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">75</span>, <span style="color:#ae81ff">1</span>])
 
-ax.scatter(X[:,0], X[:, 1], c=y, s=50,
-           cmap=&quot;RdBu&quot;, vmin=-.2, vmax=1.2,
-           edgecolor=&quot;white&quot;, linewidth=1)
+ax<span style="color:#f92672">.</span>scatter(X[:,<span style="color:#ae81ff">0</span>], X[:, <span style="color:#ae81ff">1</span>], c<span style="color:#f92672">=</span>y, s<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>,
+           cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>, vmin<span style="color:#f92672">=-.</span><span style="color:#ae81ff">2</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1.2</span>,
+           edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;white&#34;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
 
-plt.show()
+plt<span style="color:#f92672">.</span>show()
 
-# test accuracy
-from sklearn.metrics import accuracy_score
-y_test_pred = model.predict(X_test)
-test_accuracy = accuracy_score((y_test_pred &gt; 0.5), y_test)
+<span style="color:#75715e"># test accuracy</span>
+<span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> accuracy_score
+y_test_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test)
+test_accuracy <span style="color:#f92672">=</span> accuracy_score((y_test_pred <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>), y_test)
 
-print('\nTest Accuracy = ', test_accuracy)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Test Accuracy = &#39;</span>, test_accuracy)
 
-</code></pre>
-
-<pre><code>Train on 1120 samples, validate on 280 samples
+</code></pre></div><pre><code>Train on 1120 samples, validate on 280 samples
 Epoch 1/50
 1120/1120 [==============================] - 0s 120us/sample - loss: 0.6971 - acc: 0.5080 - val_loss: 0.6996 - val_acc: 0.6036
 Epoch 2/50
@@ -1181,16 +1083,11 @@ Epoch 49/50
 Epoch 50/50
 1120/1120 [==============================] - 0s 25us/sample - loss: 0.0748 - acc: 0.9804 - val_loss: 0.0729 - val_acc: 0.9786
 </code></pre>
-
-<p><img src="../2_3/output_25_1.png" alt="png" /></p>
-
+<p><img src="../2_3/output_25_1.png" alt="png"></p>
 <pre><code>Test Accuracy =  0.9833333333333333
 </code></pre>
-
 <p>Adam was able to give an accuracy of 0.98 in the same 50 epochs.</p>
-
 <p>So Optimization algorithms affect the learning performance a lot. A good(right) optimization algorithm can improve your performance a lot.</p>
-
 <p>Check out the other optimizers in Tensorflow in the docs.</p>
 
           </div>
@@ -1260,7 +1157,7 @@ Epoch 50/50
   
 
   <p class="powered-by">
-    &copy; 2020 Shangeth Rajaa &middot; 
+    © 2020 Shangeth Rajaa &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

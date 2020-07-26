@@ -27,13 +27,10 @@
   
     
   
-  <meta name="description" content="Open in GitHub
-Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
-Solutions Here:
-
- Open in GitHub
+  <meta name="description" content="Solutions Here:
 It&rsquo;s a very simple assignment, you can finish it in less than 10 minutes. If you are stuck somewhere refer this for solutions.
-Task-1 : Linear Regression on Non-Linear Data  Get X and y from dataset() function Train a Linear Regression model for this dataset. Visualize the model prediction  Dataset Call dataset() function to get X, y">
+Task-1 : Linear Regression on Non-Linear Data  Get X and y from dataset() function Train a Linear Regression model for this dataset. Visualize the model prediction  Dataset Call dataset() function to get X, y
+import numpy as np import matplotlib.pyplot as plt def dataset(show=True): X = np.">
 
   
   <link rel="alternate" hreflang="en-us" href="/courses/deeplearning/1.2/">
@@ -97,7 +94,7 @@ Task-1 : Linear Regression on Non-Linear Data  Get X and y from dataset() functi
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.26264af3549d61c0ce873bd043df951e.css">
+  <link rel="stylesheet" href="/css/academic.min.04bf00581ae5351cdd9e3f0836914cc1.css">
 
   
 
@@ -141,13 +138,10 @@ Task-1 : Linear Regression on Non-Linear Data  Get X and y from dataset() functi
   <meta property="og:site_name" content="Shangeth">
   <meta property="og:url" content="/courses/deeplearning/1.2/">
   <meta property="og:title" content="Polynomial Regression | Shangeth">
-  <meta property="og:description" content="Open in GitHub
-Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
-Solutions Here:
-
- Open in GitHub
+  <meta property="og:description" content="Solutions Here:
 It&rsquo;s a very simple assignment, you can finish it in less than 10 minutes. If you are stuck somewhere refer this for solutions.
-Task-1 : Linear Regression on Non-Linear Data  Get X and y from dataset() function Train a Linear Regression model for this dataset. Visualize the model prediction  Dataset Call dataset() function to get X, y"><meta property="og:image" content="/img/instructor2.jpeg">
+Task-1 : Linear Regression on Non-Linear Data  Get X and y from dataset() function Train a Linear Regression model for this dataset. Visualize the model prediction  Dataset Call dataset() function to get X, y
+import numpy as np import matplotlib.pyplot as plt def dataset(show=True): X = np."><meta property="og:image" content="/img/instructor2.jpeg">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-08-29T00:00:00&#43;01:00">
@@ -561,24 +555,21 @@ Task-1 : Linear Regression on Non-Linear Data  Get X and y from dataset() functi
       
 
       <nav id="TableOfContents">
-<ul>
-<li><a href="#task-1-linear-regression-on-non-linear-data">Task-1 : Linear Regression on Non-Linear Data</a>
-<ul>
-<li><a href="#dataset">Dataset</a></li>
-<li><a href="#scaling-dataset">Scaling Dataset</a></li>
-<li><a href="#linear-regression-in-tensorflow">Linear Regression in TensorFlow</a></li>
-</ul></li>
-<li><a href="#polynomial-regression">Polynomial Regression</a>
-<ul>
-<li><a href="#polynomial-features">Polynomial Features</a></li>
-</ul></li>
-<li><a href="#task-2">Task - 2</a>
-<ul>
-<li><a href="#tensorflow-model-with-2nd-degree">Tensorflow Model with 2nd Degree</a></li>
-<li><a href="#tensorflow-model-with-3rd-degree">Tensorflow Model with 3rd Degree</a></li>
-<li><a href="#tensorflow-model-with-4th-degree">Tensorflow Model with 4th Degree</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#dataset">Dataset</a></li>
+    <li><a href="#scaling-dataset">Scaling Dataset</a></li>
+    <li><a href="#linear-regression-in-tensorflow">Linear Regression in TensorFlow</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#polynomial-features">Polynomial Features</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#tensorflow-model-with-2nd-degree">Tensorflow Model with 2nd Degree</a></li>
+    <li><a href="#tensorflow-model-with-3rd-degree">Tensorflow Model with 3rd Degree</a></li>
+    <li><a href="#tensorflow-model-with-4th-degree">Tensorflow Model with 4th Degree</a></li>
+  </ul>
 </nav>
 
       <ul class="nav toc-top">
@@ -597,117 +588,88 @@ Task-1 : Linear Regression on Non-Linear Data  Get X and y from dataset() functi
           <h1 itemprop="name">Polynomial Regression</h1>
 
           <div class="article-style" itemprop="articleBody">
-            
-
-<p><a href="https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/1-Intro-to-Deep-Learning/1_2_1_Assignment_Polynomial_Regression.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
-<center><a href="https://github.com/shangeth/Google-ML-Academy/blob/master/1-Intro-to-Deep-Learning/1_2_1_Assignment_Polynomial_Regression.ipynb" target="_parent"><svg class="octicon octicon-mark-github v-align-middle" height="30" viewBox="0 0 16 16" version="1.1" width="30" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> Open in GitHub</a></center></p>
-
-<p><center><h1><a href='https://shangeth.com/courses/'>Deep Learning - Beginners Track</a></h1></center>
-<center><h3>Instructor: <a href='https://shangeth.com/'>Shangeth Rajaa</a></h3></center>
-<hr></p>
-
+            <p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Solutions Here:</p>
-
-<p><a href="https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/1-Intro-to-Deep-Learning/1_2_2_Assignment_Polynomial_Regression_Solution.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-
-<p><center><a href="https://github.com/shangeth/Google-ML-Academy/blob/master/1-Intro-to-Deep-Learning/1_2_2_Assignment_Polynomial_Regression_Solution.ipynb" target="_parent"><svg class="octicon octicon-mark-github v-align-middle" height="30" viewBox="0 0 16 16" version="1.1" width="30" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> Open in GitHub</a></center></p>
-
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 <p>It&rsquo;s a very simple assignment, you can finish it in less than 10 minutes. If you are stuck somewhere refer this for solutions.</p>
-
-<h1 id="task-1-linear-regression-on-non-linear-data">Task-1 : Linear Regression on Non-Linear Data</h1>
-
+<h1 id="task-1--linear-regression-on-non-linear-data">Task-1 : Linear Regression on Non-Linear Data</h1>
 <ul>
 <li>Get X and y from dataset() function</li>
 <li>Train a Linear Regression model for this dataset.</li>
 <li>Visualize the model prediction</li>
 </ul>
-
 <h2 id="dataset">Dataset</h2>
-
 <p>Call <code>dataset()</code> function to get X, y</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
 
-<pre><code class="language-python">import numpy as np
-import matplotlib.pyplot as plt
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">dataset</span>(show<span style="color:#f92672">=</span>True):
+    X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">0.1</span>)
+    <span style="color:#75715e"># Try changing y to a different function</span>
+    y <span style="color:#f92672">=</span> X<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">20</span> <span style="color:#f92672">+</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randn(<span style="color:#ae81ff">500</span>)<span style="color:#f92672">*</span><span style="color:#ae81ff">1000</span>
+    <span style="color:#66d9ef">if</span> show:
+        plt<span style="color:#f92672">.</span>scatter(X, y)
+        plt<span style="color:#f92672">.</span>show()
+    <span style="color:#66d9ef">return</span> X, y
 
-def dataset(show=True):
-    X = np.arange(-25, 25, 0.1)
-    # Try changing y to a different function
-    y = X**3 + 20 + np.random.randn(500)*1000
-    if show:
-        plt.scatter(X, y)
-        plt.show()
-    return X, y
-
-X, y = dataset()
-</code></pre>
-
-<p><img src="../1_2/output_4_0.png" alt="png" /></p>
-
+X, y <span style="color:#f92672">=</span> dataset()
+</code></pre></div><p><img src="../1_2/output_4_0.png" alt="png"></p>
 <h2 id="scaling-dataset">Scaling Dataset</h2>
-
 <p>The maximum value of y in the dataset goes upto 15000 and the minimum values is less than -15000. The range of y is very large which makes the convergence/loss reduction slower. So will we scale the data, scaling the data will help the model converge faster. If all the features and target are in the same range, there will be symmetry in the curve of Loss vs weights/bias, which makes the convergence faster.</p>
-
 <p>We will do a very simple type of scaling, we will divide all the values of the data with the maximum values for X and y respectively.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X, y <span style="color:#f92672">=</span> dataset()
 
-<pre><code class="language-python">X, y = dataset()
+<span style="color:#66d9ef">print</span>(max(X), max(y), min(X), min(y))
 
-print(max(X), max(y), min(X), min(y))
+X <span style="color:#f92672">=</span> X<span style="color:#f92672">/</span>max(X)
+y <span style="color:#f92672">=</span> y<span style="color:#f92672">/</span>max(y)
 
-X = X/max(X)
-y = y/max(y)
-
-print(max(X), max(y), min(X), min(y))
-</code></pre>
-
-<p><img src="../1_2/output_6_0.png" alt="png" /></p>
-
+<span style="color:#66d9ef">print</span>(max(X), max(y), min(X), min(y))
+</code></pre></div><p><img src="../1_2/output_6_0.png" alt="png"></p>
 <pre><code>24.90000000000071 16694.307606867886 -25.0 -16126.103960535462
 1.0 1.0 -1.0040160642569995 -0.9659642280642613
 </code></pre>
-
 <p>This is not a great scaling method, but good to start. We will see many more scaling/normalization methods later.</p>
-
 <p><strong>Try training the model with and without scaling and see the difference yourself.</strong></p>
-
 <h2 id="linear-regression-in-tensorflow">Linear Regression in TensorFlow</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> tensorflow <span style="color:#f92672">as</span> tf
+<span style="color:#f92672">from</span> tensorflow <span style="color:#f92672">import</span> keras
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
 
-<pre><code class="language-python">import tensorflow as tf
-from tensorflow import keras
-import matplotlib.pyplot as plt
-import numpy as np
+X, y <span style="color:#f92672">=</span> dataset(show<span style="color:#f92672">=</span>False)
+X_scaled <span style="color:#f92672">=</span> X<span style="color:#f92672">/</span>max(X)
+y_scaled <span style="color:#f92672">=</span> y<span style="color:#f92672">/</span>max(y)
 
-X, y = dataset(show=False)
-X_scaled = X/max(X)
-y_scaled = y/max(y)
+model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>Sequential([keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, input_shape<span style="color:#f92672">=</span>[<span style="color:#ae81ff">1</span>])])
 
-model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[1])])
+<span style="color:#75715e"># you can also define optimizers in this way, so you can change parameters like lr.</span>
+optimizer <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>optimizers<span style="color:#f92672">.</span>Adam(learning_rate<span style="color:#f92672">=</span><span style="color:#ae81ff">1e-3</span>)
+model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span>optimizer, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mean_squared_error&#39;</span>)
+tf_history <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(X_scaled, y_scaled, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">500</span>, verbose<span style="color:#f92672">=</span>True)
 
-# you can also define optimizers in this way, so you can change parameters like lr.
-optimizer = tf.keras.optimizers.Adam(learning_rate=1e-3)
-model.compile(optimizer=optimizer, loss='mean_squared_error')
-tf_history = model.fit(X_scaled, y_scaled, epochs=500, verbose=True)
+plt<span style="color:#f92672">.</span>plot(tf_history<span style="color:#f92672">.</span>history[<span style="color:#e6db74">&#39;loss&#39;</span>])
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;Epochs&#39;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;MSE Loss&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
 
-plt.plot(tf_history.history['loss'])
-plt.xlabel('Epochs')
-plt.ylabel('MSE Loss')
-plt.show()
+mse <span style="color:#f92672">=</span> tf_history<span style="color:#f92672">.</span>history[<span style="color:#e6db74">&#39;loss&#39;</span>][<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+y_hat <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_scaled)
 
-mse = tf_history.history['loss'][-1]
-y_hat = model.predict(X_scaled)
-
-plt.figure(figsize=(12,7))
-plt.title('TensorFlow Model')
-plt.scatter(X_scaled, y_scaled, label='Data $(X, y)$')
-plt.plot(X_scaled, y_hat, color='red', label='Predicted Line $y = f(X)$',linewidth=4.0)
-plt.xlabel('$X$', fontsize=20)
-plt.ylabel('$y$', fontsize=20)
-plt.text(0,0.70,'MSE = {:.3f}'.format(mse), fontsize=20)
-plt.grid(True)
-plt.legend(fontsize=20)
-plt.show()
-</code></pre>
-
-<pre><code>WARNING: Logging before flag parsing goes to stderr.
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">7</span>))
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;TensorFlow Model&#39;</span>)
+plt<span style="color:#f92672">.</span>scatter(X_scaled, y_scaled, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Data $(X, y)$&#39;</span>)
+plt<span style="color:#f92672">.</span>plot(X_scaled, y_hat, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;red&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Predicted Line $y = f(X)$&#39;</span>,linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">4.0</span>)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;$X$&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;$y$&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>text(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0.70</span>,<span style="color:#e6db74">&#39;MSE = {:.3f}&#39;</span><span style="color:#f92672">.</span>format(mse), fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>grid(True)
+plt<span style="color:#f92672">.</span>legend(fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>WARNING: Logging before flag parsing goes to stderr.
 W0829 03:45:55.755687 139671975163776 deprecation.py:506] From /usr/local/lib/python3.6/dist-packages/tensorflow/python/ops/init_ops.py:1251: calling VarianceScaling.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
 Instructions for updating:
 Call initializer instance with the dtype argument instead of passing it to the constructor
@@ -724,117 +686,87 @@ Epoch 499/500
 Epoch 500/500
 500/500 [==============================] - 0s 39us/sample - loss: 0.0263
 </code></pre>
-
-<p><img src="../1_2/output_9_2.png" alt="png" /></p>
-
-<p><img src="../1_2/output_9_3.png" alt="png" /></p>
-
+<p><img src="../1_2/output_9_2.png" alt="png"></p>
+<p><img src="../1_2/output_9_3.png" alt="png"></p>
 <p>Looks the model Prediction for this dataset is not very great, but that is expected as the model is a straight line, it cannot predict non linear regression data.  Is there a way to train a regression model for this task?</p>
-
 <h1 id="polynomial-regression">Polynomial Regression</h1>
-
 <p>So when the dataset is not linear, linear regression cannot learn the dataset and make good predictions.</p>
-
 <p>So we need a polynomial model which considered the polynomial terms as well. So we need terms like $x^2$, $x^3$, &hellip;, $x^n$ for the model to learn a polynomial of $n^{th}$ degree.</p>
-
 <p>$\hat{y} = w_0 + w_1x + w_2x^2 + &hellip; + w_nx^n$</p>
-
 <p>One down side of this model is that, We will have to decide the value of n. But this is better than a linear regression model. We can get an idea of the value of n by visualizing a dataset, but for multi variable dataset, we will have to try different values of n and check which is better.</p>
-
 <h2 id="polynomial-features">Polynomial Features</h2>
-
 <p>you can calculate the polynomial features for each feature by programming it or you can try <code>sklearn.preprocessing.PolynomialFeatures</code> which allows us to make polynomial terms of our data.</p>
-
 <p>We will try degree 2, 3 and 4</p>
-
-<pre><code class="language-python">X, y = dataset(show=False)
-X_scaled = X/max(X)
-y_scaled = y/max(y)
-</code></pre>
-
-<pre><code class="language-python">from sklearn.preprocessing import PolynomialFeatures
-poly = PolynomialFeatures(degree=2) 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X, y <span style="color:#f92672">=</span> dataset(show<span style="color:#f92672">=</span>False)
+X_scaled <span style="color:#f92672">=</span> X<span style="color:#f92672">/</span>max(X)
+y_scaled <span style="color:#f92672">=</span> y<span style="color:#f92672">/</span>max(y)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> PolynomialFeatures
+poly <span style="color:#f92672">=</span> PolynomialFeatures(degree<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>) 
                                         
-X_2 = poly.fit_transform(X_scaled.reshape(-1,1))
-print(X_2.shape)
-print(X_2[0])
-</code></pre>
-
-<pre><code>(500, 3)
+X_2 <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(X_scaled<span style="color:#f92672">.</span>reshape(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>))
+<span style="color:#66d9ef">print</span>(X_2<span style="color:#f92672">.</span>shape)
+<span style="color:#66d9ef">print</span>(X_2[<span style="color:#ae81ff">0</span>])
+</code></pre></div><pre><code>(500, 3)
 [ 1.         -1.00401606  1.00804826]
 </code></pre>
-
-<pre><code class="language-python">from sklearn.preprocessing import PolynomialFeatures
-poly = PolynomialFeatures(degree=3) 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> PolynomialFeatures
+poly <span style="color:#f92672">=</span> PolynomialFeatures(degree<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>) 
                                         
-X_3 = poly.fit_transform(X_scaled.reshape(-1,1))
-print(X_3.shape)
-print(X_3[0])
-</code></pre>
-
-<pre><code>(500, 4)
+X_3 <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(X_scaled<span style="color:#f92672">.</span>reshape(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>))
+<span style="color:#66d9ef">print</span>(X_3<span style="color:#f92672">.</span>shape)
+<span style="color:#66d9ef">print</span>(X_3[<span style="color:#ae81ff">0</span>])
+</code></pre></div><pre><code>(500, 4)
 [ 1.         -1.00401606  1.00804826 -1.01209664]
 </code></pre>
-
-<pre><code class="language-python">from sklearn.preprocessing import PolynomialFeatures
-poly = PolynomialFeatures(degree=4) 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> PolynomialFeatures
+poly <span style="color:#f92672">=</span> PolynomialFeatures(degree<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>) 
                                         
-X_4 = poly.fit_transform(X_scaled.reshape(-1,1))
-print(X_4.shape)
-print(X_4[0])
-</code></pre>
-
-<pre><code>(500, 5)
+X_4 <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(X_scaled<span style="color:#f92672">.</span>reshape(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>))
+<span style="color:#66d9ef">print</span>(X_4<span style="color:#f92672">.</span>shape)
+<span style="color:#66d9ef">print</span>(X_4[<span style="color:#ae81ff">0</span>])
+</code></pre></div><pre><code>(500, 5)
 [ 1.         -1.00401606  1.00804826 -1.01209664  1.01616129]
 </code></pre>
-
 <p>The PolynomialFeatures returns $[1, x, x^2, x^3,&hellip;]$.</p>
-
-<h1 id="task-2">Task - 2</h1>
-
+<h1 id="task---2">Task - 2</h1>
 <ul>
 <li>Train a model with polynomial terms in the dataset.</li>
 <li>Visualize the prediction of the model</li>
 </ul>
-
 <p>The code remains the same except the no of input features will be 3, 4, 5 respectively.</p>
-
 <h2 id="tensorflow-model-with-2nd-degree">Tensorflow Model with 2nd Degree</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> tensorflow <span style="color:#f92672">as</span> tf
+<span style="color:#f92672">from</span> tensorflow <span style="color:#f92672">import</span> keras
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
 
-<pre><code class="language-python">import tensorflow as tf
-from tensorflow import keras
-import matplotlib.pyplot as plt
-import numpy as np
 
+model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>Sequential([keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, input_shape<span style="color:#f92672">=</span>[<span style="color:#ae81ff">3</span>])])
 
-model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[3])])
+optimizer <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>optimizers<span style="color:#f92672">.</span>Adam(learning_rate<span style="color:#f92672">=</span><span style="color:#ae81ff">1e-3</span>)
 
-optimizer = tf.keras.optimizers.Adam(learning_rate=1e-3)
+model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span>optimizer, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mean_squared_error&#39;</span>)
+tf_history <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(X_2, y_scaled, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">500</span>, verbose<span style="color:#f92672">=</span>True)
 
-model.compile(optimizer=optimizer, loss='mean_squared_error')
-tf_history = model.fit(X_2, y_scaled, epochs=500, verbose=True)
+plt<span style="color:#f92672">.</span>plot(tf_history<span style="color:#f92672">.</span>history[<span style="color:#e6db74">&#39;loss&#39;</span>])
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;Epochs&#39;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;MSE Loss&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
 
-plt.plot(tf_history.history['loss'])
-plt.xlabel('Epochs')
-plt.ylabel('MSE Loss')
-plt.show()
+mse <span style="color:#f92672">=</span> tf_history<span style="color:#f92672">.</span>history[<span style="color:#e6db74">&#39;loss&#39;</span>][<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+y_hat <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_2)
 
-mse = tf_history.history['loss'][-1]
-y_hat = model.predict(X_2)
-
-plt.figure(figsize=(12,7))
-plt.title('TensorFlow Model')
-plt.scatter(X_2[:, 1], y_scaled, label='Data $(X, y)$')
-plt.plot(X_2[:, 1], y_hat, color='red', label='Predicted Line $y = f(X)$',linewidth=4.0)
-plt.xlabel('$X$', fontsize=20)
-plt.ylabel('$y$', fontsize=20)
-plt.text(0,0.70,'MSE = {:.3f}'.format(mse), fontsize=20)
-plt.grid(True)
-plt.legend(fontsize=20)
-plt.show()
-</code></pre>
-
-<pre><code>Epoch 1/500
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">7</span>))
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;TensorFlow Model&#39;</span>)
+plt<span style="color:#f92672">.</span>scatter(X_2[:, <span style="color:#ae81ff">1</span>], y_scaled, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Data $(X, y)$&#39;</span>)
+plt<span style="color:#f92672">.</span>plot(X_2[:, <span style="color:#ae81ff">1</span>], y_hat, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;red&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Predicted Line $y = f(X)$&#39;</span>,linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">4.0</span>)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;$X$&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;$y$&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>text(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0.70</span>,<span style="color:#e6db74">&#39;MSE = {:.3f}&#39;</span><span style="color:#f92672">.</span>format(mse), fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>grid(True)
+plt<span style="color:#f92672">.</span>legend(fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>Epoch 1/500
 500/500 [==============================] - 0s 332us/sample - loss: 0.5278
 Epoch 2/500
 500/500 [==============================] - 0s 38us/sample - loss: 0.4773
@@ -845,51 +777,43 @@ Epoch 499/500
 Epoch 500/500
 500/500 [==============================] - 0s 43us/sample - loss: 0.0242
 </code></pre>
-
-<p><img src="../1_2/output_20_1.png" alt="png" /></p>
-
-<p><img src="../1_2/output_20_2.png" alt="png" /></p>
-
+<p><img src="../1_2/output_20_1.png" alt="png"></p>
+<p><img src="../1_2/output_20_2.png" alt="png"></p>
 <p>Why is the polynomial regression with 2-d features look like a straight line?</p>
-
 <p>Well because the model thinks that a straight line(look like, we can&rsquo;t be sure if it&rsquo;s a straight like, it can a parabola as well) better fits the dataset than a parabola. If you train the model for less epochs you can notice the model tries to fit the data with a parabola(2-d) but it improves as it moves to a line.</p>
-
 <p>Train the same model for may be 50 epochs.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> tensorflow <span style="color:#f92672">as</span> tf
+<span style="color:#f92672">from</span> tensorflow <span style="color:#f92672">import</span> keras
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
 
-<pre><code class="language-python">import tensorflow as tf
-from tensorflow import keras
-import matplotlib.pyplot as plt
-import numpy as np
 
+model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>Sequential([keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, input_shape<span style="color:#f92672">=</span>[<span style="color:#ae81ff">3</span>])])
 
-model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[3])])
+optimizer <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>optimizers<span style="color:#f92672">.</span>Adam(learning_rate<span style="color:#f92672">=</span><span style="color:#ae81ff">1e-3</span>)
 
-optimizer = tf.keras.optimizers.Adam(learning_rate=1e-3)
+model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span>optimizer, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mean_squared_error&#39;</span>)
+tf_history <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(X_2, y_scaled, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>, verbose<span style="color:#f92672">=</span>True)
 
-model.compile(optimizer=optimizer, loss='mean_squared_error')
-tf_history = model.fit(X_2, y_scaled, epochs=50, verbose=True)
+plt<span style="color:#f92672">.</span>plot(tf_history<span style="color:#f92672">.</span>history[<span style="color:#e6db74">&#39;loss&#39;</span>])
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;Epochs&#39;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;MSE Loss&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
 
-plt.plot(tf_history.history['loss'])
-plt.xlabel('Epochs')
-plt.ylabel('MSE Loss')
-plt.show()
+mse <span style="color:#f92672">=</span> tf_history<span style="color:#f92672">.</span>history[<span style="color:#e6db74">&#39;loss&#39;</span>][<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+y_hat <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_2)
 
-mse = tf_history.history['loss'][-1]
-y_hat = model.predict(X_2)
-
-plt.figure(figsize=(12,7))
-plt.title('TensorFlow Model')
-plt.scatter(X_2[:, 1], y_scaled, label='Data $(X, y)$')
-plt.plot(X_2[:, 1], y_hat, color='red', label='Predicted Line $y = f(X)$',linewidth=4.0)
-plt.xlabel('$X$', fontsize=20)
-plt.ylabel('$y$', fontsize=20)
-plt.text(0,0.70,'MSE = {:.3f}'.format(mse), fontsize=20)
-plt.grid(True)
-plt.legend(fontsize=20)
-plt.show()
-</code></pre>
-
-<pre><code>Epoch 1/50
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">7</span>))
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;TensorFlow Model&#39;</span>)
+plt<span style="color:#f92672">.</span>scatter(X_2[:, <span style="color:#ae81ff">1</span>], y_scaled, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Data $(X, y)$&#39;</span>)
+plt<span style="color:#f92672">.</span>plot(X_2[:, <span style="color:#ae81ff">1</span>], y_hat, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;red&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Predicted Line $y = f(X)$&#39;</span>,linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">4.0</span>)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;$X$&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;$y$&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>text(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0.70</span>,<span style="color:#e6db74">&#39;MSE = {:.3f}&#39;</span><span style="color:#f92672">.</span>format(mse), fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>grid(True)
+plt<span style="color:#f92672">.</span>legend(fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>Epoch 1/50
 500/500 [==============================] - 0s 370us/sample - loss: 0.8566
 Epoch 2/50
 500/500 [==============================] - 0s 38us/sample - loss: 0.7970
@@ -900,49 +824,42 @@ Epoch 49/50
 Epoch 50/50
 500/500 [==============================] - 0s 35us/sample - loss: 0.1000
 </code></pre>
-
-<p><img src="../1_2/output_22_1.png" alt="png" /></p>
-
-<p><img src="../1_2/output_22_2.png" alt="png" /></p>
-
+<p><img src="../1_2/output_22_1.png" alt="png"></p>
+<p><img src="../1_2/output_22_2.png" alt="png"></p>
 <p>You can clearly see that the model tries to fit the data with a parabola which doesn&rsquo;t seem to fit well, so it changes the parameters to fit a line.</p>
-
 <h2 id="tensorflow-model-with-3rd-degree">Tensorflow Model with 3rd Degree</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> tensorflow <span style="color:#f92672">as</span> tf
+<span style="color:#f92672">from</span> tensorflow <span style="color:#f92672">import</span> keras
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
 
-<pre><code class="language-python">import tensorflow as tf
-from tensorflow import keras
-import matplotlib.pyplot as plt
-import numpy as np
 
+model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>Sequential([keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(unit<span style="color:#e6db74">&#39;s=1, input_shape=[4])])</span>
 
-model = tf.keras.Sequential([keras.layers.Dense(unit's=1, input_shape=[4])])
+optimizer <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>optimizers<span style="color:#f92672">.</span>Adam(learning_rate<span style="color:#f92672">=</span><span style="color:#ae81ff">1e-3</span>)
 
-optimizer = tf.keras.optimizers.Adam(learning_rate=1e-3)
+model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span>optimizer, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mean_squared_error&#39;</span>)
+tf_history <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(X_3, y_scaled, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">500</span>, verbose<span style="color:#f92672">=</span>True)
 
-model.compile(optimizer=optimizer, loss='mean_squared_error')
-tf_history = model.fit(X_3, y_scaled, epochs=500, verbose=True)
+plt<span style="color:#f92672">.</span>plot(tf_history<span style="color:#f92672">.</span>history[<span style="color:#e6db74">&#39;loss&#39;</span>])
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;Epochs&#39;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;MSE Loss&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
 
-plt.plot(tf_history.history['loss'])
-plt.xlabel('Epochs')
-plt.ylabel('MSE Loss')
-plt.show()
+mse <span style="color:#f92672">=</span> tf_history<span style="color:#f92672">.</span>history[<span style="color:#e6db74">&#39;loss&#39;</span>][<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+y_hat <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_3)
 
-mse = tf_history.history['loss'][-1]
-y_hat = model.predict(X_3)
-
-plt.figure(figsize=(12,7))
-plt.title('TensorFlow Model')
-plt.scatter(X_3[:, 1], y_scaled, label='Data $(X, y)$')
-plt.plot(X_3[:, 1], y_hat, color='red', label='Predicted Line $y = f(X)$',linewidth=4.0)
-plt.xlabel('$X$', fontsize=20)
-plt.ylabel('$y$', fontsize=20)
-plt.text(0,0.70,'MSE = {:.3f}'.format(mse), fontsize=20)
-plt.grid(True)
-plt.legend(fontsize=20)
-plt.show()
-</code></pre>
-
-<pre><code>Epoch 1/500
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">7</span>))
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;TensorFlow Model&#39;</span>)
+plt<span style="color:#f92672">.</span>scatter(X_3[:, <span style="color:#ae81ff">1</span>], y_scaled, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Data $(X, y)$&#39;</span>)
+plt<span style="color:#f92672">.</span>plot(X_3[:, <span style="color:#ae81ff">1</span>], y_hat, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;red&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Predicted Line $y = f(X)$&#39;</span>,linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">4.0</span>)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;$X$&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;$y$&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>text(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0.70</span>,<span style="color:#e6db74">&#39;MSE = {:.3f}&#39;</span><span style="color:#f92672">.</span>format(mse), fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>grid(True)
+plt<span style="color:#f92672">.</span>legend(fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>Epoch 1/500
 500/500 [==============================] - 0s 456us/sample - loss: 0.4445
 Epoch 2/500
 500/500 [==============================] - 0s 40us/sample - loss: 0.3993
@@ -953,49 +870,42 @@ Epoch 499/500
 Epoch 500/500
 500/500 [==============================] - 0s 37us/sample - loss: 0.0039
 </code></pre>
-
-<p><img src="../1_2/output_25_1.png" alt="png" /></p>
-
-<p><img src="../1_2/output_25_2.png" alt="png" /></p>
-
+<p><img src="../1_2/output_25_1.png" alt="png"></p>
+<p><img src="../1_2/output_25_2.png" alt="png"></p>
 <p>3-D features perfectly fit the data with a 3rd degree polynomial as expected.</p>
-
 <h2 id="tensorflow-model-with-4th-degree">Tensorflow Model with 4th Degree</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> tensorflow <span style="color:#f92672">as</span> tf
+<span style="color:#f92672">from</span> tensorflow <span style="color:#f92672">import</span> keras
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
 
-<pre><code class="language-python">import tensorflow as tf
-from tensorflow import keras
-import matplotlib.pyplot as plt
-import numpy as np
 
+model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>Sequential([keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, input_shape<span style="color:#f92672">=</span>[<span style="color:#ae81ff">5</span>])])
 
-model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[5])])
+optimizer <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>optimizers<span style="color:#f92672">.</span>Adam(learning_rate<span style="color:#f92672">=</span><span style="color:#ae81ff">1e-3</span>)
 
-optimizer = tf.keras.optimizers.Adam(learning_rate=1e-3)
+model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span>optimizer, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mean_squared_error&#39;</span>)
+tf_history <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(X_4, y_scaled, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">500</span>, verbose<span style="color:#f92672">=</span>True)
 
-model.compile(optimizer=optimizer, loss='mean_squared_error')
-tf_history = model.fit(X_4, y_scaled, epochs=500, verbose=True)
+plt<span style="color:#f92672">.</span>plot(tf_history<span style="color:#f92672">.</span>history[<span style="color:#e6db74">&#39;loss&#39;</span>])
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;Epochs&#39;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;MSE Loss&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
 
-plt.plot(tf_history.history['loss'])
-plt.xlabel('Epochs')
-plt.ylabel('MSE Loss')
-plt.show()
+mse <span style="color:#f92672">=</span> tf_history<span style="color:#f92672">.</span>history[<span style="color:#e6db74">&#39;loss&#39;</span>][<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+y_hat <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_4)
 
-mse = tf_history.history['loss'][-1]
-y_hat = model.predict(X_4)
-
-plt.figure(figsize=(12,7))
-plt.title('TensorFlow Model')
-plt.scatter(X_4[:, 1], y_scaled, label='Data $(X, y)$')
-plt.plot(X_4[:, 1], y_hat, color='red', label='Predicted Line $y = f(X)$',linewidth=4.0)
-plt.xlabel('$X$', fontsize=20)
-plt.ylabel('$y$', fontsize=20)
-plt.text(0,0.70,'MSE = {:.3f}'.format(mse), fontsize=20)
-plt.grid(True)
-plt.legend(fontsize=20)
-plt.show()
-</code></pre>
-
-<pre><code>Epoch 1/500
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">7</span>))
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;TensorFlow Model&#39;</span>)
+plt<span style="color:#f92672">.</span>scatter(X_4[:, <span style="color:#ae81ff">1</span>], y_scaled, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Data $(X, y)$&#39;</span>)
+plt<span style="color:#f92672">.</span>plot(X_4[:, <span style="color:#ae81ff">1</span>], y_hat, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;red&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Predicted Line $y = f(X)$&#39;</span>,linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">4.0</span>)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;$X$&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;$y$&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>text(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0.70</span>,<span style="color:#e6db74">&#39;MSE = {:.3f}&#39;</span><span style="color:#f92672">.</span>format(mse), fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>grid(True)
+plt<span style="color:#f92672">.</span>legend(fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>Epoch 1/500
 500/500 [==============================] - 0s 240us/sample - loss: 0.5839
 Epoch 2/500
 500/500 [==============================] - 0s 37us/sample - loss: 0.5453
@@ -1006,47 +916,41 @@ Epoch 499/500
 Epoch 500/500
 500/500 [==============================] - 0s 39us/sample - loss: 0.0040
 </code></pre>
-
-<p><img src="../1_2/output_28_1.png" alt="png" /></p>
-
-<p><img src="../1_2/output_28_2.png" alt="png" /></p>
-
+<p><img src="../1_2/output_28_1.png" alt="png"></p>
+<p><img src="../1_2/output_28_2.png" alt="png"></p>
 <p>4th degree poly-regression also did a good job in fitting the data as it also have the 3rd degree terms.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> tensorflow <span style="color:#f92672">as</span> tf
+<span style="color:#f92672">from</span> tensorflow <span style="color:#f92672">import</span> keras
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
 
-<pre><code class="language-python">import tensorflow as tf
-from tensorflow import keras
-import matplotlib.pyplot as plt
-import numpy as np
 
+model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>Sequential([keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, input_shape<span style="color:#f92672">=</span>[<span style="color:#ae81ff">5</span>])])
 
-model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[5])])
+optimizer <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>optimizers<span style="color:#f92672">.</span>Adam(learning_rate<span style="color:#f92672">=</span><span style="color:#ae81ff">1e-3</span>)
 
-optimizer = tf.keras.optimizers.Adam(learning_rate=1e-3)
+model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span>optimizer, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mean_squared_error&#39;</span>)
+tf_history <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(X_4, y_scaled, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>, verbose<span style="color:#f92672">=</span>True)
 
-model.compile(optimizer=optimizer, loss='mean_squared_error')
-tf_history = model.fit(X_4, y_scaled, epochs=50, verbose=True)
+plt<span style="color:#f92672">.</span>plot(tf_history<span style="color:#f92672">.</span>history[<span style="color:#e6db74">&#39;loss&#39;</span>])
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;Epochs&#39;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;MSE Loss&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
 
-plt.plot(tf_history.history['loss'])
-plt.xlabel('Epochs')
-plt.ylabel('MSE Loss')
-plt.show()
+mse <span style="color:#f92672">=</span> tf_history<span style="color:#f92672">.</span>history[<span style="color:#e6db74">&#39;loss&#39;</span>][<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+y_hat <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_4)
 
-mse = tf_history.history['loss'][-1]
-y_hat = model.predict(X_4)
-
-plt.figure(figsize=(12,7))
-plt.title('TensorFlow Model')
-plt.scatter(X_4[:, 1], y_scaled, label='Data $(X, y)$')
-plt.plot(X_4[:, 1], y_hat, color='red', label='Predicted Line $y = f(X)$',linewidth=4.0)
-plt.xlabel('$X$', fontsize=20)
-plt.ylabel('$y$', fontsize=20)
-plt.text(0,0.70,'MSE = {:.3f}'.format(mse), fontsize=20)
-plt.grid(True)
-plt.legend(fontsize=20)
-plt.show()
-</code></pre>
-
-<pre><code>Epoch 1/50
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">7</span>))
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;TensorFlow Model&#39;</span>)
+plt<span style="color:#f92672">.</span>scatter(X_4[:, <span style="color:#ae81ff">1</span>], y_scaled, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Data $(X, y)$&#39;</span>)
+plt<span style="color:#f92672">.</span>plot(X_4[:, <span style="color:#ae81ff">1</span>], y_hat, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;red&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Predicted Line $y = f(X)$&#39;</span>,linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">4.0</span>)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;$X$&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;$y$&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>text(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0.70</span>,<span style="color:#e6db74">&#39;MSE = {:.3f}&#39;</span><span style="color:#f92672">.</span>format(mse), fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>grid(True)
+plt<span style="color:#f92672">.</span>legend(fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>Epoch 1/50
 500/500 [==============================] - 0s 181us/sample - loss: 0.6724
 Epoch 2/50
 500/500 [==============================] - 0s 35us/sample - loss: 0.6104
@@ -1059,15 +963,10 @@ Epoch 49/50
 Epoch 50/50
 500/500 [==============================] - 0s 38us/sample - loss: 0.0648
 </code></pre>
-
-<p><img src="../1_2/output_30_1.png" alt="png" /></p>
-
-<p><img src="../1_2/output_30_2.png" alt="png" /></p>
-
+<p><img src="../1_2/output_30_1.png" alt="png"></p>
+<p><img src="../1_2/output_30_2.png" alt="png"></p>
 <p>If you run the 4th degree poly-regression for fewer epochs, you can notice, the model tries to fit a 4th(or higher than 3rd) degree polynomial but as the loss is high, the model changes it parameters to set the 4th degree terms to almost 0 and thus giving a 3rd degree polynomial as you train for more epochs.</p>
-
 <p>This is polynomial regression. Yes, it&rsquo;s easy. But one issue, as this was a toy dataset we know it&rsquo;s a 3rd degree data, so we tried 2,3,4. But when the data is multi dimensional we cannot visualize the dataset, so it&rsquo;s difficult to decide the degree. This is why you will see Neural Networks are awesome. They are End-End, they do not need several feature extraction from our side, they can extract necessary features of their own.</p>
-
 <p><strong>Make a Higher degree (4th/5th degree) data and try polynomial regression on it. Also try different functions like exponents, trigonometric..etc.</strong></p>
 
           </div>
@@ -1137,7 +1036,7 @@ Epoch 50/50
   
 
   <p class="powered-by">
-    &copy; 2020 Shangeth Rajaa &middot; 
+    © 2020 Shangeth Rajaa &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

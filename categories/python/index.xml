@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on Shangeth</title>
@@ -32,7 +32,8 @@ $H(x) = \sum{p(x)I(x)}$ where $I(x)$ is called the Information content of $x$.
       
       <guid>/post/off-policy-monte-carlo/</guid>
       <description>Off-Policy Monte Carlo with Importance Sampling Off Policy Learning Link to the Notebook By exploration-exploitation trade-off, the agent should take sub-optimal exploratory action by which the agent may receive less reward. One way of exploration is by using an epsilon-greedy policy, where the agent takes a nongreedy action with a small probability.
-In an on-policy, improvement and evaluation are done on the policy which is used to select actions.</description>
+In an on-policy, improvement and evaluation are done on the policy which is used to select actions.
+In off-policy, improvement and evaluation are done on a different policy from the one used to select actions.</description>
     </item>
     
     <item>

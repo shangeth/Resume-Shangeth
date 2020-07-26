@@ -27,9 +27,7 @@
   
     
   
-  <meta name="description" content="Open in GitHub
-Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
-Batch Training Batch Training is something very important but we didn&rsquo;t use before as our dataset was smaller and we were just learning how to train models.
+  <meta name="description" content="Batch Training Batch Training is something very important but we didn&rsquo;t use before as our dataset was smaller and we were just learning how to train models.
 So far,
  we took each example $(X^i, y^i)$ made prediction with $\hat{y}^i = g(X^i.W&#43;b)$ calculated the loss $\mathcal{L}(y^i , \hat{y}^i)$ used back propagation to update $W$ and $b$ (all parameters in the model) with $w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \frac{\partial \mathcal{L}}{\partial b}$ and repeated this process.">
 
@@ -95,7 +93,7 @@ So far,
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.26264af3549d61c0ce873bd043df951e.css">
+  <link rel="stylesheet" href="/css/academic.min.04bf00581ae5351cdd9e3f0836914cc1.css">
 
   
 
@@ -139,9 +137,7 @@ So far,
   <meta property="og:site_name" content="Shangeth">
   <meta property="og:url" content="/courses/deeplearning/2.2/">
   <meta property="og:title" content="Batch Training | Shangeth">
-  <meta property="og:description" content="Open in GitHub
-Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
-Batch Training Batch Training is something very important but we didn&rsquo;t use before as our dataset was smaller and we were just learning how to train models.
+  <meta property="og:description" content="Batch Training Batch Training is something very important but we didn&rsquo;t use before as our dataset was smaller and we were just learning how to train models.
 So far,
  we took each example $(X^i, y^i)$ made prediction with $\hat{y}^i = g(X^i.W&#43;b)$ calculated the loss $\mathcal{L}(y^i , \hat{y}^i)$ used back propagation to update $W$ and $b$ (all parameters in the model) with $w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \frac{\partial \mathcal{L}}{\partial b}$ and repeated this process."><meta property="og:image" content="/img/instructor2.jpeg">
   <meta property="og:locale" content="en-us">
@@ -557,17 +553,14 @@ So far,
       
 
       <nav id="TableOfContents">
-<ul>
-<li><a href="#batch-training">Batch Training</a>
-<ul>
-<li><a href="#batch-training-in-tensorflow">Batch Training in TensorFlow</a>
-<ul>
-<li><a href="#batch-size-1">Batch Size = 1</a></li>
-<li><a href="#batch-size-100">Batch Size = 100</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#gradient-descent-in-batch-training">Gradient Descent in Batch Training</a></li>
-</ul>
+  <ul>
+    <li><a href="#batch-training-in-tensorflow">Batch Training in TensorFlow</a>
+      <ul>
+        <li><a href="#batch-size--1">Batch Size = 1</a></li>
+        <li><a href="#batch-size--100">Batch Size = 100</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 
       <ul class="nav toc-top">
@@ -586,22 +579,12 @@ So far,
           <h1 itemprop="name">Batch Training</h1>
 
           <div class="article-style" itemprop="articleBody">
-            
-
-<p><a href="https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_2_Batch_Training.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-
-<p><center><a href="https://github.com/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_2_Batch_Training.ipynb" target="_parent"><svg class="octicon octicon-mark-github v-align-middle" height="30" viewBox="0 0 16 16" version="1.1" width="30" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> Open in GitHub</a></center></p>
-
-<p><center><h1><a href='https://shangeth.com/courses/'>Deep Learning - Beginners Track</a></h1></center>
-<center><h3>Instructor: <a href='https://shangeth.com/'>Shangeth Rajaa</a></h3></center>
-<hr></p>
-
+            <p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <h1 id="batch-training">Batch Training</h1>
-
 <p>Batch Training is something very important but we didn&rsquo;t use before as our dataset was smaller and we were just learning how to train models.</p>
-
 <p>So far,</p>
-
 <ul>
 <li>we took each example $(X^i, y^i)$</li>
 <li>made prediction with $\hat{y}^i = g(X^i.W+b)$</li>
@@ -610,127 +593,103 @@ So far,
 $w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \frac{\partial \mathcal{L}}{\partial b}$</li>
 <li>and repeated this process.</li>
 </ul>
-
 <p>What is the problem here?</p>
-
 <p>We used many toy datasets which were in 1000s, so it will take few seconds/milliseconds for training the model for several epoch. But real world datasets may have millions of data and updating model with one example at a time may take a lot of time.</p>
-
 <p>This is for multi class classification</p>
-
 <p>$z =\begin{bmatrix}z_1&amp;z_2&amp;z_3\ \end{bmatrix} = \begin{bmatrix}x_1&amp;x_2 \ \end{bmatrix} . \begin{bmatrix}W_{11}&amp;W_{12}&amp;W_{13} \\ W_{21}&amp;W_{22}&amp;W_{23} \\ \end{bmatrix} + \begin{bmatrix}b_1&amp;b_2&amp;b_3\ \end{bmatrix}$</p>
-
 <p>$\hat{y} = \sigma(z)$</p>
-
 <p>This uses one example $X = [x_1, x_2]$ at a time, but it is also possible to use all the data together as a matrix(Advantage of matrix multiplication and linear algebra).</p>
-
 <p>$z = \begin{bmatrix}z_1^1&amp;z_2^1&amp;z_3^1\\ z_1^2&amp;z_2^2&amp;z_3^2\\ \vdots&amp;\vdots&amp;\vdots \\ z_1^n&amp;z_2^n&amp;z_3^n \ \end{bmatrix}  =
 \begin{bmatrix}x_1^1&amp;x_2^1\\ x_1^2&amp;x_2^2\\ \vdots&amp;\vdots \\ x_1^n&amp;x_2^n\\ \end{bmatrix} .
 \begin{bmatrix}W_{11}&amp;W_{12}&amp;W_{13}\\ W_{21}&amp;W_{22}&amp;W_{23}\\ \end{bmatrix} + \begin{bmatrix}b_1&amp;b_2&amp;b_3\\ \end{bmatrix}$</p>
-
 <p>$ \hat{y} = \begin{bmatrix}\sigma(z_1^1)&amp;\sigma(z_2^1)&amp;\sigma(z_3^1)\\ \sigma(z_1^2)&amp;\sigma(z_2^2)&amp;\sigma(z_3^2)\\ \vdots&amp;\vdots&amp;\vdots \\ \sigma(z_1^n)&amp;\sigma(z_2^n)&amp;\sigma(z_3^n) \ \end{bmatrix} $</p>
-
 <p>This is called <strong>batch gradient descent</strong>. There is a problem with this. When your data is in millions, holding all the millions of data into a matrix may cause memory issues. It&rsquo;s not possible for the RAM to hold millions of data into the memory altogether.</p>
-
 <p>So we do something called <strong>mini-batch gradient descent</strong>. We take few number of examples say m(batch size) which the memory can hold at a time and use that for training and during the next step we use the next m examples and continue till the complete dataset is used for training.</p>
-
 <p>Example:</p>
-
 <ul>
 <li>no of examples (n) = 2300</li>
 <li>batch size (m) = 500</li>
 <li>then we use [500, 500, 500, 500, 300] batches for training at a time.</li>
 </ul>
-
 <p>By this way we use the advantage of matrix multiplication and do not fill the RAM memory.</p>
-
 <p>We can change the batch size with a parameter called batch_size in model.fit.</p>
-
 <p>Lets try different batch size.</p>
-
 <h2 id="batch-training-in-tensorflow">Batch Training in TensorFlow</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.datasets <span style="color:#f92672">import</span> make_gaussian_quantiles
+<span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
 
-<pre><code class="language-python">from sklearn.datasets import make_gaussian_quantiles
-from sklearn.model_selection import train_test_split
-import matplotlib.pyplot as plt
+X, y <span style="color:#f92672">=</span> make_gaussian_quantiles(n_samples<span style="color:#f92672">=</span><span style="color:#ae81ff">2000</span>, n_features<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, n_classes<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, cov<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
 
-X, y = make_gaussian_quantiles(n_samples=2000, n_features=2, n_classes=2, random_state=3, cov=0.1)
-
-plt.figure(figsize=(10,10))
-plt.scatter(X[:,0], X[:,1],c=y)
-plt.grid(True)
-plt.show()
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">10</span>))
+plt<span style="color:#f92672">.</span>scatter(X[:,<span style="color:#ae81ff">0</span>], X[:,<span style="color:#ae81ff">1</span>],c<span style="color:#f92672">=</span>y)
+plt<span style="color:#f92672">.</span>grid(True)
+plt<span style="color:#f92672">.</span>show()
 
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, shuffle=True)
-X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.2, shuffle=True)
+X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(X, y, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>, shuffle<span style="color:#f92672">=</span>True)
+X_train, X_val, y_train, y_val <span style="color:#f92672">=</span> train_test_split(X_train, y_train, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.2</span>, shuffle<span style="color:#f92672">=</span>True)
 
-print('Train = {}\nTest = {}\nVal = {}'.format(len(X_train), len(X_test), len(X_val)))
-</code></pre>
-
-<p><img src="../2_2/output_4_0.png" alt="png" /></p>
-
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Train = {}</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Test = {}</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Val = {}&#39;</span><span style="color:#f92672">.</span>format(len(X_train), len(X_test), len(X_val)))
+</code></pre></div><p><img src="../2_2/output_4_0.png" alt="png"></p>
 <pre><code>Train = 1120
 Test = 600
 Val = 280
 </code></pre>
-
-<h3 id="batch-size-1">Batch Size = 1</h3>
-
-<pre><code class="language-python">%%time 
-#magic function to measure time of the cell
+<h3 id="batch-size--1">Batch Size = 1</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">%%</span>time 
+<span style="color:#75715e">#magic function to measure time of the cell</span>
 
 
-import tensorflow as tf
-from tensorflow import keras
-import numpy as np
-import matplotlib.pyplot as plt
-tf.keras.backend.clear_session()
+<span style="color:#f92672">import</span> tensorflow <span style="color:#f92672">as</span> tf
+<span style="color:#f92672">from</span> tensorflow <span style="color:#f92672">import</span> keras
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>backend<span style="color:#f92672">.</span>clear_session()
 
-# random number initialized to same, for reproducing the same results.
-np.random.seed(0)
-tf.set_random_seed(0)
+<span style="color:#75715e"># random number initialized to same, for reproducing the same results.</span>
+np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">0</span>)
+tf<span style="color:#f92672">.</span>set_random_seed(<span style="color:#ae81ff">0</span>)
 
-model = tf.keras.Sequential([
-                             keras.layers.Dense(units=10, input_shape=[2]), 
-                             keras.layers.Activation('tanh'),
-                             keras.layers.Dense(units=10),
-                             keras.layers.Activation('tanh'),
-                             keras.layers.Dense(units=1), 
-                             keras.layers.Activation('sigmoid')
+model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>Sequential([
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, input_shape<span style="color:#f92672">=</span>[<span style="color:#ae81ff">2</span>]), 
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;tanh&#39;</span>),
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>),
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;tanh&#39;</span>),
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), 
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;sigmoid&#39;</span>)
                              ])
 
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-tf_history = model.fit(X_train, y_train, batch_size=1, epochs=10, verbose=True, validation_data=(X_val, y_val))
+model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adam&#39;</span>, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;binary_crossentropy&#39;</span>, metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>])
+tf_history <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(X_train, y_train, batch_size<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, verbose<span style="color:#f92672">=</span>True, validation_data<span style="color:#f92672">=</span>(X_val, y_val))
 
 
-# contour plot
-xx, yy = np.mgrid[-1.5:1.5:.01, -1.5:1.5:.01]
-grid = np.c_[xx.ravel(), yy.ravel()]
-probs = model.predict(grid)[:,0].reshape(xx.shape)
+<span style="color:#75715e"># contour plot</span>
+xx, yy <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mgrid[<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>:<span style="color:#ae81ff">1.5</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">01</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>:<span style="color:#ae81ff">1.5</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">01</span>]
+grid <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>c_[xx<span style="color:#f92672">.</span>ravel(), yy<span style="color:#f92672">.</span>ravel()]
+probs <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(grid)[:,<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>reshape(xx<span style="color:#f92672">.</span>shape)
 
-f, ax = plt.subplots(figsize=(8, 6))
-contour = ax.contourf(xx, yy, probs, 25, cmap=&quot;RdBu&quot;,
-                      vmin=0, vmax=1)
-ax_c = f.colorbar(contour)
-ax_c.set_label(&quot;$P(y = 1)$&quot;)
-ax_c.set_ticks([0, .25, .5, .75, 1])
+f, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">6</span>))
+contour <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>contourf(xx, yy, probs, <span style="color:#ae81ff">25</span>, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>,
+                      vmin<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+ax_c <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>colorbar(contour)
+ax_c<span style="color:#f92672">.</span>set_label(<span style="color:#e6db74">&#34;$P(y = 1)$&#34;</span>)
+ax_c<span style="color:#f92672">.</span>set_ticks([<span style="color:#ae81ff">0</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">25</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">5</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">75</span>, <span style="color:#ae81ff">1</span>])
 
-ax.scatter(X[:,0], X[:, 1], c=y, s=50,
-           cmap=&quot;RdBu&quot;, vmin=-.2, vmax=1.2,
-           edgecolor=&quot;white&quot;, linewidth=1)
+ax<span style="color:#f92672">.</span>scatter(X[:,<span style="color:#ae81ff">0</span>], X[:, <span style="color:#ae81ff">1</span>], c<span style="color:#f92672">=</span>y, s<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>,
+           cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>, vmin<span style="color:#f92672">=-.</span><span style="color:#ae81ff">2</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1.2</span>,
+           edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;white&#34;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
 
-plt.show()
+plt<span style="color:#f92672">.</span>show()
 
-# test accuracy
-from sklearn.metrics import accuracy_score
-y_test_pred = model.predict(X_test)
-test_accuracy = accuracy_score((y_test_pred &gt; 0.5), y_test)
+<span style="color:#75715e"># test accuracy</span>
+<span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> accuracy_score
+y_test_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test)
+test_accuracy <span style="color:#f92672">=</span> accuracy_score((y_test_pred <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>), y_test)
 
-print('\nTest Accuracy = ', test_accuracy)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Test Accuracy = &#39;</span>, test_accuracy)
 
-</code></pre>
-
-<pre><code>WARNING: Logging before flag parsing goes to stderr.
+</code></pre></div><pre><code>WARNING: Logging before flag parsing goes to stderr.
 W0902 14:17:32.553351 139709616596864 deprecation.py:506] From /usr/local/lib/python3.6/dist-packages/tensorflow/python/ops/init_ops.py:1251: calling VarianceScaling.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
 Instructions for updating:
 Call initializer instance with the dtype argument instead of passing it to the constructor
@@ -755,73 +714,66 @@ Epoch 9/10
 Epoch 10/10
 1120/1120 [==============================] - 2s 1ms/sample - loss: 0.5296 - acc: 0.7607 - val_loss: 0.4991 - val_acc: 0.8071
 </code></pre>
-
-<p><img src="../2_2/output_6_2.png" alt="png" /></p>
-
+<p><img src="../2_2/output_6_2.png" alt="png"></p>
 <pre><code>Test Accuracy =  0.7583333333333333
 CPU times: user 21.5 s, sys: 1.52 s, total: 23 s
 Wall time: 19.5 s
 </code></pre>
-
 <p>Batch size of 1 for 10 epochs uses 23s. Let&rsquo;s increase the batch size to 100 and check the time.</p>
-
-<h3 id="batch-size-100">Batch Size = 100</h3>
-
-<pre><code class="language-python">%%time 
-#magic function to measure time of the cell
+<h3 id="batch-size--100">Batch Size = 100</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">%%</span>time 
+<span style="color:#75715e">#magic function to measure time of the cell</span>
 
 
-import tensorflow as tf
-from tensorflow import keras
-import numpy as np
-import matplotlib.pyplot as plt
-tf.keras.backend.clear_session()
+<span style="color:#f92672">import</span> tensorflow <span style="color:#f92672">as</span> tf
+<span style="color:#f92672">from</span> tensorflow <span style="color:#f92672">import</span> keras
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>backend<span style="color:#f92672">.</span>clear_session()
 
-# random number initialized to same, for reproducing the same results.
-np.random.seed(0)
-tf.set_random_seed(0)
+<span style="color:#75715e"># random number initialized to same, for reproducing the same results.</span>
+np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">0</span>)
+tf<span style="color:#f92672">.</span>set_random_seed(<span style="color:#ae81ff">0</span>)
 
-model = tf.keras.Sequential([
-                             keras.layers.Dense(units=10, input_shape=[2]), 
-                             keras.layers.Activation('tanh'),
-                             keras.layers.Dense(units=10),
-                             keras.layers.Activation('tanh'),
-                             keras.layers.Dense(units=1), 
-                             keras.layers.Activation('sigmoid')
+model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>Sequential([
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, input_shape<span style="color:#f92672">=</span>[<span style="color:#ae81ff">2</span>]), 
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;tanh&#39;</span>),
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>),
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;tanh&#39;</span>),
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), 
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;sigmoid&#39;</span>)
                              ])
 
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-tf_history = model.fit(X_train, y_train, batch_size=100, epochs=10, verbose=True, validation_data=(X_val, y_val))
+model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adam&#39;</span>, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;binary_crossentropy&#39;</span>, metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>])
+tf_history <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(X_train, y_train, batch_size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, verbose<span style="color:#f92672">=</span>True, validation_data<span style="color:#f92672">=</span>(X_val, y_val))
 
 
-# contour plot
-xx, yy = np.mgrid[-1.5:1.5:.01, -1.5:1.5:.01]
-grid = np.c_[xx.ravel(), yy.ravel()]
-probs = model.predict(grid)[:,0].reshape(xx.shape)
+<span style="color:#75715e"># contour plot</span>
+xx, yy <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mgrid[<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>:<span style="color:#ae81ff">1.5</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">01</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>:<span style="color:#ae81ff">1.5</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">01</span>]
+grid <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>c_[xx<span style="color:#f92672">.</span>ravel(), yy<span style="color:#f92672">.</span>ravel()]
+probs <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(grid)[:,<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>reshape(xx<span style="color:#f92672">.</span>shape)
 
-f, ax = plt.subplots(figsize=(8, 6))
-contour = ax.contourf(xx, yy, probs, 25, cmap=&quot;RdBu&quot;,
-                      vmin=0, vmax=1)
-ax_c = f.colorbar(contour)
-ax_c.set_label(&quot;$P(y = 1)$&quot;)
-ax_c.set_ticks([0, .25, .5, .75, 1])
+f, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">6</span>))
+contour <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>contourf(xx, yy, probs, <span style="color:#ae81ff">25</span>, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>,
+                      vmin<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+ax_c <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>colorbar(contour)
+ax_c<span style="color:#f92672">.</span>set_label(<span style="color:#e6db74">&#34;$P(y = 1)$&#34;</span>)
+ax_c<span style="color:#f92672">.</span>set_ticks([<span style="color:#ae81ff">0</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">25</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">5</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">75</span>, <span style="color:#ae81ff">1</span>])
 
-ax.scatter(X[:,0], X[:, 1], c=y, s=50,
-           cmap=&quot;RdBu&quot;, vmin=-.2, vmax=1.2,
-           edgecolor=&quot;white&quot;, linewidth=1)
+ax<span style="color:#f92672">.</span>scatter(X[:,<span style="color:#ae81ff">0</span>], X[:, <span style="color:#ae81ff">1</span>], c<span style="color:#f92672">=</span>y, s<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>,
+           cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>, vmin<span style="color:#f92672">=-.</span><span style="color:#ae81ff">2</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1.2</span>,
+           edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;white&#34;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
 
-plt.show()
+plt<span style="color:#f92672">.</span>show()
 
-# test accuracy
-from sklearn.metrics import accuracy_score
-y_test_pred = model.predict(X_test)
-test_accuracy = accuracy_score((y_test_pred &gt; 0.5), y_test)
+<span style="color:#75715e"># test accuracy</span>
+<span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> accuracy_score
+y_test_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test)
+test_accuracy <span style="color:#f92672">=</span> accuracy_score((y_test_pred <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>), y_test)
 
-print('\nTest Accuracy = ', test_accuracy)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Test Accuracy = &#39;</span>, test_accuracy)
 
-</code></pre>
-
-<pre><code>Train on 1120 samples, validate on 280 samples
+</code></pre></div><pre><code>Train on 1120 samples, validate on 280 samples
 Epoch 1/10
 1120/1120 [==============================] - 0s 104us/sample - loss: 0.6993 - acc: 0.5116 - val_loss: 0.7020 - val_acc: 0.5107
 Epoch 2/10
@@ -837,27 +789,18 @@ Epoch 9/10
 Epoch 10/10
 1120/1120 [==============================] - 0s 19us/sample - loss: 0.6920 - acc: 0.4902 - val_loss: 0.6924 - val_acc: 0.4821
 </code></pre>
-
-<p><img src="../2_2/output_9_1.png" alt="png" /></p>
-
+<p><img src="../2_2/output_9_1.png" alt="png"></p>
 <pre><code>Test Accuracy =  0.47333333333333333
 CPU times: user 2.56 s, sys: 387 ms, total: 2.94 s
 Wall time: 2.34 s
 </code></pre>
-
 <p>Batch size of 100 took just 2.94s. Hope now you understood the advantage of Batch training.</p>
-
 <h1 id="gradient-descent-in-batch-training">Gradient Descent in Batch Training</h1>
-
 <p>In batch training, we calculate the loss as average of loss of the batch,
 $\mathcal{L}(y , \hat{y}) = \dfrac{1}{n} \sum_{i=1}^{n}\mathcal{L}(y^i , \hat{y}^i)$</p>
-
 <p>$\therefore \dfrac{\partial \mathcal{L}}{\partial W} = \dfrac{1}{n} \sum_{i=1}^{n}\dfrac{\partial \mathcal{L}(y^i , \hat{y}^i)}{\partial W}$</p>
-
 <p>and $\dfrac{\partial \mathcal{L}}{\partial b} = \dfrac{1}{n} \sum_{i=1}^{n}\dfrac{\partial \mathcal{L}(y^i , \hat{y}^i)}{\partial b}$</p>
-
 <p>Which means the gradients are average of gradients over the batch of data.</p>
-
 <p>Then update the parameters normally with $w := w - \alpha \frac{\partial \mathcal{L}}{\partial w}$ and $b := b - \alpha \frac{\partial \mathcal{L}}{\partial b}$.</p>
 
           </div>
@@ -927,7 +870,7 @@ $\mathcal{L}(y , \hat{y}) = \dfrac{1}{n} \sum_{i=1}^{n}\mathcal{L}(y^i , \hat{y}
   
 
   <p class="powered-by">
-    &copy; 2020 Shangeth Rajaa &middot; 
+    © 2020 Shangeth Rajaa &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

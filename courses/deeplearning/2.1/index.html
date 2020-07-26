@@ -27,10 +27,8 @@
   
     
   
-  <meta name="description" content="Open in GitHub
-Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
-We trained our first neural network in the previous notebook which had 3 layers
- Input Layer Hidden Layer Output Layer  Multiple Nodes The network had 2 linear layers($C_1$,0 $C_2$) in the hidden layer each of which gave us a linear classifier, then we used another linear layer($C_3$) in the output layer to combine $C_1$ and $C_2$ to give us a non-linear classifier($C$).">
+  <meta name="description" content="We trained our first neural network in the previous notebook which had 3 layers
+ Input Layer Hidden Layer Output Layer  Multiple Nodes The network had 2 linear layers($C_1$,0 $C_2$) in the hidden layer each of which gave us a linear classifier, then we used another linear layer($C_3$) in the output layer to combine $C_1$ and $C_2$ to give us a non-linear classifier($C$). That was amazing, now we can get non-linear classifiers.">
 
   
   <link rel="alternate" hreflang="en-us" href="/courses/deeplearning/2.1/">
@@ -94,7 +92,7 @@ We trained our first neural network in the previous notebook which had 3 layers
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.26264af3549d61c0ce873bd043df951e.css">
+  <link rel="stylesheet" href="/css/academic.min.04bf00581ae5351cdd9e3f0836914cc1.css">
 
   
 
@@ -138,10 +136,8 @@ We trained our first neural network in the previous notebook which had 3 layers
   <meta property="og:site_name" content="Shangeth">
   <meta property="og:url" content="/courses/deeplearning/2.1/">
   <meta property="og:title" content="Neural Network Architectures | Shangeth">
-  <meta property="og:description" content="Open in GitHub
-Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
-We trained our first neural network in the previous notebook which had 3 layers
- Input Layer Hidden Layer Output Layer  Multiple Nodes The network had 2 linear layers($C_1$,0 $C_2$) in the hidden layer each of which gave us a linear classifier, then we used another linear layer($C_3$) in the output layer to combine $C_1$ and $C_2$ to give us a non-linear classifier($C$)."><meta property="og:image" content="/img/instructor2.jpeg">
+  <meta property="og:description" content="We trained our first neural network in the previous notebook which had 3 layers
+ Input Layer Hidden Layer Output Layer  Multiple Nodes The network had 2 linear layers($C_1$,0 $C_2$) in the hidden layer each of which gave us a linear classifier, then we used another linear layer($C_3$) in the output layer to combine $C_1$ and $C_2$ to give us a non-linear classifier($C$). That was amazing, now we can get non-linear classifiers."><meta property="og:image" content="/img/instructor2.jpeg">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-09-02T00:00:00&#43;01:00">
@@ -555,22 +551,19 @@ We trained our first neural network in the previous notebook which had 3 layers
       
 
       <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#multiple-nodes">Multiple Nodes</a></li>
-<li><a href="#multiple-layers-deeper-neural-network">Multiple layers (Deeper Neural Network)</a></li>
-</ul></li>
-<li><a href="#deep-neural-networks-in-tensorflow">Deep Neural Networks in Tensorflow</a>
-<ul>
-<li><a href="#dataset">Dataset</a></li>
-<li><a href="#linear-classifier-0-hidden-layer">Linear Classifier (0 hidden layer)</a></li>
-<li><a href="#neural-network-1-hidden-layer-3-hidden-units">Neural network (1 hidden layer, 3 hidden units)</a></li>
-<li><a href="#neural-network-1-hidden-layer-10-hidden-units">Neural network (1 hidden layer, 10 hidden units)</a></li>
-<li><a href="#neural-network-2-hidden-layers-10-hidden-units-10-hidden-units">Neural network (2 hidden layers, 10 hidden units, 10 hidden units)</a></li>
-<li><a href="#performance-of-different-nn-architectures">Performance of Different NN Architectures</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#multiple-nodes">Multiple Nodes</a></li>
+    <li><a href="#multiple-layers-deeper-neural-network">Multiple layers (Deeper Neural Network)</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#dataset">Dataset</a></li>
+    <li><a href="#linear-classifier-0-hidden-layer">Linear Classifier (0 hidden layer)</a></li>
+    <li><a href="#neural-network-1-hidden-layer-3-hidden-units">Neural network (1 hidden layer, 3 hidden units)</a></li>
+    <li><a href="#neural-network-1-hidden-layer-10-hidden-units">Neural network (1 hidden layer, 10 hidden units)</a></li>
+    <li><a href="#neural-network-2-hidden-layers-10-hidden-units-10-hidden-units">Neural network (2 hidden layers, 10 hidden units, 10 hidden units)</a></li>
+    <li><a href="#performance-of-different-nn-architectures">Performance of Different NN Architectures</a></li>
+  </ul>
 </nav>
 
       <ul class="nav toc-top">
@@ -589,142 +582,108 @@ We trained our first neural network in the previous notebook which had 3 layers
           <h1 itemprop="name">Neural Network Architectures</h1>
 
           <div class="article-style" itemprop="articleBody">
-            
-
-<p><a href="https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_1_Deep_Neural_Networks_Architecture.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-
-<p><center><a href="https://github.com/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_1_Deep_Neural_Networks_Architecture.ipynb" target="_parent"><svg class="octicon octicon-mark-github v-align-middle" height="30" viewBox="0 0 16 16" version="1.1" width="30" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> Open in GitHub</a></center></p>
-
-<p><center><h1><a href='https://shangeth.com/courses/'>Deep Learning - Beginners Track</a></h1></center>
-<center><h3>Instructor: <a href='https://shangeth.com/'>Shangeth Rajaa</a></h3></center>
-<hr></p>
-
+            <p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>We trained our first neural network in the previous notebook which had 3 layers</p>
-
 <ul>
 <li>Input Layer</li>
 <li>Hidden Layer</li>
 <li>Output Layer</li>
 </ul>
-
-<p><img src="https://drive.google.com/uc?export=view&amp;id=12Vhq8rzQKiCVsRIUuEzKcbW9qraBypNX" alt="Neural Network 1 hidden 2 node" /></p>
-
+<p><img src="https://drive.google.com/uc?export=view&amp;id=12Vhq8rzQKiCVsRIUuEzKcbW9qraBypNX" alt="Neural Network 1 hidden 2 node"></p>
 <h2 id="multiple-nodes">Multiple Nodes</h2>
-
 <p>The network had 2 linear layers($C_1$,0 $C_2$) in the hidden layer each of which gave us a linear classifier, then we used another linear layer($C_3$) in the output layer to combine $C_1$ and $C_2$ to give us a non-linear classifier($C$). That was amazing, now we can get non-linear classifiers.</p>
-
 <p>Won&rsquo;t it be even amazing it we can combine more than 2 linear classifiers?. Ofc yes, that will give a more accurate classifier. But how to combine 3 linear classifiers?</p>
-
 <p>Just increase the number of nodes in the hidden layer.
-<img src="https://drive.google.com/uc?export=view&amp;id=1mzc27z8h50Ctg3IlV4TOsD6rloEa_x_g" alt="Neural Network 1 hidden 2 node" /></p>
-
+<img src="https://drive.google.com/uc?export=view&amp;id=1mzc27z8h50Ctg3IlV4TOsD6rloEa_x_g" alt="Neural Network 1 hidden 2 node"></p>
 <p>This network will consider 3 linear layers and combine them to give a non-linear classifier/regressor.</p>
-
 <h2 id="multiple-layers-deeper-neural-network">Multiple layers (Deeper Neural Network)</h2>
-
 <p>Combination of multiple linear classifiers gives us a non-linear classifier, <strong>What if we combine multiple non-linear classifiers?</strong>
 Won&rsquo;t that give us a more complex non-linear classifier which can fit/classify our data more accurately?</p>
-
 <p>How to do that?
 We will take multiple copies of linear classifiers and combine them differently using another hidden layer instead of output layer and combine these non-linear classifiers using output layers.</p>
-
 <ul>
 <li>Input(Input Layer)</li>
 <li>n linear classifiers(Hidden Layer 1)</li>
 <li>m non linear classifier = m combinations of (n linear classifiers)</li>
 <li>output MORE COMPLEX classifier = combination of (m non-linear classifier)</li>
 </ul>
-
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1Ie0dYwjx6a992MnWWI8ttAuednCN_XHW" alt="Neural Network 2 hidden 3,4 node" /></p>
-
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1Ie0dYwjx6a992MnWWI8ttAuednCN_XHW" alt="Neural Network 2 hidden 3,4 node"></p>
 <p>This network, will take 3 linear classifiers and make 4 different combination of linear classifiers to get 4 non-linear classifiers and combine them to get a more complex Non-Linear Classifier.</p>
-
-<p>By stacking more Hidden Layers and nodes, we can get a more and more complex non-linear classifier/regressor. We visualized only for 2-D Data, this also applies for multi dimensional data, but unfortunately we cannot visualize multidimensioanl data other than <sup>2</sup>&frasl;<sub>3</sub>. In 3-d data the linear classifiers will be planes and the non-linear classifier will be some surface which are combinations of planes.</p>
-
+<p>By stacking more Hidden Layers and nodes, we can get a more and more complex non-linear classifier/regressor. We visualized only for 2-D Data, this also applies for multi dimensional data, but unfortunately we cannot visualize multidimensioanl data other than 2/3. In 3-d data the linear classifiers will be planes and the non-linear classifier will be some surface which are combinations of planes.</p>
 <p><strong>This is Deep Neural network</strong>.</p>
-
 <p>Note: This is a mathematical analysis of how a neural network can make a more complex classifier/regressor, but we really do not know what features a neural network will consider to make the complex function. That is why it&rsquo;s called Machine Learning, we can try to understand what features the model is using to classify, but can&rsquo;t be sure.</p>
-
 <p>Now Let&rsquo;s compare neural network with a deeper neural network and try to visualize the classifier.</p>
-
 <h1 id="deep-neural-networks-in-tensorflow">Deep Neural Networks in Tensorflow</h1>
-
 <h2 id="dataset">Dataset</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.datasets <span style="color:#f92672">import</span> make_gaussian_quantiles
+<span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
 
-<pre><code class="language-python">from sklearn.datasets import make_gaussian_quantiles
-from sklearn.model_selection import train_test_split
-import matplotlib.pyplot as plt
+X, y <span style="color:#f92672">=</span> make_gaussian_quantiles(n_samples<span style="color:#f92672">=</span><span style="color:#ae81ff">2000</span>, n_features<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, n_classes<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, cov<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
 
-X, y = make_gaussian_quantiles(n_samples=2000, n_features=2, n_classes=2, random_state=3, cov=0.1)
-
-plt.figure(figsize=(10,10))
-plt.scatter(X[:,0], X[:,1],c=y)
-plt.grid(True)
-plt.show()
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">10</span>))
+plt<span style="color:#f92672">.</span>scatter(X[:,<span style="color:#ae81ff">0</span>], X[:,<span style="color:#ae81ff">1</span>],c<span style="color:#f92672">=</span>y)
+plt<span style="color:#f92672">.</span>grid(True)
+plt<span style="color:#f92672">.</span>show()
 
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, shuffle=True)
-X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.2, shuffle=True)
+X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(X, y, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>, shuffle<span style="color:#f92672">=</span>True)
+X_train, X_val, y_train, y_val <span style="color:#f92672">=</span> train_test_split(X_train, y_train, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.2</span>, shuffle<span style="color:#f92672">=</span>True)
 
-print('Train = {}\nTest = {}\nVal = {}'.format(len(X_train), len(X_test), len(X_val)))
-</code></pre>
-
-<p><img src="../2_1/output_4_0.png" alt="png" /></p>
-
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Train = {}</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Test = {}</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Val = {}&#39;</span><span style="color:#f92672">.</span>format(len(X_train), len(X_test), len(X_val)))
+</code></pre></div><p><img src="../2_1/output_4_0.png" alt="png"></p>
 <pre><code>Train = 1120
 Test = 600
 Val = 280
 </code></pre>
-
 <h2 id="linear-classifier-0-hidden-layer">Linear Classifier (0 hidden layer)</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> tensorflow <span style="color:#f92672">as</span> tf
+<span style="color:#f92672">from</span> tensorflow <span style="color:#f92672">import</span> keras
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>backend<span style="color:#f92672">.</span>clear_session()
 
-<pre><code class="language-python">import tensorflow as tf
-from tensorflow import keras
-import numpy as np
-import matplotlib.pyplot as plt
-tf.keras.backend.clear_session()
+<span style="color:#75715e"># random number initialized to be the same, for reproducing the same results.</span>
+np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">0</span>)
+tf<span style="color:#f92672">.</span>set_random_seed(<span style="color:#ae81ff">0</span>)
 
-# random number initialized to be the same, for reproducing the same results.
-np.random.seed(0)
-tf.set_random_seed(0)
-
-model = tf.keras.Sequential([
-                             keras.layers.Dense(units=1, input_shape=[2]), 
-                             keras.layers.Activation('sigmoid')
+model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>Sequential([
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, input_shape<span style="color:#f92672">=</span>[<span style="color:#ae81ff">2</span>]), 
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;sigmoid&#39;</span>)
                              ])
 
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-tf_history = model.fit(X_train, y_train, epochs=20, verbose=True, validation_data=(X_val, y_val))
+model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adam&#39;</span>, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;binary_crossentropy&#39;</span>, metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>])
+tf_history <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(X_train, y_train, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>, verbose<span style="color:#f92672">=</span>True, validation_data<span style="color:#f92672">=</span>(X_val, y_val))
 
 
-# contour plot
-xx, yy = np.mgrid[-2:2:.01, -2:2:.01]
-grid = np.c_[xx.ravel(), yy.ravel()]
-probs = model.predict(grid)[:,0].reshape(xx.shape)
+<span style="color:#75715e"># contour plot</span>
+xx, yy <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mgrid[<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>:<span style="color:#ae81ff">2</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">01</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>:<span style="color:#ae81ff">2</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">01</span>]
+grid <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>c_[xx<span style="color:#f92672">.</span>ravel(), yy<span style="color:#f92672">.</span>ravel()]
+probs <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(grid)[:,<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>reshape(xx<span style="color:#f92672">.</span>shape)
 
-f, ax = plt.subplots(figsize=(8, 6))
-contour = ax.contourf(xx, yy, probs, 25, cmap=&quot;RdBu&quot;,
-                      vmin=0, vmax=1)
-ax_c = f.colorbar(contour)
-ax_c.set_label(&quot;$P(y = 1)$&quot;)
-ax_c.set_ticks([0, .25, .5, .75, 1])
+f, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">6</span>))
+contour <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>contourf(xx, yy, probs, <span style="color:#ae81ff">25</span>, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>,
+                      vmin<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+ax_c <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>colorbar(contour)
+ax_c<span style="color:#f92672">.</span>set_label(<span style="color:#e6db74">&#34;$P(y = 1)$&#34;</span>)
+ax_c<span style="color:#f92672">.</span>set_ticks([<span style="color:#ae81ff">0</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">25</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">5</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">75</span>, <span style="color:#ae81ff">1</span>])
 
-ax.scatter(X[:,0], X[:, 1], c=y, s=50,
-           cmap=&quot;RdBu&quot;, vmin=-.2, vmax=1.2,
-           edgecolor=&quot;white&quot;, linewidth=1)
+ax<span style="color:#f92672">.</span>scatter(X[:,<span style="color:#ae81ff">0</span>], X[:, <span style="color:#ae81ff">1</span>], c<span style="color:#f92672">=</span>y, s<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>,
+           cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>, vmin<span style="color:#f92672">=-.</span><span style="color:#ae81ff">2</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1.2</span>,
+           edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;white&#34;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
 
-plt.show()
+plt<span style="color:#f92672">.</span>show()
 
-# test accuracy
-from sklearn.metrics import accuracy_score
-y_test_pred = model.predict(X_test)
-test_accuracy = accuracy_score((y_test_pred &gt; 0.5), y_test)
+<span style="color:#75715e"># test accuracy</span>
+<span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> accuracy_score
+y_test_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test)
+test_accuracy <span style="color:#f92672">=</span> accuracy_score((y_test_pred <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>), y_test)
 
-print('\nTest Accuracy = ', test_accuracy)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Test Accuracy = &#39;</span>, test_accuracy)
 
-</code></pre>
-
-<pre><code>Train on 1120 samples, validate on 280 samples
+</code></pre></div><pre><code>Train on 1120 samples, validate on 280 samples
 Epoch 1/20
 1120/1120 [==============================] - 0s 107us/sample - loss: 0.7116 - acc: 0.4839 - val_loss: 0.7083 - val_acc: 0.5000
 Epoch 2/20
@@ -736,65 +695,58 @@ Epoch 19/20
 Epoch 20/20
 1120/1120 [==============================] - 0s 37us/sample - loss: 0.6997 - acc: 0.5071 - val_loss: 0.6991 - val_acc: 0.5071
 </code></pre>
-
-<p><img src="../2_1/output_6_1.png" alt="png" /></p>
-
+<p><img src="../2_1/output_6_1.png" alt="png"></p>
 <pre><code>Test Accuracy =  0.5183333333333333
 </code></pre>
-
 <p>You can train for more epochs, but the model won&rsquo;t really improve the metrics.</p>
-
 <h2 id="neural-network-1-hidden-layer-3-hidden-units">Neural network (1 hidden layer, 3 hidden units)</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> tensorflow <span style="color:#f92672">as</span> tf
+<span style="color:#f92672">from</span> tensorflow <span style="color:#f92672">import</span> keras
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>backend<span style="color:#f92672">.</span>clear_session()
 
-<pre><code class="language-python">import tensorflow as tf
-from tensorflow import keras
-import numpy as np
-import matplotlib.pyplot as plt
-tf.keras.backend.clear_session()
+<span style="color:#75715e"># random number initialized to be the same, for reproducing the same results.</span>
+np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">0</span>)
+tf<span style="color:#f92672">.</span>set_random_seed(<span style="color:#ae81ff">0</span>)
 
-# random number initialized to be the same, for reproducing the same results.
-np.random.seed(0)
-tf.set_random_seed(0)
-
-model = tf.keras.Sequential([
-                             keras.layers.Dense(units=3, input_shape=[2]), 
-                             keras.layers.Activation('tanh'),
-                             keras.layers.Dense(units=1), 
-                             keras.layers.Activation('sigmoid')
+model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>Sequential([
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, input_shape<span style="color:#f92672">=</span>[<span style="color:#ae81ff">2</span>]), 
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;tanh&#39;</span>),
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), 
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;sigmoid&#39;</span>)
                              ])
 
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-tf_history = model.fit(X_train, y_train, epochs=500, verbose=True, validation_data=(X_val, y_val))
+model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adam&#39;</span>, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;binary_crossentropy&#39;</span>, metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>])
+tf_history <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(X_train, y_train, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">500</span>, verbose<span style="color:#f92672">=</span>True, validation_data<span style="color:#f92672">=</span>(X_val, y_val))
 
 
-# contour plot
-xx, yy = np.mgrid[-1.5:1.5:.01, -1.5:1.5:.01]
-grid = np.c_[xx.ravel(), yy.ravel()]
-probs = model.predict(grid)[:,0].reshape(xx.shape)
+<span style="color:#75715e"># contour plot</span>
+xx, yy <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mgrid[<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>:<span style="color:#ae81ff">1.5</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">01</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>:<span style="color:#ae81ff">1.5</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">01</span>]
+grid <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>c_[xx<span style="color:#f92672">.</span>ravel(), yy<span style="color:#f92672">.</span>ravel()]
+probs <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(grid)[:,<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>reshape(xx<span style="color:#f92672">.</span>shape)
 
-f, ax = plt.subplots(figsize=(8, 6))
-contour = ax.contourf(xx, yy, probs, 25, cmap=&quot;RdBu&quot;,
-                      vmin=0, vmax=1)
-ax_c = f.colorbar(contour)
-ax_c.set_label(&quot;$P(y = 1)$&quot;)
-ax_c.set_ticks([0, .25, .5, .75, 1])
+f, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">6</span>))
+contour <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>contourf(xx, yy, probs, <span style="color:#ae81ff">25</span>, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>,
+                      vmin<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+ax_c <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>colorbar(contour)
+ax_c<span style="color:#f92672">.</span>set_label(<span style="color:#e6db74">&#34;$P(y = 1)$&#34;</span>)
+ax_c<span style="color:#f92672">.</span>set_ticks([<span style="color:#ae81ff">0</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">25</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">5</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">75</span>, <span style="color:#ae81ff">1</span>])
 
-ax.scatter(X[:,0], X[:, 1], c=y, s=50,
-           cmap=&quot;RdBu&quot;, vmin=-.2, vmax=1.2,
-           edgecolor=&quot;white&quot;, linewidth=1)
+ax<span style="color:#f92672">.</span>scatter(X[:,<span style="color:#ae81ff">0</span>], X[:, <span style="color:#ae81ff">1</span>], c<span style="color:#f92672">=</span>y, s<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>,
+           cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>, vmin<span style="color:#f92672">=-.</span><span style="color:#ae81ff">2</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1.2</span>,
+           edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;white&#34;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
 
-plt.show()
+plt<span style="color:#f92672">.</span>show()
 
-# test accuracy
-from sklearn.metrics import accuracy_score
-y_test_pred = model.predict(X_test)
-test_accuracy = accuracy_score((y_test_pred &gt; 0.5), y_test)
+<span style="color:#75715e"># test accuracy</span>
+<span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> accuracy_score
+y_test_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test)
+test_accuracy <span style="color:#f92672">=</span> accuracy_score((y_test_pred <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>), y_test)
 
-print('\nTest Accuracy = ', test_accuracy)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Test Accuracy = &#39;</span>, test_accuracy)
 
-</code></pre>
-
-<pre><code>Train on 1120 samples, validate on 280 samples
+</code></pre></div><pre><code>Train on 1120 samples, validate on 280 samples
 Epoch 1/500
 1120/1120 [==============================] - 0s 120us/sample - loss: 0.7086 - acc: 0.4982 - val_loss: 0.6955 - val_acc: 0.5429
 Epoch 2/500
@@ -806,67 +758,59 @@ Epoch 499/500
 Epoch 500/500
 1120/1120 [==============================] - 0s 41us/sample - loss: 0.4355 - acc: 0.8000 - val_loss: 0.4755 - val_acc: 0.7643
 </code></pre>
-
-<p><img src="../2_1/output_9_1.png" alt="png" /></p>
-
+<p><img src="../2_1/output_9_1.png" alt="png"></p>
 <pre><code>Test Accuracy =  0.7683333333333333
 </code></pre>
-
 <p>This model learnt some complex classifers, but you can see by adding a hidden layer with 3 nodes, the accuracy increased a lot.</p>
-
 <p>Now Let&rsquo;s increase the no of nodes in the hidden layer</p>
-
 <h2 id="neural-network-1-hidden-layer-10-hidden-units">Neural network (1 hidden layer, 10 hidden units)</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> tensorflow <span style="color:#f92672">as</span> tf
+<span style="color:#f92672">from</span> tensorflow <span style="color:#f92672">import</span> keras
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>backend<span style="color:#f92672">.</span>clear_session()
 
-<pre><code class="language-python">import tensorflow as tf
-from tensorflow import keras
-import numpy as np
-import matplotlib.pyplot as plt
-tf.keras.backend.clear_session()
+<span style="color:#75715e"># random number initialized to be the same, for reproducing the same results.</span>
+np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">0</span>)
+tf<span style="color:#f92672">.</span>set_random_seed(<span style="color:#ae81ff">0</span>)
 
-# random number initialized to be the same, for reproducing the same results.
-np.random.seed(0)
-tf.set_random_seed(0)
-
-model = tf.keras.Sequential([
-                             keras.layers.Dense(units=10, input_shape=[2]), 
-                             keras.layers.Activation('tanh'),
-                             keras.layers.Dense(units=1), 
-                             keras.layers.Activation('sigmoid')
+model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>Sequential([
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, input_shape<span style="color:#f92672">=</span>[<span style="color:#ae81ff">2</span>]), 
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;tanh&#39;</span>),
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), 
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;sigmoid&#39;</span>)
                              ])
 
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-tf_history = model.fit(X_train, y_train, epochs=500, verbose=True, validation_data=(X_val, y_val))
+model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adam&#39;</span>, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;binary_crossentropy&#39;</span>, metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>])
+tf_history <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(X_train, y_train, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">500</span>, verbose<span style="color:#f92672">=</span>True, validation_data<span style="color:#f92672">=</span>(X_val, y_val))
 
 
-# contour plot
-xx, yy = np.mgrid[-1.5:1.5:.01, -1.5:1.5:.01]
-grid = np.c_[xx.ravel(), yy.ravel()]
-probs = model.predict(grid)[:,0].reshape(xx.shape)
+<span style="color:#75715e"># contour plot</span>
+xx, yy <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mgrid[<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>:<span style="color:#ae81ff">1.5</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">01</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>:<span style="color:#ae81ff">1.5</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">01</span>]
+grid <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>c_[xx<span style="color:#f92672">.</span>ravel(), yy<span style="color:#f92672">.</span>ravel()]
+probs <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(grid)[:,<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>reshape(xx<span style="color:#f92672">.</span>shape)
 
-f, ax = plt.subplots(figsize=(8, 6))
-contour = ax.contourf(xx, yy, probs, 25, cmap=&quot;RdBu&quot;,
-                      vmin=0, vmax=1)
-ax_c = f.colorbar(contour)
-ax_c.set_label(&quot;$P(y = 1)$&quot;)
-ax_c.set_ticks([0, .25, .5, .75, 1])
+f, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">6</span>))
+contour <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>contourf(xx, yy, probs, <span style="color:#ae81ff">25</span>, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>,
+                      vmin<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+ax_c <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>colorbar(contour)
+ax_c<span style="color:#f92672">.</span>set_label(<span style="color:#e6db74">&#34;$P(y = 1)$&#34;</span>)
+ax_c<span style="color:#f92672">.</span>set_ticks([<span style="color:#ae81ff">0</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">25</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">5</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">75</span>, <span style="color:#ae81ff">1</span>])
 
-ax.scatter(X[:,0], X[:, 1], c=y, s=50,
-           cmap=&quot;RdBu&quot;, vmin=-.2, vmax=1.2,
-           edgecolor=&quot;white&quot;, linewidth=1)
+ax<span style="color:#f92672">.</span>scatter(X[:,<span style="color:#ae81ff">0</span>], X[:, <span style="color:#ae81ff">1</span>], c<span style="color:#f92672">=</span>y, s<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>,
+           cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>, vmin<span style="color:#f92672">=-.</span><span style="color:#ae81ff">2</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1.2</span>,
+           edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;white&#34;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
 
-plt.show()
+plt<span style="color:#f92672">.</span>show()
 
-# test accuracy
-from sklearn.metrics import accuracy_score
-y_test_pred = model.predict(X_test)
-test_accuracy = accuracy_score((y_test_pred &gt; 0.5), y_test)
+<span style="color:#75715e"># test accuracy</span>
+<span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> accuracy_score
+y_test_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test)
+test_accuracy <span style="color:#f92672">=</span> accuracy_score((y_test_pred <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>), y_test)
 
-print('\nTest Accuracy = ', test_accuracy)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Test Accuracy = &#39;</span>, test_accuracy)
 
-</code></pre>
-
-<pre><code>Train on 1120 samples, validate on 280 samples
+</code></pre></div><pre><code>Train on 1120 samples, validate on 280 samples
 Epoch 1/500
 1120/1120 [==============================] - 0s 115us/sample - loss: 0.6930 - acc: 0.5321 - val_loss: 0.6990 - val_acc: 0.5393
 Epoch 2/500
@@ -878,65 +822,59 @@ Epoch 499/500
 Epoch 500/500
 1120/1120 [==============================] - 0s 47us/sample - loss: 0.1023 - acc: 0.9723 - val_loss: 0.1358 - val_acc: 0.9643
 </code></pre>
-
-<p><img src="../2_1/output_12_1.png" alt="png" /></p>
-
+<p><img src="../2_1/output_12_1.png" alt="png"></p>
 <pre><code>Test Accuracy =  0.97
 </code></pre>
-
 <h2 id="neural-network-2-hidden-layers-10-hidden-units-10-hidden-units">Neural network (2 hidden layers, 10 hidden units, 10 hidden units)</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> tensorflow <span style="color:#f92672">as</span> tf
+<span style="color:#f92672">from</span> tensorflow <span style="color:#f92672">import</span> keras
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>backend<span style="color:#f92672">.</span>clear_session()
 
-<pre><code class="language-python">import tensorflow as tf
-from tensorflow import keras
-import numpy as np
-import matplotlib.pyplot as plt
-tf.keras.backend.clear_session()
+<span style="color:#75715e"># random number initialized to be the same, for reproducing the same results.</span>
+np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">0</span>)
+tf<span style="color:#f92672">.</span>set_random_seed(<span style="color:#ae81ff">0</span>)
 
-# random number initialized to be the same, for reproducing the same results.
-np.random.seed(0)
-tf.set_random_seed(0)
-
-model = tf.keras.Sequential([
-                             keras.layers.Dense(units=10, input_shape=[2]), 
-                             keras.layers.Activation('tanh'),
-                             keras.layers.Dense(units=10),
-                             keras.layers.Activation('tanh'),
-                             keras.layers.Dense(units=1), 
-                             keras.layers.Activation('sigmoid')
+model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>Sequential([
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, input_shape<span style="color:#f92672">=</span>[<span style="color:#ae81ff">2</span>]), 
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;tanh&#39;</span>),
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>),
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;tanh&#39;</span>),
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), 
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;sigmoid&#39;</span>)
                              ])
 
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-tf_history = model.fit(X_train, y_train, epochs=500, verbose=True, validation_data=(X_val, y_val))
+model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adam&#39;</span>, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;binary_crossentropy&#39;</span>, metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>])
+tf_history <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(X_train, y_train, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">500</span>, verbose<span style="color:#f92672">=</span>True, validation_data<span style="color:#f92672">=</span>(X_val, y_val))
 
 
-# contour plot
-xx, yy = np.mgrid[-1.5:1.5:.01, -1.5:1.5:.01]
-grid = np.c_[xx.ravel(), yy.ravel()]
-probs = model.predict(grid)[:,0].reshape(xx.shape)
+<span style="color:#75715e"># contour plot</span>
+xx, yy <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mgrid[<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>:<span style="color:#ae81ff">1.5</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">01</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>:<span style="color:#ae81ff">1.5</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">01</span>]
+grid <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>c_[xx<span style="color:#f92672">.</span>ravel(), yy<span style="color:#f92672">.</span>ravel()]
+probs <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(grid)[:,<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>reshape(xx<span style="color:#f92672">.</span>shape)
 
-f, ax = plt.subplots(figsize=(8, 6))
-contour = ax.contourf(xx, yy, probs, 25, cmap=&quot;RdBu&quot;,
-                      vmin=0, vmax=1)
-ax_c = f.colorbar(contour)
-ax_c.set_label(&quot;$P(y = 1)$&quot;)
-ax_c.set_ticks([0, .25, .5, .75, 1])
+f, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">6</span>))
+contour <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>contourf(xx, yy, probs, <span style="color:#ae81ff">25</span>, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>,
+                      vmin<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+ax_c <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>colorbar(contour)
+ax_c<span style="color:#f92672">.</span>set_label(<span style="color:#e6db74">&#34;$P(y = 1)$&#34;</span>)
+ax_c<span style="color:#f92672">.</span>set_ticks([<span style="color:#ae81ff">0</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">25</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">5</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">75</span>, <span style="color:#ae81ff">1</span>])
 
-ax.scatter(X[:,0], X[:, 1], c=y, s=50,
-           cmap=&quot;RdBu&quot;, vmin=-.2, vmax=1.2,
-           edgecolor=&quot;white&quot;, linewidth=1)
+ax<span style="color:#f92672">.</span>scatter(X[:,<span style="color:#ae81ff">0</span>], X[:, <span style="color:#ae81ff">1</span>], c<span style="color:#f92672">=</span>y, s<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>,
+           cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>, vmin<span style="color:#f92672">=-.</span><span style="color:#ae81ff">2</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1.2</span>,
+           edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;white&#34;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
 
-plt.show()
+plt<span style="color:#f92672">.</span>show()
 
-# test accuracy
-from sklearn.metrics import accuracy_score
-y_test_pred = model.predict(X_test)
-test_accuracy = accuracy_score((y_test_pred &gt; 0.5), y_test)
+<span style="color:#75715e"># test accuracy</span>
+<span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> accuracy_score
+y_test_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test)
+test_accuracy <span style="color:#f92672">=</span> accuracy_score((y_test_pred <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>), y_test)
 
-print('\nTest Accuracy = ', test_accuracy)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Test Accuracy = &#39;</span>, test_accuracy)
 
-</code></pre>
-
-<pre><code>Train on 1120 samples, validate on 280 samples
+</code></pre></div><pre><code>Train on 1120 samples, validate on 280 samples
 Epoch 1/500
 1120/1120 [==============================] - 0s 139us/sample - loss: 0.7011 - acc: 0.5357 - val_loss: 0.6926 - val_acc: 0.6036
 Epoch 2/500
@@ -948,14 +886,10 @@ Epoch 499/500
 Epoch 500/500
 1120/1120 [==============================] - 0s 53us/sample - loss: 0.0245 - acc: 0.9964 - val_loss: 0.0386 - val_acc: 0.9893
 </code></pre>
-
-<p><img src="../2_1/output_14_1.png" alt="png" /></p>
-
+<p><img src="../2_1/output_14_1.png" alt="png"></p>
 <pre><code>Test Accuracy =  0.9916666666666667
 </code></pre>
-
 <h2 id="performance-of-different-nn-architectures">Performance of Different NN Architectures</h2>
-
 <table>
 <thead>
 <tr>
@@ -963,32 +897,26 @@ Epoch 500/500
 <th>Test Accuracy</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>0 hidden layer</td>
 <td>0.518</td>
 </tr>
-
 <tr>
 <td>1 hidden layer, 3 hidden units</td>
 <td>0.768</td>
 </tr>
-
 <tr>
 <td>1 hidden layer, 10 hidden units</td>
 <td>0.970</td>
 </tr>
-
 <tr>
 <td>2 hidden layers, 10-10 hidden units</td>
 <td>0.991</td>
 </tr>
 </tbody>
 </table>
-
 <p>you have seen how deeper model can help. As the model goes more deeper and complex, the performance of the model increases(although this may not be the case every time, especially when we have less data and there is something called vanishing gradients, which we will discuss later). But in general, deeper models improves performance.</p>
-
 <p><strong>Train the models in the notebooks with &lsquo;relu&rsquo; activation function instead of &lsquo;tanh&rsquo; and compare the performance.</strong></p>
 
           </div>
@@ -1058,7 +986,7 @@ Epoch 500/500
   
 
   <p class="powered-by">
-    &copy; 2020 Shangeth Rajaa &middot; 
+    © 2020 Shangeth Rajaa &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

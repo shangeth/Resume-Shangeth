@@ -28,7 +28,8 @@
     
   
   <meta name="description" content="Off-Policy Monte Carlo with Importance Sampling Off Policy Learning Link to the Notebook By exploration-exploitation trade-off, the agent should take sub-optimal exploratory action by which the agent may receive less reward. One way of exploration is by using an epsilon-greedy policy, where the agent takes a nongreedy action with a small probability.
-In an on-policy, improvement and evaluation are done on the policy which is used to select actions.">
+In an on-policy, improvement and evaluation are done on the policy which is used to select actions.
+In off-policy, improvement and evaluation are done on a different policy from the one used to select actions.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/off-policy-monte-carlo/">
@@ -92,7 +93,7 @@ In an on-policy, improvement and evaluation are done on the policy which is used
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.26264af3549d61c0ce873bd043df951e.css">
+  <link rel="stylesheet" href="/css/academic.min.04bf00581ae5351cdd9e3f0836914cc1.css">
 
   
 
@@ -137,7 +138,8 @@ In an on-policy, improvement and evaluation are done on the policy which is used
   <meta property="og:url" content="/post/off-policy-monte-carlo/">
   <meta property="og:title" content="Off Policy Monte Carlo Prediction with Importance sampling | Shangeth">
   <meta property="og:description" content="Off-Policy Monte Carlo with Importance Sampling Off Policy Learning Link to the Notebook By exploration-exploitation trade-off, the agent should take sub-optimal exploratory action by which the agent may receive less reward. One way of exploration is by using an epsilon-greedy policy, where the agent takes a nongreedy action with a small probability.
-In an on-policy, improvement and evaluation are done on the policy which is used to select actions."><meta property="og:image" content="/post/off-policy-monte-carlo/featured.jpg">
+In an on-policy, improvement and evaluation are done on the policy which is used to select actions.
+In off-policy, improvement and evaluation are done on a different policy from the one used to select actions."><meta property="og:image" content="/post/off-policy-monte-carlo/featured.jpg">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2020-01-19T02:00:00&#43;00:00">
@@ -443,7 +445,7 @@ In an on-policy, improvement and evaluation are done on the policy which is used
 
 <div class="article-header d-xl-none">
   <div class="featured-image" style="background-image: url('/post/off-policy-monte-carlo/featured_hu6215271f898eea7ef987e7dcedadcfe4_98428_800x0_resize_q90_lanczos.jpg');"></div>
-  <span class="article-header-caption">Image credit: <a href="https://i.redd.it/7805mzyjcf001.jpg" target="_blank"><strong>Gimages</strong></a></span>
+  <span class="article-header-caption">Image credit: <a href="https://i.redd.it/7805mzyjcf001.jpg"><strong>Gimages</strong></a></span>
 </div>
 
 
@@ -581,7 +583,7 @@ In an on-policy, improvement and evaluation are done on the policy which is used
     <div class="col-6">
       <div class="split-header-image">
         <img src="/post/off-policy-monte-carlo/featured_hu6215271f898eea7ef987e7dcedadcfe4_98428_680x500_fill_q90_lanczos_smart1.jpg" itemprop="image" alt="">
-        <span class="article-header-caption">Image credit: <a href="https://i.redd.it/7805mzyjcf001.jpg" target="_blank"><strong>Gimages</strong></a></span>
+        <span class="article-header-caption">Image credit: <a href="https://i.redd.it/7805mzyjcf001.jpg"><strong>Gimages</strong></a></span>
       </div>
     </div>
   </div>
@@ -719,279 +721,212 @@ In an on-policy, improvement and evaluation are done on the policy which is used
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<h1 id="off-policy-monte-carlo-with-importance-sampling">Off-Policy Monte Carlo with Importance Sampling</h1>
-
+      <h1 id="off-policy-monte-carlo-with-importance-sampling">Off-Policy Monte Carlo with Importance Sampling</h1>
 <h2 id="off-policy-learning">Off Policy Learning</h2>
-
-<h3 id="link-to-the-notebook-https-github-com-shangeth-monte-carlo-prediction-blob-master-off-policy-learning-with-importance-sampling-ipynb"><a href="https://github.com/shangeth/Monte-Carlo-Prediction/blob/master/Off_Policy_Learning_with_Importance_Sampling.ipynb" target="_blank">Link to the Notebook</a></h3>
-
+<h3 id="link-to-the-notebookhttpsgithubcomshangethmonte-carlo-predictionblobmasteroff_policy_learning_with_importance_samplingipynb"><a href="https://github.com/shangeth/Monte-Carlo-Prediction/blob/master/Off_Policy_Learning_with_Importance_Sampling.ipynb">Link to the Notebook</a></h3>
 <p>By exploration-exploitation trade-off, the agent should take sub-optimal exploratory action by which the agent may receive less reward. One way of exploration is by using an epsilon-greedy policy, where the agent takes a nongreedy action with a small probability.</p>
-
 <p>In an on-policy, improvement and evaluation are done on the policy which is used to select actions.</p>
-
 <p>In off-policy, improvement and evaluation are done on a different policy from the one used to select actions. the policy learned is off the policy used for action selection while gathering episodes.</p>
-
 <ul>
 <li>Target Policy $\pi(a/s)$ : The value function of learning is based on $\pi(a/s)$. We want the target policy to be the optimal policy $\pi^{*}(a/s)$. The target policy will be used for action selection after the learning process is complete(deployment).</li>
 <li>Behavior Policy $b(a/s)$: Behavior policy is used for action selection while gathering episodes to train the agent. This generally follows an exploratory policy.</li>
 </ul>
-
 <h2 id="importance-sampling">Importance Sampling</h2>
-
 <p>We have a random variable $x \sim b$ sampled from behavior policy distribution $b$. We want to estimate the expected value of $x$ wrt the target distribution $\pi$ ie: $E_{\pi}[X]$. The sample average will give the expected value of x under b $E_{b}[X]$.</p>
-
 <p>$E_{\pi}[X] = \sum x \pi(x)$ where $x \in X$</p>
-
 <p>$ \qquad = \sum x \pi(x) \dfrac{b(x)}{b(x)}$</p>
-
 <p>$ \qquad = \sum x \dfrac{\pi(x)}{b(x)} b(x)$</p>
-
 <p>$ \qquad = \sum x \rho(x) b(x)$</p>
-
 <p>where $\rho(x) = \dfrac{\pi(x)}{b(x)}$ and is called the importance sampling ratio.</p>
-
-<p><br />
+<p><br>
 Let $x\rho(x)$ be a new random variable $X_\rho(X)$.
 Then, $E_{\pi}[X] = \sum x \rho(x) b(x) = E_{b}[X_{\rho}(X)]$. Now we have expectation under $b$ instead of $\pi$.</p>
-
-<p></p>
-
+<p>\</p>
 <h3 id="how-do-we-estimating-expectation-from-the-data">How do we estimating expectation from the data?</h3>
-
 <p>Compute the weighted sample average with importance sampling ratio as the weights.
 $E_{\pi}[X] = \sum x \rho(x) b(x) = E_{b}[X_{\rho}(X)] \approx \dfrac{1}{n}\sum_{i=1}^{n}x_i \rho(x_i)$ and $x_i \sim b$.</p>
-
 <h2 id="off-policy-monte-carlo-prediction-with-importance-sampling">Off Policy Monte Carlo Prediction with Importance Sampling</h2>
-
 <p>In Monte Carlo prediction, we estimate the value of each state by computing a sample average over returns starting from that state. $V_{\pi}(s) = E_{\pi}[G_t|S_t=s]$</p>
-
-<p><br />
+<p><br>
 In off-policy, we are trying to estimate value under the target policy $\pi(s)$ using returns following the behavior policy $b(s)$. As discussed above, we need to find the value of $\rho$ for each of the sampled returns. $\rho$ is the probability of trajectory under $\pi$ divided by the probability of trajectory under $b$.</p>
-
 <p>$V_{\pi}(s) = E_{b}[\rho G_t|S_t=s]$ ; $\rho = \dfrac{P(trajectory\ under\ \pi)}{P(trajectory\ under\ b)}$</p>
-
-<p><br />
+<p><br>
 The probaility of a trajectory under a policy can be given by
 $P(trajectory\ under\ policy) = P(A_t, S_{t+1}, A_{t+1}, &hellip;, S_T| S_t, A_{t:T})$</p>
-
 <p>where all actions are taken under the policy $b$.</p>
-
-<p><br />
+<p><br>
 As this is a Markov process, we can split the probability terms into
 $P(A_t, S_{t+1}, A_{t+1}, &hellip;, S_T|S_t, A_{t:T}) = b(A_t|S_t)p(S_{t+1}|S_t, A_t)\  b(A_{t+1}|S_{t+1}) p(S_{t+2}|S_{t+1}, A_{t+1}) &hellip; \ p(S_T|S_{T-1}, A_{T-1})$</p>
-
-<p><br />
+<p><br>
 $b(A_t|S_t)p(S_{t+1}|S_t, A_t)$ give the probability of action $A_t$ at state $S_t$ times the probability of the state transition to state $S_{t+1}$</p>
-
 <p>$P(A_t, S_{t+1}, A_{t+1}, &hellip;, S_T| S_t, A_{t:T}) = \prod_{k=1}^{T} b(A_k|S_k)p(S_{k+1}|S_k, A_k)$</p>
-
 <p>$\rho = \dfrac{P(trajectory\ under\ \pi)}{P(trajectory\ under\ b)}$</p>
-
 <p>$\quad = \prod_{k=t}^{T-1}\dfrac{\pi(A_k|S_k)p(S_{k+1}|S_k, A_k)}{b(A_k|S_k)p(S_{k+1}|S_k, A_k)}$</p>
-
 <p>$\rho = \prod_{k=t}^{T-1}\dfrac{\pi(A_k|S_k)}{b(A_k|S_k)}$</p>
-
 <h2 id="incremental-implementation-of-off-policy-mc">Incremental Implementation of Off-policy MC</h2>
-
 <p>Suppose we have a sequence of returns $G_1, G_2, &hellip;G_{n-1}$ all starting in the same state and with corresponding weights $W_i$, then the weighted average of returns $V_n = \dfrac{\sum_{k=1}^{n-1} W_kG_k}{\sum_{k=1}^{n-1} W_k}$ , $n \geq 2$ and the cumulative sum of weights $C_{n+1} = C_n + W_{n+1}$ where $C_0 = 0$.</p>
-
 <p>The update rule for $V_{n+1} = V_n + \dfrac{W_n}{C_n}[G_n-V_n]$, $n \geq 1$ and $V_1$ is arbitrary.</p>
-
 <p>Here $W_n$ will be the importance sampling weight.</p>
-
 <h2 id="greedy-pi-policy">Greedy $\pi$ policy</h2>
-
 <p>When the target policy $\pi$ is $\epsilon$ greedy, it is determenistic and $\pi(A_t/S_t) = 1$ . So $\rho = \prod_{k=t}^{T-1}\dfrac{1}{b(A_k|S_k)}$ and $W$ can be updated with $W \leftarrow W \dfrac{1}{b(A_t|S_t)}$ for each time step in the trajectory.</p>
-
 <p>So the Off policy Monte Carlo Control algorithm is
-<img src="https://i.stack.imgur.com/Xi0vX.png" alt="" /></p>
-
+<img src="https://i.stack.imgur.com/Xi0vX.png" alt=""></p>
 <h1 id="off-policy-mc-control-with-weighted-importance-in-python">Off-Policy MC Control with Weighted Importance in Python</h1>
-
 <h2 id="blackjack-environment">BlackJack Environment</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> sys
+<span style="color:#f92672">import</span> gym
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">from</span> collections <span style="color:#f92672">import</span> defaultdict
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">env <span style="color:#f92672">=</span> gym<span style="color:#f92672">.</span>make(<span style="color:#e6db74">&#39;Blackjack-v0&#39;</span>)
 
-<pre><code class="language-python">import sys
-import gym
-import numpy as np
-from collections import defaultdict
-</code></pre>
-
-<pre><code class="language-python">env = gym.make('Blackjack-v0')
-
-print(vars(env), end='\n\n')
-print(dir(env))
-</code></pre>
-
-<pre><code>{'action_space': Discrete(2), 'observation_space': Tuple(Discrete(32), Discrete(11), Discrete(2)), 'np_random': RandomState(MT19937) at 0x7FE1148D2888, 'natural': False, 'dealer': [10, 1], 'player': [10, 1], 'spec': EnvSpec(Blackjack-v0)}
+<span style="color:#66d9ef">print</span>(vars(env), end<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#39;</span>)
+<span style="color:#66d9ef">print</span>(dir(env))
+</code></pre></div><pre><code>{'action_space': Discrete(2), 'observation_space': Tuple(Discrete(32), Discrete(11), Discrete(2)), 'np_random': RandomState(MT19937) at 0x7FE1148D2888, 'natural': False, 'dealer': [10, 1], 'player': [10, 1], 'spec': EnvSpec(Blackjack-v0)}
 
 ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__enter__', '__eq__', '__exit__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_get_obs', 'action_space', 'close', 'dealer', 'metadata', 'natural', 'np_random', 'observation_space', 'player', 'render', 'reset', 'reward_range', 'seed', 'spec', 'step', 'unwrapped']
 </code></pre>
-
-<pre><code class="language-python">print(env.observation_space)
-print(env.action_space)
-</code></pre>
-
-<pre><code>Tuple(Discrete(32), Discrete(11), Discrete(2))
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(env<span style="color:#f92672">.</span>observation_space)
+<span style="color:#66d9ef">print</span>(env<span style="color:#f92672">.</span>action_space)
+</code></pre></div><pre><code>Tuple(Discrete(32), Discrete(11), Discrete(2))
 Discrete(2)
 </code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">random_state <span style="color:#f92672">=</span> env<span style="color:#f92672">.</span>reset()
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Random State&#39;</span>, random_state)
 
-<pre><code class="language-python">random_state = env.reset()
-print('Random State', random_state)
-
-random_action = env.action_space.sample()
-print('Random Action', random_action)
-</code></pre>
-
-<pre><code>Random State (18, 2, False)
+random_action <span style="color:#f92672">=</span> env<span style="color:#f92672">.</span>action_space<span style="color:#f92672">.</span>sample()
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Random Action&#39;</span>, random_action)
+</code></pre></div><pre><code>Random State (18, 2, False)
 Random Action 1
 </code></pre>
-
 <h2 id="generate-random-eposides">Generate Random Eposides</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">num_episodes <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
 
-<pre><code class="language-python">num_episodes = 3
-
-for i in range(num_episodes):
-    print('Episode : ', i+1)
-    state = env.reset()
-    step = 0
-    while True:
-        step +=1
-        action = env.action_space.sample()
-        print('Step = {}\t State = {}\t Action Taken = {}'.format(step, state, action))
-        state, reward, done, info = env.step(action)
-        if done:
-            print('Game Ended...')
-            if reward &gt; 0: print('Agent Won!\n')
-            else: print('Agent Lost!\n')
-            break
-</code></pre>
-
-<pre><code>Episode :  1
-Step = 1     State = (10, 7, False)  Action Taken = 1
-Step = 2     State = (21, 7, True)   Action Taken = 1
-Step = 3     State = (15, 7, False)  Action Taken = 1
-Step = 4     State = (18, 7, False)  Action Taken = 0
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(num_episodes):
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Episode : &#39;</span>, i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+    state <span style="color:#f92672">=</span> env<span style="color:#f92672">.</span>reset()
+    step <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">while</span> True:
+        step <span style="color:#f92672">+=</span><span style="color:#ae81ff">1</span>
+        action <span style="color:#f92672">=</span> env<span style="color:#f92672">.</span>action_space<span style="color:#f92672">.</span>sample()
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Step = {}</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74"> State = {}</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74"> Action Taken = {}&#39;</span><span style="color:#f92672">.</span>format(step, state, action))
+        state, reward, done, info <span style="color:#f92672">=</span> env<span style="color:#f92672">.</span>step(action)
+        <span style="color:#66d9ef">if</span> done:
+            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Game Ended...&#39;</span>)
+            <span style="color:#66d9ef">if</span> reward <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>: <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Agent Won!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>)
+            <span style="color:#66d9ef">else</span>: <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Agent Lost!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>)
+            <span style="color:#66d9ef">break</span>
+</code></pre></div><pre><code>Episode :  1
+Step = 1	 State = (10, 7, False)	 Action Taken = 1
+Step = 2	 State = (21, 7, True)	 Action Taken = 1
+Step = 3	 State = (15, 7, False)	 Action Taken = 1
+Step = 4	 State = (18, 7, False)	 Action Taken = 0
 Game Ended...
 Agent Lost!
 
 Episode :  2
-Step = 1     State = (20, 8, False)  Action Taken = 0
+Step = 1	 State = (20, 8, False)	 Action Taken = 0
 Game Ended...
 Agent Won!
 
 Episode :  3
-Step = 1     State = (12, 7, False)  Action Taken = 1
-Step = 2     State = (15, 7, False)  Action Taken = 0
+Step = 1	 State = (12, 7, False)	 Action Taken = 1
+Step = 2	 State = (15, 7, False)	 Action Taken = 0
 Game Ended...
 Agent Won!
 </code></pre>
-
 <h2 id="training">Training</h2>
-
-<pre><code class="language-python">def random_policy(nA):
-    A = np.ones(nA, dtype=float) / nA
-    def policy_fn(observation):
-        return A
-    return policy_fn
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">random_policy</span>(nA):
+    A <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>ones(nA, dtype<span style="color:#f92672">=</span>float) <span style="color:#f92672">/</span> nA
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">policy_fn</span>(observation):
+        <span style="color:#66d9ef">return</span> A
+    <span style="color:#66d9ef">return</span> policy_fn
     
-def greedy_policy(Q):
-    def policy_fn(state):
-        A = np.zeros_like(Q[state], dtype=float)
-        best_action = np.argmax(Q[state])
-        A[best_action] = 1.0
-        return A
-    return policy_fn
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">greedy_policy</span>(Q):
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">policy_fn</span>(state):
+        A <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros_like(Q[state], dtype<span style="color:#f92672">=</span>float)
+        best_action <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>argmax(Q[state])
+        A[best_action] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>
+        <span style="color:#66d9ef">return</span> A
+    <span style="color:#66d9ef">return</span> policy_fn
     
-def mc_off_policy(env, num_episodes, behavior_policy, max_time=100, discount_factor=1.0):
-    Q = defaultdict(lambda:np.zeros(env.action_space.n))
-    C = defaultdict(lambda:np.zeros(env.action_space.n))
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">mc_off_policy</span>(env, num_episodes, behavior_policy, max_time<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>, discount_factor<span style="color:#f92672">=</span><span style="color:#ae81ff">1.0</span>):
+    Q <span style="color:#f92672">=</span> defaultdict(<span style="color:#66d9ef">lambda</span>:np<span style="color:#f92672">.</span>zeros(env<span style="color:#f92672">.</span>action_space<span style="color:#f92672">.</span>n))
+    C <span style="color:#f92672">=</span> defaultdict(<span style="color:#66d9ef">lambda</span>:np<span style="color:#f92672">.</span>zeros(env<span style="color:#f92672">.</span>action_space<span style="color:#f92672">.</span>n))
 
-    target_policy = greedy_policy(Q)
+    target_policy <span style="color:#f92672">=</span> greedy_policy(Q)
 
-    for i_episode in range(1, num_episodes+1):
-        if i_episode % 1000 == 0:
-            print(&quot;\rEpisode {}/{}.&quot;.format(i_episode, num_episodes), end=&quot;&quot;)
-            sys.stdout.flush()
+    <span style="color:#66d9ef">for</span> i_episode <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, num_episodes<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
+        <span style="color:#66d9ef">if</span> i_episode <span style="color:#f92672">%</span> <span style="color:#ae81ff">1000</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\r</span><span style="color:#e6db74">Episode {}/{}.&#34;</span><span style="color:#f92672">.</span>format(i_episode, num_episodes), end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>)
+            sys<span style="color:#f92672">.</span>stdout<span style="color:#f92672">.</span>flush()
 
-        episode = []
-        state = env.reset()
-        for t in range(max_time):
-            probs = behavior_policy(state)
-            action = np.random.choice(np.arange(len(probs)), p=probs)
-            next_state, reward, done, _ = env.step(action)
-            episode.append((state, action, reward))
-            if done:
-                break
-            state = next_state
+        episode <span style="color:#f92672">=</span> []
+        state <span style="color:#f92672">=</span> env<span style="color:#f92672">.</span>reset()
+        <span style="color:#66d9ef">for</span> t <span style="color:#f92672">in</span> range(max_time):
+            probs <span style="color:#f92672">=</span> behavior_policy(state)
+            action <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>choice(np<span style="color:#f92672">.</span>arange(len(probs)), p<span style="color:#f92672">=</span>probs)
+            next_state, reward, done, _ <span style="color:#f92672">=</span> env<span style="color:#f92672">.</span>step(action)
+            episode<span style="color:#f92672">.</span>append((state, action, reward))
+            <span style="color:#66d9ef">if</span> done:
+                <span style="color:#66d9ef">break</span>
+            state <span style="color:#f92672">=</span> next_state
         
-        G = 0.0
-        W = 1.0
-        for t in range(len(episode))[::-1]:
-            state, action, reward = episode[t]
-            G = discount_factor * G + reward
-            C[state][action] += W
-            Q[state][action] += (W / C[state][action]) * (G - Q[state][action])
-            if action !=  np.argmax(target_policy(state)):
-                break
-            W = W * 1./behavior_policy(state)[action]
-    return Q, target_policy
+        G <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+        W <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>
+        <span style="color:#66d9ef">for</span> t <span style="color:#f92672">in</span> range(len(episode))[::<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]:
+            state, action, reward <span style="color:#f92672">=</span> episode[t]
+            G <span style="color:#f92672">=</span> discount_factor <span style="color:#f92672">*</span> G <span style="color:#f92672">+</span> reward
+            C[state][action] <span style="color:#f92672">+=</span> W
+            Q[state][action] <span style="color:#f92672">+=</span> (W <span style="color:#f92672">/</span> C[state][action]) <span style="color:#f92672">*</span> (G <span style="color:#f92672">-</span> Q[state][action])
+            <span style="color:#66d9ef">if</span> action <span style="color:#f92672">!=</span>  np<span style="color:#f92672">.</span>argmax(target_policy(state)):
+                <span style="color:#66d9ef">break</span>
+            W <span style="color:#f92672">=</span> W <span style="color:#f92672">*</span> <span style="color:#ae81ff">1.</span><span style="color:#f92672">/</span>behavior_policy(state)[action]
+    <span style="color:#66d9ef">return</span> Q, target_policy
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">random_policy <span style="color:#f92672">=</span> random_policy(env<span style="color:#f92672">.</span>action_space<span style="color:#f92672">.</span>n)
+Q, policy <span style="color:#f92672">=</span> mc_off_policy(env, num_episodes<span style="color:#f92672">=</span><span style="color:#ae81ff">500000</span>, behavior_policy<span style="color:#f92672">=</span>random_policy)
+</code></pre></div><pre><code>Episode 500000/500000.
 </code></pre>
-
-<pre><code class="language-python">random_policy = random_policy(env.action_space.n)
-Q, policy = mc_off_policy(env, num_episodes=500000, behavior_policy=random_policy)
-</code></pre>
-
-<pre><code>Episode 500000/500000.
-</code></pre>
-
 <h2 id="plot">Plot</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">from</span> mpl_toolkits.axes_grid1 <span style="color:#f92672">import</span> make_axes_locatable
 
-<pre><code class="language-python">import matplotlib.pyplot as plt
-from mpl_toolkits.axes_grid1 import make_axes_locatable
 
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">plot_policy</span>(policy):
 
-def plot_policy(policy):
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_Z</span>(x, y, usable_ace):
+        <span style="color:#66d9ef">if</span> (x,y,usable_ace) <span style="color:#f92672">in</span> policy:
+            <span style="color:#66d9ef">return</span> policy[x,y,usable_ace]
+        <span style="color:#66d9ef">else</span>:
+            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
 
-    def get_Z(x, y, usable_ace):
-        if (x,y,usable_ace) in policy:
-            return policy[x,y,usable_ace]
-        else:
-            return 1
-
-    def get_figure(usable_ace, ax):
-        x_range = np.arange(11, 22)
-        y_range = np.arange(10, 0, -1)
-        X, Y = np.meshgrid(x_range, y_range)
-        Z = np.array([[get_Z(x,y,usable_ace) for x in x_range] for y in y_range])
-        surf = ax.imshow(Z, cmap=plt.get_cmap('Pastel2', 2), vmin=0, vmax=1, extent=[10.5, 21.5, 0.5, 10.5])
-        plt.xticks(x_range)
-        plt.yticks(y_range)
-        plt.gca().invert_yaxis()
-        ax.set_xlabel('Player\'s Current Sum')
-        ax.set_ylabel('Dealer\'s Showing Card')
-        ax.grid(color='w', linestyle='-', linewidth=1)
-        divider = make_axes_locatable(ax)
-        cax = divider.append_axes(&quot;right&quot;, size=&quot;5%&quot;, pad=0.1)
-        cbar = plt.colorbar(surf, ticks=[0,1], cax=cax)
-        cbar.ax.set_yticklabels(['0 (STICK)','1 (HIT)'])
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_figure</span>(usable_ace, ax):
+        x_range <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">22</span>)
+        y_range <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+        X, Y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>meshgrid(x_range, y_range)
+        Z <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([[get_Z(x,y,usable_ace) <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> x_range] <span style="color:#66d9ef">for</span> y <span style="color:#f92672">in</span> y_range])
+        surf <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>imshow(Z, cmap<span style="color:#f92672">=</span>plt<span style="color:#f92672">.</span>get_cmap(<span style="color:#e6db74">&#39;Pastel2&#39;</span>, <span style="color:#ae81ff">2</span>), vmin<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, extent<span style="color:#f92672">=</span>[<span style="color:#ae81ff">10.5</span>, <span style="color:#ae81ff">21.5</span>, <span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">10.5</span>])
+        plt<span style="color:#f92672">.</span>xticks(x_range)
+        plt<span style="color:#f92672">.</span>yticks(y_range)
+        plt<span style="color:#f92672">.</span>gca()<span style="color:#f92672">.</span>invert_yaxis()
+        ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Player</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">s Current Sum&#39;</span>)
+        ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Dealer</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">s Showing Card&#39;</span>)
+        ax<span style="color:#f92672">.</span>grid(color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;w&#39;</span>, linestyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;-&#39;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+        divider <span style="color:#f92672">=</span> make_axes_locatable(ax)
+        cax <span style="color:#f92672">=</span> divider<span style="color:#f92672">.</span>append_axes(<span style="color:#e6db74">&#34;right&#34;</span>, size<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;5%&#34;</span>, pad<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
+        cbar <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>colorbar(surf, ticks<span style="color:#f92672">=</span>[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>], cax<span style="color:#f92672">=</span>cax)
+        cbar<span style="color:#f92672">.</span>ax<span style="color:#f92672">.</span>set_yticklabels([<span style="color:#e6db74">&#39;0 (STICK)&#39;</span>,<span style="color:#e6db74">&#39;1 (HIT)&#39;</span>])
             
-    fig = plt.figure(figsize=(15, 15))
-    ax = fig.add_subplot(121)
-    ax.set_title('Usable Ace')
+    fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">15</span>))
+    ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
+    ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Usable Ace&#39;</span>)
     get_figure(True, ax)
-    ax = fig.add_subplot(122)
-    ax.set_title('No Usable Ace')
+    ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
+    ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;No Usable Ace&#39;</span>)
     get_figure(False, ax)
-    plt.show()
-</code></pre>
-
-<pre><code class="language-python">policy = dict((k,np.argmax(v)) for k, v in Q.items())
+    plt<span style="color:#f92672">.</span>show()
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">policy <span style="color:#f92672">=</span> dict((k,np<span style="color:#f92672">.</span>argmax(v)) <span style="color:#66d9ef">for</span> k, v <span style="color:#f92672">in</span> Q<span style="color:#f92672">.</span>items())
 plot_policy(policy)
-</code></pre>
-
-<p><img src="output_18_0.png" alt="png" /></p>
+</code></pre></div><p><img src="output_18_0.png" alt="png"></p>
 
     </div>
 
@@ -1219,7 +1154,7 @@ plot_policy(policy)
   
 
   <p class="powered-by">
-    &copy; 2020 Shangeth Rajaa &middot; 
+    © 2020 Shangeth Rajaa &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

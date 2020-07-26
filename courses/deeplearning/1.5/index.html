@@ -27,10 +27,9 @@
   
     
   
-  <meta name="description" content="Open in GitHub
-Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
-Non-Linearity Note: We will look mostly at classification examples, but the same concepts apply to regression problems as well with a little change in using activation function(Sigmoid, Softmax which we learned in previous sections).
-So far the datasets we have used are linearly separable, which means they can be separated by line(2-d), plane(3-d) and linear multi dimensional classifiers.">
+  <meta name="description" content="Non-Linearity Note: We will look mostly at classification examples, but the same concepts apply to regression problems as well with a little change in using activation function(Sigmoid, Softmax which we learned in previous sections).
+So far the datasets we have used are linearly separable, which means they can be separated by line(2-d), plane(3-d) and linear multi dimensional classifiers.
+But in the real world, not all datasets are 2-d(visualizable) and linearly separable.">
 
   
   <link rel="alternate" hreflang="en-us" href="/courses/deeplearning/1.5/">
@@ -94,7 +93,7 @@ So far the datasets we have used are linearly separable, which means they can be
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.26264af3549d61c0ce873bd043df951e.css">
+  <link rel="stylesheet" href="/css/academic.min.04bf00581ae5351cdd9e3f0836914cc1.css">
 
   
 
@@ -138,10 +137,9 @@ So far the datasets we have used are linearly separable, which means they can be
   <meta property="og:site_name" content="Shangeth">
   <meta property="og:url" content="/courses/deeplearning/1.5/">
   <meta property="og:title" content="Motivation for Multi Layer Perceptron | Shangeth">
-  <meta property="og:description" content="Open in GitHub
-Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
-Non-Linearity Note: We will look mostly at classification examples, but the same concepts apply to regression problems as well with a little change in using activation function(Sigmoid, Softmax which we learned in previous sections).
-So far the datasets we have used are linearly separable, which means they can be separated by line(2-d), plane(3-d) and linear multi dimensional classifiers."><meta property="og:image" content="/img/instructor2.jpeg">
+  <meta property="og:description" content="Non-Linearity Note: We will look mostly at classification examples, but the same concepts apply to regression problems as well with a little change in using activation function(Sigmoid, Softmax which we learned in previous sections).
+So far the datasets we have used are linearly separable, which means they can be separated by line(2-d), plane(3-d) and linear multi dimensional classifiers.
+But in the real world, not all datasets are 2-d(visualizable) and linearly separable."><meta property="og:image" content="/img/instructor2.jpeg">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-09-01T00:00:00&#43;01:00">
@@ -555,34 +553,32 @@ So far the datasets we have used are linearly separable, which means they can be
       
 
       <nav id="TableOfContents">
-<ul>
-<li><a href="#non-linearity">Non-Linearity</a>
-<ul>
-<li><a href="#visualize-linear-dataset-and-linear-model">Visualize Linear Dataset and Linear Model</a></li>
-<li><a href="#train-a-logistic-regression-model-with-tensorflow-for-linearly-separable-dataset">Train a Logistic Regression Model with TensorFlow for Linearly Separable Dataset</a></li>
-<li><a href="#visualize-non-linear-dataset-and-linear-model">Visualize Non-Linear Dataset and Linear Model</a></li>
-<li><a href="#train-a-logistic-regression-model-with-tensorflow-for-non-linear-dataset">Train a Logistic Regression Model with TensorFlow for Non-Linear Dataset</a></li>
-<li><a href="#another-example-more-difficult">Another Example (More difficult)</a></li>
-</ul></li>
-<li><a href="#non-linear-dataset-with-linear-classifier">Non-linear Dataset with Linear Classifier</a>
-<ul>
-<li><a href="#polynomial-terms">Polynomial Terms</a></li>
-<li><a href="#train-logistic-regression-model-with-2nd-degree-polynomial-terms">Train Logistic Regression Model with 2nd degree polynomial terms</a></li>
-</ul></li>
-<li><a href="#combination-of-linear-classifiers">Combination of Linear Classifiers</a>
-<ul>
-<li><a href="#non-linear-data-and-linear-classifier">Non-linear data and Linear Classifier</a>
-<ul>
-<li><a href="#classifier-1">classifier 1</a></li>
-<li><a href="#classifier-2">classifier 2</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#how-do-we-combine-the-linear-classifiers">How do we combine the Linear Classifiers?</a>
-<ul>
-<li><a href="#tensorflow-playground">Tensorflow Playground</a></li>
-<li><a href="#mlp-in-tensorflow">MLP in Tensorflow</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#visualize-linear-dataset-and-linear-model">Visualize Linear Dataset and Linear Model</a></li>
+    <li><a href="#train-a-logistic-regression-model-with-tensorflow-for-linearly-separable-dataset">Train a Logistic Regression Model with TensorFlow for Linearly Separable Dataset</a></li>
+    <li><a href="#visualize-non-linear-dataset-and-linear-model">Visualize Non-Linear Dataset and Linear Model</a></li>
+    <li><a href="#train-a-logistic-regression-model-with-tensorflow-for-non-linear-dataset">Train a Logistic Regression Model with TensorFlow for Non-Linear Dataset</a></li>
+    <li><a href="#another-example-more-difficult">Another Example (More difficult)</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#polynomial-terms">Polynomial Terms</a></li>
+    <li><a href="#train-logistic-regression-model-with-2nd-degree-polynomial-terms">Train Logistic Regression Model with 2nd degree polynomial terms</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#non-linear-data-and-linear-classifier">Non-linear data and Linear Classifier</a>
+      <ul>
+        <li><a href="#classifier-1">classifier 1</a></li>
+        <li><a href="#classifier-2">classifier 2</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#tensorflow-playground">Tensorflow Playground</a></li>
+    <li><a href="#mlp-in-tensorflow">MLP in Tensorflow</a></li>
+  </ul>
 </nav>
 
       <ul class="nav toc-top">
@@ -601,81 +597,57 @@ So far the datasets we have used are linearly separable, which means they can be
           <h1 itemprop="name">Motivation for Multi Layer Perceptron</h1>
 
           <div class="article-style" itemprop="articleBody">
-            
-
-<p><a href="https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/1-Intro-to-Deep-Learning/1_5_Motivation_for_Multi_Layer_Perceptron.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-
-<p><center><a href="https://github.com/shangeth/Google-ML-Academy/blob/master/1-Intro-to-Deep-Learning/1_5_Motivation_for_Multi_Layer_Perceptron.ipynb" target="_parent"><svg class="octicon octicon-mark-github v-align-middle" height="30" viewBox="0 0 16 16" version="1.1" width="30" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> Open in GitHub</a></center></p>
-
-<p><center><h1><a href='https://shangeth.com/courses/'>Deep Learning - Beginners Track</a></h1></center>
-<center><h3>Instructor: <a href='https://shangeth.com/'>Shangeth Rajaa</a></h3></center>
-<hr></p>
-
+            <p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <h1 id="non-linearity">Non-Linearity</h1>
-
 <p>Note: We will look mostly at classification examples, but the same concepts apply to regression problems as well with a little change in using activation function(Sigmoid, Softmax which we learned in previous sections).</p>
-
 <p>So far the datasets we have used are linearly separable, which means they can be separated by line(2-d), plane(3-d) and linear multi dimensional classifiers.</p>
-
 <p>But in the real world, not all datasets are 2-d(visualizable) and linearly separable.</p>
-
-<p><img src="https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/more_images/linear_vs_nonlinear_problems.png" alt="" /></p>
-
-<p><a href="https://leonardoaraujosantos.gitbooks.io" target="_blank">Image Source</a></p>
-
+<p><img src="https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/more_images/linear_vs_nonlinear_problems.png" alt=""></p>
+<p><a href="https://leonardoaraujosantos.gitbooks.io">Image Source</a></p>
 <p>Logistic Regression(Binary Classification) and Softmax Regression(Multi Class Classification) are linear models, they can only predict lines/planes/linear n-dim models to classify the data.
 They are note good at classifying a non-linear data.</p>
-
 <p>Let&rsquo;s visualize it on linear and non-linear data.</p>
-
 <h2 id="visualize-linear-dataset-and-linear-model">Visualize Linear Dataset and Linear Model</h2>
-
 <ul>
 <li>Make a Linear Dataset</li>
 <li>Train a Logistic Regression</li>
 <li>Predict the probabilities using the model for whole plot grid, and colour it based on if p&gt;0.5 or not.</li>
 </ul>
-
 <p>It&rsquo;s fine if you don&rsquo;t understand how we are going to visualize it, it&rsquo;s just a matplotlib plot.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.datasets <span style="color:#f92672">import</span> make_blobs
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
 
-<pre><code class="language-python">from sklearn.datasets import make_blobs
-import matplotlib.pyplot as plt
+X, y <span style="color:#f92672">=</span> make_blobs(n_samples<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>, n_features<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, centers<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>)
 
-X, y = make_blobs(n_samples=1000, n_features=2, centers=2, random_state=3)
+<span style="color:#75715e"># remember the code we wrote to get the index of 0, 1 classes and scatter it separately</span>
+<span style="color:#75715e"># that was to understand how to plot each class</span>
+<span style="color:#75715e"># that plotting can also be done easily in a single line :D :p</span>
 
-# remember the code we wrote to get the index of 0, 1 classes and scatter it separately
-# that was to understand how to plot each class
-# that plotting can also be done easily in a single line :D :p
-
-plt.figure(figsize=(10,10))
-plt.scatter(X[:,0], X[:,1],c=y)
-plt.grid(True)
-plt.show()
-</code></pre>
-
-<p><img src="../1_5/output_4_0.png" alt="png" /></p>
-
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">10</span>))
+plt<span style="color:#f92672">.</span>scatter(X[:,<span style="color:#ae81ff">0</span>], X[:,<span style="color:#ae81ff">1</span>],c<span style="color:#f92672">=</span>y)
+plt<span style="color:#f92672">.</span>grid(True)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="../1_5/output_4_0.png" alt="png"></p>
 <h2 id="train-a-logistic-regression-model-with-tensorflow-for-linearly-separable-dataset">Train a Logistic Regression Model with TensorFlow for Linearly Separable Dataset</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> tensorflow <span style="color:#f92672">as</span> tf
+<span style="color:#f92672">from</span> tensorflow <span style="color:#f92672">import</span> keras
+<span style="color:#f92672">from</span> sklearn.datasets <span style="color:#f92672">import</span> make_blobs
+<span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
 
-<pre><code class="language-python">import tensorflow as tf
-from tensorflow import keras
-from sklearn.datasets import make_blobs
-from sklearn.model_selection import train_test_split
-import numpy as np
+<span style="color:#75715e"># get the dataset</span>
+X, y <span style="color:#f92672">=</span> make_blobs(n_samples<span style="color:#f92672">=</span><span style="color:#ae81ff">2000</span>, n_features<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, centers<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>)
 
-# get the dataset
-X, y = make_blobs(n_samples=2000, n_features=2, centers=2, random_state=3)
-
-# make train-validation split, let's ignore test set for now.
-X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.3, random_state=3)
+<span style="color:#75715e"># make train-validation split, let&#39;s ignore test set for now.</span>
+X_train, X_val, y_train, y_val <span style="color:#f92672">=</span> train_test_split(X, y, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>)
 
 
-model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[2]), keras.layers.Activation('sigmoid')])
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-tf_history = model.fit(X_train, y_train, epochs=20, verbose=True, validation_data=(X_val, y_val))
-</code></pre>
-
-<pre><code>Train on 2000 samples, validate on 600 samples
+model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>Sequential([keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, input_shape<span style="color:#f92672">=</span>[<span style="color:#ae81ff">2</span>]), keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;sigmoid&#39;</span>)])
+model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adam&#39;</span>, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;binary_crossentropy&#39;</span>, metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>])
+tf_history <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(X_train, y_train, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>, verbose<span style="color:#f92672">=</span>True, validation_data<span style="color:#f92672">=</span>(X_val, y_val))
+</code></pre></div><pre><code>Train on 2000 samples, validate on 600 samples
 Epoch 1/20
 2000/2000 [==============================] - 0s 204us/sample - loss: 0.4580 - acc: 0.7000 - val_loss: 0.3898 - val_acc: 0.7650
 Epoch 2/20
@@ -687,83 +659,69 @@ Epoch 19/20
 Epoch 20/20
 2000/2000 [==============================] - 0s 41us/sample - loss: 0.0566 - acc: 0.9970 - val_loss: 0.0490 - val_acc: 1.0000
 </code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
 
-<pre><code class="language-python">import numpy as np
+xx, yy <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mgrid[<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>:<span style="color:#ae81ff">10</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>:<span style="color:#ae81ff">10</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">1</span>]
+grid <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>c_[xx<span style="color:#f92672">.</span>ravel(), yy<span style="color:#f92672">.</span>ravel()]
+probs <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(grid)[:,<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>reshape(xx<span style="color:#f92672">.</span>shape)
 
-xx, yy = np.mgrid[-10:10:.1, -10:10:.1]
-grid = np.c_[xx.ravel(), yy.ravel()]
-probs = model.predict(grid)[:,0].reshape(xx.shape)
+f, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">6</span>))
+contour <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>contourf(xx, yy, probs, <span style="color:#ae81ff">25</span>, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>,
+                      vmin<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+ax_c <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>colorbar(contour)
+ax_c<span style="color:#f92672">.</span>set_label(<span style="color:#e6db74">&#34;$P(y = 1)$&#34;</span>)
+ax_c<span style="color:#f92672">.</span>set_ticks([<span style="color:#ae81ff">0</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">25</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">5</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">75</span>, <span style="color:#ae81ff">1</span>])
 
-f, ax = plt.subplots(figsize=(8, 6))
-contour = ax.contourf(xx, yy, probs, 25, cmap=&quot;RdBu&quot;,
-                      vmin=0, vmax=1)
-ax_c = f.colorbar(contour)
-ax_c.set_label(&quot;$P(y = 1)$&quot;)
-ax_c.set_ticks([0, .25, .5, .75, 1])
+ax<span style="color:#f92672">.</span>scatter(X[:,<span style="color:#ae81ff">0</span>], X[:, <span style="color:#ae81ff">1</span>], c<span style="color:#f92672">=</span>y, s<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>,
+           cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>, vmin<span style="color:#f92672">=-.</span><span style="color:#ae81ff">2</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1.2</span>,
+           edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;white&#34;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
 
-ax.scatter(X[:,0], X[:, 1], c=y, s=50,
-           cmap=&quot;RdBu&quot;, vmin=-.2, vmax=1.2,
-           edgecolor=&quot;white&quot;, linewidth=1)
-
-plt.show()
-</code></pre>
-
-<p><img src="../1_5/output_7_0.png" alt="png" /></p>
-
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="../1_5/output_7_0.png" alt="png"></p>
 <p>This plot shows the probability of each point in the grid belongs to class &lsquo;1&rsquo;. We can see the white line is able to separate almost all the points and accuracy is also good.</p>
-
 <h2 id="visualize-non-linear-dataset-and-linear-model">Visualize Non-Linear Dataset and Linear Model</h2>
-
 <ul>
 <li>Make a Non-Linear Dataset with <code>sklearn.datasets.make_gaussian_quantiles</code>.</li>
 <li>Train a Logistic Regression</li>
-
-<li><p>Predict the probabilities using the model for whole plot grid, and visualize the model classifier</p>
-
-<pre><code class="language-python">from sklearn.datasets import make_moons
-import matplotlib.pyplot as plt
-
-X, y = make_moons(n_samples=1000, random_state=3, noise=0.1)
-
-idx = np.where(X[:,0] &lt; 1.1)
-X = X[idx]
-y = y[idx]
-
-plt.figure(figsize=(10,10))
-plt.scatter(X[:,0], X[:,1],c=y)
-plt.grid(True)
-plt.show()
-</code></pre></li>
+<li>Predict the probabilities using the model for whole plot grid, and visualize the model classifier</li>
 </ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.datasets <span style="color:#f92672">import</span> make_moons
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
 
-<p><img src="../1_5/output_10_0.png" alt="png" /></p>
+X, y <span style="color:#f92672">=</span> make_moons(n_samples<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, noise<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
 
+idx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>where(X[:,<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1.1</span>)
+X <span style="color:#f92672">=</span> X[idx]
+y <span style="color:#f92672">=</span> y[idx]
+
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">10</span>))
+plt<span style="color:#f92672">.</span>scatter(X[:,<span style="color:#ae81ff">0</span>], X[:,<span style="color:#ae81ff">1</span>],c<span style="color:#f92672">=</span>y)
+plt<span style="color:#f92672">.</span>grid(True)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="../1_5/output_10_0.png" alt="png"></p>
 <h2 id="train-a-logistic-regression-model-with-tensorflow-for-non-linear-dataset">Train a Logistic Regression Model with TensorFlow for Non-Linear Dataset</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> tensorflow <span style="color:#f92672">as</span> tf
+<span style="color:#f92672">from</span> tensorflow <span style="color:#f92672">import</span> keras
+<span style="color:#f92672">from</span> sklearn.datasets <span style="color:#f92672">import</span> make_gaussian_quantiles
+<span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
 
-<pre><code class="language-python">import tensorflow as tf
-from tensorflow import keras
-from sklearn.datasets import make_gaussian_quantiles
-from sklearn.model_selection import train_test_split
-import numpy as np
+<span style="color:#75715e"># get the dataset</span>
+<span style="color:#75715e"># X, y = make_gaussian_quantiles(n_samples=1000, n_features=2, n_classes=2, random_state=3, cov=0.1)</span>
+X, y <span style="color:#f92672">=</span> make_moons(n_samples<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, noise<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
 
-# get the dataset
-# X, y = make_gaussian_quantiles(n_samples=1000, n_features=2, n_classes=2, random_state=3, cov=0.1)
-X, y = make_moons(n_samples=1000, random_state=3, noise=0.1)
+idx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>where(X[:,<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1.1</span>)
+X <span style="color:#f92672">=</span> X[idx]
+y <span style="color:#f92672">=</span> y[idx]
 
-idx = np.where(X[:,0] &lt; 1.1)
-X = X[idx]
-y = y[idx]
-
-# make train-validation split, let's ignore test set for now.
-X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.3, random_state=3)
+<span style="color:#75715e"># make train-validation split, let&#39;s ignore test set for now.</span>
+X_train, X_val, y_train, y_val <span style="color:#f92672">=</span> train_test_split(X, y, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>)
 
 
-model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[2]), keras.layers.Activation('sigmoid')])
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-tf_history = model.fit(X_train, y_train, epochs=20, verbose=True, validation_data=(X_val, y_val))
-</code></pre>
-
-<pre><code>Train on 764 samples, validate on 230 samples
+model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>Sequential([keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, input_shape<span style="color:#f92672">=</span>[<span style="color:#ae81ff">2</span>]), keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;sigmoid&#39;</span>)])
+model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adam&#39;</span>, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;binary_crossentropy&#39;</span>, metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>])
+tf_history <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(X_train, y_train, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>, verbose<span style="color:#f92672">=</span>True, validation_data<span style="color:#f92672">=</span>(X_val, y_val))
+</code></pre></div><pre><code>Train on 764 samples, validate on 230 samples
 Epoch 1/20
 764/764 [==============================] - 0s 469us/sample - loss: 0.4796 - acc: 0.8338 - val_loss: 0.4810 - val_acc: 0.8130
 Epoch 2/20
@@ -775,77 +733,67 @@ Epoch 19/20
 Epoch 20/20
 764/764 [==============================] - 0s 44us/sample - loss: 0.4202 - acc: 0.8364 - val_loss: 0.4261 - val_acc: 0.8174
 </code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
 
-<pre><code class="language-python">import numpy as np
+xx, yy <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mgrid[<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>:<span style="color:#ae81ff">2</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">01</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>:<span style="color:#ae81ff">2</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">01</span>]
+grid <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>c_[xx<span style="color:#f92672">.</span>ravel(), yy<span style="color:#f92672">.</span>ravel()]
+probs <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(grid)[:,<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>reshape(xx<span style="color:#f92672">.</span>shape)
 
-xx, yy = np.mgrid[-2:2:.01, -2:2:.01]
-grid = np.c_[xx.ravel(), yy.ravel()]
-probs = model.predict(grid)[:,0].reshape(xx.shape)
+f, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">6</span>))
+contour <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>contourf(xx, yy, probs, <span style="color:#ae81ff">25</span>, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>,
+                      vmin<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+ax_c <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>colorbar(contour)
+ax_c<span style="color:#f92672">.</span>set_label(<span style="color:#e6db74">&#34;$P(y = 1)$&#34;</span>)
+ax_c<span style="color:#f92672">.</span>set_ticks([<span style="color:#ae81ff">0</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">25</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">5</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">75</span>, <span style="color:#ae81ff">1</span>])
 
-f, ax = plt.subplots(figsize=(8, 6))
-contour = ax.contourf(xx, yy, probs, 25, cmap=&quot;RdBu&quot;,
-                      vmin=0, vmax=1)
-ax_c = f.colorbar(contour)
-ax_c.set_label(&quot;$P(y = 1)$&quot;)
-ax_c.set_ticks([0, .25, .5, .75, 1])
+ax<span style="color:#f92672">.</span>scatter(X[:,<span style="color:#ae81ff">0</span>], X[:, <span style="color:#ae81ff">1</span>], c<span style="color:#f92672">=</span>y, s<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>,
+           cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>, vmin<span style="color:#f92672">=-.</span><span style="color:#ae81ff">2</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1.2</span>,
+           edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;white&#34;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
 
-ax.scatter(X[:,0], X[:, 1], c=y, s=50,
-           cmap=&quot;RdBu&quot;, vmin=-.2, vmax=1.2,
-           edgecolor=&quot;white&quot;, linewidth=1)
-
-plt.show()
-</code></pre>
-
-<p><img src="../1_5/output_13_0.png" alt="png" /></p>
-
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="../1_5/output_13_0.png" alt="png"></p>
 <p>You can see the logistic regression model, cannot separate a non-linear data. The model(white area) separates the grid into 2 regions linearly which is not a good classifier for this dataset.</p>
-
 <p>Let&rsquo;s make another dataset</p>
-
 <h2 id="another-example-more-difficult">Another Example (More difficult)</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.datasets <span style="color:#f92672">import</span> make_gaussian_quantiles
 
-<pre><code class="language-python">from sklearn.datasets import make_gaussian_quantiles
+X, y <span style="color:#f92672">=</span> make_gaussian_quantiles(n_samples<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>, n_features<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, n_classes<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, cov<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
 
-X, y = make_gaussian_quantiles(n_samples=1000, n_features=2, n_classes=2, random_state=3, cov=0.1)
-
-plt.figure(figsize=(10,10))
-plt.scatter(X[:,0], X[:,1],c=y)
-plt.grid(True)
-plt.show()
-
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">10</span>))
+plt<span style="color:#f92672">.</span>scatter(X[:,<span style="color:#ae81ff">0</span>], X[:,<span style="color:#ae81ff">1</span>],c<span style="color:#f92672">=</span>y)
+plt<span style="color:#f92672">.</span>grid(True)
+plt<span style="color:#f92672">.</span>show()
 
 
-# make train-validation split, let's ignore test set for now.
-X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.3, random_state=3)
+
+<span style="color:#75715e"># make train-validation split, let&#39;s ignore test set for now.</span>
+X_train, X_val, y_train, y_val <span style="color:#f92672">=</span> train_test_split(X, y, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>)
 
 
-model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[2]), keras.layers.Activation('sigmoid')])
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-tf_history = model.fit(X_train, y_train, epochs=20, verbose=True, validation_data=(X_val, y_val))
+model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>Sequential([keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, input_shape<span style="color:#f92672">=</span>[<span style="color:#ae81ff">2</span>]), keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;sigmoid&#39;</span>)])
+model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adam&#39;</span>, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;binary_crossentropy&#39;</span>, metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>])
+tf_history <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(X_train, y_train, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>, verbose<span style="color:#f92672">=</span>True, validation_data<span style="color:#f92672">=</span>(X_val, y_val))
 
 
-# contour plot
-xx, yy = np.mgrid[-2:2:.01, -2:2:.01]
-grid = np.c_[xx.ravel(), yy.ravel()]
-probs = model.predict(grid)[:,0].reshape(xx.shape)
+<span style="color:#75715e"># contour plot</span>
+xx, yy <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mgrid[<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>:<span style="color:#ae81ff">2</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">01</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>:<span style="color:#ae81ff">2</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">01</span>]
+grid <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>c_[xx<span style="color:#f92672">.</span>ravel(), yy<span style="color:#f92672">.</span>ravel()]
+probs <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(grid)[:,<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>reshape(xx<span style="color:#f92672">.</span>shape)
 
-f, ax = plt.subplots(figsize=(8, 6))
-contour = ax.contourf(xx, yy, probs, 25, cmap=&quot;RdBu&quot;,
-                      vmin=0, vmax=1)
-ax_c = f.colorbar(contour)
-ax_c.set_label(&quot;$P(y = 1)$&quot;)
-ax_c.set_ticks([0, .25, .5, .75, 1])
+f, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">6</span>))
+contour <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>contourf(xx, yy, probs, <span style="color:#ae81ff">25</span>, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>,
+                      vmin<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+ax_c <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>colorbar(contour)
+ax_c<span style="color:#f92672">.</span>set_label(<span style="color:#e6db74">&#34;$P(y = 1)$&#34;</span>)
+ax_c<span style="color:#f92672">.</span>set_ticks([<span style="color:#ae81ff">0</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">25</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">5</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">75</span>, <span style="color:#ae81ff">1</span>])
 
-ax.scatter(X[:,0], X[:, 1], c=y, s=50,
-           cmap=&quot;RdBu&quot;, vmin=-.2, vmax=1.2,
-           edgecolor=&quot;white&quot;, linewidth=1)
+ax<span style="color:#f92672">.</span>scatter(X[:,<span style="color:#ae81ff">0</span>], X[:, <span style="color:#ae81ff">1</span>], c<span style="color:#f92672">=</span>y, s<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>,
+           cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>, vmin<span style="color:#f92672">=-.</span><span style="color:#ae81ff">2</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1.2</span>,
+           edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;white&#34;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
 
-plt.show()
+plt<span style="color:#f92672">.</span>show()
 
-</code></pre>
-
-<p><img src="../1_5/output_16_0.png" alt="png" /></p>
-
+</code></pre></div><p><img src="../1_5/output_16_0.png" alt="png"></p>
 <pre><code>Train on 1000 samples, validate on 300 samples
 Epoch 1/20
 1000/1000 [==============================] - 0s 375us/sample - loss: 0.7122 - acc: 0.5000 - val_loss: 0.6955 - val_acc: 0.5300
@@ -858,69 +806,55 @@ Epoch 19/20
 Epoch 20/20
 1000/1000 [==============================] - 0s 48us/sample - loss: 0.7013 - acc: 0.4930 - val_loss: 0.6910 - val_acc: 0.5467
 </code></pre>
-
-<p><img src="../1_5/output_16_2.png" alt="png" /></p>
-
+<p><img src="../1_5/output_16_2.png" alt="png"></p>
 <p>Logistic Regression Classifier for this dataset is worse. It uses a straight line to separate concentric circles. We cannot depend much on Linear classifiers on real world dataset(non-linear).</p>
-
 <h1 id="non-linear-dataset-with-linear-classifier">Non-linear Dataset with Linear Classifier</h1>
-
 <p>Hope you remember Polynomial Regression, when the dataset is non-linear, we gave the model the non linear terms, so the model can use it in linear fashion to make a non-linear regressor.</p>
-
 <p>We are going to try the same for classifier.</p>
-
 <h2 id="polynomial-terms">Polynomial Terms</h2>
-
 <p>As the data is circular, 2nd degree polynomial terms will do good. Also try higher degree to see if accuracy increases.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> PolynomialFeatures
+poly <span style="color:#f92672">=</span> PolynomialFeatures(degree<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>) 
 
-<pre><code class="language-python">from sklearn.preprocessing import PolynomialFeatures
-poly = PolynomialFeatures(degree=2) 
+X, y <span style="color:#f92672">=</span> make_gaussian_quantiles(n_samples<span style="color:#f92672">=</span><span style="color:#ae81ff">2000</span>, n_features<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, n_classes<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, cov<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
 
-X, y = make_gaussian_quantiles(n_samples=2000, n_features=2, n_classes=2, random_state=3, cov=0.1)
-
-X_2 = poly.fit_transform(X)
-print(X_2.shape)
-print(X_2[0])
-</code></pre>
-
-<pre><code>(2000, 6)
+X_2 <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(X)
+<span style="color:#66d9ef">print</span>(X_2<span style="color:#f92672">.</span>shape)
+<span style="color:#66d9ef">print</span>(X_2[<span style="color:#ae81ff">0</span>])
+</code></pre></div><pre><code>(2000, 6)
 [1.         0.16654979 0.21185179 0.02773883 0.03528387 0.04488118]
 </code></pre>
-
 <h2 id="train-logistic-regression-model-with-2nd-degree-polynomial-terms">Train Logistic Regression Model with 2nd degree polynomial terms</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X, y <span style="color:#f92672">=</span> make_gaussian_quantiles(n_samples<span style="color:#f92672">=</span><span style="color:#ae81ff">2000</span>, n_features<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, n_classes<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, cov<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
+X_2 <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(X)
 
-<pre><code class="language-python">X, y = make_gaussian_quantiles(n_samples=2000, n_features=2, n_classes=2, random_state=3, cov=0.1)
-X_2 = poly.fit_transform(X)
-
-# make train-validation split, let's ignore test set for now.
-X_train, X_val, y_train, y_val = train_test_split(X_2, y, test_size=0.3, random_state=3)
-
-
-model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[6]), keras.layers.Activation('sigmoid')])
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-tf_history = model.fit(X_train, y_train, epochs=200, verbose=True, validation_data=(X_val, y_val))
+<span style="color:#75715e"># make train-validation split, let&#39;s ignore test set for now.</span>
+X_train, X_val, y_train, y_val <span style="color:#f92672">=</span> train_test_split(X_2, y, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>)
 
 
-# contour plot
-xx, yy = np.mgrid[-2:2:.01, -2:2:.01]
-grid = np.c_[xx.ravel(), yy.ravel()]
-probs = model.predict(poly.fit_transform(grid))[:,0].reshape(xx.shape)
+model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>Sequential([keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, input_shape<span style="color:#f92672">=</span>[<span style="color:#ae81ff">6</span>]), keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;sigmoid&#39;</span>)])
+model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adam&#39;</span>, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;binary_crossentropy&#39;</span>, metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>])
+tf_history <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(X_train, y_train, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">200</span>, verbose<span style="color:#f92672">=</span>True, validation_data<span style="color:#f92672">=</span>(X_val, y_val))
 
-f, ax = plt.subplots(figsize=(8, 6))
-contour = ax.contourf(xx, yy, probs, 25, cmap=&quot;RdBu&quot;,
-                      vmin=0, vmax=1)
-ax_c = f.colorbar(contour)
-ax_c.set_label(&quot;$P(y = 1)$&quot;)
-ax_c.set_ticks([0, .25, .5, .75, 1])
 
-ax.scatter(X[:,0], X[:, 1], c=y, s=50,
-           cmap=&quot;RdBu&quot;, vmin=-.2, vmax=1.2,
-           edgecolor=&quot;white&quot;, linewidth=1)
+<span style="color:#75715e"># contour plot</span>
+xx, yy <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mgrid[<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>:<span style="color:#ae81ff">2</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">01</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>:<span style="color:#ae81ff">2</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">01</span>]
+grid <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>c_[xx<span style="color:#f92672">.</span>ravel(), yy<span style="color:#f92672">.</span>ravel()]
+probs <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(poly<span style="color:#f92672">.</span>fit_transform(grid))[:,<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>reshape(xx<span style="color:#f92672">.</span>shape)
 
-plt.show()
-</code></pre>
+f, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">6</span>))
+contour <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>contourf(xx, yy, probs, <span style="color:#ae81ff">25</span>, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>,
+                      vmin<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+ax_c <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>colorbar(contour)
+ax_c<span style="color:#f92672">.</span>set_label(<span style="color:#e6db74">&#34;$P(y = 1)$&#34;</span>)
+ax_c<span style="color:#f92672">.</span>set_ticks([<span style="color:#ae81ff">0</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">25</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">5</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">75</span>, <span style="color:#ae81ff">1</span>])
 
-<pre><code>Train on 1400 samples, validate on 600 samples
+ax<span style="color:#f92672">.</span>scatter(X[:,<span style="color:#ae81ff">0</span>], X[:, <span style="color:#ae81ff">1</span>], c<span style="color:#f92672">=</span>y, s<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>,
+           cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>, vmin<span style="color:#f92672">=-.</span><span style="color:#ae81ff">2</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1.2</span>,
+           edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;white&#34;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>Train on 1400 samples, validate on 600 samples
 Epoch 1/200
 1400/1400 [==============================] - 1s 387us/sample - loss: 0.7530 - acc: 0.4914 - val_loss: 0.7292 - val_acc: 0.5200
 Epoch 2/200
@@ -932,194 +866,147 @@ Epoch 199/200
 Epoch 200/200
 1400/1400 [==============================] - 0s 50us/sample - loss: 0.3543 - acc: 0.9136 - val_loss: 0.3876 - val_acc: 0.8967
 </code></pre>
-
-<p><img src="../1_5/output_22_1.png" alt="png" /></p>
-
+<p><img src="../1_5/output_22_1.png" alt="png"></p>
 <p>The model with 2nd degree data performed well, it got an accuracy of 0.91 in 200 epochs and seems to increase if you train longer.</p>
-
 <p>The problem is, as we were able to visualize this dataset, we concluded to include 2nd degree terms, but real world datasets are multi-dimensional, you cannot visualize those.</p>
-
 <p>Multi-Layer Perceptron or usually called as Artificial neural Networks or simply Neural Networks can help us with this problem.</p>
-
 <p>Note: Linear Regression, Logistic Regression are also Neurons(not Network). Softmax Regression is a network of several linear classifiers so it is also a network. But we usually denote something as neural network when it has a hidden layer, which we will discuss later.</p>
-
 <h1 id="combination-of-linear-classifiers">Combination of Linear Classifiers</h1>
-
 <h2 id="non-linear-data-and-linear-classifier">Non-linear data and Linear Classifier</h2>
-
 <h3 id="classifier-1">classifier 1</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.datasets <span style="color:#f92672">import</span> make_moons
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
 
-<pre><code class="language-python">from sklearn.datasets import make_moons
-import matplotlib.pyplot as plt
+X, y <span style="color:#f92672">=</span> make_moons(n_samples<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, noise<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
 
-X, y = make_moons(n_samples=1000, random_state=3, noise=0.1)
+idx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>where(X[:,<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1.1</span>)
+X <span style="color:#f92672">=</span> X[idx]
+y <span style="color:#f92672">=</span> y[idx]
 
-idx = np.where(X[:,0] &lt; 1.1)
-X = X[idx]
-y = y[idx]
+xline <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">1.3</span>, <span style="color:#ae81ff">1.2</span>, <span style="color:#ae81ff">0.01</span>)
+yline <span style="color:#f92672">=</span> xline <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span> <span style="color:#75715e"># random classifier</span>
 
-xline = np.arange(-1.3, 1.2, 0.01)
-yline = xline + 0.5 # random classifier
-
-plt.figure(figsize=(10,10))
-plt.scatter(X[:,0], X[:,1],c=y)
-plt.plot(xline, yline)
-plt.grid(True)
-plt.show()
-</code></pre>
-
-<p><img src="../1_5/output_25_0.png" alt="png" /></p>
-
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">10</span>))
+plt<span style="color:#f92672">.</span>scatter(X[:,<span style="color:#ae81ff">0</span>], X[:,<span style="color:#ae81ff">1</span>],c<span style="color:#f92672">=</span>y)
+plt<span style="color:#f92672">.</span>plot(xline, yline)
+plt<span style="color:#f92672">.</span>grid(True)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="../1_5/output_25_0.png" alt="png"></p>
 <p>This line can be one of the classifiers, but does not give a better accuracy, as yellow side also have few blue data points.</p>
-
 <h3 id="classifier-2">classifier 2</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.datasets <span style="color:#f92672">import</span> make_moons
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
 
-<pre><code class="language-python">from sklearn.datasets import make_moons
-import matplotlib.pyplot as plt
+X, y <span style="color:#f92672">=</span> make_moons(n_samples<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, noise<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
 
-X, y = make_moons(n_samples=1000, random_state=3, noise=0.1)
+idx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>where(X[:,<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1.1</span>)
+X <span style="color:#f92672">=</span> X[idx]
+y <span style="color:#f92672">=</span> y[idx]
 
-idx = np.where(X[:,0] &lt; 1.1)
-X = X[idx]
-y = y[idx]
+xline <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">1.3</span>, <span style="color:#ae81ff">1.2</span>, <span style="color:#ae81ff">0.01</span>)
+yline <span style="color:#f92672">=</span> <span style="color:#f92672">-</span> xline <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.6</span> <span style="color:#75715e"># random classifier</span>
 
-xline = np.arange(-1.3, 1.2, 0.01)
-yline = - xline + 0.6 # random classifier
-
-plt.figure(figsize=(10,10))
-plt.scatter(X[:,0], X[:,1],c=y)
-plt.plot(xline, yline)
-plt.grid(True)
-plt.show()
-</code></pre>
-
-<p><img src="../1_5/output_28_0.png" alt="png" /></p>
-
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">10</span>))
+plt<span style="color:#f92672">.</span>scatter(X[:,<span style="color:#ae81ff">0</span>], X[:,<span style="color:#ae81ff">1</span>],c<span style="color:#f92672">=</span>y)
+plt<span style="color:#f92672">.</span>plot(xline, yline)
+plt<span style="color:#f92672">.</span>grid(True)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="../1_5/output_28_0.png" alt="png"></p>
 <p>This can also be a classifier but again it has few data mis classified.</p>
-
-<p>Let&rsquo;s say there are 2 logistic regression classifiers
-- classifier 1 - clf1
-- classifier 2 - clf2</p>
-
-<p>both are fine, but they also misclassified some data points.</p>
-
-<p>So both the classifiers individually cannot classify the data very well because the data is non-linear and the classifiers are linear.</p>
-
-<p>But if we combine these 2 classifiers that can make a non-linear classifier.</p>
-
-<pre><code class="language-python">from sklearn.datasets import make_moons
-import matplotlib.pyplot as plt
-
-X, y = make_moons(n_samples=1000, random_state=3, noise=0.1)
-
-idx = np.where(X[:,0] &lt; 1.1)
-X = X[idx]
-y = y[idx]
-
-xline1 = np.arange(-1.3, 0.01, 0.01)
-yline1 = xline1 + 0.6
-
-xline2 = np.arange(0, 1.2, 0.01)
-yline2 = - xline2 + 0.6 # random classifier
-
-plt.figure(figsize=(10,10))
-plt.scatter(X[:,0], X[:,1],c=y)
-plt.plot(xline1, yline1, color='b')
-plt.plot(xline2, yline2, color='b')
-plt.grid(True)
-plt.show()
-</code></pre>
-
-<p><img src="../1_5/output_30_0.png" alt="png" /></p>
-
-<p>This will be one of the best classifiers, by moving the 2 lines a little more, we can get an accuracy of nearly 1.0 for this dataset. Also we can make this classifier better by combining more number of linear classifiers.</p>
-
-<p>So <strong>combination of linear classifiers can be a good non-linear classifier</strong>.</p>
-
-<p>This is the primary motivation behind Artificial neural networks.</p>
-
-<h1 id="how-do-we-combine-the-linear-classifiers">How do we combine the Linear Classifiers?</h1>
-
-<p>We saw that combining multiple linear classifiers can give a non-linear classifier. But how do we do that?</p>
-
-<p>Let&rsquo;s assume we have 2 classifiers: $C_1, C_2$</p>
-
-<p>$C_1 : \hat{y}_1 = \sigma(X.W_1+b_1)$</p>
-
-<p>$C_2 : \hat{y}_2 = \sigma(X.W_2+b_2)$</p>
-
-<p>So both $C_1, C_2$ gives the probability that a point belongs to class &lsquo;1&rsquo;. We need to combine $C_1, C_2$, so we can take the outputs of $C_1, C_2$ ie: $\hat{y}_1$ and $\hat{y}_2$ and send it to a new logistic regression model $C_3$.</p>
-
-<p>But we no more need probabilities from $C_1, C_2$, so we may/maynot use sigmoid function. But we need to use some non-linearity as combination of linear function directly will be a linear function, which is of no use to us. So we can also use some other famous activations like tanh, ReLU, etc.
-<br></p>
-
-<p>$C_1 : \hat{y}_1 = g(X.W_1+b_1)$</p>
-
-<p>$C_2 : \hat{y}_2 = g(X.W_2+b_2)$</p>
-
-<p>g can be any activation, sigmoid, tanh, relu,..etc.</p>
-
-<p>$X_{new} = [\hat{y}_1, \hat{y}_2]$</p>
-
-<p>$C_3 : \hat{y} = \sigma(X_{new}.W_3 + b_3)$</p>
-
-<p>This combination of Neurons is called Multi Layer Perceptron or ANN or Neural networks in general.</p>
-
-<p><br></p>
-
-<p>Let&rsquo;s implement this in Tensorflow.</p>
-
-<p>Before that try this Tensorflow Playground</p>
-
-<h2 id="tensorflow-playground">Tensorflow Playground</h2>
-
+<p>Let&rsquo;s say there are 2 logistic regression classifiers</p>
 <ul>
-<li><a href="https://playground.tensorflow.org/#activation=sigmoid&amp;batchSize=10&amp;dataset=xor&amp;regDataset=reg-plane&amp;learningRate=0.03&amp;regularizationRate=0&amp;noise=0&amp;networkShape=&amp;seed=0.90757&amp;showTestData=false&amp;discretize=true&amp;percTrainData=50&amp;x=true&amp;y=true&amp;xTimesY=false&amp;xSquared=false&amp;ySquared=false&amp;cosX=false&amp;sinX=false&amp;cosY=false&amp;sinY=false&amp;collectStats=false&amp;problem=classification&amp;initZero=false&amp;hideText=false" target="_blank">Linear Classifier</a></li>
-<li><a href="https://playground.tensorflow.org/#activation=sigmoid&amp;batchSize=10&amp;dataset=xor&amp;regDataset=reg-plane&amp;learningRate=0.1&amp;regularizationRate=0&amp;noise=0&amp;networkShape=2&amp;seed=0.90757&amp;showTestData=false&amp;discretize=true&amp;percTrainData=50&amp;x=true&amp;y=true&amp;xTimesY=false&amp;xSquared=false&amp;ySquared=false&amp;cosX=false&amp;sinX=false&amp;cosY=false&amp;sinY=false&amp;collectStats=false&amp;problem=classification&amp;initZero=false&amp;hideText=false" target="_blank">Combination of 2 Linear Classifiers</a></li>
+<li>classifier 1 - clf1</li>
+<li>classifier 2 - clf2</li>
 </ul>
+<p>both are fine, but they also misclassified some data points.</p>
+<p>So both the classifiers individually cannot classify the data very well because the data is non-linear and the classifiers are linear.</p>
+<p>But if we combine these 2 classifiers that can make a non-linear classifier.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.datasets <span style="color:#f92672">import</span> make_moons
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
 
+X, y <span style="color:#f92672">=</span> make_moons(n_samples<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, noise<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
+
+idx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>where(X[:,<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1.1</span>)
+X <span style="color:#f92672">=</span> X[idx]
+y <span style="color:#f92672">=</span> y[idx]
+
+xline1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">1.3</span>, <span style="color:#ae81ff">0.01</span>, <span style="color:#ae81ff">0.01</span>)
+yline1 <span style="color:#f92672">=</span> xline1 <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.6</span>
+
+xline2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1.2</span>, <span style="color:#ae81ff">0.01</span>)
+yline2 <span style="color:#f92672">=</span> <span style="color:#f92672">-</span> xline2 <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.6</span> <span style="color:#75715e"># random classifier</span>
+
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">10</span>))
+plt<span style="color:#f92672">.</span>scatter(X[:,<span style="color:#ae81ff">0</span>], X[:,<span style="color:#ae81ff">1</span>],c<span style="color:#f92672">=</span>y)
+plt<span style="color:#f92672">.</span>plot(xline1, yline1, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;b&#39;</span>)
+plt<span style="color:#f92672">.</span>plot(xline2, yline2, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;b&#39;</span>)
+plt<span style="color:#f92672">.</span>grid(True)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="../1_5/output_30_0.png" alt="png"></p>
+<p>This will be one of the best classifiers, by moving the 2 lines a little more, we can get an accuracy of nearly 1.0 for this dataset. Also we can make this classifier better by combining more number of linear classifiers.</p>
+<p>So <strong>combination of linear classifiers can be a good non-linear classifier</strong>.</p>
+<p>This is the primary motivation behind Artificial neural networks.</p>
+<h1 id="how-do-we-combine-the-linear-classifiers">How do we combine the Linear Classifiers?</h1>
+<p>We saw that combining multiple linear classifiers can give a non-linear classifier. But how do we do that?</p>
+<p>Let&rsquo;s assume we have 2 classifiers: $C_1, C_2$</p>
+<p>$C_1 : \hat{y}_1 = \sigma(X.W_1+b_1)$</p>
+<p>$C_2 : \hat{y}_2 = \sigma(X.W_2+b_2)$</p>
+<p>So both $C_1, C_2$ gives the probability that a point belongs to class &lsquo;1&rsquo;. We need to combine $C_1, C_2$, so we can take the outputs of $C_1, C_2$ ie: $\hat{y}_1$ and $\hat{y}_2$ and send it to a new logistic regression model $C_3$.</p>
+<p>But we no more need probabilities from $C_1, C_2$, so we may/maynot use sigmoid function. But we need to use some non-linearity as combination of linear function directly will be a linear function, which is of no use to us. So we can also use some other famous activations like tanh, ReLU, etc.
+<!-- raw HTML omitted --></p>
+<p>$C_1 : \hat{y}_1 = g(X.W_1+b_1)$</p>
+<p>$C_2 : \hat{y}_2 = g(X.W_2+b_2)$</p>
+<p>g can be any activation, sigmoid, tanh, relu,..etc.</p>
+<p>$X_{new} = [\hat{y}_1, \hat{y}_2]$</p>
+<p>$C_3 : \hat{y} = \sigma(X_{new}.W_3 + b_3)$</p>
+<p>This combination of Neurons is called Multi Layer Perceptron or ANN or Neural networks in general.</p>
+<!-- raw HTML omitted -->
+<p>Let&rsquo;s implement this in Tensorflow.</p>
+<p>Before that try this Tensorflow Playground</p>
+<h2 id="tensorflow-playground">Tensorflow Playground</h2>
+<ul>
+<li><a href="https://playground.tensorflow.org/#activation=sigmoid&amp;batchSize=10&amp;dataset=xor&amp;regDataset=reg-plane&amp;learningRate=0.03&amp;regularizationRate=0&amp;noise=0&amp;networkShape=&amp;seed=0.90757&amp;showTestData=false&amp;discretize=true&amp;percTrainData=50&amp;x=true&amp;y=true&amp;xTimesY=false&amp;xSquared=false&amp;ySquared=false&amp;cosX=false&amp;sinX=false&amp;cosY=false&amp;sinY=false&amp;collectStats=false&amp;problem=classification&amp;initZero=false&amp;hideText=false">Linear Classifier</a></li>
+<li><a href="https://playground.tensorflow.org/#activation=sigmoid&amp;batchSize=10&amp;dataset=xor&amp;regDataset=reg-plane&amp;learningRate=0.1&amp;regularizationRate=0&amp;noise=0&amp;networkShape=2&amp;seed=0.90757&amp;showTestData=false&amp;discretize=true&amp;percTrainData=50&amp;x=true&amp;y=true&amp;xTimesY=false&amp;xSquared=false&amp;ySquared=false&amp;cosX=false&amp;sinX=false&amp;cosY=false&amp;sinY=false&amp;collectStats=false&amp;problem=classification&amp;initZero=false&amp;hideText=false">Combination of 2 Linear Classifiers</a></li>
+</ul>
 <h2 id="mlp-in-tensorflow">MLP in Tensorflow</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X, y <span style="color:#f92672">=</span> make_moons(n_samples<span style="color:#f92672">=</span><span style="color:#ae81ff">2000</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, noise<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
 
-<pre><code class="language-python">X, y = make_moons(n_samples=2000, random_state=3, noise=0.1)
+idx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>where(X[:,<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1.1</span>)
+X <span style="color:#f92672">=</span> X[idx]
+y <span style="color:#f92672">=</span> y[idx]
 
-idx = np.where(X[:,0] &lt; 1.1)
-X = X[idx]
-y = y[idx]
-
-# make train-validation split, let's ignore test set for now.
-X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.3, random_state=3)
-
-
-model = tf.keras.Sequential([
-                             keras.layers.Dense(units=2, input_shape=[2]),
-                             keras.layers.Activation('tanh'),
-                             keras.layers.Dense(units=1), 
-                             keras.layers.Activation('sigmoid')])
-
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-tf_history = model.fit(X_train, y_train, epochs=500, verbose=True, validation_data=(X_val, y_val))
+<span style="color:#75715e"># make train-validation split, let&#39;s ignore test set for now.</span>
+X_train, X_val, y_train, y_val <span style="color:#f92672">=</span> train_test_split(X, y, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>)
 
 
-# contour plot
-xx, yy = np.mgrid[-1.5:1.5:.1, -1:1.5:.1]
-grid = np.c_[xx.ravel(), yy.ravel()]
-probs = model.predict(grid)[:,0].reshape(xx.shape)
+model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>Sequential([
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, input_shape<span style="color:#f92672">=</span>[<span style="color:#ae81ff">2</span>]),
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;tanh&#39;</span>),
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), 
+                             keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;sigmoid&#39;</span>)])
 
-f, ax = plt.subplots(figsize=(8, 6))
-contour = ax.contourf(xx, yy, probs, 25, cmap=&quot;RdBu&quot;,
-                      vmin=0, vmax=1)
-ax_c = f.colorbar(contour)
-ax_c.set_label(&quot;$P(y = 1)$&quot;)
-ax_c.set_ticks([0, .25, .5, .75, 1])
+model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adam&#39;</span>, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;binary_crossentropy&#39;</span>, metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>])
+tf_history <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(X_train, y_train, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">500</span>, verbose<span style="color:#f92672">=</span>True, validation_data<span style="color:#f92672">=</span>(X_val, y_val))
 
-ax.scatter(X[:,0], X[:, 1], c=y, s=50,
-           cmap=&quot;RdBu&quot;, vmin=-.2, vmax=1.2,
-           edgecolor=&quot;white&quot;, linewidth=1)
 
-plt.show()
-</code></pre>
+<span style="color:#75715e"># contour plot</span>
+xx, yy <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mgrid[<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>:<span style="color:#ae81ff">1.5</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>:<span style="color:#ae81ff">1.5</span>:<span style="color:#f92672">.</span><span style="color:#ae81ff">1</span>]
+grid <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>c_[xx<span style="color:#f92672">.</span>ravel(), yy<span style="color:#f92672">.</span>ravel()]
+probs <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(grid)[:,<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>reshape(xx<span style="color:#f92672">.</span>shape)
 
-<pre><code>Train on 1066 samples, validate on 457 samples
+f, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">6</span>))
+contour <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>contourf(xx, yy, probs, <span style="color:#ae81ff">25</span>, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>,
+                      vmin<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+ax_c <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>colorbar(contour)
+ax_c<span style="color:#f92672">.</span>set_label(<span style="color:#e6db74">&#34;$P(y = 1)$&#34;</span>)
+ax_c<span style="color:#f92672">.</span>set_ticks([<span style="color:#ae81ff">0</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">25</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">5</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">75</span>, <span style="color:#ae81ff">1</span>])
+
+ax<span style="color:#f92672">.</span>scatter(X[:,<span style="color:#ae81ff">0</span>], X[:, <span style="color:#ae81ff">1</span>], c<span style="color:#f92672">=</span>y, s<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>,
+           cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RdBu&#34;</span>, vmin<span style="color:#f92672">=-.</span><span style="color:#ae81ff">2</span>, vmax<span style="color:#f92672">=</span><span style="color:#ae81ff">1.2</span>,
+           edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;white&#34;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>Train on 1066 samples, validate on 457 samples
 Epoch 1/500
 1066/1066 [==============================] - 1s 776us/sample - loss: 0.5274 - acc: 0.7739 - val_loss: 0.5217 - val_acc: 0.7856
 Epoch 2/500
@@ -1131,21 +1018,18 @@ Epoch 499/500
 Epoch 500/500
 1066/1066 [==============================] - 0s 62us/sample - loss: 0.0165 - acc: 0.9991 - val_loss: 0.0137 - val_acc: 1.0000
 </code></pre>
-
-<p><img src="../1_5/output_34_1.png" alt="png" /></p>
-
+<p><img src="../1_5/output_34_1.png" alt="png"></p>
 <p><strong>Yay! We just trained our first Neural Network</strong>(at least for this course).</p>
-
 <p>You can see the neural network model is as expected, it combined 2 linear models to give a better non-linear model.</p>
-
 <p>Neural Networks are the state of the art(SOTA) for almost all the modern learning problems, there are many types of neural networks which we will learn later in the course.</p>
-
-<p>Train the model with:
-- different units in the first layer
-- another linear layer and activation function
-- different activation function
-- different number of epochs
-- different dataset(especially for the concentric circles dataset)</p>
+<p>Train the model with:</p>
+<ul>
+<li>different units in the first layer</li>
+<li>another linear layer and activation function</li>
+<li>different activation function</li>
+<li>different number of epochs</li>
+<li>different dataset(especially for the concentric circles dataset)</li>
+</ul>
 
           </div>
 
@@ -1214,7 +1098,7 @@ Epoch 500/500
   
 
   <p class="powered-by">
-    &copy; 2020 Shangeth Rajaa &middot; 
+    © 2020 Shangeth Rajaa &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

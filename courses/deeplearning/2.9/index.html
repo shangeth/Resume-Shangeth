@@ -27,9 +27,9 @@
   
     
   
-  <meta name="description" content="Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
-Sentiment Analysis We are going to classify a movie review as Positive or Negative review given a text review.
-We&rsquo;ll use the IMDB dataset that contains the text of 50,000 movie reviews from the Internet Movie Database. These are split into 25,000 reviews for training and 25,000 reviews for testing. The training and testing sets are balanced, meaning they contain an equal number of positive and negative reviews.">
+  <meta name="description" content="Sentiment Analysis We are going to classify a movie review as Positive or Negative review given a text review.
+We&rsquo;ll use the IMDB dataset that contains the text of 50,000 movie reviews from the Internet Movie Database. These are split into 25,000 reviews for training and 25,000 reviews for testing. The training and testing sets are balanced, meaning they contain an equal number of positive and negative reviews.
+IMDB Dataset Download the Dataset import tensorflow as tf imdb = tf.">
 
   
   <link rel="alternate" hreflang="en-us" href="/courses/deeplearning/2.9/">
@@ -93,7 +93,7 @@ We&rsquo;ll use the IMDB dataset that contains the text of 50,000 movie reviews 
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.26264af3549d61c0ce873bd043df951e.css">
+  <link rel="stylesheet" href="/css/academic.min.04bf00581ae5351cdd9e3f0836914cc1.css">
 
   
 
@@ -137,9 +137,9 @@ We&rsquo;ll use the IMDB dataset that contains the text of 50,000 movie reviews 
   <meta property="og:site_name" content="Shangeth">
   <meta property="og:url" content="/courses/deeplearning/2.9/">
   <meta property="og:title" content="ANN - Natural Language Processing | Shangeth">
-  <meta property="og:description" content="Deep Learning - Beginners Track Instructor: Shangeth Rajaa 
-Sentiment Analysis We are going to classify a movie review as Positive or Negative review given a text review.
-We&rsquo;ll use the IMDB dataset that contains the text of 50,000 movie reviews from the Internet Movie Database. These are split into 25,000 reviews for training and 25,000 reviews for testing. The training and testing sets are balanced, meaning they contain an equal number of positive and negative reviews."><meta property="og:image" content="/img/instructor2.jpeg">
+  <meta property="og:description" content="Sentiment Analysis We are going to classify a movie review as Positive or Negative review given a text review.
+We&rsquo;ll use the IMDB dataset that contains the text of 50,000 movie reviews from the Internet Movie Database. These are split into 25,000 reviews for training and 25,000 reviews for testing. The training and testing sets are balanced, meaning they contain an equal number of positive and negative reviews.
+IMDB Dataset Download the Dataset import tensorflow as tf imdb = tf."><meta property="og:image" content="/img/instructor2.jpeg">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-09-12T00:00:00&#43;01:00">
@@ -553,24 +553,20 @@ We&rsquo;ll use the IMDB dataset that contains the text of 50,000 movie reviews 
       
 
       <nav id="TableOfContents">
-<ul>
-<li><a href="#sentiment-analysis">Sentiment Analysis</a></li>
-<li><a href="#imdb-dataset">IMDB Dataset</a>
-<ul>
-<li><a href="#download-the-dataset">Download the Dataset</a></li>
-<li><a href="#explore-the-dataset">Explore the Dataset</a></li>
-<li><a href="#preparing-the-data">Preparing the data</a>
-<ul>
-<li><a href="#padding">Padding</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#ann-model">ANN Model</a></li>
-<li><a href="#model-pipeline">Model Pipeline</a>
-<ul>
-<li><a href="#load-trained-model">Load trained Model</a></li>
-<li><a href="#sentence-to-vectors">Sentence to Vectors</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#download-the-dataset">Download the Dataset</a></li>
+    <li><a href="#explore-the-dataset">Explore the Dataset</a></li>
+    <li><a href="#preparing-the-data">Preparing the data</a>
+      <ul>
+        <li><a href="#padding">Padding</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#load-trained-model">Load trained Model</a></li>
+    <li><a href="#sentence-to-vectors">Sentence to Vectors</a></li>
+  </ul>
 </nav>
 
       <ul class="nav toc-top">
@@ -589,140 +585,98 @@ We&rsquo;ll use the IMDB dataset that contains the text of 50,000 movie reviews 
           <h1 itemprop="name">ANN - Natural Language Processing</h1>
 
           <div class="article-style" itemprop="articleBody">
-            
-
-<p><a href="https://colab.research.google.com/github/shangeth/Google-ML-Academy/blob/master/2-Deep-Neural-Networks/2_9_ANN_Natural_Language_Processing.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-
-<p><center><h1><a href='https://shangeth.com/courses/'>Deep Learning - Beginners Track</a></h1></center>
-<center><h3>Instructor: <a href='https://shangeth.com/'>Shangeth Rajaa</a></h3></center>
-<hr></p>
-
+            <p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 <h1 id="sentiment-analysis">Sentiment Analysis</h1>
-
 <p>We are going to classify a movie review as Positive or Negative review given a text review.</p>
-
-<p><img src="https://cfml.se/img/blog/sentiment_classification/top_img.png" alt="" /></p>
-
+<p><img src="https://cfml.se/img/blog/sentiment_classification/top_img.png" alt=""></p>
 <p>We&rsquo;ll use the IMDB dataset that contains the text of 50,000 movie reviews from the Internet Movie Database. These are split into 25,000 reviews for training and 25,000 reviews for testing. The training and testing sets are balanced, meaning they contain an equal number of positive and negative reviews.</p>
-
 <h1 id="imdb-dataset">IMDB Dataset</h1>
-
 <h2 id="download-the-dataset">Download the Dataset</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> tensorflow <span style="color:#f92672">as</span> tf
 
-<pre><code class="language-python">import tensorflow as tf
-
-imdb = tf.keras.datasets.imdb
-(train_data, train_labels), (test_data, test_labels) = imdb.load_data(num_words=10000)
+imdb <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>datasets<span style="color:#f92672">.</span>imdb
+(train_data, train_labels), (test_data, test_labels) <span style="color:#f92672">=</span> imdb<span style="color:#f92672">.</span>load_data(num_words<span style="color:#f92672">=</span><span style="color:#ae81ff">10000</span>)
+</code></pre></div><h2 id="explore-the-dataset">Explore the Dataset</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">train_data<span style="color:#f92672">.</span>shape, train_labels<span style="color:#f92672">.</span>shape, test_data<span style="color:#f92672">.</span>shape, test_labels<span style="color:#f92672">.</span>shape
+</code></pre></div><pre><code>((25000,), (25000,), (25000,), (25000,))
 </code></pre>
-
-<h2 id="explore-the-dataset">Explore the Dataset</h2>
-
-<pre><code class="language-python">train_data.shape, train_labels.shape, test_data.shape, test_labels.shape
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">len(train_data[<span style="color:#ae81ff">0</span>])
+</code></pre></div><pre><code>218
 </code></pre>
-
-<pre><code>((25000,), (25000,), (25000,), (25000,))
-</code></pre>
-
-<pre><code class="language-python">len(train_data[0])
-</code></pre>
-
-<pre><code>218
-</code></pre>
-
 <p>Each of these numbers correspond to a word.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">word_2_int <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>datasets<span style="color:#f92672">.</span>imdb<span style="color:#f92672">.</span>get_word_index(path<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;imdb_word_index.json&#39;</span>)
 
-<pre><code class="language-python">word_2_int = tf.keras.datasets.imdb.get_word_index(path='imdb_word_index.json')
-
-word_2_int['hello'], word_2_int['world']
+word_2_int[<span style="color:#e6db74">&#39;hello&#39;</span>], word_2_int[<span style="color:#e6db74">&#39;world&#39;</span>]
+</code></pre></div><pre><code>(4822, 179)
 </code></pre>
-
-<pre><code>(4822, 179)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">len(word_2_int)
+</code></pre></div><pre><code>88584
 </code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sentence_2_int</span>(sentence):
+    sentence_2_int_list <span style="color:#f92672">=</span> []
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> sentence<span style="color:#f92672">.</span>lower()<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39; &#39;</span>):
+        sentence_2_int_list<span style="color:#f92672">.</span>append(word_2_int[i])
+    <span style="color:#66d9ef">return</span> sentence_2_int_list
 
-<pre><code class="language-python">len(word_2_int)
-</code></pre>
-
-<pre><code>88584
-</code></pre>
-
-<pre><code class="language-python">def sentence_2_int(sentence):
-    sentence_2_int_list = []
-    for i in sentence.lower().split(' '):
-        sentence_2_int_list.append(word_2_int[i])
-    return sentence_2_int_list
-
-sentence = &quot;Worst movie i've ever seen&quot;
+sentence <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Worst movie i&#39;ve ever seen&#34;</span>
 sentence_2_int(sentence)
+</code></pre></div><pre><code>[246, 17, 204, 123, 107]
 </code></pre>
-
-<pre><code>[246, 17, 204, 123, 107]
-</code></pre>
-
 <h2 id="preparing-the-data">Preparing the data</h2>
-
 <h3 id="padding">Padding</h3>
-
 <p>Every sentence will be off different length, to pass the sentences through the ANN model, we need to have a fixed length data.
-So we
-- pad small sentences
-- cut very long sentences to a fixed length</p>
+So we</p>
+<ul>
+<li>pad small sentences</li>
+<li>cut very long sentences to a fixed length</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pad_value <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+sentence_len <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
 
-<pre><code class="language-python">pad_value = 0
-sentence_len = 100
+train_data <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>preprocessing<span style="color:#f92672">.</span>sequence<span style="color:#f92672">.</span>pad_sequences(train_data,
+                                                        value<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>,
+                                                        padding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;post&#39;</span>,
+                                                        maxlen<span style="color:#f92672">=</span>sentence_len)
 
-train_data = tf.keras.preprocessing.sequence.pad_sequences(train_data,
-                                                        value=0,
-                                                        padding='post',
-                                                        maxlen=sentence_len)
+test_data <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>preprocessing<span style="color:#f92672">.</span>sequence<span style="color:#f92672">.</span>pad_sequences(test_data,
+                                                       value<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>,
+                                                       padding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;post&#39;</span>,
+                                                       maxlen<span style="color:#f92672">=</span>sentence_len)
 
-test_data = tf.keras.preprocessing.sequence.pad_sequences(test_data,
-                                                       value=0,
-                                                       padding='post',
-                                                       maxlen=sentence_len)
-
-train_data.shape, train_labels.shape, test_data.shape, test_labels.shape
+train_data<span style="color:#f92672">.</span>shape, train_labels<span style="color:#f92672">.</span>shape, test_data<span style="color:#f92672">.</span>shape, test_labels<span style="color:#f92672">.</span>shape
+</code></pre></div><pre><code>((25000, 100), (25000,), (25000, 100), (25000,))
 </code></pre>
-
-<pre><code>((25000, 100), (25000,), (25000, 100), (25000,))
-</code></pre>
-
 <h1 id="ann-model">ANN Model</h1>
-
 <p>We will use a new layer into our model called the Embedding layer.</p>
-
 <p>The words of each sentence are now represented with numbers, we cannot directly feed those numbers into the model, we need to convert the numbers into vectors for the model to understand what word it is?</p>
-
 <p>but how do we decide the vectors? we leave that to the model.</p>
-
 <p>So embedding layer, takes in an integer and converts it into a vector.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">vocab_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">10000</span>
+embedding_dim <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span>
 
-<pre><code class="language-python">vocab_size = 10000
-embedding_dim = 16
+<span style="color:#f92672">import</span> tensorflow <span style="color:#f92672">as</span> tf
+<span style="color:#f92672">from</span> tensorflow <span style="color:#f92672">import</span> keras
 
-import tensorflow as tf
-from tensorflow import keras
+tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>backend<span style="color:#f92672">.</span>clear_session()
 
-tf.keras.backend.clear_session()
-
-model = tf.keras.Sequential([
-                             tf.keras.layers.Embedding(vocab_size, embedding_dim, input_length=sentence_len),
-                             # the model will take as input an integer matrix of size (batch, input_length).
-                             # now model.output_shape == (None, 100, 16), where None is the batch dimension.
-                             tf.keras.layers.Dropout(0.4),
-                             tf.keras.layers.Flatten(),
-                             tf.keras.layers.Dense(units=sentence_len*embedding_dim), 
-                             tf.keras.layers.Activation('relu'),
-                             tf.keras.layers.Dropout(0.4),
-                             tf.keras.layers.Dense(units=500),
-                             tf.keras.layers.Activation('relu'),
-                             tf.keras.layers.Dropout(0.4),
-                             tf.keras.layers.Dense(units=1), 
-                             tf.keras.layers.Activation('sigmoid')
+model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>Sequential([
+                             tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Embedding(vocab_size, embedding_dim, input_length<span style="color:#f92672">=</span>sentence_len),
+                             <span style="color:#75715e"># the model will take as input an integer matrix of size (batch, input_length).</span>
+                             <span style="color:#75715e"># now model.output_shape == (None, 100, 16), where None is the batch dimension.</span>
+                             tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dropout(<span style="color:#ae81ff">0.4</span>),
+                             tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Flatten(),
+                             tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span>sentence_len<span style="color:#f92672">*</span>embedding_dim), 
+                             tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;relu&#39;</span>),
+                             tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dropout(<span style="color:#ae81ff">0.4</span>),
+                             tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">500</span>),
+                             tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;relu&#39;</span>),
+                             tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dropout(<span style="color:#ae81ff">0.4</span>),
+                             tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(units<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), 
+                             tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Activation(<span style="color:#e6db74">&#39;sigmoid&#39;</span>)
                              ])
-model.summary()
-</code></pre>
-
-<pre><code>Model: &quot;sequential&quot;
+model<span style="color:#f92672">.</span>summary()
+</code></pre></div><pre><code>Model: &quot;sequential&quot;
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
@@ -753,14 +707,11 @@ Trainable params: 3,522,601
 Non-trainable params: 0
 _________________________________________________________________
 </code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">optimizer <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>optimizers<span style="color:#f92672">.</span>Adam(lr<span style="color:#f92672">=</span><span style="color:#ae81ff">0.001</span>)
+model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span>optimizer, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;binary_crossentropy&#39;</span>, metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>])
 
-<pre><code class="language-python">optimizer = tf.keras.optimizers.Adam(lr=0.001)
-model.compile(optimizer=optimizer, loss='binary_crossentropy', metrics=['accuracy'])
-
-tf_history = model.fit(train_data, train_labels, batch_size=2000, epochs=10, verbose=True, validation_data=(test_data, test_labels))
-</code></pre>
-
-<pre><code>Train on 25000 samples, validate on 25000 samples
+tf_history <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(train_data, train_labels, batch_size<span style="color:#f92672">=</span><span style="color:#ae81ff">2000</span>, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, verbose<span style="color:#f92672">=</span>True, validation_data<span style="color:#f92672">=</span>(test_data, test_labels))
+</code></pre></div><pre><code>Train on 25000 samples, validate on 25000 samples
 Epoch 1/10
 25000/25000 [==============================] - 12s 489us/sample - loss: 0.6917 - acc: 0.5162 - val_loss: 0.6860 - val_acc: 0.5558
 Epoch 2/10
@@ -782,20 +733,13 @@ Epoch 9/10
 Epoch 10/10
 25000/25000 [==============================] - 12s 485us/sample - loss: 0.0871 - acc: 0.9660 - val_loss: 0.4966 - val_acc: 0.8368
 </code></pre>
-
-<pre><code class="language-python">model.save('trained_model.h5')
-</code></pre>
-
-<h1 id="model-pipeline">Model Pipeline</h1>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">model<span style="color:#f92672">.</span>save(<span style="color:#e6db74">&#39;trained_model.h5&#39;</span>)
+</code></pre></div><h1 id="model-pipeline">Model Pipeline</h1>
 <h2 id="load-trained-model">Load trained Model</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">trained_model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>models<span style="color:#f92672">.</span>load_model(<span style="color:#e6db74">&#39;trained_model.h5&#39;</span>)
 
-<pre><code class="language-python">trained_model = tf.keras.models.load_model('trained_model.h5')
-
-trained_model.summary()
-</code></pre>
-
-<pre><code>WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/tensorflow/python/ops/init_ops.py:97: calling GlorotUniform.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
+trained_model<span style="color:#f92672">.</span>summary()
+</code></pre></div><pre><code>WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/tensorflow/python/ops/init_ops.py:97: calling GlorotUniform.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
 Instructions for updating:
 Call initializer instance with the dtype argument instead of passing it to the constructor
 WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/tensorflow/python/ops/init_ops.py:97: calling Zeros.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
@@ -832,24 +776,20 @@ Trainable params: 3,522,601
 Non-trainable params: 0
 _________________________________________________________________
 </code></pre>
-
 <h2 id="sentence-to-vectors">Sentence to Vectors</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
 
-<pre><code class="language-python">import numpy as np
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sentence_2_int</span>(sentence):
+    sentence_2_int_list <span style="color:#f92672">=</span> []
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> sentence<span style="color:#f92672">.</span>lower()<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39; &#39;</span>):
+        sentence_2_int_list<span style="color:#f92672">.</span>append(word_2_int[i])
+    arr <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(sentence_2_int_list)<span style="color:#f92672">.</span>reshape(<span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+    arr <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>preprocessing<span style="color:#f92672">.</span>sequence<span style="color:#f92672">.</span>pad_sequences(arr, value<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, padding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;post&#39;</span>, maxlen<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+    <span style="color:#66d9ef">return</span> arr
 
-def sentence_2_int(sentence):
-    sentence_2_int_list = []
-    for i in sentence.lower().split(' '):
-        sentence_2_int_list.append(word_2_int[i])
-    arr = np.array(sentence_2_int_list).reshape(1,-1)
-    arr = tf.keras.preprocessing.sequence.pad_sequences(arr, value=0, padding='post', maxlen=100)
-    return arr
-
-sentence = &quot;Worst movie i've ever seen&quot;
+sentence <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Worst movie i&#39;ve ever seen&#34;</span>
 sentence_2_int(sentence)
-</code></pre>
-
-<pre><code>array([[246,  17, 204, 123, 107,   0,   0,   0,   0,   0,   0,   0,   0,
+</code></pre></div><pre><code>array([[246,  17, 204, 123, 107,   0,   0,   0,   0,   0,   0,   0,   0,
           0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
           0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
           0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
@@ -858,48 +798,34 @@ sentence_2_int(sentence)
           0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
           0,   0,   0,   0,   0,   0,   0,   0,   0]], dtype=int32)
 </code></pre>
-
-<pre><code class="language-python">model.predict(sentence_2_int(sentence))
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">model<span style="color:#f92672">.</span>predict(sentence_2_int(sentence))
+</code></pre></div><pre><code>array([[0.22403198]], dtype=float32)
 </code></pre>
-
-<pre><code>array([[0.22403198]], dtype=float32)
-</code></pre>
-
-<pre><code class="language-python">def sentence_2_prediction(sentence):
-    vector = sentence_2_int(sentence)
-    prob = model.predict(vector)
-    prediction = prob &gt; 0.5
-    if prediction == 1:
-        print('Positive Review :D')
-    else:
-        print('Negative Review :(')
-</code></pre>
-
-<pre><code class="language-python">sentence = 'Good Movie i really enjoyed it'
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sentence_2_prediction</span>(sentence):
+    vector <span style="color:#f92672">=</span> sentence_2_int(sentence)
+    prob <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(vector)
+    prediction <span style="color:#f92672">=</span> prob <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>
+    <span style="color:#66d9ef">if</span> prediction <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Positive Review :D&#39;</span>)
+    <span style="color:#66d9ef">else</span>:
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Negative Review :(&#39;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sentence <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Good Movie i really enjoyed it&#39;</span>
 
 sentence_2_prediction(sentence)
+</code></pre></div><pre><code>Positive Review :D
 </code></pre>
-
-<pre><code>Positive Review :D
-</code></pre>
-
-<pre><code class="language-python">sentence = 'worst movie'
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sentence <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;worst movie&#39;</span>
 
 sentence_2_prediction(sentence)
+</code></pre></div><pre><code>Negative Review :(
 </code></pre>
-
-<pre><code>Negative Review :(
-</code></pre>
-
 <p>If you try many different sentences, you may notice the model actually doesn&rsquo;t perform well. There may be many reasons for it.</p>
-
 <ul>
 <li>vocabulary size</li>
 <li>sequence length(no of words in a sentence for padding)</li>
 <li>model architecture</li>
 <li>embedding dim</li>
 </ul>
-
 <p>Train the model by changing all the above to improve its performance.</p>
 
           </div>
@@ -963,7 +889,7 @@ sentence_2_prediction(sentence)
   
 
   <p class="powered-by">
-    &copy; 2020 Shangeth Rajaa &middot; 
+    © 2020 Shangeth Rajaa &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
