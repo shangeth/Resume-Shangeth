@@ -7,42 +7,114 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; {year} Shangeth Rajaa</copyright>
-    <lastBuildDate>Sun, 26 Jan 2020 02:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 18 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title></title>
-      <link>/authors/admin/</link>
-      <pubDate>Sun, 26 Jan 2020 02:00:00 +0000</pubDate>
+      <title>Adrien Pavao</title>
+      <link>/authors/adrien-pavao/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/authors/admin/</guid>
-      <description> I am a final year dual degree undergrad student at BITS Pilani Goa Campus. Currently working under Prof.Chng Eng Siong at Speech and Language Laboratory, NTU, Singapore. Actively looking for research internship opportunities in Deep Learning to start from Jan 2021 and full-time roles from May-2021.  </description>
+      <guid>/authors/adrien-pavao/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Julio	Jacques Junior</title>
-      <link>/authors/julio-jacques-junior/</link>
-      <pubDate>Fri, 14 Jun 2019 00:00:00 +0000</pubDate>
+      <title>Hima Patel</title>
+      <link>/authors/hima-patel/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/authors/julio-jacques-junior/</guid>
+      <guid>/authors/hima-patel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Isabelle Guyon</title>
+      <link>/authors/isabelle-guyon/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/authors/isabelle-guyon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Julio C. S. Jacques Junior</title>
+      <link>/authors/julio-c.-s.-jacques-junior/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/authors/julio-c.-s.-jacques-junior/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lokesh N</title>
+      <link>/authors/lokesh-n/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/authors/lokesh-n/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Meysam	Madadi</title>
       <link>/authors/meysam-madadi/</link>
-      <pubDate>Fri, 14 Jun 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/authors/meysam-madadi/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Naveen Panwar</title>
+      <link>/authors/naveen-panwar/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/authors/naveen-panwar/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nitin Gupta</title>
+      <link>/authors/nitin-gupta/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/authors/nitin-gupta/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ruhi Sharma Mittal</title>
+      <link>/authors/ruhi-sharma-mittal/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/authors/ruhi-sharma-mittal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sameep Mehta</title>
+      <link>/authors/sameep-mehta/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/authors/sameep-mehta/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sebastien Treguer</title>
+      <link>/authors/sebastien-treguer/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/authors/sebastien-treguer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Sergio	Escalera</title>
       <link>/authors/sergio-escalera/</link>
-      <pubDate>Fri, 14 Jun 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/authors/sergio-escalera/</guid>
       <description></description>
@@ -51,16 +123,43 @@
     <item>
       <title>Shangeth	Rajaa</title>
       <link>/authors/shangeth-rajaa/</link>
-      <pubDate>Fri, 14 Jun 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/authors/shangeth-rajaa/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Shanmukh Chaitanya</title>
+      <link>/authors/shanmukh-chaitanya/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/authors/shanmukh-chaitanya/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shazia Afzal</title>
+      <link>/authors/shazia-afzal/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/authors/shazia-afzal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wei-Wei Tu</title>
+      <link>/authors/wei-wei-tu/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/authors/wei-wei-tu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Zhen	Xu</title>
       <link>/authors/zhen-xu/</link>
-      <pubDate>Fri, 14 Jun 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/authors/zhen-xu/</guid>
       <description></description>
@@ -69,9 +168,27 @@
     <item>
       <title>Zhengying	Liu</title>
       <link>/authors/zhengying-liu/</link>
-      <pubDate>Fri, 14 Jun 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/authors/zhengying-liu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/admin/</link>
+      <pubDate>Sun, 26 Jan 2020 02:00:00 +0000</pubDate>
+      
+      <guid>/authors/admin/</guid>
+      <description>I am a final year dual degree undergrad student at BITS Pilani Goa Campus, India. Currently working under Prof.Chng Eng Siong at Speech and Language Laboratory, NTU, Singapore. Actively looking for research internship opportunities in Deep Learning to start from Jan 2021 and full-time roles from May-2021.  Last Updated: 24-Sept-2020</description>
+    </item>
+    
+    <item>
+      <title>Julio	Jacques Junior</title>
+      <link>/authors/julio-jacques-junior/</link>
+      <pubDate>Fri, 14 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/authors/julio-jacques-junior/</guid>
       <description></description>
     </item>
     
